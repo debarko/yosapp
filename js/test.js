@@ -11,19 +11,6 @@ window.onload = function(){
 			function(){$(".logintooltips").find("span").animate({opacity:'0'},600);}
 	);
 
-	$("#loginbutton").click(
-
-
-			function someFunction2() {
-			    $("#loginbutton").animate(
-			        {rotation: 360},
-			        { duration: 500,
-			          step: function(now, fx) {
-			          $(this).css({"transform": "rotate("+now+"deg)"});
-			        }
-			}}
-			//function(){$("#loginbutton").animate({rotate: '+=+180deg'}, 0);}
-	);
 
 	// change cursor into pointer when mouse over any icons (help. signup & like)
 	$('.icon').css('cursor', 'pointer');
