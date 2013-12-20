@@ -8,7 +8,7 @@
 <!--  	<link rel="stylesheet" type="text/css" media="all" href="css/home.css">  -->
 		<link rel="stylesheet" type="text/css" media="all" href="css/testhd.css">
 <!--  	<script language="javascript" type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>	-->
-		<script language="javascript" type="text/javascript" src="js/jquery.min.js"></script>
+		<script language="javascript" type="text/javascript" src="js/library/jquery.min.js"></script>
 		<script language="javascript" type="text/javascript" src="js/test.js"></script>
 	</head>
 	<body>
