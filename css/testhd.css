@@ -57,6 +57,7 @@ overflow: hidden;
 }
 .icon{
 	margin-left:20px;
+  right:25px;
 }
 
 .icon:hover{
