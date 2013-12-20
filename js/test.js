@@ -1,4 +1,7 @@
 window.onload = function(){
+	//flash once the login tool tip 
+	showLoginTipOnLoad();
+
 	//changes cursor to pointer on hover over login button
 	$('#loginbutton').css('cursor', 'pointer');
 	//show login tooltip when hover over loginbutton
@@ -79,10 +82,12 @@ window.onload = function(){
 	$("#banner").click(
 			function(){alert('hello');}
 	);
-
-
-
-
-
-
 };
+
+
+
+function showLoginTipOnLoad(){
+	$(".logintooltips").find("span").animate({opacity:'1'},1600,"linear",function(){
+		$(".logintooltips").find("span").animate({opacity:'0'},1600,"linear");
+	});
+}
