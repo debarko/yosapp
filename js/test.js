@@ -1,8 +1,4 @@
 window.onload = function(){
-
-	//get the master div vertically alligned on startup
-	verticalcenter();
-
 	//changes cursor to pointer on hover over login button
 	$('#loginbutton').css('cursor', 'pointer');
 	//show login tooltip when hover over loginbutton
@@ -90,23 +86,3 @@ window.onload = function(){
 
 
 };
-
-//alligns vertically when window resized
-$(window).resize(function() {
-	verticalcenter();
-});
-
-//vertical allignment function
-function verticalcenter(){
-	var height = $(window).height();
-	if(height>546){
-		var top=(height-546)/2;
-		$("#master").css("margin-top",top);
-	}
-	else{
-		$("#master").css("margin-top","0px");
-	}
-}
-
-//put the copyright statement at thye bottom
-
