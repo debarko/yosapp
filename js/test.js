@@ -12,6 +12,30 @@ window.onload = function(){
 	);
 
 
+	var isloginclicked = false;
+	$("#loginbutton").click(
+			function(){
+				if(isloginclicked){
+					$("#loginform").animate({'opacity':'0'},800);
+					setTimeout(function() {$("#loginform").css('visibility','hidden')}, 800);
+					isloginclicked = false;
+				}
+				else{
+					$("#loginform").css('visibility','visible');
+					$("#loginform").animate({'opacity':'1'},800);
+					isloginclicked = true;
+					//virtually unclick the signup button also
+					$("#regform").animate({'opacity':'0'},800);
+					setTimeout(function() {$("#regform").css('visibility','hidden')}, 800);
+					issignupclicked = false;
+
+				}
+			}
+	);
+
+
+
+
 	// change cursor into pointer when mouse over any icons (help. signup & like)
 	$('.icon').css('cursor', 'pointer');
 
@@ -24,6 +48,27 @@ window.onload = function(){
 			function(){$(".signuptooltip").find("span").css("z-index", "0").animate({opacity:'0'},600);}
 	);
 
+	var issignupclicked = false;
+	$("#signup").click(
+			function(){
+				if(issignupclicked){
+					$("#regform").animate({'opacity':'0'},800);
+					setTimeout(function() {$("#regform").css('visibility','hidden')}, 800);
+					issignupclicked = false;
+				}
+				else{
+					$("#regform").css('visibility','visible');
+					$("#regform").animate({'opacity':'1'},800);
+					issignupclicked = true;
+					//disapear login form
+					$("#loginform").animate({'opacity':'0'},800);
+					setTimeout(function() {$("#loginform").css('visibility','hidden')}, 800);
+					isloginclicked = false;
+				}
+			}
+	);
+
+
 	//show help tooltip when hover over signup
 	$("#help").hover(
 			function(){$(".helptooltip").find("span").css("z-index", "999").animate({opacity:'1'},600);},
@@ -34,6 +79,11 @@ window.onload = function(){
 			function(){$(".liketooltip").find("span").css("z-index", "999").animate({opacity:'1'},600);},
 			function(){$(".liketooltip").find("span").css("z-index", "0").animate({opacity:'0'},600);}
 	);
+	//--------------------------------now the chatroom----------------------------------------------------
+	$("#banner").click(
+			function(){alert('hello');}
+	);
+
 
 
 
@@ -57,4 +107,6 @@ function verticalcenter(){
 		$("#master").css("margin-top","0px");
 	}
 }
+
+//put the copyright statement at thye bottom
 

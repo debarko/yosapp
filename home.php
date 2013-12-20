@@ -36,6 +36,18 @@
 				<div class="squaredTwo"><input type="checkbox" value="None" id="squaredTwo" name="check" /><label for="squaredTwo"></label><p>Remember Me</p></div>
 				<p id="forgotpassword">Forgot Password?</p>
 			</form>
+
+			<form class="form" id="regform" name="input" action="html_form_action.asp" method="get">
+				<div id="regheadertext">SIGNUP<span></span></div>
+				<div>PHONE NUMBER <input class="inputfields" type="text" name="user"></div>
+				<div>PASSWORD  <input id="regpass" class="inputfields" type="password" name="user"></div>
+				<div>RE-PASSWORD <input id="reregpass" class="inputfields" type="password" name="user"></div>
+				<!--<div><input id=rememberme type="checkbox" name="isrememberme" value="remember me">Keep me loggend in<br></div> -->
+				<div><input id="regsubmitbutton" type="submit" value="signup"></div>
+			</form>
+
+
+
 		</div>
 
 		<div id="footsep"></div>
@@ -44,5 +56,6 @@
 			<div></div>
 		</div>
 	</div>
+		<div id="copyright"><p>Copyright &copy; 2013. TD projects. All rights reserved.</p></div>
 	</body>
 </html>
