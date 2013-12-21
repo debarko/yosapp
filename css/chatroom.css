@@ -21,13 +21,15 @@ background-color:#2aB200;
 }
 #banner{
 	position: relative;
+	top: 50%;
+	margin-top: -16px;
 	left: 40px;
 	float: left;
-	height: 63px;
-	width: 270px;
+	height: 33px;
+	width: 230px;
 	color: white;
 	font-family: fantasy;
-	font-size: 30px
+	font-size: 30px;
 }
 
 #icons{
@@ -64,8 +66,8 @@ background-color:#2aB200;
 #bodybg{
 	width: 100%;
 	height: 80%;
-	background-color: rgba(46, 64, 70, 0.89);
-	box-shadow: inset 0px 0px 45px -6px;
+	background-color: white;
+	
 }
 
 #leftpannel{
@@ -73,8 +75,38 @@ background-color:#2aB200;
 	position: relative;
 	height: 100%;
 	width: 260px;
-	border-right: 1px solid rgba(199, 226, 199, 0.38);
+	border-right: 1px solid rgba(100, 184, 100, 0.56);
 }
+
+#profileinfo{
+	position: relative;
+	top: 10px;
+	width: 85%;
+	height: 50px;
+	background-color: white;
+	margin: 0 auto;
+	color: #3A693A;
+	font-family: sans-serif;
+	text-indent: 15px;
+}
+
+#profilepic{
+	display: block;
+	float: left;
+	width: 50px;
+	height: 50px;
+	background-image: url('../icons/profilepic.jpg');
+}
+
+#profilename{
+	position: relative;
+	top: 7px;
+}
+#editprofiletext{
+	font-size: 12px;
+	margin-top: 10px;
+}
+
 
 #footer{
 	width: 100%;

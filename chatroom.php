@@ -24,7 +24,7 @@
 		<!-- body starts here -->
 		<div id="bodybg">
 			<div id="leftpannel">
-				<div id="profileinfo"></div>
+				<div id="profileinfo"><span id="profilepic"></span><p id="profilename">Tuhin Sengupta</p><p id="editprofiletext">Edit profile</p></div>
 				<div id="concactsearch"></div>
 				<div id="contactscontainer">
 					<ul>
