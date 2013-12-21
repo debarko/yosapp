@@ -90,6 +90,13 @@ background-color:#2aB200;
 	text-indent: 15px;
 }
 
+#profileinfo:after{
+	content: "";
+	display: block;
+	height: 2px;
+	width: 100%;
+}
+
 #profilepic{
 	display: block;
 	float: left;
