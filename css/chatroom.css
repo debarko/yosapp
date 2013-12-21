@@ -80,11 +80,11 @@ background-color:#2aB200;
 
 #profileinfo{
 	position: relative;
-	top: 10px;
 	width: 85%;
 	height: 50px;
 	background-color: white;
 	margin: 0 auto;
+	margin-top: 10px;
 	color: #3A693A;
 	font-family: sans-serif;
 	text-indent: 15px;
@@ -93,8 +93,11 @@ background-color:#2aB200;
 #profileinfo:after{
 	content: "";
 	display: block;
-	height: 2px;
+	position: relative;
+	top: 20px;
+	height: 1px;
 	width: 100%;
+	background: -webkit-gradient(linear, 0 0, 100% 0, from(#FFFFFF), to(#FFFFFF), color-stop(50%, #5B8F4B));
 }
 
 #profilepic{
@@ -113,6 +116,38 @@ background-color:#2aB200;
 	font-size: 12px;
 	margin-top: 10px;
 }
+
+/*contact search bar*/
+
+#concactsearch{
+	display: block;
+	margin: 0 auto;
+	margin-top: 15px;
+	background: rgba(42, 178, 0, 0.69);
+	height: 30px;
+	width: 85%;
+}
+
+#concactsearch input{
+	border: none;
+	height: 30px;
+	width: 190px;
+	background-color: rgba(0,0,0,0);
+	text-indent: 10px;
+	color: white;
+}
+
+
+#concactsearch span{
+	display: inline-block;
+	position: relative;
+	top: 4px;
+	float: right;
+	height: 22px;
+	width: 28px;
+	background-image: url('../icons/searchicon.png')
+}
+
 
 
 #footer{
