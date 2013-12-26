@@ -4,4 +4,4 @@
 
 ./js/functionality/random.js
 
-./js/test.js
+./js/main.js
