@@ -9,7 +9,7 @@ function formhash(username, password) {
     // Finally submit the data using ajax
     $.ajax({
         type: "POST",
-        url: "./user_handling/login.php",
+        url: "login.php",
         data: data,
         dataType: "json"
         })

@@ -1,8 +1,12 @@
 <?php
+	include_once 'includes.php';
+	 
+	sec_session_start();
 	//remove from production environment
 	exec("./tools/mergejs ./tools/merge_files/input.txt ./js/script.js");
 	//tool to merge all code in one file
-	$logged_in = false;
+	$logged_in =  login_check($mysqli);
+	echo login_check($mysqli);
 ?>
 
 <html>

@@ -19,13 +19,13 @@ function sec_session_start() {
     session_regenerate_id();    // regenerated the session, delete the old one. 
 }
 
-function login($email, $password, $mysqli) {
+function login($username, $password, $mysqli) {
     // Using prepared statements means that SQL injection is not possible. 
     if ($stmt = $mysqli->prepare("SELECT id, username, password, salt 
         FROM members
-       WHERE email = ?
+       WHERE username = ?
         LIMIT 1")) {
-        $stmt->bind_param('s', $email);  // Bind "$email" to parameter.
+        $stmt->bind_param('s', $username);  // Bind "$username" to parameter.
         $stmt->execute();    // Execute the prepared query.
         $stmt->store_result();
  
@@ -95,8 +95,8 @@ function checkbrute($user_id, $mysqli) {
         $stmt->execute();
         $stmt->store_result();
  
-        // If there have been more than 5 failed logins 
-        if ($stmt->num_rows > 5) {
+        // If there have been more than LOGIN_ATTEMPTS failed logins 
+        if ($stmt->num_rows > LOGIN_ATTEMPTS) {
             return true;
         } else {
             return false;
