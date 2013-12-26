@@ -59,7 +59,7 @@ if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
             $insert_stmt->bind_param('ssss', $username, $email, $password, $random_salt);
             // Execute the prepared query.
             if (! $insert_stmt->execute()) {
-                echo('ERROR: INSERT');
+                echo('ERROR: Internal Server Error. Please try again.');
             }
         }
         echo('SUCCESS');
@@ -68,6 +68,6 @@ if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
         echo $error_msg;
     }
 } else {
-    echo "ERROR: POST DATA NOT SET";
+    echo "ERROR: Data not received properly. Please try again.";
 }
 ?>
