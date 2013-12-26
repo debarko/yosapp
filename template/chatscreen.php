@@ -1,15 +1,3 @@
-<?php
-
-?>
-
-<html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="css/reset.css">
-		<link rel="stylesheet" type="text/css" media="all" href="css/chatroom.css">
-		<script language="javascript" type="text/javascript" src="js/library/jquery.min.js"></script>
-		<script language="javascript" type="text/javascript" src="js/chatroom.js"></script>
-	</head>
-	<body>
 	<div id="master">
 		<!-- header starts -->
 		<div id="header">
@@ -45,5 +33,3 @@
 		</div>
 	</div>
 		<div id="copyright"><p>Copyright &copy; 2013. TD projects. All rights reserved.</p></div>
-	</body>
-</html>
