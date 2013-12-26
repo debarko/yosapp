@@ -3,6 +3,7 @@
 <form class="form" id="loginform" name="input">
 	<div id="loginheadertext">
 		LOGIN
+		<span></span>
 	</div>
 	<div>
 		USERNAME <input id="userfield" class="inputfields" type="text" name="user" />
@@ -13,7 +14,7 @@
 	<!--<div><input id=rememberme type="checkbox" name="isrememberme" value="remember me">Keep me loggend in<br></div> -->
 	<div>
 		<input id="loginsubmit" type="button" value="Login" 
-				onclick="formhash(document.getElementById('userfield').value,document.getElementById('passfield').value)"/>
+				onclick="formhash(document.getElementById('userfield').value,document.getElementById('passfield').value)" />
 	</div>
 	<div class="squaredTwo">
 		<input type="checkbox" value="None" id="squaredTwo" name="check" />
@@ -24,11 +25,32 @@
 	</p>
 </form>
 
-<form class="form" id="regform" name="input" action="html_form_action.asp" method="get">
-	<div id="regheadertext">SIGNUP<span></span></div>
-	<div>PHONE NUMBER <input class="inputfields" type="text" name="user"></div>
-	<div>PASSWORD  <input id="regpass" class="inputfields" type="password" name="user"></div>
-	<div>RE-PASSWORD <input id="reregpass" class="inputfields" type="password" name="user"></div>
-	<!--<div><input id=rememberme type="checkbox" name="isrememberme" value="remember me">Keep me loggend in<br></div> -->
-	<div><input id="regsubmitbutton" type="submit" value="signup"></div>
+<form class="form" id="regform" name="input">
+	<div id="regheadertext">
+		SIGNUP
+		<span></span>
+	</div>
+	<div>
+		PHONE NUMBER <input id="phone_reg" class="inputfields" type="text" name="username" />
+	</div>
+	<div>
+		PASSWORD  <input id="regpass" class="inputfields" type="password" name="password" />
+	</div>
+	<div>
+		RE-PASSWORD  <input id="reregpass" class="inputfields" type="password" name="confirmpwd" />
+	</div>
+	<div>
+		EMAIL <input id="email" class="inputfields" type="text" name="email" />
+	</div>
+	<div>
+		<input id="regsubmitbutton" type="button" value="Signup" 
+		onclick="
+			regformhash(document.getElementById('regform'),
+						document.getElementById('phone_reg'),
+					 	document.getElementById('email'),
+					 	document.getElementById('regpass'),
+					 	document.getElementById('reregpass')
+					 	)
+		"/>
+	</div>
 </form>

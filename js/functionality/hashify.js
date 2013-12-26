@@ -36,7 +36,7 @@ function regformhash(form, uid, email, password, conf) {
  
     re = /^\w+$/; 
     if(!re.test(form.username.value)) { 
-        alert("Username must contain only letters, numbers and underscores. Please try again"); 
+        alert("Usernames may contain only digits along with country code");
         form.username.focus();
         return false; 
     }
@@ -65,21 +65,27 @@ function regformhash(form, uid, email, password, conf) {
         form.password.focus();
         return false;
     }
+
+    if (!checkEmail(email.value)) {
+        alert('Your email is not a valid address. Please try again');
+        form.email.focus();
+        return false;
+    }
  
-    // Create a new element input, this will be our hashed password field. 
-    var p = document.createElement("input");
- 
-    // Add the new element to our form. 
-    form.appendChild(p);
-    p.name = "p";
-    p.type = "hidden";
-    p.value = hex_sha512(password.value);
- 
-    // Make sure the plaintext password doesn't get sent. 
-    password.value = "";
-    conf.value = "";
- 
-    // Finally submit the form. 
-    form.submit();
-    return true;
+    var p = hex_sha512(password.value);
+    var data = {"username": uid.value,
+                "email": email.value,
+                "p": p}
+    $.ajax({
+        type: "POST",
+        url: "register.php",
+        data: data,
+        dataType: "json"
+        })
+        .success(function(response) {
+            console.log(response);
+        })
+        .fail(function(response) {
+            console.log("ERROR");
+        });    
 }
