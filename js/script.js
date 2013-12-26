@@ -5,15 +5,14 @@
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
-/* Last merge : Thu Dec 26 17:14:55 IST 2013  */
-
 /* Merging order :
 
 - ./js/functionality/email_validation.js
 - ./js/functionality/hashify.js
 - ./js/functionality/sha512.js
 - ./js/functionality/random.js
-- ./js/test.js
+- ./js/main.js
+- ./js/chatscreen.js
 
 */
 
@@ -648,7 +647,7 @@ function maximize(html_val){
 }
 
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/* Merging js: ./js/test.js begins */
+/* Merging js: ./js/main.js begins */
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
@@ -744,4 +743,28 @@ function showLoginTipOnLoad(){
 	$(".logintooltips").find("span").animate({opacity:'1'},1600,"linear",function(){
 		$(".logintooltips").find("span").animate({opacity:'0'},1600,"linear");
 	});
+}
+
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* Merging js: ./js/chatscreen.js begins */
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+function loadChatscreen() {
+	setSearchContainerHeight();
+
+	$("#concactsearch").find('input').click(function(){ 
+		$('#concactsearch').find('input').css("background-color","black");
+	})
+
+}
+
+$(window).resize(function(){
+	setSearchContainerHeight();
+})
+
+
+function setSearchContainerHeight(){
+	var searchContainerHeight = $(window).height() * (80/100) - 160;
+	$('#contactscontainer').css("height", searchContainerHeight+"px");
 }

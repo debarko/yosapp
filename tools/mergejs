@@ -18,7 +18,7 @@ merge_files () {
 			fi
 
 			header 'Merging js from "'$1'" begins' >> $merge_file;
-			echo -e '/* Last merge :' $(date) ' */\n' >> $merge_file;	
+			#echo -e '/* Last merge :' $(date) ' */\n' >> $merge_file;	
 			echo -e '/* Merging order :\n' >> $merge_file;
 			for file in $files
 			do
