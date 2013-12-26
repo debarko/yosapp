@@ -1,18 +1,24 @@
-function formhash(form, password) {
-    // Create a new element input, this will be our hashed password field. 
-    var p = document.createElement("input");
- 
-    // Add the new element to our form. 
-    form.appendChild(p);
-    p.name = "p";
-    p.type = "hidden";
-    p.value = hex_sha512(password.value);
- 
-    // Make sure the plaintext password doesn't get sent. 
-    password.value = "";
- 
-    // Finally submit the form. 
-    form.submit();
+function formhash(username, password) {
+    //Creates the hash for the function
+    //and sends data to our server
+
+    //Create the hash for the password 
+    var p = hex_sha512(password);
+    var data = {"username": username,
+                "password": p};
+    // Finally submit the data using ajax
+    $.ajax({
+        type: "POST",
+        url: "./user_handling/login.php",
+        data: data,
+        dataType: "json"
+        })
+        .success(function(response) {
+            console.log(response);
+        })
+        .fail(function(response) {
+            console.log("ERROR");
+        });
 }
  
 function regformhash(form, uid, email, password, conf) {
