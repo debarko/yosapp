@@ -5,7 +5,7 @@
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
-/* Last merge : Thu Dec 26 12:12:24 IST 2013  */
+/* Last merge : Thu Dec 26 16:51:47 IST 2013  */
 
 /* Merging order :
 
@@ -14,6 +14,7 @@
 - ./js/functionality/sha512.js
 - ./js/functionality/random.js
 - ./js/test.js
+- js/chatroom.js
 
 */
 
@@ -46,7 +47,6 @@ function formhash(username, password) {
     var p = hex_sha512(password);
     var data = {"username": username,
                 "password": p};
-    console.log(data);
     // Finally submit the data using ajax
     $.ajax({
         type: "POST",
@@ -745,4 +745,28 @@ function showLoginTipOnLoad(){
 	$(".logintooltips").find("span").animate({opacity:'1'},1600,"linear",function(){
 		$(".logintooltips").find("span").animate({opacity:'0'},1600,"linear");
 	});
+}
+
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* Merging js: js/chatroom.js begins */
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+window.onload = function(){
+	setSearchContainerHeight();
+
+	$("#concactsearch").find('input').click(function(){ 
+		$('#concactsearch').find('input').css("background-color","black");
+	})
+}
+
+
+$(window).resize(function(){
+	setSearchContainerHeight();
+})
+
+
+function setSearchContainerHeight(){
+	var searchContainerHeight = $(window).height() * (80/100) - 160;
+	$('#contactscontainer').css("height", searchContainerHeight+"px");
 }
