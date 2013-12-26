@@ -1,5 +1,3 @@
-./js/library/jquery.min.js
-
 ./js/functionality/email_validation.js
 ./js/functionality/hashify.js
 ./js/functionality/sha512.js

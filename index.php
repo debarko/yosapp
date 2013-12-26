@@ -1,5 +1,7 @@
 <?php
-
+//remove from production environment
+exec("./tools/mergejs ./tools/merge_files/input.txt ./js/script.js");
+//tool to merge all code in one file
 ?>
 
 <html>
@@ -7,9 +9,8 @@
 		<link rel="stylesheet" type="text/css" href="css/reset.css">
 <!--  	<link rel="stylesheet" type="text/css" media="all" href="css/home.css">  -->
 		<link rel="stylesheet" type="text/css" media="all" href="css/testhd.css">
-<!--  	<script language="javascript" type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>	-->
-		<script language="javascript" type="text/javascript" src="js/library/jquery.min.js"></script>
-		<script language="javascript" type="text/javascript" src="js/test.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script language="javascript" type="text/javascript" src="js/script.js"></script>
 	</head>
 	<body>
 	<div id="master">
@@ -27,14 +28,28 @@
 		<div id="bodybg">
 			<div class="logintooltips" ><div id="loginbutton"></div><span>Click To Login</span></div>
 
-			<form class="form" id="loginform" name="input" action="html_form_action.asp" method="get">
-				<div id="loginheadertext">LOGIN<span></span></div>
-				<div>USERNAME <input class="inputfields" type="text" name="user"></div>
-				<div>PASSWORD <input id="passfield" class="inputfields" type="password" name="user"></div>
+			<form class="form" id="loginform" name="input">
+				<div id="loginheadertext">
+					LOGIN
+				</div>
+				<div>
+					USERNAME <input id="userfield" class="inputfields" type="text" name="user" />
+				</div>
+				<div>
+					PASSWORD <input id="passfield" class="inputfields" type="password" name="user" />
+				</div>
 				<!--<div><input id=rememberme type="checkbox" name="isrememberme" value="remember me">Keep me loggend in<br></div> -->
-				<div><input id="loginsubmit" type="submit" value="Login"></div>
-				<div class="squaredTwo"><input type="checkbox" value="None" id="squaredTwo" name="check" /><label for="squaredTwo"></label><p>Remember Me</p></div>
-				<p id="forgotpassword">Forgot Password?</p>
+				<div>
+					<input id="loginsubmit" type="button" value="Login" 
+							onclick="formhash(document.getElementById('userfield').value,document.getElementById('passfield').value)"/>
+				</div>
+				<div class="squaredTwo">
+					<input type="checkbox" value="None" id="squaredTwo" name="check" />
+					<label for="squaredTwo"></label><p>Remember Me</p>
+				</div>
+				<p id="forgotpassword">
+					Forgot Password?
+				</p>
 			</form>
 
 			<form class="form" id="regform" name="input" action="html_form_action.asp" method="get">
