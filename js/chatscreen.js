@@ -1,3 +1,5 @@
+//This function has to be called when 
+//the ajax request for login succeeds
 function loadChatscreen() {
 	setSearchContainerHeight();
 
