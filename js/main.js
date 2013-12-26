@@ -1,6 +1,11 @@
 window.onload = function(){
-	//flash once the login tool tip 
-	showLoginTipOnLoad();
+	//Load content based on State of user
+	if(YW.logged_in()==="true") {
+		logged_in_start();
+	}
+	else {
+		logged_out_start();
+	}
 
 	//changes cursor to pointer on hover over login button
 	$('#loginbutton').css('cursor', 'pointer');
@@ -32,14 +37,8 @@ window.onload = function(){
 			}
 	);
 
-
-
-
 	// change cursor into pointer when mouse over any icons (help. signup & like)
 	$('.icon').css('cursor', 'pointer');
-
-
-
 
 	//show signup tooltip when hover over signup
 	$("#signup").hover(
@@ -78,13 +77,17 @@ window.onload = function(){
 			function(){$(".liketooltip").find("span").css("z-index", "999").animate({opacity:'1'},600);},
 			function(){$(".liketooltip").find("span").css("z-index", "0").animate({opacity:'0'},600);}
 	);
-	//--------------------------------now the chatroom----------------------------------------------------
-	$("#banner").click(
-			function(){alert('hello');}
-	);
 };
 
+function logged_in_start(){
+	$('#bodybg').html(YW.CHATSCREEN());
+}
 
+function logged_out_start(){
+	$('#bodybg').html(YW.HOMESCREEN());
+	//flash once the login tool tip 
+	showLoginTipOnLoad();
+}
 
 function showLoginTipOnLoad(){
 	$(".logintooltips").find("span").animate({opacity:'1'},1600,"linear",function(){

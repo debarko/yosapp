@@ -1,6 +1,7 @@
 <?php
 	require_once 'includes.php';
-	 
+	require_once 'templates.php';
+
 	sec_session_start();
 	//remove from production environment
 	exec("./tools/mergejs ./tools/merge_files/input.txt ./js/script.js");
@@ -18,19 +19,26 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<!-- Our singleton and minified code -->
 		<script language="javascript" type="text/javascript" src="js/script.js"></script>
+		<script type="text/javascript">
+		window.YW = {};
+		(function(YW) {
+		    YW.HOMESCREEN   = function() { return '<?php echo $homescreen; ?>'; };
+		    YW.CHATSCREEN   = function() { return '<?php echo $chatscreen; ?>'; };
+			YW.UA           = function() { return navigator.userAgent; };
+			YW.logged_in	= function() { return '<?php echo ($logged_in)?"true":"false"; ?>'; };
+		    YW.LOADED_AT    = new Date();
+			YW.define = function(name, val) {
+		        val = (function() { return val; })(); // To avoid execution of the constant functions repeatedly.
+		        YW[name] = function() { return val; };
+		    }
+		})(YW);
+		</script>
 	</head>
 	<body>
 		<?php
 			require_once("./template/header.php");
 		?>
 		<div id="bodybg">
-		<?php
-			if(!$logged_in) {
-				require_once("./template/homescreen.php");
-			} else {
-				require_once("./template/chatscreen.php");
-			}
-		?>
 		</div>
 		<?php
 			require_once("./template/footer.php");

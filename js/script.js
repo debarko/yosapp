@@ -37,7 +37,7 @@ function checkEmail(email) {
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 
-function formhash(username, password) {
+function formhash(username, password, form) {
     //Creates the hash for the function
     //and sends data to our server
 
@@ -53,7 +53,13 @@ function formhash(username, password) {
         dataType: "json"
         })
         .success(function(response) {
-            console.log(response);
+            console.log(typeof response);
+            if(response===true) {
+                log_in_user();
+            }
+            else {
+                form.reset();
+            }
         })
         .fail(function(response) {
             console.log("ERROR");
@@ -128,7 +134,6 @@ function regformhash(form, uid, email, password, conf) {
             console.log("ERROR");
         });    
 }
-
 
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* Merging js: ./js/functionality/sha512.js begins */
@@ -639,17 +644,22 @@ function int64add5(dst, a, b, c, d, e)
 
 
 function maximize(html_val){
-	$('#header').animate({height:"0px"},500,"linear",function(){
-		$('#header').css("display","none");
+	$('#header').animate({height:"6%"},500,"linear",function(){
+		//change content here
 	});
-	$('#footer').animate({height:"0px"},500,"linear",function(){
-		$('#footer').css("display","none");
+	$('#footer').animate({height:"6%"},500,"linear",function(){
+		//change content here
 	});
-	$('#bodybg').animate({height:"100%"},500);
+	$('#bodybg').animate({height:"88%"},500);
 	$('#bodybg').fadeOut(500, function(){
 		$('#bodybg').html(html_val);
 		$('#bodybg').fadeIn(400);
 	});
+}
+
+//Logs in a user upon successful login
+function log_in_user() {
+	maximize(YW.CHATSCREEN())
 }
 
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -658,8 +668,13 @@ function maximize(html_val){
 
 
 window.onload = function(){
-	//flash once the login tool tip 
-	showLoginTipOnLoad();
+	//Load content based on State of user
+	if(YW.logged_in()==="true") {
+		logged_in_start();
+	}
+	else {
+		logged_out_start();
+	}
 
 	//changes cursor to pointer on hover over login button
 	$('#loginbutton').css('cursor', 'pointer');
@@ -691,14 +706,8 @@ window.onload = function(){
 			}
 	);
 
-
-
-
 	// change cursor into pointer when mouse over any icons (help. signup & like)
 	$('.icon').css('cursor', 'pointer');
-
-
-
 
 	//show signup tooltip when hover over signup
 	$("#signup").hover(
@@ -737,13 +746,17 @@ window.onload = function(){
 			function(){$(".liketooltip").find("span").css("z-index", "999").animate({opacity:'1'},600);},
 			function(){$(".liketooltip").find("span").css("z-index", "0").animate({opacity:'0'},600);}
 	);
-	//--------------------------------now the chatroom----------------------------------------------------
-	$("#banner").click(
-			function(){alert('hello');}
-	);
 };
 
+function logged_in_start(){
+	$('#bodybg').html(YW.CHATSCREEN());
+}
 
+function logged_out_start(){
+	$('#bodybg').html(YW.HOMESCREEN());
+	//flash once the login tool tip 
+	showLoginTipOnLoad();
+}
 
 function showLoginTipOnLoad(){
 	$(".logintooltips").find("span").animate({opacity:'1'},1600,"linear",function(){

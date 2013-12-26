@@ -13,7 +13,7 @@
 					if($logged_in)
 					{
 				?>
-				<div class="icon" id="logout"></div>
+				<div class="icon" id="logout" onclick="window.location='logout.php'"></div>
 				<div class="icon" id="settings"></div>
 				<div class="icon" id="connectivity"></div>
 				<?php

@@ -31,12 +31,13 @@
 		height: 100%;
 		width: 260px;
 		border-right: 1px solid rgba(100, 184, 100, 0.56);
+		overflow: hidden;
 	}
 
 	#profileinfo{
 		position: relative;
 		width: 85%;
-		height: 50px;
+		height: 8%;
 		background-color: white;
 		margin: 0 auto;
 		margin-top: 10px;
@@ -78,7 +79,7 @@
 		display: block;
 		margin: 15 auto 8 auto;
 		background: rgba(42, 178, 0, 0.69);
-		height: 30px;
+		height: 5%;
 		width: 95%;
 	}
 
@@ -103,7 +104,10 @@
 	}
 
 	#contactscontainer{
-		overflow-y: scroll; 
+		overflow-y: scroll;
+		position: absolute;
+		width: 100%;
+		height: 75%;
 	}
 	.contact{
 		display: block;

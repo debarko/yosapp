@@ -1,4 +1,4 @@
-function formhash(username, password) {
+function formhash(username, password, form) {
     //Creates the hash for the function
     //and sends data to our server
 
@@ -14,7 +14,13 @@ function formhash(username, password) {
         dataType: "json"
         })
         .success(function(response) {
-            console.log(response);
+            console.log(typeof response);
+            if(response===true) {
+                log_in_user();
+            }
+            else {
+                form.reset();
+            }
         })
         .fail(function(response) {
             console.log("ERROR");

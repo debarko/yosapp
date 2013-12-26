@@ -14,7 +14,9 @@
 	<!--<div><input id=rememberme type="checkbox" name="isrememberme" value="remember me">Keep me loggend in<br></div> -->
 	<div>
 		<input id="loginsubmit" type="button" value="Login" 
-				onclick="formhash(document.getElementById('userfield').value,document.getElementById('passfield').value)" />
+				onclick="formhash(document.getElementById('userfield').value,
+								  document.getElementById('passfield').value,
+								  document.getElementById('loginform'))" />
 	</div>
 	<div class="squaredTwo">
 		<input type="checkbox" value="None" id="squaredTwo" name="check" />
