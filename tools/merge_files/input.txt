@@ -5,3 +5,4 @@
 ./js/functionality/random.js
 
 ./js/main.js
+./js/chatscreen.js

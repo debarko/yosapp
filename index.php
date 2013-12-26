@@ -8,7 +8,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/reset.css">		
-		<!--<link rel="stylesheet" type="text/css" media="all" href="css/home.css">-->
+		<!--Assume that all the css files will be merged to one while running -->
 		<link rel="stylesheet" type="text/css" media="all" href="css/homescreen.css">
 		<link rel="stylesheet" type="text/css" media="all" href="css/chatroom.css">
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
