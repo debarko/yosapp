@@ -15,7 +15,7 @@ background-color:#2aB200;
 	overflow: hidden;
 }
 #header{
-	height:10%;
+	height :63px;
 	background-color:#2aB200;
 	overflow: hidden;
 }
@@ -121,17 +121,16 @@ background-color:#2aB200;
 
 #concactsearch{
 	display: block;
-	margin: 0 auto;
-	margin-top: 15px;
+	margin: 15 auto 8 auto;
 	background: rgba(42, 178, 0, 0.69);
 	height: 30px;
-	width: 85%;
+	width: 95%;
 }
 
 #concactsearch input{
 	border: none;
 	height: 30px;
-	width: 190px;
+	width: 215px;
 	background-color: rgba(0,0,0,0);
 	text-indent: 10px;
 	color: white;
@@ -148,6 +147,37 @@ background-color:#2aB200;
 	background-image: url('../icons/searchicon.png')
 }
 
+#contactscontainer{
+	overflow-y: scroll; 
+}
+.contact{
+	display: block;
+	width: 85%;
+	height: 30px;
+	margin: 4 auto;
+	background-color: rgba(0, 0, 0, 0);
+}
+.contact img{
+	float: left;
+	margin-right: 10px;
+}
+.contact span{
+	margin-top: 8px;
+	display: inline-block;
+	color: rgba(40, 48, 38, 0.77);
+	font-family: sans-serif;
+	font-size: 13px;
+}
+
+
+
+#contactoptions{
+    width: 100%;
+    height: 40px;
+    background-color: #B4D3B0;
+    position: absolute;
+    bottom: 0px;
+}
 
 
 #footer{
