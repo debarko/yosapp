@@ -5,4 +5,3 @@
 ./js/functionality/random.js
 
 ./js/test.js
-js/chatroom.js

@@ -1,206 +1,137 @@
 @CHARSET "UTF-8";
 @media only screen and (min-width: 1024px) {
-
-	body{
-background-color:#2aB200;
-}
-
-#master{
-	width: 100%;
-	height: 100%;
-	margin: 0px;
-	min-height:500px;
-	background-color: #2aB200;
-	border-color: rgba(255, 255, 255, 0.0);
-	overflow: hidden;
-}
-#header{
-	height :63px;
-	background-color:#2aB200;
-	overflow: hidden;
-}
-#banner{
-	position: relative;
-	top: 50%;
-	margin-top: -16px;
-	left: 40px;
-	float: left;
-	height: 33px;
-	width: 230px;
-	color: white;
-	font-family: fantasy;
-	font-size: 30px;
-}
-
-#icons{
-	position: relative;
-	top: 10px;
-	height: 30px;
-	width: 200px;
-	float: right;
-}
-.icon{
-	float: right;
-	margin-right: 30px;
-}
-
-#logout{
-	width: 43px;
-	height: 48px;
-	background-image: url('../icons/powerBtn.png');
-	zoom: .6;
-}
-#settings{
-	width: 40px;
-	height: 40px;
-	background-image: url('../icons/settings.png');
-	zoom: .8;
-}
-#connectivity{
-	width: 33px;
-	height: 25px;
-	background-image: url('../icons/network.png');
-}
+	#logout{
+		width: 43px;
+		height: 48px;
+		background-image: url('../icons/powerBtn.png');
+		zoom: .6;
+	}
+	#settings{
+		width: 40px;
+		height: 40px;
+		background-image: url('../icons/settings.png');
+		zoom: .8;
+	}
+	#connectivity{
+		width: 33px;
+		height: 25px;
+		background-image: url('../icons/network.png');
+	}
 
 
-#bodybg{
-	width: 100%;
-	height: 80%;
-	background-color: white;
-	
-}
+	#bodybg-chatroom{
+		width: 100%;
+		height: 80%;
+		background-color: white;
+	}
 
-#leftpannel{
-	float: left;
-	position: relative;
-	height: 100%;
-	width: 260px;
-	border-right: 1px solid rgba(100, 184, 100, 0.56);
-}
+	#leftpannel{
+		float: left;
+		position: relative;
+		height: 100%;
+		width: 260px;
+		border-right: 1px solid rgba(100, 184, 100, 0.56);
+	}
 
-#profileinfo{
-	position: relative;
-	width: 85%;
-	height: 50px;
-	background-color: white;
-	margin: 0 auto;
-	margin-top: 10px;
-	color: #3A693A;
-	font-family: sans-serif;
-	text-indent: 15px;
-}
+	#profileinfo{
+		position: relative;
+		width: 85%;
+		height: 50px;
+		background-color: white;
+		margin: 0 auto;
+		margin-top: 10px;
+		color: #3A693A;
+		font-family: sans-serif;
+		text-indent: 15px;
+	}
 
-#profileinfo:after{
-	content: "";
-	display: block;
-	position: relative;
-	top: 20px;
-	height: 1px;
-	width: 100%;
-	background: -webkit-gradient(linear, 0 0, 100% 0, from(#FFFFFF), to(#FFFFFF), color-stop(50%, #5B8F4B));
-}
+	#profileinfo:after{
+		content: "";
+		display: block;
+		position: relative;
+		top: 20px;
+		height: 1px;
+		width: 100%;
+		background: -webkit-gradient(linear, 0 0, 100% 0, from(#FFFFFF), to(#FFFFFF), color-stop(50%, #5B8F4B));
+	}
 
-#profilepic{
-	display: block;
-	float: left;
-	width: 50px;
-	height: 50px;
-	background-image: url('../icons/profilepic.jpg');
-}
+	#profilepic{
+		display: block;
+		float: left;
+		width: 50px;
+		height: 50px;
+		background-image: url('../icons/profilepic.jpg');
+	}
 
-#profilename{
-	position: relative;
-	top: 7px;
-}
-#editprofiletext{
-	font-size: 12px;
-	margin-top: 10px;
-}
+	#profilename{
+		position: relative;
+		top: 7px;
+	}
+	#editprofiletext{
+		font-size: 12px;
+		margin-top: 10px;
+	}
 
-/*contact search bar*/
+	/*contact search bar*/
 
-#concactsearch{
-	display: block;
-	margin: 15 auto 8 auto;
-	background: rgba(42, 178, 0, 0.69);
-	height: 30px;
-	width: 95%;
-}
+	#concactsearch{
+		display: block;
+		margin: 15 auto 8 auto;
+		background: rgba(42, 178, 0, 0.69);
+		height: 30px;
+		width: 95%;
+	}
 
-#concactsearch input{
-	border: none;
-	height: 30px;
-	width: 215px;
-	background-color: rgba(0,0,0,0);
-	text-indent: 10px;
-	color: white;
-}
+	#concactsearch input{
+		border: none;
+		height: 30px;
+		width: 215px;
+		background-color: rgba(0,0,0,0);
+		text-indent: 10px;
+		color: white;
+	}
 
 
-#concactsearch span{
-	display: inline-block;
-	position: relative;
-	top: 4px;
-	float: right;
-	height: 22px;
-	width: 28px;
-	background-image: url('../icons/searchicon.png')
-}
+	#concactsearch span{
+		display: inline-block;
+		position: relative;
+		top: 4px;
+		float: right;
+		height: 22px;
+		width: 28px;
+		background-image: url('../icons/searchicon.png')
+	}
 
-#contactscontainer{
-	overflow-y: scroll; 
-}
-.contact{
-	display: block;
-	width: 85%;
-	height: 30px;
-	margin: 4 auto;
-	background-color: rgba(0, 0, 0, 0);
-}
-.contact img{
-	float: left;
-	margin-right: 10px;
-}
-.contact span{
-	margin-top: 8px;
-	display: inline-block;
-	color: rgba(40, 48, 38, 0.77);
-	font-family: sans-serif;
-	font-size: 13px;
-}
+	#contactscontainer{
+		overflow-y: scroll; 
+	}
+	.contact{
+		display: block;
+		width: 85%;
+		height: 30px;
+		margin: 4 auto;
+		background-color: rgba(0, 0, 0, 0);
+	}
+	.contact img{
+		float: left;
+		margin-right: 10px;
+	}
+	.contact span{
+		margin-top: 8px;
+		display: inline-block;
+		color: rgba(40, 48, 38, 0.77);
+		font-family: sans-serif;
+		font-size: 13px;
+	}
 
 
 
-#contactoptions{
-    width: 100%;
-    height: 40px;
-    background-color: #B4D3B0;
-    position: absolute;
-    bottom: 0px;
-}
-
-
-#footer{
-	width: 100%;
-	height: 10%;
-	/*background: -webkit-linear-gradient(#2ab200, #1D7A00);*/
-	background-color: #2ab200;
-}
-
-
-#copyright{
-	margin: 0 auto;
-	width: 295px;
-	color: rgba(255, 255, 255, 0.71);
-	font-family: sans-serif;
-	font-size: 13px;
-}
-
-#copyright p{
-	position: absolute;
-	bottom: 20px;
-}
-
+	#contactoptions{
+	    width: 100%;
+	    height: 40px;
+	    background-color: #B4D3B0;
+	    position: absolute;
+	    bottom: 0px;
+	}
 
 }
-
