@@ -11,7 +11,9 @@
 		<!--Assume that all the css files will be merged to one while running -->
 		<link rel="stylesheet" type="text/css" media="all" href="css/homescreen.css">
 		<link rel="stylesheet" type="text/css" media="all" href="css/chatroom.css">
+		<!-- Third Party APIs -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<!-- Our singleton and minified code -->
 		<script language="javascript" type="text/javascript" src="js/script.js"></script>
 	</head>
 	<body>
