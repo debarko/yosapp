@@ -27,3 +27,4 @@
 	</div>
 	<div id="contactoptions"></div>
 </div>
+<div id="msgcontainer"></div>
