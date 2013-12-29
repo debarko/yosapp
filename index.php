@@ -6,7 +6,7 @@
 	//remove from production environment
 	exec("./tools/mergejs ./tools/merge_files/input.txt ./js/script.js");
 	//tool to merge all code in one file
-	$logged_in =  login_check($mysqli);
+	$logged_in = true;// login_check($mysqli);
 ?>
 
 <html>
@@ -16,7 +16,7 @@
 		<link rel="stylesheet" type="text/css" media="all" href="css/homescreen.css">
 		<link rel="stylesheet" type="text/css" media="all" href="css/chatroom.css">
 		<!-- Third Party APIs -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script language="javascript" type="text/javascript" src="js/library/jquery.min.js"></script>
 		<!-- Our singleton and minified code -->
 		<script language="javascript" type="text/javascript" src="js/script.js"></script>
 		<script type="text/javascript">

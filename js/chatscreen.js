@@ -18,3 +18,8 @@ function setSearchContainerHeight(){
 	var searchContainerHeight = $(window).height() * (80/100) - 160;
 	$('#contactscontainer').css("height", searchContainerHeight+"px");
 }
+
+function setTextboxGap(){
+	var height = $('.recmsg').css('height');
+	alert(height);
+}

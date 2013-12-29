@@ -2,6 +2,7 @@ window.onload = function(){
 	//Load content based on State of user
 	if(YW.logged_in()==="true") {
 		logged_in_start();
+		maximize();
 	}
 	else {
 		logged_out_start();

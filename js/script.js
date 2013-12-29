@@ -653,6 +653,7 @@ function maximize(html_val){
 	$('#bodybg').animate({height:"88%"},500);
 	$('#bodybg').fadeOut(500, function(){
 		$('#bodybg').html(html_val);
+		$('#bodybg').css('background-color','white');
 		$('#bodybg').fadeIn(400);
 	});
 }
@@ -671,6 +672,7 @@ window.onload = function(){
 	//Load content based on State of user
 	if(YW.logged_in()==="true") {
 		logged_in_start();
+		maximize();
 	}
 	else {
 		logged_out_start();
@@ -788,4 +790,9 @@ $(window).resize(function(){
 function setSearchContainerHeight(){
 	var searchContainerHeight = $(window).height() * (80/100) - 160;
 	$('#contactscontainer').css("height", searchContainerHeight+"px");
+}
+
+function setTextboxGap(){
+	var height = $('.recmsg').css('height');
+	alert(height);
 }

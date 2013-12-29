@@ -8,6 +8,7 @@ function maximize(html_val){
 	$('#bodybg').animate({height:"88%"},500);
 	$('#bodybg').fadeOut(500, function(){
 		$('#bodybg').html(html_val);
+		$('#bodybg').css('background-color','white');
 		$('#bodybg').fadeIn(400);
 	});
 }
