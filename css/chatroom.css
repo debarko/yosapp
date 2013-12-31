@@ -162,26 +162,26 @@
 		background-image: url('../icons/texture.png');
 	}
 
-	.sentmsg {
+	.recmsg {
 		margin-top: 3px;
 		display: inline-block;
 		position: relative;
 		left: 17px;
 		min-width: 50px;
 		max-width: 70%;
-		background: #2ab200;
+		background: #E08510;
 		-moz-border-radius: 10px;
 		-webkit-border-radius: 10px;
 		border-radius: 3px;
 		box-shadow: 10px 10px 10px #000000;
 }
-	.sentmsg:before {
+	.recmsg:before {
 		content: "";
 		position: absolute;
 		width: 0;
 		height: 0;
 		border-top: 5px solid rgba(229, 86, 86, 0);
-		border-right: 10px solid #2ab200;
+		border-right: 10px solid #E08510;
 		border-bottom: 5px solid rgba(0, 0, 0, 0);
 		margin: 8px 0 0 -10px;
 	}
@@ -196,8 +196,16 @@
 		font-size: 14px;
 	}
 
+	.deliverystatus{
+		float: right;
+		display: inline-block;
+		height: 20px;
+		width: 20px;
+		background-image: url('../icons/singlecheck.png');
+		margin: 0 1 0 9;
+	}
 
-	.recmsg {
+	.sentmsg {
 		float: right;
 		margin-top: 3px; 
 		display: inline-block;
@@ -205,21 +213,21 @@
 		right: 20px;
 		min-width: 50px;
 		max-width: 70%;
-		background: #E08510;
+		background: #2AB200;
 		-moz-border-radius: 10px;
 		-webkit-border-radius: 10px;
 		border-radius: 3px;
 		box-shadow: 10px 10px 10px #000000;
 	}
 
-	.recmsg:before {
+	.sentmsg:before {
 		content: "";
 		position: absolute;
 		right: -10px;
 		width: 0;
 		height: 0;
 		border-top: 5px solid rgba(229, 86, 86, 0);
-		border-left: 10px solid #E08510;
+		border-left: 10px solid #2AB200;
 		border-bottom: 5px solid rgba(0, 0, 0, 0);
 		margin: 8 0 0 0;
 	}
@@ -240,6 +248,7 @@
 		background-position-y: 49%;
 		float: left;
 		margin-left: 15px;
+		opacity: 0.5;
 	}
 
 	#smiley{
@@ -250,6 +259,7 @@
 		background-position-y: 49%;
 		float: left;
 		margin-left: 15px;
+		opacity: 0.5;
 	}
 
 	#sendbutton{
@@ -260,6 +270,7 @@
 		background-position-y: 49%;
 		float: right;
 		margin-right: 20px;
+		opacity: 0.5;
 	}
 	#msgtypebar{
 		width: 80%;
@@ -275,6 +286,7 @@
 		margin-top: .5%;
 		background-color: rgba(255, 255, 255, 0);
 		border-radius: 6px;
+		border-bottom: 2px solid rgba(34, 153, 175, 0.73);
 	}
 
 
