@@ -35,9 +35,20 @@
 		height: 100%;
 		width: 20%;
 		min-width: 260px;
-		border-right: 1px solid rgba(100, 184, 100, 0.56);
+		/*border-right: 1px solid rgba(100, 184, 100, 0.56);*/
 		overflow: hidden;
 	}
+	#leftpannel:after{
+		content: '';
+		display: block;
+		position: absolute;
+		width: 1px;
+		height: 100%;
+		left: 99.5%;
+		top: 1px;
+		background-color: rgba(100, 184, 100, 0.56);
+	}
+
 
 	#profileinfo{
 		position: relative;
@@ -143,69 +154,128 @@
 	    bottom: 0px;
 	}
 	#msgcontainer{
+		overflow-y: auto;
 		float: left;
-		width: 79%;
-		height: 100%;
+		width: 80%;
+		height: 93%;
+		box-shadow: inset 0px 0px 51px -8px;
+		background-image: url('../icons/texture.png');
 	}
 
 	.sentmsg {
-		/*margin-top: 15px;*/
+		margin-top: 3px;
 		display: inline-block;
 		position: relative;
-		left: 28px;
+		left: 17px;
 		min-width: 50px;
 		max-width: 70%;
 		background: #2ab200;
 		-moz-border-radius: 10px;
 		-webkit-border-radius: 10px;
 		border-radius: 3px;
+		box-shadow: 10px 10px 10px #000000;
 }
 	.sentmsg:before {
 		content: "";
 		position: absolute;
 		width: 0;
 		height: 0;
-		border-top: 10px solid rgba(229, 86, 86, 0);
-		border-right: 20px solid #2ab200;
-		border-bottom: 10px solid rgba(0, 0, 0, 0);
-		margin: 8px 0 0 -20px;
+		border-top: 5px solid rgba(229, 86, 86, 0);
+		border-right: 10px solid #2ab200;
+		border-bottom: 5px solid rgba(0, 0, 0, 0);
+		margin: 8px 0 0 -10px;
 	}
 
 	.textbox{
 		color: white;
-		line-height: 20px;
+		line-height: 15px;
 		padding: 10px;
 		position: relative;
 		margin-right: 0px;
 		font-family: cursive;
+		font-size: 14px;
 	}
 
 
 	.recmsg {
 		float: right;
-		/*margin-top: 15px;*/
+		margin-top: 3px; 
 		display: inline-block;
 		position: relative;
-		right: 28px;
+		right: 20px;
 		min-width: 50px;
 		max-width: 70%;
 		background: #E08510;
 		-moz-border-radius: 10px;
 		-webkit-border-radius: 10px;
 		border-radius: 3px;
-}
+		box-shadow: 10px 10px 10px #000000;
+	}
+
 	.recmsg:before {
 		content: "";
 		position: absolute;
-		right: -20px;
+		right: -10px;
 		width: 0;
 		height: 0;
-		border-top: 10px solid rgba(229, 86, 86, 0);
-		border-left: 20px solid #E08510;
-		border-bottom: 10px solid rgba(0, 0, 0, 0);
-		margin: 8px 0 0 -20px;
+		border-top: 5px solid rgba(229, 86, 86, 0);
+		border-left: 10px solid #E08510;
+		border-bottom: 5px solid rgba(0, 0, 0, 0);
+		margin: 8 0 0 0;
 	}
 
+	#createmsgbar{
+		height: 7%;
+		width: 80%;
+		float: left;
+		background-color: rgba(0, 0, 0, 0.3);
+	}
+
+	#attachment{
+
+		background-repeat: no-repeat;
+		height: 100%;
+		width: 30px;
+		background-image: url('../icons/attachmenticon.png');
+		background-position-y: 49%;
+		float: left;
+		margin-left: 15px;
+	}
+
+	#smiley{
+		background-repeat: no-repeat;
+		height: 100%;
+		width: 25px;
+		background-image: url('../icons/smiley.png');
+		background-position-y: 49%;
+		float: left;
+		margin-left: 15px;
+	}
+
+	#sendbutton{
+		background-repeat: no-repeat;
+		height: 100%;
+		width: 30px;
+		background-image: url('../icons/send.png');
+		background-position-y: 49%;
+		float: right;
+		margin-right: 20px;
+	}
+	#msgtypebar{
+		width: 80%;
+		float: left;
+		height: 100%;
+		margin-left: 5%;
+	}
+
+	#msgtypebar input{
+		width: 100%;
+		border: none;
+		height: 81%;
+		margin-top: .5%;
+		background-color: rgba(255, 255, 255, 0);
+		border-radius: 6px;
+	}
 
 
 	/*Scroll bar*/

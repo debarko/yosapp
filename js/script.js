@@ -793,6 +793,11 @@ function setSearchContainerHeight(){
 }
 
 function setTextboxGap(){
-	var height = $('.recmsg').css('height');
-	alert(height);
+	
+	var arr = $(".recmsg").css("height");
+	arr.each(function(index) {
+	    alert(This.value);
+	});
 }
+
+	
