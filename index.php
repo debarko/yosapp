@@ -6,7 +6,7 @@
 	//remove from production environment
 	exec("./tools/mergejs ./tools/merge_files/input.txt ./js/script.js");
 	//tool to merge all code in one file
-	$logged_in = true;// login_check($mysqli);
+	$logged_in = login_check($mysqli);
 ?>
 
 <html>

@@ -253,6 +253,10 @@
 		opacity: 0.5;
 	}
 
+	#attachment:hover{
+		opacity: 1.0;
+	}
+
 	#smiley{
 		background-repeat: no-repeat;
 		height: 100%;
@@ -262,6 +266,10 @@
 		float: left;
 		margin-left: 15px;
 		opacity: 0.5;
+	}
+	
+	#smiley:hover{
+		opacity: 1.0;
 	}
 
 	#sendbutton{
@@ -274,6 +282,11 @@
 		margin-right: 20px;
 		opacity: 0.5;
 	}
+
+	#sendbutton:hover{
+		opacity: 1.0;
+	}
+
 	#msgtypebar{
 		width: 80%;
 		float: left;
