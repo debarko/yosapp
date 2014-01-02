@@ -153,6 +153,11 @@
 	    position: absolute;
 	    bottom: 0px;
 	}
+
+	#rightpannel{
+		height: 100%;
+	}
+
 	#msgcontainer{
 		overflow-y: auto;
 		height: 93%;
@@ -232,8 +237,7 @@
 
 	#createmsgbar{
 		height: 7%;
-		width: 80%;
-		float: left;
+		width: 100%;
 		background-color: rgba(0, 0, 0, 0.3);
 	}
 
@@ -271,10 +275,10 @@
 		opacity: 0.5;
 	}
 	#msgtypebar{
-		width: 80%;
+		width: 66%;
 		float: left;
 		height: 100%;
-		margin-left: 5%;
+		margin-left: 2%;
 	}
 
 	#msgtypebar input{
