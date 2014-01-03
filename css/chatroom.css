@@ -199,10 +199,20 @@
 	.deliverystatus{
 		float: right;
 		display: inline-block;
-		height: 20px;
-		width: 20px;
-		background-image: url('../icons/singlecheck.png');
-		margin: 0 1 0 9;
+		height: 15px;
+		width: 14px;
+		background-image: url('../icons/doublecheck_min.png');
+		margin: 0 3 0 1;
+		opacity: .7;
+	}
+
+	.timestamp{
+		display: inline-block;
+		float: right;
+		margin-left: 30px;
+		font-size: 12px;
+		font-family: sans-serif;
+		opacity: .7;
 	}
 
 	.sentmsg {
