@@ -1,4 +1,4 @@
-function maximize(html_val){
+function maximize(html_val, callback){
 	$('#header').animate({height:"6%"},500,"linear",function(){
 		//change content here
 	});
@@ -10,6 +10,9 @@ function maximize(html_val){
 		$('#bodybg').html(html_val);
 		$('#bodybg').css('background-color','white');
 		$('#bodybg').fadeIn(400);
+		if(callback) {
+			callback();
+		}
 	});
 }
 

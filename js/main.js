@@ -80,7 +80,7 @@ window.onload = function(){
 };
 
 function logged_in_start(){
-	$('#bodybg').html(YW.CHATSCREEN());
+	maximize(YW.CHATSCREEN(), setSearchContainerHeight);	
 }
 
 function logged_out_start(){
