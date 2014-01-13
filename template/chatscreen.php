@@ -31,7 +31,7 @@
 	<div id="msgcontainer">
 		<br>
 		<div class="clearfix"><div class="sentmsg"><div class="textbox">hi<span class="deliverystatus"></span><span class="timestamp">3:24PM</span></div></div></div>
-		<div class="clearfix"><div class="sentmsg"><div class="textbox">hi<span class="deliverystatus"></span><span class="timestamp">3:50PM</span></div></div></div>
+		<div class="clearfix"><div class="sentmsg"><div class="textbox">h<span class="deliverystatus"></span><span class="timestamp">3:50PM</span></div></div></div>
 		<div class="recmsg"><div class="textbox">how are you?<span class="timestamp">3:24PM</span></div></div>
 		<div class="clearfix"><div class="sentmsg"><div class="textbox">i'm fine<span class="deliverystatus"></span><span class="timestamp">3:24PM</span></div></div></div>
 		<div><div class="recmsg"><div class="textbox">i'm liking this whatsapp.<span class="timestamp">3:24PM</span></div></div></div>

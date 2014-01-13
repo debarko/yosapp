@@ -161,8 +161,7 @@
 	#msgcontainer{
 		overflow-y: auto;
 		height: 93%;
-		box-shadow: inset 0px 0px 51px -8px;
-		background-image: url('../icons/texture.png');
+		background-image: url('http://theorydesign.ca/img/bgservices.jpg');
 	}
 
 	.recmsg {
@@ -176,7 +175,7 @@
 		-moz-border-radius: 10px;
 		-webkit-border-radius: 10px;
 		border-radius: 3px;
-		box-shadow: 10px 10px 10px #000000;
+		
 }
 	.recmsg:before {
 		content: "";
@@ -230,7 +229,7 @@
 		-moz-border-radius: 10px;
 		-webkit-border-radius: 10px;
 		border-radius: 3px;
-		box-shadow: 10px 10px 10px #000000;
+		
 	}
 
 	.sentmsg:before {
