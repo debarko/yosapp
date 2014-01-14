@@ -25,6 +25,14 @@
 		(function(YW) {
 		    YW.HOMESCREEN   = function() { return '<?php echo $homescreen; ?>'; };
 		    YW.CHATSCREEN   = function() { return '<?php echo $chatscreen; ?>'; };
+		    YW.CHATBUBBLE	= function() { return  '<div id="wrapper_bubble">'+
+														'<div id="sent_recv">'+
+															'<div class="textbox">'+
+																'<span id="deliverystatus"></span>'+
+																'<span id="timestamp"></span>'+
+															'</div>'+
+														'</div>'+
+													'</div>'};
 			YW.UA           = function() { return navigator.userAgent; };
 			YW.logged_in	= function() { return '<?php echo ($logged_in)?"true":"false"; ?>'; };
 		    YW.LOADED_AT    = new Date();
