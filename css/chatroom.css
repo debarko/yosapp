@@ -178,12 +178,38 @@
 	.recmsg:before {
 		content: "";
 		position: absolute;
-		width: 0;
-		height: 0;
 		border-top: 5px solid rgba(229, 86, 86, 0);
 		border-right: 10px solid #E08510;
 		border-bottom: 5px solid rgba(0, 0, 0, 0);
 		margin: 8px 0 0 -10px;
+	}
+
+	
+	.shareOptionsBar{
+		position: absolute;
+		width: 90%;
+		left: 5%;
+		height: 15px;
+		overflow-y: hidden;
+	}
+	.shareOptionsBar .before{
+		display: inline-block;
+		float: left;
+		border-bottom: 15px solid transparent;
+		border-right: 10px solid rgba(0, 0, 0, 0.22);
+	}
+
+	.shareOptionsBar .midbar{
+		display: inline-block;
+		width: 85%;
+		height: 15px;
+		background-color: rgba(0, 0, 0, 0.22);
+	}
+
+	.shareOptionsBar .after{
+		display: inline-block;
+		border-bottom: 15px solid transparent;
+		border-left: 10px solid rgba(0, 0, 0, 0.22);
 	}
 
 	.textbox{
