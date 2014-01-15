@@ -802,4 +802,48 @@ function setTextboxGap(){
 	});
 }
 
+function loadMessageDiv(divElem){
+	var temp_Data = $("#msgcontainer").html()
+	$("#msgcontainer").html( temp_Data + divElem );
+}
+
+function formDivElem(parent, message, timestamp){
+	loadMessageDiv(YW.CHATBUBBLE);
 	
+	//get hold of the newly added div by checking a list of 
+	//all divs in the message bar setup
+	
+	//set id here to the newly added div
+
+	//add the class based on the paarents
+	
+	//set the time stamp
+	
+	//set the message in the newly added div
+}
+
+function generateRandomDivId(){
+	//create a id only numeric based on time of the client
+	//time
+	var dateStr=new Date().toISOString();
+	dateStr = dateStr.replace(/-/g,'');
+	dateStr = dateStr.replace(/:/g,'');
+	console.log(dateStr);
+	return CryptoJS.MD5(dateStr).toString();
+}
+
+function tagMyBubble(id){
+	//add the classes for my bubble accordingly
+}
+
+function tagOtherBubble(id){
+	//add classes for his chat bubble
+}
+
+function setTimeStamp(id){
+	//Add the timestamp to the appropriate place
+}
+
+function setMessage(id){
+	//add the message to the div
+}
