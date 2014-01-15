@@ -162,19 +162,6 @@
 		background-image: url('http://theorydesign.ca/img/bgservices.jpg');
 	}
 
-	.recmsg {
-		margin-top: 15px;
-		display: inline-block;
-		position: relative;
-		left: 17px;
-		min-width: 50px;
-		max-width: 70%;
-		background: #E08510;
-		-moz-border-radius: 10px;
-		-webkit-border-radius: 10px;
-		border-radius: 3px;
-		
-}
 	.recmsg:before {
 		content: "";
 		position: absolute;
@@ -186,9 +173,9 @@
 
 	
 	.shareOptionsBar{
-		position: absolute;
-		width: 90%;
-		left: 5%;
+		position: relative;
+		z-index: 10;
+		margin: 0px 10px;
 		height: 15px;
 		overflow-y: hidden;
 	}
@@ -231,7 +218,7 @@
 		opacity: .6;
 	}
 
-	.timestamp{
+	#timestamp{
 		display: inline-block;
 		float: right;
 		margin-left: 35px;
@@ -240,19 +227,27 @@
 		opacity: .6;
 	}
 
-	.sentmsg {
-		float: right;
-		margin-top: 3px; 
-		display: inline-block;
-		position: relative;
-		right: 10px;
+	#mother_div{
 		min-width: 50px;
 		max-width: 70%;
-		background: #2AB200;
+	}
+
+	.recmsg {
+		background: #E08510;
+	}
+	
+	.sent_recv{
 		-moz-border-radius: 10px;
 		-webkit-border-radius: 10px;
 		border-radius: 3px;
-		
+		display: inline-block;
+		position: relative;
+		z-index: 9;
+		margin: 1 0;
+	}
+
+	.sentmsg {
+		background: #2AB200;		
 	}
 
 	.sentmsg:before {
