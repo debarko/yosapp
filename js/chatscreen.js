@@ -85,7 +85,7 @@ function tagOtherBubble(id){
 
 function setTimeStamp(id, timestamp){
 	//Add the timestamp to the appropriate place
-	$("#"+id+" > #mother_div > #sent_recv > .textbox > #timestamp").html(timestamp);
+	$("#"+id+" > #mother_div > #sent_recv > #timestamp").html(timestamp);
 }
 
 function setMessage(id, message){
@@ -99,7 +99,9 @@ function setOptionsWidth(id, parent){
 	$("#"+id+" > #mother_div > .shareOptionsBar > .midbar").css("width", (parseInt(parent_width)-20)+"px");
 	if(parent){
 		$("#"+id+" > #mother_div").css("float", "left");
+		$("#"+id+" > #mother_div > .shareOptionsBar").addClass("shareOptionsBar_left");
 	} else {
 		$("#"+id+" > #mother_div").css("float", "right");
+		$("#"+id+" > #mother_div").addClass("mother_div_right");		
 	}
 }

@@ -176,9 +176,13 @@
 		position: relative;
 		z-index: 10;
 		height: 15px;
-		margin: 0px 10px; 
 		overflow-y: hidden;
 	}
+
+	.shareOptionsBar_left{
+		margin-left: 10px;
+	}
+
 	.shareOptionsBar .before{
 		display: inline-block;
 		float: left;
@@ -201,12 +205,12 @@
 
 	.textbox{
 		color: white;
-		line-height: 15px;
+		line-height: 1.2em;
 		padding: 10px;
 		position: relative;
 		margin-right: 0px;
-		font-size: 14px;
-		word-wrap: break-word;
+		font-size: 0.9em;
+		text-align: justify;
 	}
 
 	.deliverystatus{
@@ -222,7 +226,6 @@
 	#timestamp{
 		display: inline-block;
 		float: right;
-		margin-left: 35px;
 		font-size: 11px;
 		font-family: monospace;
 		opacity: .6;
@@ -231,6 +234,11 @@
 	#mother_div{
 		min-width: 50px;
 		max-width: 70%;
+	}
+
+	.mother_div_right{
+		right: 10px;
+		position: relative;
 	}
 
 	.recmsg {
@@ -250,7 +258,6 @@
 
 	.sentmsg {
 		background: #2AB200;
-		right: -10px;	
 	}
 
 	.sentmsg:before {
