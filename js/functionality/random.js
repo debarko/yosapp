@@ -20,3 +20,20 @@ function maximize(html_val, callback){
 function log_in_user() {
 	maximize(YW.CHATSCREEN())
 }
+
+
+
+/*
+
+// tooltip that moves relative to the pointer
+
+var tooltipSpan = document.getElementById('usernameLoginTooltip');
+var initialLeft = parseInt($('#usernameLoginTooltip').css('left'));
+var initialTop = parseInt($('#usernameLoginTooltip').css('top'));
+window.onmousemove = function (e) {
+    var x = e.clientX,
+        y = e.clientY;
+    
+    tooltipSpan.style.left = (x-initialLeft-10) + 'px';
+};
+*/
