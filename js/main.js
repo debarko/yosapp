@@ -93,11 +93,10 @@ window.onload = function(){
         $(this).find('input[type=submit]').hide();
     });
 
-
 };
 
 function logged_in_start(){
-	maximize(YW.CHATSCREEN(), setSearchContainerHeight);	
+	maximize( YW.CHATSCREEN(), setSearchContainerHeight);	
 }
 
 function logged_out_start(){
@@ -110,4 +109,14 @@ function showLoginTipOnLoad(){
 	$(".logintooltips").find("span").animate({opacity:'1'},1600,"linear",function(){
 		$(".logintooltips").find("span").animate({opacity:'0'},1600,"linear");
 	});
+}
+
+// This function submitts typed msg when hit enter
+function msgSubmitOnEnter() {
+	$('#typemsg').keypress(function(e) {
+        // Enter pressed?
+        if(e.which == 10 || e.which == 13) {
+        	sendMyMsg($("#typemsg").val());
+        }
+    });
 }

@@ -35,7 +35,7 @@
 	<div id="createmsgbar" class="clearfix">
 		<div id="attachment"></div>
 		<div id="smiley"></div>
-		<div id="msgtypebar"><input id="typemsg" type="text" name="typemsg" value="" /></div>
+		<div id="msgtypebar"><input id="typemsg" type="text" name="typemsg" value="" onclick='msgSubmitOnEnter();'/></div>
 		<div id="sendbutton" onclick='javascript:sendMyMsg($("#typemsg").val());'></div>
 	</div>
 </div>
