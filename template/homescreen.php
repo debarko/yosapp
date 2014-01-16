@@ -5,8 +5,9 @@
 		LOGIN
 		<span></span>
 	</div>
-	<div>
+	<div id="usernameLoginDiv">
 		USERNAME <input id="userfield" class="inputfields" type="text" name="user" />
+		<span id="usernameLoginTooltip">Enter Phone Number</span>
 	</div>
 	<div>
 		PASSWORD <input id="passfield" class="inputfields" type="password" name="user" />

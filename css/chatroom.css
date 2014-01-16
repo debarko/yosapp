@@ -175,8 +175,8 @@
 	.shareOptionsBar{
 		position: relative;
 		z-index: 10;
-		margin: 0px 10px;
 		height: 15px;
+		margin: 0px 10px; 
 		overflow-y: hidden;
 	}
 	.shareOptionsBar .before{
@@ -206,6 +206,7 @@
 		position: relative;
 		margin-right: 0px;
 		font-size: 14px;
+		word-wrap: break-word;
 	}
 
 	.deliverystatus{
@@ -234,6 +235,7 @@
 
 	.recmsg {
 		background: #E08510;
+		left: 10px;
 	}
 	
 	.sent_recv{
@@ -247,7 +249,8 @@
 	}
 
 	.sentmsg {
-		background: #2AB200;		
+		background: #2AB200;
+		right: -10px;	
 	}
 
 	.sentmsg:before {
