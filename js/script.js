@@ -705,7 +705,6 @@ window.onload = function(){
 			function(){$(".logintooltips").find("span").animate({opacity:'0'},600);}
 	);
 
-
 	var isloginclicked = false;
 	$("#loginbutton").click(
 			function(){
@@ -797,8 +796,7 @@ function loadChatscreen() {
 
 	$("#concactsearch").find('input').click(function(){ 
 		$('#concactsearch').find('input').css("background-color","black");
-	})
-
+	});
 }
 
 $(window).resize(function(){
@@ -822,6 +820,25 @@ function setTextboxGap(){
 function loadMessageDiv(divElem){
 	var temp_Data = $("#msgcontainer").html()
 	$("#msgcontainer").html( temp_Data + divElem );
+}
+
+function formatAMPM(date) {
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var ampm = hours >= 12 ? 'pm' : 'am';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? '0'+minutes : minutes;
+  var strTime = hours + ':' + minutes + ' ' + ampm;
+  return strTime;
+}
+
+function sendMyMsg(message){
+	var d = new Date(); // for now
+	h = d.getHours(); // => 9
+	m = d.getMinutes(); // =>  30
+	formDivElem(0,message,formatAMPM(new Date()));
+	$("#typemsg").val("");
 }
 
 function formDivElem(parent, message, timestamp){

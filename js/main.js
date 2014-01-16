@@ -15,7 +15,6 @@ window.onload = function(){
 			function(){$(".logintooltips").find("span").animate({opacity:'0'},600);}
 	);
 
-
 	var isloginclicked = false;
 	$("#loginbutton").click(
 			function(){
