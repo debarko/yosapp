@@ -766,6 +766,24 @@ window.onload = function(){
 			function(){$(".liketooltip").find("span").css("z-index", "999").animate({opacity:'1'},600);},
 			function(){$(".liketooltip").find("span").css("z-index", "0").animate({opacity:'0'},600);}
 	);
+
+	//login when enter is pressed while either  of username and password field in focus
+	$('#loginform').each(function() {
+        $(this).find('input').keypress(function(e) {
+            // Enter pressed?
+            if(e.which == 10 || e.which == 13) {
+                formhash(
+                	document.getElementById('userfield').value,
+					document.getElementById('passfield').value,
+					document.getElementById('loginform')
+				)
+            }
+        });
+
+        $(this).find('input[type=submit]').hide();
+    });
+
+
 };
 
 function logged_in_start(){
