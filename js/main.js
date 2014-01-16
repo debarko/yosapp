@@ -93,6 +93,8 @@ window.onload = function(){
         $(this).find('input[type=submit]').hide();
     });
 
+    usernameLoginTooltip();
+
 };
 
 function logged_in_start(){
@@ -119,4 +121,17 @@ function msgSubmitOnEnter() {
         	sendMyMsg($("#typemsg").val());
         }
     });
+}
+
+
+// have to also call this function on window resize yet
+function usernameLoginTooltip(){
+	var tooltipSpan = document.getElementById('usernameLoginTooltip');
+	var absoluteCordinate = $('#userfield').offset();
+	window.onmousemove = function (e) {
+	    var x = e.clientX,
+	        y = e.clientY;
+	    tooltipSpan.style.top = (y-absoluteCordinate.top+35) + 'px';    
+	    tooltipSpan.style.left = (x-absoluteCordinate.left+125) + 'px';
+	}
 }

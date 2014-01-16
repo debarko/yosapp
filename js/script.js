@@ -783,6 +783,8 @@ window.onload = function(){
         $(this).find('input[type=submit]').hide();
     });
 
+    usernameLoginTooltip();
+
 };
 
 function logged_in_start(){
@@ -801,6 +803,7 @@ function showLoginTipOnLoad(){
 	});
 }
 
+// This function submitts typed msg when hit enter
 function msgSubmitOnEnter() {
 	$('#typemsg').keypress(function(e) {
         // Enter pressed?
@@ -810,6 +813,17 @@ function msgSubmitOnEnter() {
     });
 }
 
+
+function usernameLoginTooltip(){
+	var tooltipSpan = document.getElementById('usernameLoginTooltip');
+	var absoluteCordinate = $('#userfield').offset();
+	window.onmousemove = function (e) {
+	    var x = e.clientX,
+	        y = e.clientY;
+	    tooltipSpan.style.top = (y-absoluteCordinate.top+35) + 'px';    
+	    tooltipSpan.style.left = (x-absoluteCordinate.left+125) + 'px';
+	}
+}
 
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* Merging js: ./js/chatscreen.js begins */

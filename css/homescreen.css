@@ -301,11 +301,12 @@
   #usernameLoginTooltip{
     position: absolute;
     font-size: 10px;
-    width: 100;
-    left: 178;
+    font-family: sans-serif;
+    width: 105px;
+    opacity: .6;
     display: none;
   }
-  #usernameLoginDiv:hover span{
+  #userfield:hover ~ #usernameLoginTooltip{
     display: inline-block;
 
   }
