@@ -776,7 +776,8 @@ window.onload = function(){
         $(this).find('input[type=submit]').hide();
     });
 
-    usernameLoginTooltip();
+    pointerRelativeTooltip('#usernameLoginTooltip','#userfield',125,35);
+    //pointerRelativeTooltip('#passLoginTooltip','#passfield',125,60);
 
 };
 
@@ -808,14 +809,14 @@ function msgSubmitOnEnter() {
 
 
 // have to also call this function on window resize yet
-function usernameLoginTooltip(){
-	var tooltipSpan = document.getElementById('usernameLoginTooltip');
-	var absoluteCordinate = $('#userfield').offset();
+function pointerRelativeTooltip(tooltipSpan, hoverElement, xOffset, yOffset){
+	var tooltipSpan = $(tooltipSpan);
+	var absoluteCordinate = $(hoverElement).offset();
 	window.onmousemove = function (e) {
 	    var x = e.clientX,
 	        y = e.clientY;
-	    tooltipSpan.style.top = (y-absoluteCordinate.top+35) + 'px';    
-	    tooltipSpan.style.left = (x-absoluteCordinate.left+125) + 'px';
+		tooltipSpan.css('left', (x-absoluteCordinate.left+xOffset) + 'px');   //+125
+	    tooltipSpan.css('top',  (y-absoluteCordinate.top+yOffset) + 'px');    //+35
 	}
 }
 
@@ -948,4 +949,13 @@ function setOptionsWidth(id, parent){
 		$("#"+id+" > #mother_div").css("float", "right");
 		$("#"+id+" > #mother_div").addClass("mother_div_right");		
 	}
+}
+
+
+function searchConcats(){
+	$("#contactSearchbar").val("");
+}
+
+function shareOption(){
+	$('.shareOptionsBar').animate({top:"-1px"},800,"swing");
 }

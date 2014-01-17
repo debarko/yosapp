@@ -7,10 +7,11 @@
 	</div>
 	<div id="usernameLoginDiv">
 		USERNAME <input id="userfield" class="inputfields" type="text" name="user" />
-		<span id="usernameLoginTooltip">Enter Phone Number</span>
+		<span id="usernameLoginTooltip" class="loginformFieldTooltips">Enter Phone Number</span>
 	</div>
 	<div>
 		PASSWORD <input id="passfield" class="inputfields" type="password" name="user" />
+		<span id="passLoginTooltip" class="loginformFieldTooltips">Enter Password</span>
 	</div>
 	<!--<div><input id=rememberme type="checkbox" name="isrememberme" value="remember me">Keep me loggend in<br></div> -->
 	<div>

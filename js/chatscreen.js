@@ -123,3 +123,12 @@ function setOptionsWidth(id, parent){
 		$("#"+id+" > #mother_div").addClass("mother_div_right");		
 	}
 }
+
+
+function searchConcats(){
+	$("#contactSearchbar").val("");
+}
+
+function shareOption(){
+	$('.shareOptionsBar').animate({top:"-1px"},800,"swing");
+}

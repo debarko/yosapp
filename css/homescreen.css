@@ -298,8 +298,10 @@
   }
 
   /* username login tooltip*/
-  #usernameLoginTooltip{
+ 
+  .loginformFieldTooltips{
     position: absolute;
+    margin-top: 5px;
     font-size: 10px;
     font-family: sans-serif;
     width: 105px;
@@ -308,8 +310,11 @@
   }
   #userfield:hover ~ #usernameLoginTooltip{
     display: inline-block;
-
   }
+  #passfield:hover ~ #passLoginTooltip{
+    display: inline-block;
+  }
+
 
 
 
