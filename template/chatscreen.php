@@ -36,6 +36,6 @@
 		<div id="attachment"></div>
 		<div id="smiley"></div>
 		<div id="msgtypebar"><input id="typemsg" type="text" name="typemsg" value="" onclick='msgSubmitOnEnter();'/></div>
-		<div id="sendbutton" onclick='javascript:sendMyMsg($("#typemsg").val());'></div>
+		<div id="sendbutton" onclick='javascript:sendMyMsg($("#typemsg").val()); $("#typemsg").focus();'></div>
 	</div>
 </div>

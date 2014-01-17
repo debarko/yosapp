@@ -659,29 +659,17 @@ function maximize(html_val, callback){
 			callback();
 		}
 	});
+	
 }
+
+
 
 //Logs in a user upon successful login
 function log_in_user() {
-	maximize(YW.CHATSCREEN())
+	maximize(YW.CHATSCREEN());
+	$('#typemsg').select2('focus');
 }
 
-
-
-/*
-
-// tooltip that moves relative to the pointer
-
-var tooltipSpan = document.getElementById('usernameLoginTooltip');
-var initialLeft = parseInt($('#usernameLoginTooltip').css('left'));
-var initialTop = parseInt($('#usernameLoginTooltip').css('top'));
-window.onmousemove = function (e) {
-    var x = e.clientX,
-        y = e.clientY;
-    
-    tooltipSpan.style.left = (x-initialLeft-10) + 'px';
-};
-*/
 
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* Merging js: ./js/main.js begins */
@@ -814,6 +802,7 @@ function msgSubmitOnEnter() {
 }
 
 
+// have to also call this function on window resize yet
 function usernameLoginTooltip(){
 	var tooltipSpan = document.getElementById('usernameLoginTooltip');
 	var absoluteCordinate = $('#userfield').offset();

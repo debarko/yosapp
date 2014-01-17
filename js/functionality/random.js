@@ -14,9 +14,14 @@ function maximize(html_val, callback){
 			callback();
 		}
 	});
+	
 }
+
+
 
 //Logs in a user upon successful login
 function log_in_user() {
-	maximize(YW.CHATSCREEN())
+	maximize(YW.CHATSCREEN());
+	//this part not working for some resson
+	//$('#typemsg').select2('focus');
 }
