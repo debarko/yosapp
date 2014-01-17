@@ -26,6 +26,8 @@ window.onload = function(){
 				else{
 					$("#loginform").css('visibility','visible');
 					$("#loginform").animate({'opacity':'1'},800);
+					//focus username field
+					$('#userfield').focus();
 					isloginclicked = true;
 					//virtually unclick the signup button also
 					$("#regform").animate({'opacity':'0'},800);
@@ -56,6 +58,8 @@ window.onload = function(){
 				else{
 					$("#regform").css('visibility','visible');
 					$("#regform").animate({'opacity':'1'},800);
+					//focus first field
+					$('#phone_reg').focus();
 					issignupclicked = true;
 					//disapear login form
 					$("#loginform").animate({'opacity':'0'},800);
