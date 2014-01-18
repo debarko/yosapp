@@ -97,7 +97,7 @@ window.onload = function(){
         $(this).find('input[type=submit]').hide();
     });
 
-    pointerRelativeTooltip('#usernameLoginTooltip','#userfield',125,35);
+    //pointerRelativeTooltip('#usernameLoginTooltip','#userfield',125,35);
     //pointerRelativeTooltip('#passLoginTooltip','#passfield',125,60);
 
 };
@@ -140,4 +140,20 @@ function pointerRelativeTooltip(tooltipSpan, hoverElement, xOffset, yOffset){
 		tooltipSpan.css('left', (x-absoluteCordinate.left+xOffset) + 'px');   //+125
 	    tooltipSpan.css('top',  (y-absoluteCordinate.top+yOffset) + 'px');    //+35
 	}
+}
+
+// function that pops up error msg
+function dispErrMsg(msg) {
+	var dialogueBox = $('#errorMsgBox'); 
+	// check and see if the Dialogue box is on 
+	if ( dialogueBox.css('visibility') == "hidden" ) {
+		dialogueBox.css('opacity','0');
+		dialogueBox.css('visibility', 'visible');
+		dialogueBox.animate({opacity:'1'},600,'swing');
+	}
+	//put the msg in the Dialogue Box
+	$('#errMsg').html(msg);
+}
+function closeErrorMgsBox() {
+	$('#errorMsgBox').animate({opacity:'0'},700,"swing",function(){ $('#errorMsgBox').css("visibility","hidden"); });
 }

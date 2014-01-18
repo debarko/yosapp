@@ -58,3 +58,8 @@
 		"/>
 	</div>
 </form>
+
+<div id="errorMsgBox">
+	<span id="errMsg"></span>
+	<span id="closeErrMsgBox" onclick="javascript:closeErrorMgsBox();"></span>
+</div>

@@ -73,7 +73,8 @@ function regformhash(form, uid, email, password, conf) {
           password.value == ''       || 
           conf.value == '') {
  
-        alert('You must provide all the requested details. Please try again');
+        //alert('You must provide all the requested details. Please try again');
+        dispErrMsg('You must provide all the requested details. Please try again');
         return false;
     }
  
@@ -81,7 +82,8 @@ function regformhash(form, uid, email, password, conf) {
  
     re = /^\w+$/; 
     if(!re.test(form.username.value)) { 
-        alert("Usernames may contain only digits along with country code");
+        //alert("Usernames may contain only digits along with country code");
+        dispErrMsg('Usernames may contain only digits along with country code');
         form.username.focus();
         return false; 
     }
@@ -90,7 +92,8 @@ function regformhash(form, uid, email, password, conf) {
     // The check is duplicated below, but this is included to give more
     // specific guidance to the user
     if (password.value.length < 6) {
-        alert('Passwords must be at least 6 characters long.  Please try again');
+        //alert('Passwords must be at least 6 characters long.  Please try again');
+        dispErrMsg('Passwords must be at least 6 characters long.  Please try again');
         form.password.focus();
         return false;
     }
@@ -100,19 +103,22 @@ function regformhash(form, uid, email, password, conf) {
  
     var re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/; 
     if (!re.test(password.value)) {
-        alert('Passwords must contain at least one number, one lowercase and one uppercase letter.  Please try again');
+        //alert('Passwords must contain at least one number, one lowercase and one uppercase letter.  Please try again');
+        dispErrMsg('Passwords must contain at least one number, one lowercase and one uppercase letter.  Please try again');
         return false;
     }
  
     // Check password and confirmation are the same
     if (password.value != conf.value) {
-        alert('Your password and confirmation do not match. Please try again');
+        //alert('Your password and confirmation do not match. Please try again');
+        dispErrMsg('Your password and confirmation do not match. Please try again');
         form.password.focus();
         return false;
     }
 
     if (!checkEmail(email.value)) {
-        alert('Your email is not a valid address. Please try again');
+        //alert('Your email is not a valid address. Please try again');
+        dispErrMsg('Your email is not a valid address. Please try again');
         form.email.focus();
         return false;
     }
@@ -779,7 +785,7 @@ window.onload = function(){
         $(this).find('input[type=submit]').hide();
     });
 
-    pointerRelativeTooltip('#usernameLoginTooltip','#userfield',125,35);
+    //pointerRelativeTooltip('#usernameLoginTooltip','#userfield',125,35);
     //pointerRelativeTooltip('#passLoginTooltip','#passfield',125,60);
 
 };
@@ -823,6 +829,23 @@ function pointerRelativeTooltip(tooltipSpan, hoverElement, xOffset, yOffset){
 	    tooltipSpan.css('top',  (y-absoluteCordinate.top+yOffset) + 'px');    //+35
 	}
 }
+
+// function that pops up error msg
+function dispErrMsg(msg) {
+	var dialogueBox = $('#errorMsgBox'); 
+	// check and see if the Dialogue box is on 
+	if ( dialogueBox.css('visibility') == "hidden" ) {
+		dialogueBox.css('opacity','0');
+		dialogueBox.css('visibility', 'visible');
+		dialogueBox.animate({opacity:'1'},600,'swing');
+	}
+	//put the msg in the Dialogue Box
+	$('#errMsg').html(msg);
+}
+function closeErrorMgsBox() {
+	$('#errorMsgBox').animate({opacity:'0'},700,"swing",function(){ $('#errorMsgBox').css("visibility","hidden"); });
+}
+
 
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* Merging js: ./js/chatscreen.js begins */
@@ -874,6 +897,9 @@ function formatAMPM(date) {
 }
 
 function sendMyMsg(message){
+	if(message===""){
+		return;
+	}
 	var d = new Date(); // for now
 	h = d.getHours(); // => 9
 	m = d.getMinutes(); // =>  30

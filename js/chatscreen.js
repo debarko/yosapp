@@ -43,6 +43,9 @@ function formatAMPM(date) {
 }
 
 function sendMyMsg(message){
+	if(message===""){
+		return;
+	}
 	var d = new Date(); // for now
 	h = d.getHours(); // => 9
 	m = d.getMinutes(); // =>  30
