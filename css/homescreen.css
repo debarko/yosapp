@@ -57,6 +57,8 @@
   .icon{
   	margin-left:20px;
     right:25px;
+    position: relative;
+    float: right;
   }
 
   .icon:hover{

@@ -17,11 +17,13 @@ function maximize(html_val, callback){
 	
 }
 
-
-
 //Logs in a user upon successful login
 function log_in_user() {
-	maximize(YW.CHATSCREEN());
-	//this part not working for some resson
-	//$('#typemsg').select2('focus');
+	maximize(YW.CHATSCREEN(), function(){
+		$('#typemsg').select('focus');
+		$('#icons').html(YW.LOGGED_IN_H());
+		$('#icons').css("top","2px");
+		$('#icons').css("right","2px");
+		setSearchContainerHeight();
+	});
 }

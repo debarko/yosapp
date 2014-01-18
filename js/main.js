@@ -103,11 +103,12 @@ window.onload = function(){
 };
 
 function logged_in_start(){
-	maximize( YW.CHATSCREEN(), setSearchContainerHeight);	
+	log_in_user();
 }
 
 function logged_out_start(){
 	$('#bodybg').html(YW.HOMESCREEN());
+	$('#icons').html(YW.LOGGED_OUT_H());
 	//flash once the login tool tip 
 	showLoginTipOnLoad();
 }

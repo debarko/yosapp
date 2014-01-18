@@ -26,21 +26,9 @@
 		(function(YW) {
 		    YW.HOMESCREEN   = function() { return '<?php echo $homescreen; ?>'; };
 		    YW.CHATSCREEN   = function() { return '<?php echo $chatscreen; ?>'; };
-		    YW.CHATBUBBLE	= function() { return  '<div id="wrapper_bubble" class="clearfix">'+
-		    											'<div id="mother_div" class="clearfix">'+
-															'<div id="sent_recv" class="sent_recv">'+
-																'<div class="textbox"  onclick="shareOption();">'+																	
-																'</div>'+
-																'<span id="deliverystatus"></span>'+
-																'<span id="timestamp" class="timestamp"></span>'+
-															'</div>'+
-															'<div class="shareOptionsBar">'+
-																'<div class="before"></div>'+
-																'<div class="midbar"></div>'+
-																'<div class="after"></div>'+
-															'</div>'+
-														'</div>'+
-													'</div>'};
+		    YW.CHATBUBBLE	= function() { return '<?php echo $chatbubble; ?>'; };
+		    YW.LOGGED_IN_H	= function() { return '<?php echo $header_logged_in; ?>' };
+		    YW.LOGGED_OUT_H	= function() { return '<?php echo $header_logged_out; ?>' };
 			YW.UA           = function() { return navigator.userAgent; };
 			YW.logged_in	= function() { return '<?php echo ($logged_in)?"true":"false"; ?>'; };
 		    YW.LOADED_AT    = new Date();

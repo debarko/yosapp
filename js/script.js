@@ -662,13 +662,16 @@ function maximize(html_val, callback){
 	
 }
 
-
-
 //Logs in a user upon successful login
 function log_in_user() {
-	maximize(YW.CHATSCREEN());
-	//this part not working for some resson
-	//$('#typemsg').select2('focus');
+	maximize(YW.CHATSCREEN(), function(){
+		alert("YOY");
+		$('#typemsg').select('focus');
+		$('#icons').html(YW.LOGGED_IN_H());
+		$('#icons').css("top","2px");
+		$('#icons').css("right","2px");
+		setSearchContainerHeight();
+	});
 }
 
 
@@ -782,11 +785,12 @@ window.onload = function(){
 };
 
 function logged_in_start(){
-	maximize( YW.CHATSCREEN(), setSearchContainerHeight);	
+	log_in_user();
 }
 
 function logged_out_start(){
 	$('#bodybg').html(YW.HOMESCREEN());
+	$('#icons').html(YW.LOGGED_OUT_H());
 	//flash once the login tool tip 
 	showLoginTipOnLoad();
 }
