@@ -989,3 +989,52 @@ function searchConcats(){
 function shareOption(){
 	$('.shareOptionsBar').animate({top:"-1px"},800,"swing");
 }
+
+
+function showModal(){
+	var modal = $('#modal');
+	var overlay = $('#overlay');
+	overlay.css({
+		opacity:'0',
+		visibility:'visible'
+	});
+	overlay.animate({opacity:'1'},200,'swing',function(){
+		//now bring up the modal
+		modal.css({
+			width:'0px',
+			height:'0px',
+			top:'50%',
+			left:'50%',
+			margin:'0px',
+			border:'0px',
+			visibility:'visible'
+		});
+		modal.animate({
+			width: '600px',
+			height: '400px',
+			top: '50%',
+			left: '50%',
+			margin:'-200px 0px 0px -300px'
+		},300,"swing",function(){
+			$('#modalCloseButton').css('visibility','visible');
+		});
+	});
+}
+
+function closeModal(){
+	var modalDialogue = $('#modal');
+	var overlay = $('#overlay');
+	$('#modalContent').html('');
+	//anumate and close the modal
+	modalDialogue.animate({
+		width:'0px',
+		height:'0px',
+		top:'50%',
+		left:'50%',
+		margin:'0px',
+		border:'0px'
+	},300,'swing',function() {
+		$('#modalCloseButton').css('visibility','hidden');
+		overlay.animate({opacity:"0"},200,"swing",function(){overlay.css('visibility','hidden');})
+	});
+}
