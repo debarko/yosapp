@@ -130,7 +130,7 @@
 		display: block;
 		width: 85%;
 		height: 30px;
-		margin: 4 auto;
+		margin: 3 auto;
 		background-color: rgba(0, 0, 0, 0);
 	}
 	.contact img{
@@ -142,6 +142,9 @@
 		display: inline-block;
 		color: rgba(40, 48, 38, 0.77);
 		font-size: 13px;
+	}
+	.contact:hover{
+		background-color: rgba(209, 247, 209, 0.5);
 	}
 	#contactoptions{
 	    width: 100%;
@@ -376,7 +379,7 @@
 		background-image: url('../icons/cross.png');
 		background-repeat: no-repeat;
 		background-position: 4 4;
-		border: 2px solid rgba(255, 255, 255, 0);
+		border: 2px solid transparent;
 		height: 20;
 		width: 20;
 		position: absolute;

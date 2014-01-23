@@ -6,7 +6,7 @@
 		<span></span>
 	</div>
 	<div id="usernameLoginDiv">
-		USERNAME <input id="userfield" class="inputfields" type="text" name="user" />
+		PHONE NUMBER <input id="userfield" class="inputfields" type="text" name="user" />
 		<span id="usernameLoginTooltip" class="loginformFieldTooltips">Enter Phone Number</span>
 	</div>
 	<div>
