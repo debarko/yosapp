@@ -25,7 +25,9 @@
 			<li class="contact"><img src="./icons/baba.jpg"><span>Binayaka Chakraborty</span></li>
 		</ul>
 	</div>
-	<div id="contactoptions"></div>
+	<div id="contactoptions">
+		<div class="contactOptionsIcon" id="manualAddContact" onclick='showModal();'></div>
+	</div>
 </div>
 <div id="rightpannel">
 	<div id="msgcontainer">
@@ -38,9 +40,4 @@
 		<div id="msgtypebar"><input id="typemsg" type="text" name="typemsg" value="" onclick='msgSubmitOnEnter();'/></div>
 		<div id="sendbutton" onclick='javascript:sendMyMsg($("#typemsg").val()); $("#typemsg").focus();'></div>
 	</div>
-</div>
-<div id="overlay" onclick='closeModal();'></div>
-<div id="modal">
-	<span id="modalCloseButton" onclick='closeModal();'></span>
-	<div id="modalContent"></div>
 </div>

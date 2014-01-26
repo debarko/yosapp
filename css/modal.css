@@ -1,0 +1,68 @@
+#modal{
+	position: absolute;
+	display: block;
+	height: 400;
+	width: 600;
+	background-color: rgba(42, 178, 0, 1);
+	top: 50%;
+	left: 50%;
+	margin: -200px 0px 0px -300px;
+	border: 1px solid rgba(255, 255, 255, 0.36);
+	box-shadow: 0 0 23px rgba(255, 255, 255, 0.12);
+	visibility: hidden;
+	z-index: 101;
+}
+#modalCloseButton{
+	background-image: url('../icons/cross.png');
+	background-repeat: no-repeat;
+	background-position: 4 4;
+	border: 2px solid transparent;
+	height: 20;
+	width: 20;
+	position: absolute;
+	right: 8px;
+	top: 8px;
+}
+
+#modalCloseButton:hover{
+	background-color: rgba(255, 255, 255, 0.18);
+	border: 2px solid rgba(255, 255, 255, 0.35);
+	border-radius: 12px;
+}
+#modalMenuBar{
+	float: left;
+	width: 170px;
+	height: 100%;
+	background-color: #59C238;
+	color: white;
+}
+.modalMenuItem{
+	position: relative;
+	top: 30px;
+	width: 100%;
+	height: 40px;
+}
+/*.modalMenuItem:after{
+	content: '';
+	position: relative;
+	left: 14px;
+	top: -85%;
+	display: inline-block;
+	float: right;
+	border-left: 15px solid #59c238;
+	border-bottom: 10px solid transparent;
+	border-top: 10px solid transparent;
+	visibility: hidden;
+}*/
+.modalMenuItem p{
+	padding: 13;
+	font-family: sans-serif;
+}
+.modalMenuItem:hover{
+	background-color: #2AB200;
+}
+#modalRightPanel{
+	display: inline-block;
+	height: 100%;
+	width: 430px
+}
