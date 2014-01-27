@@ -64,3 +64,13 @@ top: 39%;
 left: 47%;
 background-image: url('../icons/whatsappIcon.png');
 }
+
+#overlay{
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.86);
+	visibility: hidden;
+	z-index: 100;
+}

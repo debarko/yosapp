@@ -410,10 +410,10 @@
   /*format the login button*/
   #loginbutton{
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   margin: 0 auto;
-  background-image: url('../icons/whatsappIcon.png');
+  background-image: url('../icons/logo_min.png');
   }
 
   #logintext{
@@ -494,7 +494,7 @@
   }
   div.logintooltips span {
     position: relative;
-    left: 130px;
+    left: 135px;
     float: right;
     top: -70px;
     width:140px;
@@ -511,26 +511,28 @@
    }
   div.logintooltips span:before {
   	content: '';
-  	position: absolute;
-  	top: 50%;
-  	right: 100%;
-  	margin-top: -12px;
-  	width: 0;
-  	height: 0;
-  	border-right: 9px solid rgba(255, 255, 255, 0.31);
-  	border-top: 11px solid transparent;
-  	border-bottom: 13px solid transparent;
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -12px;
+    width: 0;
+    height: 0;
+    border-right: 16px solid rgba(255,255,255,.35);
+    border-top: 11px solid transparent;
+    border-bottom: 12px solid transparent;
   }
   div.logintooltips span:after {
     content: '';
     position: absolute;
     top: 50%;
     right: 100%;
-    margin-top: -8px;
-    width: 0; height: 0;
-    border-right: 8px solid #2AB200;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
+    margin-top: -12px;
+    left: -14px;
+    width: 0;
+    height: 0;
+    border-right: 16px solid #2AB200;
+    border-top: 11px solid transparent;
+    border-bottom: 12px solid transparent;
   }
 
 
@@ -636,5 +638,15 @@
   #copyright p{
   	position: absolute;
   	bottom: 5px;
+  }
+
+  #overlay{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.86);
+    visibility: hidden;
+    z-index: 100;
   }
 } /* hd res layout over */

@@ -13,6 +13,7 @@
 - ./js/functionality/random.js
 - ./js/main.js
 - ./js/chatscreen.js
+- ./js/modal.js
 
 */
 
@@ -671,7 +672,7 @@ function maximize(html_val, callback){
 
 //Logs in a user upon successful login
 function log_in_user() {
-	maximize(YW.CHATSCREEN(), function(){
+	maximize(YW.CHATSCREEN()+YW.MODAL(), function(){
 		$('#typemsg').focus();
 		$('#icons').html(YW.LOGGED_IN_H());
 		$('#icons').css("top","2px");
@@ -991,9 +992,18 @@ function shareOption(){
 }
 
 
-function showModal(){
+function showModal(defaultSelectedMenu){
 	var modal = $('#modal');
 	var overlay = $('#overlay');
+	if(YW.logged_in()){
+		$('#modalMenuBar').html(YW.L_IN());
+		$('#modalRightPanel').html(YW.R_IN());
+	}
+	else
+	{
+		$('#modalMenuBar').html(YW.L_OUT());
+		$('#modalRightPanel').html(YW.R_OUT());		
+	}
 	overlay.css({
 		opacity:'0',
 		visibility:'visible'
@@ -1037,4 +1047,49 @@ function closeModal(){
 		$('#modalCloseButton').css('visibility','hidden');
 		overlay.animate({opacity:"0"},200,"swing",function(){overlay.css('visibility','hidden');})
 	});
+}
+
+function selectMenuItem(selectedMenuItem){
+	// clear previously selected menu item background color
+	$('.modalMenuItem').css('background-color','');
+	//change the selected menu item background
+	$(selectedMenuItem).css('background-color','#2AB200');
+}
+
+
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* Merging js: ./js/modal.js begins */
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+/*function addContact(){
+	//animation part
+	var arrow = $('#addContactAnimation').find('#arrow');
+	for (var i=0; i<5; i++){ 
+		arrow.animate({left:'200px',opacity:'0'},300,'swing',function(){
+			arrow.css('left','0px');
+			arrow.css('opacity','1');
+		});
+	}
+}
+*/
+function addContact(){
+	//animation part
+	var arrow = $('#addContactAnimation').find('#arrow');
+	animate(5);
+	function animate(times){
+		if(times == 0){
+			return;
+		}
+		arrow.css({left:'0px',opacity:'0'});
+		//arrow.css('opacity','0');
+		arrow.animate({left:'100px',opacity:'1'},300,'linear',function(){
+			arrow.animate({left:'200px',opacity:'0'},300,'linear',function(){
+				times--;
+				animate(times);
+			});
+		});
+	}
+
+	
 }

@@ -6,3 +6,4 @@
 
 ./js/main.js
 ./js/chatscreen.js
+./js/modal.js

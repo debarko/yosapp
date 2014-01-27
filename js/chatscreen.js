@@ -137,9 +137,18 @@ function shareOption(){
 }
 
 
-function showModal(){
+function showModal(defaultSelectedMenu){
 	var modal = $('#modal');
 	var overlay = $('#overlay');
+	if(YW.logged_in()){
+		$('#modalMenuBar').html(YW.L_IN());
+		$('#modalRightPanel').html(YW.R_IN());
+	}
+	else
+	{
+		$('#modalMenuBar').html(YW.L_OUT());
+		$('#modalRightPanel').html(YW.R_OUT());		
+	}
 	overlay.css({
 		opacity:'0',
 		visibility:'visible'
@@ -183,4 +192,11 @@ function closeModal(){
 		$('#modalCloseButton').css('visibility','hidden');
 		overlay.animate({opacity:"0"},200,"swing",function(){overlay.css('visibility','hidden');})
 	});
+}
+
+function selectMenuItem(selectedMenuItem){
+	// clear previously selected menu item background color
+	$('.modalMenuItem').css('background-color','');
+	//change the selected menu item background
+	$(selectedMenuItem).css('background-color','#2AB200');
 }

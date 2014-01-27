@@ -66,3 +66,125 @@
 	height: 100%;
 	width: 430px
 }
+
+
+
+/* modal right panel for add contacts */
+#addContactHeader{
+	position: relative;
+	top: -30px;
+	color: rgba(255, 255, 255, 0.46);
+	font-size: 25px;
+	font-family: fantasy;
+}
+#addContactHeader:after{
+	content: '';
+	display: block;
+	height: 5px;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.37);
+	margin-top: 8;
+}
+#addContactForm{
+	position: relative;
+	width: 250px;
+	display: block;
+	margin: -25 auto;
+	left: -5%;
+	top: 25%;
+}
+
+.inputFieldWraper{
+	display: inline-block;
+	width: 120px;
+}
+#lastNameWrapper{
+	margin-left: 5px;
+}
+#lastNameWrapper:after{
+	content: '';
+	position: absolute;
+	height: 25px;
+	width: 25px;
+	margin: 18 0 0 21;
+	background-image: url('../icons/user.png');
+	opacity: .7;
+}
+#phNumberWrapper:after{
+	content: '';
+	position: absolute;
+	height: 30px;
+	width: 25px;
+	margin: 15 0 0 17;
+	background-image: url('../icons/phone_min.png');
+	opacity: .7;
+}
+
+#countryNameWrapper{
+	width: 186px;
+}
+#countryCodeWrapper{
+	margin-left: 5px;
+	width: 55px;
+}
+#countryCodeWrapper:after{
+	content: '';
+	position: absolute;
+	margin: 18 0 0 19;
+	height: 25px;
+	width: 25px;
+	background-image: url('../icons/globe_min(24X24).png');
+	opacity: .7;
+}
+
+.modalInputField{
+	color: rgba(11, 20, 5, 0.29);
+	font-size: 10px;
+	border: none;
+	background-color: rgba(255, 255, 255, 0.66);
+	height: 30px;
+	width: 100%;
+	margin-top: 15px;
+	text-indent: 15px;
+}
+
+#addButton{
+	height: 30px;
+	width: 70;
+	margin: 15 0 0 0;
+	background-color: rgba(255, 255, 255, 0.71);
+	border: none;
+	border-radius: 2px;
+	font-size: 14px;
+	font-family: sans-serif;
+	color: rgb(90, 85, 76);
+}
+ #addContactAnimation{
+	height: 25;
+	width: 124%;
+	margin: 30 0 0 0;
+	opacity: .3;
+}
+.animatedIcons{
+	display: inline-block;
+	height: 100%;
+	width: 24px;
+	width: 24px;
+	background-repeat: no-repeat;
+}
+
+#addContactAnimation #user{
+	background-image: url('../icons/user.png');
+}
+#addContactAnimation #arrow{
+	position: relative;
+	margin: 0 0 0 10;
+	background-image: url('../icons/right_arrow.png');
+	background-position: 0 2;
+}
+#addContactAnimation #phonebook{
+	float: right;
+	margin: 0 15 0 0;
+	width: 30px;
+	background-image: url('../icons/phonebook_min.png');
+}

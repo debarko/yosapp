@@ -153,7 +153,15 @@
 	    position: absolute;
 	    bottom: 0px;
 	}
-
+	#manualAddContact{
+		display: inline-block;
+		height: 40px;
+		width: 40px;
+		margin-left: 10px;
+		background-image: url('../icons/signup1.png');
+		background-repeat: no-repeat;
+		background-position: -1 6;
+	}
 	#rightpannel{
 		height: 100%;
 		margin-left: 240px;
@@ -350,49 +358,6 @@
 		border-radius: 6px;
 		border-bottom: 2px solid rgba(34, 153, 175, 0.73);
 	}
-	
-	#overlay{
-		position: absolute;
-		top: 0;
-		height: 100%;
-		width: 100%;
-		background-color: rgba(0, 0, 0, 0.86);
-		visibility: hidden;
-		z-index: 100;
-	}
-
-	#modal{
-		position: absolute;
-		display: block;
-		height: 400;
-		width: 600;
-		background-color: rgba(42, 178, 0, 1);
-		top: 50%;
-		left: 50%;
-		margin: -200px 0px 0px -300px;
-		border: 1px solid rgba(255, 255, 255, 0.36);
-		box-shadow: 0 0 23px rgba(255, 255, 255, 0.12);
-		visibility: hidden;
-		z-index: 101;
-	}
-	#modalCloseButton{
-		background-image: url('../icons/cross.png');
-		background-repeat: no-repeat;
-		background-position: 4 4;
-		border: 2px solid transparent;
-		height: 20;
-		width: 20;
-		position: absolute;
-		right: 8px;
-		top: 8px;
-	}
-
-	#modalCloseButton:hover{
-		background-color: rgba(255, 255, 255, 0.18);
-		border: 2px solid rgba(255, 255, 255, 0.35);
-		border-radius: 12px;
-	}
-
 
 	/*Scroll bar*/
 	/* design scrollbar */
