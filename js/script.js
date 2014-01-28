@@ -54,6 +54,7 @@ function formhash(username, password, form) {
         dataType: "json"
         })
         .success(function(response) {
+            console.log(typeof response);
             if(response===true) {
                 log_in_user();
             }
