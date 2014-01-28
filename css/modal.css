@@ -210,3 +210,91 @@
 	margin: 0 0 0 0;
 	left: 32;
 }
+
+#userInfoDiv{
+	height: 130px;
+	width: 100%;
+	border: 1px solid rgba(255, 255, 255, 0.19);
+	background-color: rgba(255, 255, 255, 0.09);
+}
+#userInfoHeader{
+	position: relative;
+	top: -45px;
+	font-family: fantasy;
+	font-size: 25px;
+	color: white;
+	opacity: .5;
+}
+#userInfoHeader:after{
+	content: '';
+	display: block;
+	position: absolute;
+	height: 5px;
+	width: 100%;
+	background-color: white;
+	margin-top: 6;
+}
+
+.userInfoDivMemberwrapper{
+	position: relative;
+	height: 25px;
+	width: 210px;
+	left: 20px;
+	top: 20;
+	margin-bottom: 5px;
+}
+.userInfoDivMemberIcons{
+	height: 25px;
+	width: 25px;
+	display: inline-block;
+	background-repeat: no-repeat;
+}
+#userInfoDivMemberIconsUser{
+	background-image: url('../icons/user.png');
+}
+#userInfoDivMemberIconsPhone{
+	background-image: url('../icons/phone_min.png');
+	background-position: -4 -3;
+}
+#userInfoDivMemberIconsCountry{
+	background-image: url('../icons/globe_min(24X24).png');	
+}
+.userInfoDivMemberText{
+	position: relative;
+	top: -9;
+	display: inline-block;
+	width: 175px;
+	height: 100%;
+	margin-left: 10px;
+	font-size: 15px;
+	color: white;
+	font-family: sans-serif;
+}
+#phonebookContainter{
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+	background-image: url('../icons/phonebook.png');
+	margin-top: 15px;
+}
+#successfullTag{
+	display: inline-block;
+	height: 28px;
+	width: 84%;
+	margin-left: 10px;
+	font-size: 14px;
+	color: white;
+	font-family: sans-serif;
+	position: relative;
+	top: -7px;
+}
+#successfullTag:after{
+	content: '';
+	position: absolute;
+	display: inline-table;
+	height: 20px;
+	width: 20px;
+	right: -20px;
+	top: -4px;
+	background-image: url('../icons/singlecheck.png');
+}
