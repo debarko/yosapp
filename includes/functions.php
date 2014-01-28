@@ -1,4 +1,49 @@
 <?php
+function getW_PassCC($mysqli) {
+    // Using prepared statements means that SQL injection is not possible. 
+    if ($stmt = $mysqli->prepare("SELECT w_pass, cc FROM members
+       WHERE username = ?
+        LIMIT 1")) {
+        $stmt->bind_param('s', $_SESSION['username']);  // Bind "$username" to parameter.
+        $stmt->execute();    // Execute the prepared query.
+        $stmt->store_result();
+ 
+        // get variables from result.
+        $stmt->bind_result($w_pass, $cc);
+        $stmt->fetch();
+
+        if ($stmt->num_rows == 1) {
+            return "{\"w_pass\": \"$w_pass\", \"cc\": $cc}";
+        } else {
+            // No user exists.
+            return false;
+        }
+    }
+}
+
+//A function which checks for validity of $_POST or $_GET variable
+//existance
+function isDataEqual($srv, $var_name, $val="notused") {
+    if(!isset($srv)) {
+        //Internal check
+        return false;
+    }
+    if(!isset($srv[$var_name])){
+        //Variable is not set
+        return false;
+    }
+    if($val === "notused") {
+        //Variable exists
+        return true;
+    } else if($srv[$var_name]===$val) {
+        //Value same
+        return true;
+    } else {
+        //Not matching
+        return false;
+    }
+}
+
 function sec_session_start() {
     $session_name = 'sec_session_id';   // Set a custom session name
     $secure = SECURE;
