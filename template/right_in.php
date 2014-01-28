@@ -7,8 +7,13 @@
 	<div class="inputFieldWraper" id="countryCodeWrapper" ><input id="countryCode" class="modalInputField" type="text" name="countryCode" value="CC" /></div>
 	<div ><input id="addButton" type="button" value="ADD" onclick='addContact();' /></div>
 	<div id="addContactAnimation">
-		<div class="animatedIcons" id="user"><span></span></div>
-		<div class="animatedIcons" id="arrow"><span></span></div>
-		<div class="animatedIcons" id="phonebook"><span></span></div>
+		<div class="animatedIcons" id="user"></div>
+		<div class="animatedIcons" id="arrow"></div>
+		<div class="animatedIcons" id="phonebook"></div>
+		<div id="addContactAnimatedMsgBoxWrapper">
+			<div class="addContactAnimatedMsgBox" id="contactNameAnimatedMsgBox">Tuhin Sengupta</div>
+			<div class="addContactAnimatedMsgBox" id="addingTextAnimatedMsgBox">Adding...</div>
+			<div class="addContactAnimatedMsgBox" id="phonebookAnimatedMsgBox">Successful</div>
+		</div>
 	</div>
 </div>

@@ -12,20 +12,44 @@
 function addContact(){
 	//animation part
 	var arrow = $('#addContactAnimation').find('#arrow');
-	animate(5);
-	function animate(times){
+	//show contact name under the user icon
+	var fName = $('#contactFirstName').val();
+	var lName = $('#contactLastName').val();
+	$('#contactNameAnimatedMsgBox').html(fName+' '+lName).animate({opacity:'1'},700, "swing");
+
+	
+	animateLoop(5);
+	function animateLoop(times){
+		//break recurtion condition
 		if(times == 0){
+			// animate "successfull" once
+			animateGlow('#phonebookAnimatedMsgBox', '1', '0', 1000);
+			//final state
+			$('#phonebook').css('opacity','.3');
+			$('#addingTextAnimatedMsgBox').css('opacity','0');
+			$('#contactNameAnimatedMsgBox').css('opacity','0');			
 			return;
 		}
+		//reset arrow position
 		arrow.css({left:'0px',opacity:'0'});
-		//arrow.css('opacity','0');
+		//animate(glow) user icon
+		animateGlow('#user', '.7', '.3', 300);
+		//animate(glow) phonebook icon
+		animateGlow('#phonebook', '.3', '.7', 300);
+		//animate(glow) "Adding" text under the runing arrow
+		animateGlow('#addingTextAnimatedMsgBox', '1', '.3', 300);
+		// animate(run) arrow icon
 		arrow.animate({left:'100px',opacity:'1'},300,'linear',function(){
 			arrow.animate({left:'200px',opacity:'0'},300,'linear',function(){
 				times--;
-				animate(times);
+				animateLoop(times);
 			});
 		});
-	}
 
-	
+		function animateGlow(element, opa1, opa2, ms){
+			$(element).animate({opacity:opa1},ms,'swing',function(){
+				$(element).animate({opacity:opa2},ms,'swing');
+			});
+		}
+	}
 }

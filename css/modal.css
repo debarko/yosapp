@@ -163,7 +163,7 @@
 	height: 25;
 	width: 124%;
 	margin: 30 0 0 0;
-	opacity: .3;
+	/*opacity: .3;*/
 }
 .animatedIcons{
 	display: inline-block;
@@ -174,17 +174,39 @@
 }
 
 #addContactAnimation #user{
+	opacity: .3;
 	background-image: url('../icons/user.png');
 }
 #addContactAnimation #arrow{
+	opacity: 0;
 	position: relative;
 	margin: 0 0 0 10;
 	background-image: url('../icons/right_arrow.png');
 	background-position: 0 2;
 }
 #addContactAnimation #phonebook{
+	opacity: .3;
 	float: right;
 	margin: 0 15 0 0;
 	width: 30px;
 	background-image: url('../icons/phonebook_min.png');
+}
+.addContactAnimatedMsgBox{
+	display: inline-block;
+	position: relative;
+	width: 100px;
+	height: 25px;
+	margin: 10 0 0 -38;
+	font-size: 8px;
+	word-wrap: break-word;
+	color: white;
+	text-align: center;
+	opacity: 0;
+}
+#addingTextAnimatedMsgBox{
+	margin: 0 0 0 28;
+}
+#phonebookAnimatedMsgBox{
+	margin: 0 0 0 0;
+	left: 32;
 }
