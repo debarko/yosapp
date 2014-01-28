@@ -15,7 +15,7 @@ function addContact(){
 		//break recurtion condition
 		if(times == 0){
 			// animate "successfull" once
-			animateGlow('#phonebookAnimatedMsgBox', '1', '0', 1000);
+			animateGlow('#phonebookAnimatedMsgBox', '1', '0', 800);
 			//final state
 			$('#phonebook').css('opacity','.3');
 			$('#addingTextAnimatedMsgBox').css('opacity','0');
@@ -47,7 +47,7 @@ function addContact(){
 	//the previous animation takes about 5 sec to complete
 	setTimeout(function() {
 		addedSuccessfullyAnimation();
-	}, 5000);
+	}, 4000);
 
 	//second part of the animation
 	function addedSuccessfullyAnimation(){
