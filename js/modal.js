@@ -69,10 +69,20 @@ function addContact(){
 				$('#userInfoDivMemberTextNumber').html('('+cCode+')'+' '+phNumber);  // format (+91) 9474070457
 				$('#userInfoDivMemberTextCountry').html(cName);
 
+				//glow the phoenbook icon 3 times
+				glowLoop(3);
+				function glowLoop(times){
+					if(!times){
+						return;
+					}
+					$('#phonebookContainter').animate({opacity:'.3'},300,'swing',function(){
+						$('#phonebookContainter').animate({opacity:'.6'},300,'swing',function(){
+							times--;
+							glowLoop(times);
+						});
+					});
+				}
 			});
 		});
-
 	}
-	
-
 }

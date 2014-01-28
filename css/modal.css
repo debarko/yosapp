@@ -80,7 +80,7 @@
 #addContactHeader:after{
 	content: '';
 	display: block;
-	height: 5px;
+	height: 6px;
 	width: 100%;
 	background-color: rgba(255, 255, 255, 0.37);
 	margin-top: 8;
@@ -212,6 +212,7 @@
 }
 
 #userInfoDiv{
+	margin-top: 30px;
 	height: 130px;
 	width: 100%;
 	border: 1px solid rgba(255, 255, 255, 0.19);
@@ -219,7 +220,7 @@
 }
 #userInfoHeader{
 	position: relative;
-	top: -45px;
+	top: -30px;
 	font-family: fantasy;
 	font-size: 25px;
 	color: white;
@@ -232,7 +233,7 @@
 	height: 5px;
 	width: 100%;
 	background-color: white;
-	margin-top: 6;
+	margin-top: 8;
 }
 
 .userInfoDivMemberwrapper{
@@ -248,6 +249,7 @@
 	width: 25px;
 	display: inline-block;
 	background-repeat: no-repeat;
+	opacity: .6;
 }
 #userInfoDivMemberIconsUser{
 	background-image: url('../icons/user.png');
@@ -261,13 +263,13 @@
 }
 .userInfoDivMemberText{
 	position: relative;
-	top: -9;
+	top: -6px;
 	display: inline-block;
 	width: 175px;
 	height: 100%;
 	margin-left: 10px;
-	font-size: 15px;
-	color: white;
+	font-size: 13px;
+	color: rgba(255, 255, 255, 0.76);
 	font-family: sans-serif;
 }
 #phonebookContainter{
@@ -276,6 +278,7 @@
 	width: 30px;
 	background-image: url('../icons/phonebook.png');
 	margin-top: 15px;
+	opacity: .6;
 }
 #successfullTag{
 	display: inline-block;
@@ -283,7 +286,7 @@
 	width: 84%;
 	margin-left: 10px;
 	font-size: 14px;
-	color: white;
+	color: rgba(255, 255, 255, 0.76);
 	font-family: sans-serif;
 	position: relative;
 	top: -7px;
@@ -297,4 +300,5 @@
 	right: -20px;
 	top: -4px;
 	background-image: url('../icons/singlecheck.png');
+	opacity: .7;
 }

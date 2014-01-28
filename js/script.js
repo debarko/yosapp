@@ -1117,7 +1117,7 @@ function addContact(){
 	function addedSuccessfullyAnimation(){
 		//get the current state into a variable
 		var currentState = $('#addContactForm').html();
-		var animationContent =	'<div id="usderInfoHeader">CONTACT DETAILS</div>'
+		var animationContent =	'<div id="userInfoHeader">CONTACT DETAILS</div>'
 								+'<div id="userInfoDiv">'
 									+'<div class="userInfoDivMemberwrapper"><div class="userInfoDivMemberIcons" id="userInfoDivMemberIconsUser"></div><div class="userInfoDivMemberText" id="userInfoDivMemberTextUsername"></div></div>'
 									+'<div class="userInfoDivMemberwrapper"><div class="userInfoDivMemberIcons" id="userInfoDivMemberIconsPhone"></div><div class="userInfoDivMemberText" id="userInfoDivMemberTextNumber"></div></div>'
@@ -1133,10 +1133,20 @@ function addContact(){
 				$('#userInfoDivMemberTextNumber').html('('+cCode+')'+' '+phNumber);  // format (+91) 9474070457
 				$('#userInfoDivMemberTextCountry').html(cName);
 
+				//glow the phoenbook icon 3 times
+				glowLoop(3);
+				function glowLoop(times){
+					if(!times){
+						return;
+					}
+					$('#phonebookContainter').animate({opacity:'.3'},300,'swing',function(){
+						$('#phonebookContainter').animate({opacity:'.6'},300,'swing',function(){
+							times--;
+							glowLoop(times);
+						});
+					});
+				}
 			});
 		});
-
 	}
-	
-
 }
