@@ -292,7 +292,7 @@
   	top:-5px;
   	background-color: #2aB200;
   	border: none;
-  	border-bottom: 1px solid white;
+  	border-bottom: 1px solid rgba(255, 255, 255, 0.66);
   	width: 200px;
   	color: white;
   	font-family: monospace;
@@ -436,7 +436,7 @@
   /*registration form*/
   #regform{
     position: relative;
-    top: 50%;
+    top: 44%;
     float: left;
     left: 50%;
     margin-top: -75px;
@@ -461,8 +461,35 @@
   #regheadertext span{
   	display: block;
   	height: 4px;
-  	width: 310px;
+  	width: 100%;
   	background-color: white;
+  }
+
+  .regGuideText{
+    display: inline-block;
+    font-family: serif;
+    font-size: 19px;
+    opacity: .8;
+    margin-right: 10px; 
+  }
+  .regInputFieldWrapper{
+    display: inline-block;;
+  }
+  .regInputFieldWrapper .inputfields{
+    width: 100%;
+    text-indent: 10px;
+  }
+  #regInputFieldWrapperPhoneNumber{
+    width: 200px;
+  }
+  #regInputFieldWrapperPass{
+    width: 245px;
+  }
+  #regInputFieldWrapperRePass{
+    width: 214px;
+  }
+  #regInputFieldWrapperEmail{
+    width: 289px;
   }
 
 
@@ -494,10 +521,10 @@
   }
   div.logintooltips span {
     position: relative;
-    left: 135px;
+    left: 126px;
     float: right;
-    top: -70px;
-    width:140px;
+    top: -60px;
+    width:135px;
     color: rgba(255,255,255,.65);
     background: #2AB200;
     border: 1px solid rgba(255,255,255,.35);

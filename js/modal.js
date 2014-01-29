@@ -38,7 +38,7 @@ function addContact(){
 		//break recurtion condition
 		if(times == 0){
 			// animate "successfull" once
-			animateGlow('#phonebookAnimatedMsgBox', '1', '0', 1000);
+			animateGlow('#phonebookAnimatedMsgBox', '1', '0', 800);
 			//final state
 			$('#phonebook').css('opacity','.3');
 			$('#addingTextAnimatedMsgBox').css('opacity','0');
