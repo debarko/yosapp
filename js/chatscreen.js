@@ -154,6 +154,7 @@ function shareOption(){
 function showModal(defaultSelectedMenu){
 	var modal = $('#modal');
 	var overlay = $('#overlay');
+	
 	if(YW.logged_in()){
 		$('#modalMenuBar').html(YW.L_IN());
 		$('#modalRightPanel').html(YW.R_IN());
@@ -186,6 +187,7 @@ function showModal(defaultSelectedMenu){
 			margin:'-200px 0px 0px -300px'
 		},300,"swing",function(){
 			$('#modalCloseButton').css('visibility','visible');
+			$('#modalContent').css('visibility','visible');
 		});
 	});
 }
@@ -193,7 +195,7 @@ function showModal(defaultSelectedMenu){
 function closeModal(){
 	var modalDialogue = $('#modal');
 	var overlay = $('#overlay');
-	$('#modalContent').html('');
+	$('#modalContent').css('visibility','hidden')
 	//anumate and close the modal
 	modalDialogue.animate({
 		width:'0px',

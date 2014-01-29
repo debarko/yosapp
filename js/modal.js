@@ -1,3 +1,9 @@
+function closeOnEsc(e){
+	if( e.keyCode == '27' ){
+		closeModal();
+	}
+}
+
 function addContact(){
 	
 	var arrow = $('#addContactAnimation').find('#arrow');
