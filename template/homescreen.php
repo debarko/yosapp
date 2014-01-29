@@ -29,7 +29,7 @@
 	</p>
 </form>
 
-<form class="form" id="regform" name="input">
+<form class="form" id="regform" name="input" >
 	<div id="regheadertext">
 		SIGNUP
 		<span></span>

@@ -46,6 +46,7 @@
   	color: white;
   	font-weight: bold;
   	font-size: 23px;
+    display: none;
   }
 
   #icons{
@@ -133,6 +134,7 @@
   width: 25px;
   background-image: url('../icons/help2.png');
   -webkit-transition: all .3s ease-in-out; -moz-transition: all .3s ease-in-out;
+  display: none;
   }
 
 
@@ -190,6 +192,7 @@
   	width: 30px;
   	background-image: url('../icons/like.png');
   	-webkit-transition: all .3s ease-in-out; -moz-transition: all .3s ease-in-out;
+    display: none;
   }
 
   /*tooltip for like icon*/
@@ -372,7 +375,7 @@
       opacity: 1;
   }
 
-  .squaredTwo p{
+  .squaredTwo p{fo
   	width: 138px;
   	font-size: 12px;
   	font-family: monospace;
@@ -461,7 +464,7 @@
   #regheadertext span{
   	display: block;
   	height: 4px;
-  	width: 100%;
+  	width: 360px;
   	background-color: white;
   }
 
@@ -480,16 +483,16 @@
     text-indent: 10px;
   }
   #regInputFieldWrapperPhoneNumber{
-    width: 200px;
+    width: 190px;
   }
   #regInputFieldWrapperPass{
-    width: 245px;
+    width: 235px;
   }
   #regInputFieldWrapperRePass{
-    width: 214px;
+    width: 204px;
   }
   #regInputFieldWrapperEmail{
-    width: 289px;
+    width: 279px;
   }
 
 

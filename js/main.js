@@ -53,7 +53,7 @@ window.onload = function(){
 				if(issignupclicked){
 					$("#regform").animate({'opacity':'0'},800);
 					setTimeout(function() {$("#regform").css('visibility','hidden')}, 800);
-					issignupclicked = false;
+					issignupclicked = false;	
 				}
 				else{
 					$("#regform").css('visibility','visible');
@@ -68,6 +68,37 @@ window.onload = function(){
 				}
 			}
 	);
+	// dissappear signUp & error Msg box when pressed 'Esc' from within
+	$('#regform').keyup(function(e){
+		if(e.keyCode == '27'){
+			//first check if error msg is visible and close that on first 'Esc' press
+			if( $('#errorMsgBox').css('visibility') == 'visible' ){
+				closeErrorMgsBox();
+			}
+			// otherwise disappear sign up form straight away
+			else{
+				$("#regform").animate({'opacity':'0'},500);
+				setTimeout(function() {$("#regform").css('visibility','hidden')}, 800);
+				issignupclicked = false;	
+			}
+		}	
+	});
+
+	$('#loginform').keyup(function(e){
+		if(e.keyCode == '27'){
+			//first check if error msg is visible, and if yes then close that first on 'Esc' press
+			if( $('#errorMsgBox').css('visibility') == 'visible' ){
+				closeErrorMgsBox();
+			}
+			// otherwise disappear login form straight away
+			else{
+				$("#loginform").animate({'opacity':'0'},500);
+				setTimeout(function() {$("#regform").css('visibility','hidden')}, 800);
+				isloginclicked = false;	
+			}
+		}	
+	});
+
 
 
 	//show help tooltip when hover over signup
@@ -99,6 +130,7 @@ window.onload = function(){
 
     //pointerRelativeTooltip('#usernameLoginTooltip','#userfield',125,35);
     //pointerRelativeTooltip('#passLoginTooltip','#passfield',125,60);
+	
 
 };
 
@@ -186,4 +218,10 @@ function getFriends() {
         	times = 0;
         	return false;
     	});
+}
+
+function closeFormOnEsc(e){
+	if(e.keyCode == '27'){
+		alert('hello');
+	}
 }
