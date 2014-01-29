@@ -18,7 +18,6 @@
 		echo "nodata";
 		exit();
 	}
-	$user_data = json_decode($user_data);
 	if($method==="send"){
 		$to = filter_input(INPUT_GET, 'to', FILTER_SANITIZE_NUMBER_INT);
 		$message = filter_input(INPUT_GET, 'message', FILTER_SANITIZE_ENCODED, FILTER_FLAG_ENCODE_HIGH);		
@@ -38,7 +37,34 @@
 										"&username=".$username.
 										"&password=".$user_data->w_pass
 										);
-		echo $recv_data;
+		if($recv_data==="FAIL"){
+			echo "noconnect";
+			exit();
+		}
+		if($recv_data===""){
+			echo "nomessage";
+			exit();
+		}
+		header('Content-type: application/json');
+		// Arrays we'll use later
+		$keys = array();
+		$newArray = array();
+		
+		$recv_data = explode("\n", $recv_data);
+		// Do it
+		$data = csvToArray($recv_data, ',');
+		 
+		// Set number of elements (minus 1 because we shift off the first row)
+		$count = count($data);
+
+		/*// Bring it all together
+		for ($i = 0; $i < $count; $i++) {
+		  $data[$i] = json_encode($data[$i]);
+		}*/
+		 
+		// Print it out as JSON
+		echo json_encode($data);
+		//echo $recv_data;
 	} else {
 		echo "badparam";
 		exit();

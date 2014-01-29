@@ -35,13 +35,16 @@
 		    YW.L_OUT		= function() { return '<?php echo $left_out; ?>' };
 		    YW.R_IN			= function() { return '<?php echo $right_in; ?>' };
 		    YW.R_OUT		= function() { return '<?php echo $right_out; ?>' };
+		    YW.CONTACT		= function() { return '<?php echo $contact; ?>' };
 			YW.UA           = function() { return navigator.userAgent; };
+			
+			//Game Params
 			YW.logged_in	= function() { return '<?php echo ($logged_in)?"true":"false"; ?>'; };
+			
+			//Parameters
+			YW.CURR_PARTNER	= {};
 		    YW.LOADED_AT    = new Date();
-			YW.define = function(name, val) {
-		        val = (function() { return val; })(); // To avoid execution of the constant functions repeatedly.
-		        YW[name] = function() { return val; };
-		    }
+		    YW.DATA			= {};
 		})(YW);
 		</script>
 	</head>

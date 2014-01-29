@@ -129,6 +129,15 @@ function msgSubmitOnEnter() {
     });
 }
 
+//This function sets the required settings so that the 
+//following user becomes the current user
+function setCurrentPartner(elem) {
+	if(elem.children.item(2).innerHTML+elem.children.item(3).id === YW.CURR_PARTNER) {
+		return;
+	}
+	YW.CURR_PARTNER = elem.children.item(2).innerHTML+elem.children.item(3).id;
+	renderCurrent();
+}
 
 // have to also call this function on window resize yet
 function pointerRelativeTooltip(tooltipSpan, hoverElement, xOffset, yOffset){
@@ -156,4 +165,25 @@ function dispErrMsg(msg) {
 }
 function closeErrorMgsBox() {
 	$('#errorMsgBox').animate({opacity:'0'},700,"swing",function(){ $('#errorMsgBox').css("visibility","hidden"); });
+}
+
+function getFriends() {
+		$aJX_status = $.ajax({
+        type: "GET",
+        url: "./user.php?request=friends",
+        })
+        .success(function(response) {
+        	times = 0;
+            if(response==="empty") {
+            	return false;
+            }
+            else {
+            	YW.DATA = JSON.parse(response);
+                return true;
+            }
+        })
+        .fail(function(response) {
+        	times = 0;
+        	return false;
+    	});
 }

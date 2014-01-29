@@ -20,11 +20,15 @@ function maximize(html_val, callback){
 
 //Logs in a user upon successful login
 function log_in_user() {
+	getFriends();
 	maximize(YW.CHATSCREEN()+YW.MODAL(), function(){
 		$('#typemsg').focus();
 		$('#icons').html(YW.LOGGED_IN_H());
 		$('#icons').css("top","2px");
-		$('#icons').css("right","2px");
+		$('#icons').css("right","2px");		
 		setSearchContainerHeight();
+		renderData();
+		setLastChat();
+		setInterval(function(){checkMessage();},10000);
 	});
 }

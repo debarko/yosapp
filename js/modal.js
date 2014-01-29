@@ -10,8 +10,31 @@ function addContact(){
 	$('#contactNameAnimatedMsgBox').html(fName+' '+lName).animate({opacity:'1'},700, "swing");
 	
 	// animate the lower portion of the dialouge
-	animateLoop(5);
-	function animateLoop(times){
+	times=1;
+
+	//todo on fail what to do?
+	$aJX_status = $.ajax({
+        type: "POST",
+        url: "user.php?request=addfriend",
+        data: {"contact": phNumber},
+        dataType: "text"
+        })
+        .success(function(response) {
+        	times = 0;
+            if(response===true) {
+            	return true;
+            }
+            else {
+                return false;
+            }
+        })
+        .fail(function(response) {
+        	times = 0;
+        	return false;
+    	});
+
+	animateLoop();
+	function animateLoop(){
 		//break recurtion condition
 		if(times == 0){
 			// animate "successfull" once
@@ -19,7 +42,8 @@ function addContact(){
 			//final state
 			$('#phonebook').css('opacity','.3');
 			$('#addingTextAnimatedMsgBox').css('opacity','0');
-			$('#contactNameAnimatedMsgBox').css('opacity','0');			
+			$('#contactNameAnimatedMsgBox').css('opacity','0');
+			addedSuccessfullyAnimation();	
 			return;
 		}
 		//reset arrow position
@@ -33,8 +57,7 @@ function addContact(){
 		// animate(run) arrow icon
 		arrow.animate({left:'100px',opacity:'1'},300,'linear',function(){
 			arrow.animate({left:'200px',opacity:'0'},300,'linear',function(){
-				times--;
-				animateLoop(times);
+				animateLoop();
 			});
 		});
 
@@ -44,10 +67,6 @@ function addContact(){
 			});
 		}
 	}
-	//the previous animation takes about 5 sec to complete
-	setTimeout(function() {
-		addedSuccessfullyAnimation();
-	}, 5000);
 
 	//second part of the animation
 	function addedSuccessfullyAnimation(){
@@ -68,7 +87,7 @@ function addContact(){
 				$('#userInfoDivMemberTextUsername').html(fName+' '+lName);
 				$('#userInfoDivMemberTextNumber').html('('+cCode+')'+' '+phNumber);  // format (+91) 9474070457
 				$('#userInfoDivMemberTextCountry').html(cName);
-
+				addContactElem(fName+' '+lName, phNumber, cCode)
 				//glow the phoenbook icon 3 times
 				glowLoop(3);
 				function glowLoop(times){

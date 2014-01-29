@@ -42,14 +42,28 @@ function formatAMPM(date) {
   return strTime;
 }
 
-function sendMyMsg(message){
+function sendOtherMsg(message){
 	if(message===""){
-		return;
+		return false;
 	}
 	var d = new Date(); // for now
 	h = d.getHours(); // => 9
 	m = d.getMinutes(); // =>  30
-	formDivElem(0,message,formatAMPM(new Date()));
+	formDivElem(1,message,formatAMPM(new Date()));	
+}
+
+function sendMyMsg(message){
+	if(message===""){
+		return false;
+	}
+	status = sendActualMessage(message);
+	if(!status){
+		return false;
+	}
+	var d = new Date(); // for now
+	h = d.getHours(); // => 9
+	m = d.getMinutes(); // =>  30
+	formDivElem(0,message,formatAMPM(new Date()));	
 	$("#typemsg").val("");
 }
 
@@ -194,9 +208,61 @@ function closeModal(){
 	});
 }
 
+function renderData() {
+	$.each(YW.DATA, function(id, elem){
+		addContactElem(elem.name, elem.phone, elem.cc);
+	});
+}
+
+function addContactElem(name, phone, cc, image){
+	$('#contactslist').append(YW.CONTACT())[$('#contactslist').length - 1];
+	var currentContact;
+	$('#contactslist li:last #name').html(name);
+	$('#contactslist li:last #cc').html(cc);
+	$('#contactslist li:last #number').attr("id",phone);
+	return currentContact;
+}
+
 function selectMenuItem(selectedMenuItem){
 	// clear previously selected menu item background color
 	$('.modalMenuItem').css('background-color','');
 	//change the selected menu item background
 	$(selectedMenuItem).css('background-color','#2AB200');
+}
+
+function setLastChat () {
+	YW.CURR_PARTNER = "server";
+}
+
+function processMessage(responseJSON) {
+	responseJSON.forEach(function(item){
+		if(YW.DATA[item[0]].messages.unreadCount) {
+			YW.DATA[item[0]].messages.unreadCount++;
+		} else {
+			YW.DATA[item[0]].messages.unreadCount = 1;
+		}
+		if(!YW.DATA[item[0]].messages.list) {
+			YW.DATA[item[0]].messages.list = [];
+		}
+		YW.DATA[item[0]].messages.list.push([item[2],1])
+	});
+	renderCurrent();
+}
+
+function renderCurrent() {
+	if(YW.CURR_PARTNER==="server"){
+		return false;
+	}
+	if(!YW.DATA[YW.CURR_PARTNER]){
+		return false;
+	}
+	YW.DATA[YW.CURR_PARTNER].messages.list.forEach(function(message){
+		if(message[1]){
+			sendOtherMsg(message[0]);
+		} else {
+			sendMyMsg(message[0]);
+		}
+	});
+	YW.DATA[YW.CURR_PARTNER].messages.list=[];
+	YW.DATA[item[0]].messages.unreadCount = 0;
 }

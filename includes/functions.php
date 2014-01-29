@@ -1,19 +1,54 @@
 <?php
-function getW_PassCC($mysqli) {
+// Function to convert CSV into associative array
+function csvToArray($string, $delimiter) {
+    for($i=0;$i<count($string)-1;$i++){
+        $lineArray = str_getcsv($string[$i], $delimiter);
+        for ($j = 0; $j < count($lineArray); $j++) {
+            if($j==0){
+                $lineArray[$j] = filter_number($lineArray[$j]);
+            }
+            $arr[$i][$j] = $lineArray[$j]; 
+        }
+    }
+    return $arr;
+}
+
+function filter_number($badNumer){
+    if($badNumer===""){
+        return false;
+    }
+    $goodNumber = explode("@", $badNumer);
+    if($goodNumber[1]!="s.whatsapp.net"){
+        reportAnomaly("Whatsapp Server is different for the number sent to our server. Server is: ".
+                      $goodNumber[1]." Number is: ".$goodNumber[0]);
+    }
+    return $goodNumber[0];
+}
+
+function reportAnomaly($message) {
+    //todo: save this in database
+    return;
+}
+
+function getW_PassCC($mysqli, $username="default") {
+    ($username==="default")?$username=$_SESSION['username']:1;
     // Using prepared statements means that SQL injection is not possible. 
-    if ($stmt = $mysqli->prepare("SELECT w_pass, cc FROM members
+    if ($stmt = $mysqli->prepare("SELECT w_pass, cc, name FROM members
        WHERE username = ?
         LIMIT 1")) {
-        $stmt->bind_param('s', $_SESSION['username']);  // Bind "$username" to parameter.
+        $stmt->bind_param('s', $username);  // Bind "$username" to parameter.
         $stmt->execute();    // Execute the prepared query.
         $stmt->store_result();
  
         // get variables from result.
-        $stmt->bind_result($w_pass, $cc);
+        $stmt->bind_result($w_pass, $cc, $name);
         $stmt->fetch();
 
         if ($stmt->num_rows == 1) {
-            return "{\"w_pass\": \"$w_pass\", \"cc\": $cc}";
+            return json_decode("{\"w_pass\"     : \"$w_pass\",
+                                 \"cc\"         : $cc,
+                                 \"name\"       : \"$name\"
+                              }");
         } else {
             // No user exists.
             return false;

@@ -10,6 +10,7 @@
 - ./js/functionality/email_validation.js
 - ./js/functionality/hashify.js
 - ./js/functionality/sha512.js
+- ./js/functionality/server_talk.js
 - ./js/functionality/random.js
 - ./js/main.js
 - ./js/chatscreen.js
@@ -646,6 +647,62 @@ function int64add5(dst, a, b, c, d, e)
 
 
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/* Merging js: ./js/functionality/server_talk.js begins */
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+
+function sendActualMessage(message) {
+	if(YW.CURR_PARTNER==="" || YW.CURR_PARTNER==="server"){
+		return false;
+	}
+	$aJX_status = $.ajax({
+        type: "GET",
+        url: "./transactor.php?method=send&to="+YW.CURR_PARTNER+"&message="+message,
+        })
+        .success(function(response) {
+        	times = 0;
+            if(response==="sent") {
+            	return true;
+            }
+            else {
+                return false;
+            }
+        })
+        .fail(function(response) {
+        	times = 0;
+        	return false;
+    	});
+
+    return $aJX_status;
+}
+
+function checkMessage() {
+	$aJX_status = $.ajax({
+        type: "GET",
+        url: "./transactor.php?method=listen",
+        })
+        .success(function(response) {
+        	times = 0;
+            if(response==="empty") {
+            	return false;
+            } else if(response==="nomessage") {
+                return false;
+            } else if(response==="noconnect") {
+                return false;
+            } else {
+            	processMessage(response);
+                return true;
+            }
+        })
+        .fail(function(response) {
+        	times = 0;
+        	return false;
+    	});
+
+    return $aJX_status;
+}
+
+/*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* Merging js: ./js/functionality/random.js begins */
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
@@ -672,12 +729,16 @@ function maximize(html_val, callback){
 
 //Logs in a user upon successful login
 function log_in_user() {
+	getFriends();
 	maximize(YW.CHATSCREEN()+YW.MODAL(), function(){
 		$('#typemsg').focus();
 		$('#icons').html(YW.LOGGED_IN_H());
 		$('#icons').css("top","2px");
-		$('#icons').css("right","2px");
+		$('#icons').css("right","2px");		
 		setSearchContainerHeight();
+		renderData();
+		setLastChat();
+		setInterval(function(){checkMessage();},10000);
 	});
 }
 
@@ -818,6 +879,15 @@ function msgSubmitOnEnter() {
     });
 }
 
+//This function sets the required settings so that the 
+//following user becomes the current user
+function setCurrentPartner(elem) {
+	if(elem.children.item(2).innerHTML+elem.children.item(3).id === YW.CURR_PARTNER) {
+		return;
+	}
+	YW.CURR_PARTNER = elem.children.item(2).innerHTML+elem.children.item(3).id;
+	renderCurrent();
+}
 
 // have to also call this function on window resize yet
 function pointerRelativeTooltip(tooltipSpan, hoverElement, xOffset, yOffset){
@@ -847,6 +917,26 @@ function closeErrorMgsBox() {
 	$('#errorMsgBox').animate({opacity:'0'},700,"swing",function(){ $('#errorMsgBox').css("visibility","hidden"); });
 }
 
+function getFriends() {
+		$aJX_status = $.ajax({
+        type: "GET",
+        url: "./user.php?request=friends",
+        })
+        .success(function(response) {
+        	times = 0;
+            if(response==="empty") {
+            	return false;
+            }
+            else {
+            	YW.DATA = JSON.parse(response);
+                return true;
+            }
+        })
+        .fail(function(response) {
+        	times = 0;
+        	return false;
+    	});
+}
 
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* Merging js: ./js/chatscreen.js begins */
@@ -897,14 +987,28 @@ function formatAMPM(date) {
   return strTime;
 }
 
-function sendMyMsg(message){
+function sendOtherMsg(message){
 	if(message===""){
-		return;
+		return false;
 	}
 	var d = new Date(); // for now
 	h = d.getHours(); // => 9
 	m = d.getMinutes(); // =>  30
-	formDivElem(0,message,formatAMPM(new Date()));
+	formDivElem(1,message,formatAMPM(new Date()));	
+}
+
+function sendMyMsg(message){
+	if(message===""){
+		return false;
+	}
+	status = sendActualMessage(message);
+	if(!status){
+		return false;
+	}
+	var d = new Date(); // for now
+	h = d.getHours(); // => 9
+	m = d.getMinutes(); // =>  30
+	formDivElem(0,message,formatAMPM(new Date()));	
 	$("#typemsg").val("");
 }
 
@@ -1049,6 +1153,21 @@ function closeModal(){
 	});
 }
 
+function renderData() {
+	$.each(YW.DATA, function(id, elem){
+		addContactElem(elem.name, elem.phone, elem.cc);
+	});
+}
+
+function addContactElem(name, phone, cc, image){
+	$('#contactslist').append(YW.CONTACT())[$('#contactslist').length - 1];
+	var currentContact;
+	$('#contactslist li:last #name').html(name);
+	$('#contactslist li:last #cc').html(cc);
+	$('#contactslist li:last #number').attr("id",phone);
+	return currentContact;
+}
+
 function selectMenuItem(selectedMenuItem){
 	// clear previously selected menu item background color
 	$('.modalMenuItem').css('background-color','');
@@ -1056,6 +1175,42 @@ function selectMenuItem(selectedMenuItem){
 	$(selectedMenuItem).css('background-color','#2AB200');
 }
 
+function setLastChat () {
+	YW.CURR_PARTNER = "server";
+}
+
+function processMessage(responseJSON) {
+	responseJSON.forEach(function(item){
+		if(YW.DATA[item[0]].messages.unreadCount) {
+			YW.DATA[item[0]].messages.unreadCount++;
+		} else {
+			YW.DATA[item[0]].messages.unreadCount = 1;
+		}
+		if(!YW.DATA[item[0]].messages.list) {
+			YW.DATA[item[0]].messages.list = [];
+		}
+		YW.DATA[item[0]].messages.list.push([item[2],1])
+	});
+	renderCurrent();
+}
+
+function renderCurrent() {
+	if(YW.CURR_PARTNER==="server"){
+		return false;
+	}
+	if(!YW.DATA[YW.CURR_PARTNER]){
+		return false;
+	}
+	YW.DATA[YW.CURR_PARTNER].messages.list.forEach(function(message){
+		if(message[1]){
+			sendOtherMsg(message[0]);
+		} else {
+			sendMyMsg(message[0]);
+		}
+	});
+	YW.DATA[YW.CURR_PARTNER].messages.list=[];
+	YW.DATA[item[0]].messages.unreadCount = 0;
+}
 
 /*- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* Merging js: ./js/modal.js begins */
@@ -1074,8 +1229,31 @@ function addContact(){
 	$('#contactNameAnimatedMsgBox').html(fName+' '+lName).animate({opacity:'1'},700, "swing");
 	
 	// animate the lower portion of the dialouge
-	animateLoop(5);
-	function animateLoop(times){
+	times=1;
+
+	//todo on fail what to do?
+	$aJX_status = $.ajax({
+        type: "POST",
+        url: "user.php?request=addfriend",
+        data: {"contact": phNumber},
+        dataType: "text"
+        })
+        .success(function(response) {
+        	times = 0;
+            if(response===true) {
+            	return true;
+            }
+            else {
+                return false;
+            }
+        })
+        .fail(function(response) {
+        	times = 0;
+        	return false;
+    	});
+
+	animateLoop();
+	function animateLoop(){
 		//break recurtion condition
 		if(times == 0){
 			// animate "successfull" once
@@ -1083,7 +1261,8 @@ function addContact(){
 			//final state
 			$('#phonebook').css('opacity','.3');
 			$('#addingTextAnimatedMsgBox').css('opacity','0');
-			$('#contactNameAnimatedMsgBox').css('opacity','0');			
+			$('#contactNameAnimatedMsgBox').css('opacity','0');
+			addedSuccessfullyAnimation();	
 			return;
 		}
 		//reset arrow position
@@ -1097,8 +1276,7 @@ function addContact(){
 		// animate(run) arrow icon
 		arrow.animate({left:'100px',opacity:'1'},300,'linear',function(){
 			arrow.animate({left:'200px',opacity:'0'},300,'linear',function(){
-				times--;
-				animateLoop(times);
+				animateLoop();
 			});
 		});
 
@@ -1108,10 +1286,6 @@ function addContact(){
 			});
 		}
 	}
-	//the previous animation takes about 5 sec to complete
-	setTimeout(function() {
-		addedSuccessfullyAnimation();
-	}, 5000);
 
 	//second part of the animation
 	function addedSuccessfullyAnimation(){
@@ -1132,7 +1306,7 @@ function addContact(){
 				$('#userInfoDivMemberTextUsername').html(fName+' '+lName);
 				$('#userInfoDivMemberTextNumber').html('('+cCode+')'+' '+phNumber);  // format (+91) 9474070457
 				$('#userInfoDivMemberTextCountry').html(cName);
-
+				addContactElem(fName+' '+lName, phNumber, cCode)
 				//glow the phoenbook icon 3 times
 				glowLoop(3);
 				function glowLoop(times){
