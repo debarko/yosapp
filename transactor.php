@@ -9,15 +9,14 @@
 		exit();
 	}
 
-	$method = filter_input(INPUT_GET, 'method', FILTER_SANITIZE_STRING);
-	$username = $_SESSION['username'];
-	$user_data = getW_PassCC($mysqli); //Password for Whatsapp Server
-	
-	if(!$user_data) {
-		//Empty Whatsapp password
-		echo "nodata";
+	if($_SESSION['w_pass']==="noauth"){
+		echo "emptyauth";
 		exit();
 	}
+
+	$method = filter_input(INPUT_GET, 'method', FILTER_SANITIZE_STRING);
+	$username = $_SESSION['username'];
+	
 	if($method==="send"){
 		$to = filter_input(INPUT_GET, 'to', FILTER_SANITIZE_NUMBER_INT);
 		$message = filter_input(INPUT_GET, 'message', FILTER_SANITIZE_ENCODED, FILTER_FLAG_ENCODE_HIGH);		
@@ -25,17 +24,17 @@
 										"method=send".
 										"&to=".$to.
 										"&message=".$message.
-										"&cc=".$user_data->cc.
+										"&cc=".$_SESSION['cc'].
 										"&username=".$username.
-										"&password=".$user_data->w_pass
+										"&password=".$_SESSION['w_pass']
 										);
 		echo $recv_data;
 	} else if($method==="listen") {
 		$recv_data = file_get_contents("http://localhost/m?".
 										"method=listen".
-										"&cc=".$user_data->cc.
+										"&cc=".$_SESSION['cc'].
 										"&username=".$username.
-										"&password=".$user_data->w_pass
+										"&password=".$_SESSION['w_pass']
 										);
 		if($recv_data==="FAIL"){
 			echo "noconnect";

@@ -1,11 +1,12 @@
-function formhash(username, password, form) {
+function formhash(username, password, cc, form) {
     //Creates the hash for the function
     //and sends data to our server
 
     //Create the hash for the password 
     var p = hex_sha512(password);
     var data = {"username": username,
-                "password": p};
+                "password": p,
+                "cc": cc};
     // Finally submit the data using ajax
     $.ajax({
         type: "POST",
@@ -14,7 +15,6 @@ function formhash(username, password, form) {
         dataType: "json"
         })
         .success(function(response) {
-            console.log(typeof response);
             if(response===true) {
                 log_in_user();
             }
@@ -27,12 +27,13 @@ function formhash(username, password, form) {
         });
 }
  
-function regformhash(form, uid, email, password, conf) {
+function regformhash(form, uid, email, password, cc, name) {
      // Check each field has a value
     if (uid.value == ''        || 
           email.value == ''  || 
           password.value == ''       || 
-          conf.value == '') {
+          cc.value == '' ||
+          name.value == '') {
  
         //alert('You must provide all the requested details. Please try again');
         dispErrMsg('You must provide all the requested details. Please try again');
@@ -69,14 +70,6 @@ function regformhash(form, uid, email, password, conf) {
         return false;
     }
  
-    // Check password and confirmation are the same
-    if (password.value != conf.value) {
-        //alert('Your password and confirmation do not match. Please try again');
-        dispErrMsg('Your password and confirmation do not match. Please try again');
-        form.password.focus();
-        return false;
-    }
-
     if (!checkEmail(email.value)) {
         //alert('Your email is not a valid address. Please try again');
         dispErrMsg('Your email is not a valid address. Please try again');
@@ -87,7 +80,9 @@ function regformhash(form, uid, email, password, conf) {
     var p = hex_sha512(password.value);
     var data = {"username": uid.value,
                 "email": email.value,
-                "p": p}
+                "p": p,
+                "name": name.value,
+                "cc": cc.value}
     $.ajax({
         type: "POST",
         url: "register.php",
@@ -95,7 +90,7 @@ function regformhash(form, uid, email, password, conf) {
         dataType: "json"
         })
         .success(function(response) {
-            console.log(response);
+            dispErrMsg(response);
         })
         .fail(function(response) {
             console.log("ERROR");

@@ -22,7 +22,7 @@ function addContact(){
 	$aJX_status = $.ajax({
         type: "POST",
         url: "user.php?request=addfriend",
-        data: {"contact": phNumber},
+        data: {"contact": phNumber, "cc": cCode, "name": fName+' '+lName},
         dataType: "text"
         })
         .success(function(response) {

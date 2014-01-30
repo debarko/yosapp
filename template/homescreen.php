@@ -14,6 +14,7 @@
 		<input id="loginsubmit" type="button" value="Login" 
 				onclick="formhash(document.getElementById('userfield').value,
 								  document.getElementById('passfield').value,
+								  document.getElementById('countryField').value,
 								  document.getElementById('loginform'))" />
 	</div>
 	<div class="squaredTwo">
@@ -32,9 +33,9 @@
 	</div>
 	<div class="regFormElementWrapper"><div class="regGuideText">Phone :</div><div class="regInputFieldWrapper" id="regInputFieldWrapperPhoneNumber"><input id="phone_reg" class="inputfields" type="text" name="username" /></div></div>
 	<div class="regFormElementWrapper"><div class="regGuideText">Password :</div><div class="regInputFieldWrapper" id="regInputFieldWrapperPass"><input id="regpass" class="inputfields" type="password" name="password" /></div></div>
-	<div class="regFormElementWrapper"><div class="regGuideText">Name :</div><div class="regInputFieldWrapper" id="regInputFieldWrapperPhoneNumber"><input id="phone_reg" class="inputfields" type="text" name="username" /></div></div>
+	<div class="regFormElementWrapper"><div class="regGuideText">Name :</div><div class="regInputFieldWrapper" id="regInputFieldWrapperPhoneNumber"><input id="name_reg" class="inputfields" type="text" name="name" /></div></div>
 	<div class="regFormElementWrapper"><div class="regGuideText">Email :</div><div class="regInputFieldWrapper" id="regInputFieldWrapperEmail"><input id="email" class="inputfields" type="text" name="email" /></div></div>
-	<div class="regFormElementWrapper"><div class="regGuideText">Country :</div><div class="regInputFieldWrapper" id="regInputFieldWrapperPhoneNumber"><input id="phone_reg" class="inputfields" type="text" name="username" /></div></div>
+	<div class="regFormElementWrapper"><div class="regGuideText">Country :</div><div class="regInputFieldWrapper" id="regInputFieldWrapperPhoneNumber"><input id="cc_reg" class="inputfields" type="text" name="cc" /></div></div>
 	<div>
 		<input id="regsubmitbutton" type="button" value="Signup" 
 		onclick="
@@ -42,7 +43,8 @@
 						document.getElementById('phone_reg'),
 					 	document.getElementById('email'),
 					 	document.getElementById('regpass'),
-					 	document.getElementById('reregpass')
+					 	document.getElementById('cc_reg'),
+					 	document.getElementById('name_reg')
 					 	)
 		"/>
 	</div>
