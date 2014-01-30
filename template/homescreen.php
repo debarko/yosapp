@@ -5,9 +5,9 @@
 		LOGIN
 		<span></span>
 	</div>
-	<div class="loginFormElementWrapper"><div class="loginGuideText">Phone :</div><div class="loginInputFieldWrapper"><input id="userfield" class="inputfields" type="text" name="" /></div></div>
-	<div class="loginFormElementWrapper"><div class="loginGuideText">Password :</div><div class="loginInputFieldWrapper"><input id="passfield" class="inputfields" type="password" name="" /></div></div>
-	<div class="loginFormElementWrapper"><div class="loginGuideText">Country :</div><div class="loginInputFieldWrapper" id="loginInputFieldWrapperCountry"><input id="countryField" class="inputfields" type="text" name="" /></div><div id="loginCC" class="regCountryInfo">(+91)</div><div id="loginFlag" class="regCountryInfo"></div></div>
+	<div class="loginFormElementWrapper"><div class="loginGuideText">Phone</div><div class="loginInputFieldWrapper"><input id="userfield" class="inputfields" type="text" name="" /></div></div>
+	<div class="loginFormElementWrapper"><div class="loginGuideText">Password</div><div class="loginInputFieldWrapper"><input id="passfield" class="inputfields" type="password" name="" /></div></div>
+	<div class="loginFormElementWrapper"><div class="loginGuideText">Country</div><div class="loginInputFieldWrapper" id="loginInputFieldWrapperCountry"><input id="countryField" class="inputfields" type="text" name="" /></div><div id="loginCC" class="regCountryInfo">(+91)</div><div id="loginFlag" class="regCountryInfo"></div></div>
 
 	<!--<div><input id=rememberme type="checkbox" name="isrememberme" value="remember me">Keep me loggend in<br></div> -->
 	<div>
@@ -31,16 +31,16 @@
 		SIGNUP
 		<span></span>
 	</div>
-	<div class="regFormElementWrapper"><div class="regGuideText">Phone :</div><div class="regInputFieldWrapper" id="regInputFieldWrapperPhoneNumber"><input id="regInputPhone" class="inputfields" type="text" name="username" /></div></div>
-	<div class="regFormElementWrapper"><div class="regGuideText">Password :</div><div class="regInputFieldWrapper" id="regInputFieldWrapperPass"><input id="regpass" class="inputfields" type="password" name="password" /></div></div>
-	<div class="regFormElementWrapper"><div class="regGuideText">Name :</div><div class="regInputFieldWrapper" id="regInputFieldWrapperName"><input id="phone_reg" class="inputfields" type="text" name="username" /></div></div>
-	<div class="regFormElementWrapper"><div class="regGuideText">Email :</div><div class="regInputFieldWrapper" id="regInputFieldWrapperEmail"><input id="email" class="inputfields" type="text" name="email" /></div></div>
-	<div class="regFormElementWrapper"><div class="regGuideText">Country :</div><div class="regInputFieldWrapper" id="regInputFieldWrapperCountry"><input id="regInputCountry" class="inputfields" type="text" name="regInputCountry" /><div id="regCC" class="regCountryInfo">(+91)</div><div id="regFlag" class="regCountryInfo"></div></div></div>
+	<div class="regFormElementWrapper"><div class="regGuideText">Phone</div><div class="regInputFieldWrapper" id="regInputFieldWrapperPhoneNumber"><input id="regInputPhone" class="inputfields" type="text" name="username" /></div></div>
+	<div class="regFormElementWrapper"><div class="regGuideText">Password</div><div class="regInputFieldWrapper" id="regInputFieldWrapperPass"><input id="regpass" class="inputfields" type="password" name="password" /></div></div>
+	<div class="regFormElementWrapper"><div class="regGuideText">Name</div><div class="regInputFieldWrapper" id="regInputFieldWrapperName"><input id="name_reg" class="inputfields" type="text" name="name" /></div></div>
+	<div class="regFormElementWrapper"><div class="regGuideText">Email</div><div class="regInputFieldWrapper" id="regInputFieldWrapperEmail"><input id="email" class="inputfields" type="text" name="email" /></div></div>
+	<div class="regFormElementWrapper"><div class="regGuideText">Country</div><div class="regInputFieldWrapper" id="regInputFieldWrapperCountry"><input id="regInputCountry" class="inputfields" type="text" name="regInputCountry" /><div id="regCC" class="regCountryInfo">(+91)</div><div id="regFlag" class="regCountryInfo"></div></div></div>
 	<div>
 		<input id="regsubmitbutton"  type="button" value="Signup" 
 		onclick="
 			regformhash(document.getElementById('regform'),
-						document.getElementById('phone_reg'),
+						document.getElementById('regInputPhone'),
 					 	document.getElementById('email'),
 					 	document.getElementById('regpass'),
 					 	document.getElementById('regInputCountry'),

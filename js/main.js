@@ -59,7 +59,7 @@ window.onload = function(){
 					$("#regform").css('visibility','visible');
 					$("#regform").animate({'opacity':'1'},800);
 					//focus first field
-					$('#phone_reg').focus();
+					$('#regInputPhone').focus();
 					issignupclicked = true;
 					//disapear login form
 					$("#loginform").animate({'opacity':'0'},800);
@@ -112,20 +112,29 @@ window.onload = function(){
 			function(){$(".liketooltip").find("span").css("z-index", "0").animate({opacity:'0'},600);}
 	);
 
-	//login when enter is pressed while either  of username and password field in focus
-	$('#loginform').each(function() {
-        $(this).find('input').keypress(function(e) {
-            // Enter pressed?
-            if(e.which == 10 || e.which == 13) {
-                formhash(
-                	document.getElementById('userfield').value,
-					document.getElementById('passfield').value,
-					document.getElementById('loginform')
-				)
-            }
-        });
+    $('#loginform').keypress(function(e) {
+        // Enter pressed?
+        if(e.keyCode == 10 || e.keyCode == 13) {
+            formhash(
+            	document.getElementById('userfield').value,
+				document.getElementById('passfield').value,
+				document.getElementById('countryField').value,
+				document.getElementById('loginform')
+			);
+        }
+    });
 
-        $(this).find('input[type=submit]').hide();
+    $('#regform').keypress(function(e) {
+        // Enter pressed?
+        if(e.keyCode == 10 || e.keyCode == 13) {
+            regformhash(document.getElementById('regform'),
+						document.getElementById('regInputPhone'),
+					 	document.getElementById('email'),
+					 	document.getElementById('regpass'),
+					 	document.getElementById('regInputCountry'),
+					 	document.getElementById('name_reg')
+					 	);
+        }
     });
 
     //pointerRelativeTooltip('#usernameLoginTooltip','#userfield',125,35);
@@ -151,16 +160,6 @@ function showLoginTipOnLoad(){
 	$(".logintooltips").find("span").animate({opacity:'1'},1600,"linear",function(){
 		$(".logintooltips").find("span").animate({opacity:'0'},1600,"linear");
 	});
-}
-
-// This function submitts typed msg when hit enter
-function msgSubmitOnEnter() {
-	$('#typemsg').keypress(function(e) {
-        // Enter pressed?
-        if(e.which == 10 || e.which == 13) {
-        	sendMyMsg($("#typemsg").val());
-        }
-    });
 }
 
 //This function sets the required settings so that the 

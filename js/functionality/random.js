@@ -30,5 +30,11 @@ function log_in_user() {
 		renderData();
 		setLastChat();
 		setInterval(function(){checkMessage();},10000);
+		$('#typemsg').keypress(function(e) {
+	        // Enter pressed?
+	        if(e.keyCode == 10 || e.keyCode == 13) {
+	        	sendMyMsg($("#typemsg").val());
+	        }
+	    });
 	});
 }

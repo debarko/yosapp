@@ -17,7 +17,7 @@
 	<div id="createmsgbar" class="clearfix">
 		<div id="attachment"></div>
 		<div id="smiley" onclick='drag();'></div>
-		<div id="msgtypebar"><input id="typemsg" type="text" name="typemsg" value="" onclick='msgSubmitOnEnter();'/></div>
+		<div id="msgtypebar"><input id="typemsg" type="text" name="typemsg" value="" onclick='sendMyMsg($("#typemsg").val());'/></div>
 		<div id="sendbutton" onclick='javascript:sendMyMsg($("#typemsg").val()); $("#typemsg").focus();'></div>
 	</div>
 </div>
