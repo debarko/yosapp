@@ -410,19 +410,25 @@
 
 
   #loginsubmit{
-  	position:relative;
-  	top:10px;
-  	height: 40px;
-  	width: 105px;
-  	border: none;
-  	background-color: white;
-  	font-family: monospace;
-  	color: #2aB200;
-  	font-size: 19px;
-  	font-weight: bolder;
-  	border-radius: 3px;
+  	position: relative;
+    top: 10px;
+    height: 40px;
+    width: 105px;
+    border: none;
+    background-color: white;
+    font-family: monospace;
+    color: #2aB200;
+    font-size: 19px;
+    font-weight: bolder;
+    border-radius: 3px;
+    outline: none;
+    -webkit-transition: all .1s ease-in-out; 
+    -moz-transition: all .1s ease-in-out;
   }
-
+  #loginsubmit:hover{
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+  }
 
 
   /*format the login button*/
@@ -498,6 +504,36 @@
     width: 100%;
     text-indent: 10px;
   }
+
+  .regCountryInfo{
+    height: 23px;
+    width: 35px;
+    position: absolute;
+    right: 10px;
+    bottom: 50;
+  }
+  
+  /* alpha:n/a */
+  #regFlag{
+    right: 4px;
+  }
+  #regInputCountry{
+    width: 164px;
+  }
+  #regCC{
+    width: 47px;
+  }
+  #regInputFieldWrapperCountry:after{
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: -6px;
+    display: block;
+    height: 1px;
+    width: 68px;
+    background-color: rgba(255, 255, 255, 0.66);
+  }
+
   /*
   #regInputFieldWrapperPhoneNumber{
     width: 190px;
@@ -525,6 +561,14 @@
   	font-size: 19px;
   	font-weight: bolder;
   	border-radius: 3px;
+    outline: none;
+    -webkit-transition: all .1s ease-in-out; 
+    -moz-transition: all .1s ease-in-out;
+  }
+
+  #regsubmitbutton:hover{
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
   }
 
 
@@ -659,7 +703,6 @@
     padding: 12 10 0 20;
     color: rgb(255, 249, 249);
     font-size: 13;
-    text-shadow: 1px 1px 6px rgba(129, 129, 129, 1);
     line-height: 20px;
   }
   

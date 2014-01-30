@@ -130,7 +130,9 @@ window.onload = function(){
 
     //pointerRelativeTooltip('#usernameLoginTooltip','#userfield',125,35);
     //pointerRelativeTooltip('#passLoginTooltip','#passfield',125,60);
-	
+	$('#regsubmitbutton').click(function(){
+		$('#regsubmitbutton').css('-webkit-transform','1');
+	})	
 
 };
 
