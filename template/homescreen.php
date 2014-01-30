@@ -14,6 +14,7 @@
 		<input id="loginsubmit" type="button" value="Login" 
 				onclick="formhash(document.getElementById('userfield').value,
 								  document.getElementById('passfield').value,
+								  document.getElementById('countryField').value,
 								  document.getElementById('loginform'))" />
 	</div>
 	<div class="squaredTwo">
@@ -34,7 +35,7 @@
 	<div class="regFormElementWrapper"><div class="regGuideText">Password :</div><div class="regInputFieldWrapper" id="regInputFieldWrapperPass"><input id="regpass" class="inputfields" type="password" name="password" /></div></div>
 	<div class="regFormElementWrapper"><div class="regGuideText">Name :</div><div class="regInputFieldWrapper" id="regInputFieldWrapperName"><input id="phone_reg" class="inputfields" type="text" name="username" /></div></div>
 	<div class="regFormElementWrapper"><div class="regGuideText">Email :</div><div class="regInputFieldWrapper" id="regInputFieldWrapperEmail"><input id="email" class="inputfields" type="text" name="email" /></div></div>
-	<div class="regFormElementWrapper"><div class="regGuideText">Country :</div><div class="regInputFieldWrapper" id="regInputFieldWrapperCountry"><input id="regInputCountry" class="inputfields" type="text" name="username" /><div id="regCC" class="regCountryInfo">(+91)</div><div id="regFlag" class="regCountryInfo"></div></div></div>
+	<div class="regFormElementWrapper"><div class="regGuideText">Country :</div><div class="regInputFieldWrapper" id="regInputFieldWrapperCountry"><input id="regInputCountry" class="inputfields" type="text" name="regInputCountry" /><div id="regCC" class="regCountryInfo">(+91)</div><div id="regFlag" class="regCountryInfo"></div></div></div>
 	<div>
 		<input id="regsubmitbutton"  type="button" value="Signup" 
 		onclick="
@@ -42,7 +43,8 @@
 						document.getElementById('phone_reg'),
 					 	document.getElementById('email'),
 					 	document.getElementById('regpass'),
-					 	document.getElementById('reregpass')
+					 	document.getElementById('regInputCountry'),
+					 	document.getElementById('name_reg')
 					 	)
 		"/>
 	</div>

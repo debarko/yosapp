@@ -36,6 +36,8 @@ function checkMessage() {
                 return false;
             } else if(response==="noconnect") {
                 return false;
+            } else if(response==="emptyauth") {
+                return false;
             } else {
             	processMessage(response);
                 return true;

@@ -3,15 +3,27 @@ require_once 'includes.php';
  
 $error_msg = "";
 
-if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
+if (isset($_POST['name'], $_POST['username'], $_POST['email'], $_POST['cc'], $_POST['p'])) {
 
     // Sanitize and validate the data passed in
+    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_NUMBER_INT);
+    $cc = filter_input(INPUT_POST, 'cc', FILTER_SANITIZE_NUMBER_INT);
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $email = filter_var($email, FILTER_VALIDATE_EMAIL);
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         // Not a valid email
         $error_msg .= 'The email address you entered is not valid';
+    }
+
+    if (!filter_input(INPUT_POST, 'username', FILTER_SANITIZE_NUMBER_INT)) {
+        // Not a valid phone i.e. username
+        $error_msg .= 'The Phone you entered is not valid';
+    }
+
+    if (!filter_input(INPUT_POST, 'cc', FILTER_SANITIZE_NUMBER_INT)) {
+        // CC is invalid
+        $error_msg .= 'Country Code (CC) is Invalid';
     }
  
     $password = filter_input(INPUT_POST, 'p', FILTER_SANITIZE_STRING);
@@ -26,17 +38,20 @@ if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
     // breaking these rules.
     //
  
-    $prep_stmt = "SELECT id FROM members WHERE email = ? LIMIT 1";
+    $prep_stmt = "SELECT id, email FROM members WHERE username = ?  AND cc = ? LIMIT 1";
     $stmt = $mysqli->prepare($prep_stmt);
  
     if ($stmt) {
-        $stmt->bind_param('s', $email);
+        $stmt->bind_param('si', $username, $cc);
         $stmt->execute();
         $stmt->store_result();
  
         if ($stmt->num_rows == 1) {
-            // A user with this email address already exists
-            $error_msg .= 'A user with this email address already exists.';
+            $stmt->bind_result($id, $email_adr);
+            if($email_adr!==""){
+                // A user with this email address already exists
+                $error_msg .= 'A user with this phonenumber already exists.';
+            }
         }
     } else {
         $error_msg .= 'Database error';
@@ -55,8 +70,8 @@ if (isset($_POST['username'], $_POST['email'], $_POST['p'])) {
         $password = hash('sha512', $password . $random_salt);
  
         // Insert the new user into the database 
-        if ($insert_stmt = $mysqli->prepare("INSERT INTO members (username, email, password, salt) VALUES (?, ?, ?, ?)")) {
-            $insert_stmt->bind_param('ssss', $username, $email, $password, $random_salt);
+        if ($insert_stmt = $mysqli->prepare("INSERT INTO members (username, email, password, salt, cc, name) VALUES (?, ?, ?, ?, ?, ?)")) {
+            $insert_stmt->bind_param('ssssis', $username, $email, $password, $random_salt, $cc, $name);
             // Execute the prepared query.
             if (! $insert_stmt->execute()) {
                 echo('ERROR: Internal Server Error. Please try again.');

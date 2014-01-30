@@ -30,25 +30,24 @@ function reportAnomaly($message) {
     return;
 }
 
-function getW_PassCC($mysqli, $username="default") {
+function getUserDetails($mysqli, $username="default", $cc="default") {
     ($username==="default")?$username=$_SESSION['username']:1;
+    ($cc==="default")?$cc=$_SESSION['cc']:1;
     // Using prepared statements means that SQL injection is not possible. 
-    if ($stmt = $mysqli->prepare("SELECT w_pass, cc, name FROM members
+    if ($stmt = $mysqli->prepare("SELECT name, email FROM members
        WHERE username = ?
+       AND cc = ?
         LIMIT 1")) {
-        $stmt->bind_param('s', $username);  // Bind "$username" to parameter.
+        $stmt->bind_param('si', $username, $cc);  // Bind "$username" to parameter.
         $stmt->execute();    // Execute the prepared query.
         $stmt->store_result();
  
         // get variables from result.
-        $stmt->bind_result($w_pass, $cc, $name);
+        $stmt->bind_result($name, $email);
         $stmt->fetch();
 
         if ($stmt->num_rows == 1) {
-            return json_decode("{\"w_pass\"     : \"$w_pass\",
-                                 \"cc\"         : $cc,
-                                 \"name\"       : \"$name\"
-                              }");
+            return json_decode("{\"name\":\"$name\",\"email\": \"$email\"}");
         } else {
             // No user exists.
             return false;
@@ -99,18 +98,19 @@ function sec_session_start() {
     session_regenerate_id();    // regenerated the session, delete the old one. 
 }
 
-function login($username, $password, $mysqli) {
+function login($username, $password, $cc, $mysqli) {
     // Using prepared statements means that SQL injection is not possible. 
-    if ($stmt = $mysqli->prepare("SELECT id, username, password, salt 
+    if ($stmt = $mysqli->prepare("SELECT id, username, password, salt, name, w_pass 
         FROM members
-       WHERE username = ?
+        WHERE username = ?
+        AND cc = ?
         LIMIT 1")) {
-        $stmt->bind_param('s', $username);  // Bind "$username" to parameter.
+        $stmt->bind_param('si', $username, $cc);  // Bind "$username" to parameter.
         $stmt->execute();    // Execute the prepared query.
         $stmt->store_result();
  
         // get variables from result.
-        $stmt->bind_result($user_id, $username, $db_password, $salt);
+        $stmt->bind_result($user_id, $username, $db_password, $salt, $name, $w_pass);
         $stmt->fetch();
  
         // hash the password with the unique salt.
@@ -138,8 +138,12 @@ function login($username, $password, $mysqli) {
                                                                 "", 
                                                                 $username);
                     $_SESSION['username'] = $username;
+                    $_SESSION['w_pass'] = (isset($w_pass))?$w_pass:"noauth";
+                    $_SESSION['name'] = $name;
+                    $_SESSION['cc'] = $cc;
                     $_SESSION['login_string'] = hash('sha512', 
                               $password . $user_browser);
+                    error_log(var_export($_SESSION,true));
                     // Login successful.
                     return true;
                 } else {
@@ -187,7 +191,10 @@ function checkbrute($user_id, $mysqli) {
 function login_check($mysqli) {
     // Check if all session variables are set 
     if (isset($_SESSION['user_id'], 
-                        $_SESSION['username'], 
+                        $_SESSION['username'],
+                        $_SESSION['name'],
+                        $_SESSION['w_pass'],
+                        $_SESSION['cc'], 
                         $_SESSION['login_string'])) {
  
         $user_id = $_SESSION['user_id'];
