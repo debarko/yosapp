@@ -7,7 +7,7 @@
 	</div>
 	<div class="loginFormElementWrapper"><div class="loginGuideText">Phone :</div><div class="loginInputFieldWrapper"><input id="userfield" class="inputfields" type="text" name="" /></div></div>
 	<div class="loginFormElementWrapper"><div class="loginGuideText">Password :</div><div class="loginInputFieldWrapper"><input id="passfield" class="inputfields" type="password" name="" /></div></div>
-	<div class="loginFormElementWrapper"><div class="loginGuideText">Country :</div><div class="loginInputFieldWrapper"><input id="countryField" class="inputfields" type="text" name="" /></div><div id="loginCC" class="regCountryInfo">(+91)</div><div id="loginFlag" class="regCountryInfo"></div></div>
+	<div class="loginFormElementWrapper"><div class="loginGuideText">Country :</div><div class="loginInputFieldWrapper" id="loginInputFieldWrapperCountry"><input id="countryField" class="inputfields" type="text" name="" /></div><div id="loginCC" class="regCountryInfo">(+91)</div><div id="loginFlag" class="regCountryInfo"></div></div>
 
 	<!--<div><input id=rememberme type="checkbox" name="isrememberme" value="remember me">Keep me loggend in<br></div> -->
 	<div>
