@@ -263,7 +263,7 @@
   	width: 345px;
   	top: 50%;
     height: 175px;
-    margin-top: -75px;
+    margin-top: -87px;
   	float: right;
   	right: 50%;
     margin-right: 10%;
@@ -285,8 +285,21 @@
   #loginheadertext span{
   	display: block;
   	height: 4px;
-  	width: 310px;
+  	width: 100%;
   	background-color: white;
+  }
+
+  .loginGuideText{
+    display: inline-block;
+    margin-right: 10px;
+    width: 100px;
+  }
+  .loginInputFieldWrapper{
+    display: inline-block;
+    width: 230px;
+  }
+  .loginInputFieldWrapper input{
+    text-indent: 10px;
   }
 
 
@@ -296,7 +309,7 @@
   	background-color: #2aB200;
   	border: none;
   	border-bottom: 1px solid rgba(255, 255, 255, 0.66);
-  	width: 200px;
+  	width: 100%;
   	color: white;
   	font-family: monospace;
   	font-size: 20px;
@@ -331,7 +344,9 @@
       background-color: white;
       position: relative;
       top: -28px;
-  left: 125px;
+      left: 125px;
+      display: inline-block;
+      display: none; /* alpha:n/a */
   }
   /*inner box*/
   .squaredTwo label {
@@ -375,8 +390,8 @@
       opacity: 1;
   }
 
-  .squaredTwo p{fo
-  	width: 138px;
+  .squaredTwo p{
+  	width: 80px;
   	font-size: 12px;
   	font-family: monospace;
   	position: relative;
@@ -387,7 +402,7 @@
   #forgotpassword{
   	position: relative;
   	width:110px;
-  	top: -22px;
+  	top: -18px;
   	left: 126px;
   	font-size: 12px;
   	font-family: sans-serif;
@@ -439,10 +454,10 @@
   /*registration form*/
   #regform{
     position: relative;
-    top: 40%;
+    top: 50%;
     float: left;
     left: 50%;
-    margin-top: -75px;
+    margin-top: -115px;
     margin-left: 10%;
   	visibility: hidden;
   	opacity: 0;

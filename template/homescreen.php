@@ -5,14 +5,10 @@
 		LOGIN
 		<span></span>
 	</div>
-	<div id="usernameLoginDiv">
-		PHONE NUMBER <input id="userfield" class="inputfields" type="text" name="user" />
-		<span id="usernameLoginTooltip" class="loginformFieldTooltips">Enter Phone Number</span>
-	</div>
-	<div>
-		PASSWORD <input id="passfield" class="inputfields" type="password" name="user" />
-		<span id="passLoginTooltip" class="loginformFieldTooltips">Enter Password</span>
-	</div>
+	<div class="loginFormElementWrapper"><div class="loginGuideText">Phone :</div><div class="loginInputFieldWrapper"><input id="userfield" class="inputfields" type="text" name="" /></div></div>
+	<div class="loginFormElementWrapper"><div class="loginGuideText">Password :</div><div class="loginInputFieldWrapper"><input id="passfield" class="inputfields" type="password" name="" /></div></div>
+	<div class="loginFormElementWrapper"><div class="loginGuideText">Country :</div><div class="loginInputFieldWrapper"><input id="countryField" class="inputfields" type="text" name="" /></div></div>
+
 	<!--<div><input id=rememberme type="checkbox" name="isrememberme" value="remember me">Keep me loggend in<br></div> -->
 	<div>
 		<input id="loginsubmit" type="button" value="Login" 
