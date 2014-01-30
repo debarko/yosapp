@@ -439,15 +439,14 @@
   /*registration form*/
   #regform{
     position: relative;
-    top: 44%;
+    top: 40%;
     float: left;
     left: 50%;
     margin-top: -75px;
     margin-left: 10%;
-    height: 177px;
   	visibility: hidden;
   	opacity: 0;
-  	width: 370px;
+  	width: 322px;
   	color: white;
   	font-family: monospace;
   	font-size: 20px;
@@ -464,7 +463,7 @@
   #regheadertext span{
   	display: block;
   	height: 4px;
-  	width: 360px;
+  	width: 100%;
   	background-color: white;
   }
 
@@ -474,14 +473,17 @@
     font-size: 19px;
     opacity: .8;
     margin-right: 10px; 
+    width: 82px;
   }
   .regInputFieldWrapper{
-    display: inline-block;;
+    display: inline-block;
+    width: 230px;
   }
   .regInputFieldWrapper .inputfields{
     width: 100%;
     text-indent: 10px;
   }
+  /*
   #regInputFieldWrapperPhoneNumber{
     width: 190px;
   }
@@ -494,7 +496,7 @@
   #regInputFieldWrapperEmail{
     width: 279px;
   }
-
+*/
 
   #regsubmitbutton{
   	position: relative;
