@@ -38,3 +38,33 @@ function log_in_user() {
 	    });
 	});
 }
+
+
+
+// show example tips on input fields
+function showInputTipsOnload(){ 
+	//todo call this function once one chatscreen load
+	var ids = $('.showTipInputFields').map(function(index) {
+	    //select the input element against ID
+	    var inputField =  $('#'+this.id);
+	    // Get the "tip" attribute value from the input elements
+	    var tip = inputField.attr('tip');
+	    inputField.val(tip);
+	    
+	    return tip; 
+	});
+}
+function hideInputTipsOnclick(id){
+	var inputElement = $(id);
+	if( inputElement.val() == inputElement.attr('tip') ){
+		inputElement.removeClass('showTipInputFields');
+		inputElement.val('');
+	}
+}
+function showInputTipsOnblur(id){
+	var inputElement = $(id);
+	if( inputElement.val() == ''){
+		inputElement.val( inputElement.attr('tip') );
+		inputElement.addClass('showTipInputFields');
+	}
+}

@@ -143,6 +143,9 @@ window.onload = function(){
 		$('#regsubmitbutton').css('-webkit-transform','1');
 	})	
 
+	//this will show all the input field tips on page load
+	showInputTipsOnload();
+
 };
 
 function logged_in_start(){

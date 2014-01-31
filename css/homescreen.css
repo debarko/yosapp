@@ -501,6 +501,9 @@
   	width: 100%;
   	background-color: white;
   }
+  .regFormElementWrapper{
+    height: 30px  
+  }
   #regInputCountry{
     width: 170px;
   }
@@ -544,20 +547,7 @@
   }
   
 
-  /*
-  #regInputFieldWrapperPhoneNumber{
-    width: 190px;
-  }
-  #regInputFieldWrapperPass{
-    width: 235px;
-  }
-  #regInputFieldWrapperRePass{
-    width: 204px;
-  }
-  #regInputFieldWrapperEmail{
-    width: 279px;
-  }
-*/
+  
 
   #regsubmitbutton{
   	position: relative;
@@ -748,5 +738,9 @@
     background-color: rgba(0, 0, 0, 0.86);
     visibility: hidden;
     z-index: 100;
+  }
+
+  .showTipInputFields{
+    color: rgba(255,255,255,0.22);
   }
 } /* hd res layout over */
