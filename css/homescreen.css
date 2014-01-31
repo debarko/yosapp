@@ -273,7 +273,9 @@
   	visibility:hidden;
   	opacity:0;
   }
-
+  .loginFormElementWrapper{
+    margin-top: 5px;
+  }
   #loginheadertext{
   	position: relative;
   	bottom: 25px;
@@ -297,6 +299,7 @@
   .loginInputFieldWrapper{
     display: inline-block;
     width: 230px;
+    border-bottom: 1px solid white;
   }
   .loginInputFieldWrapper input{
     text-indent: 10px;
@@ -305,14 +308,19 @@
 
   .inputfields{
   	position:relative;
-  	top:-5px;
   	background-color: #2aB200;
   	border: none;
-  	border-bottom: 1px solid rgba(255, 255, 255, 0.66);
   	width: 100%;
   	color: white;
   	font-family: monospace;
   	font-size: 20px;
+  }
+  #countryField{
+    width: 175px;
+  }
+  #loginCC{
+    bottom: 33px;
+    right: 20px;  
   }
 
   /* username login tooltip*/
@@ -448,17 +456,10 @@
   font-size: 13px;
   font-family: monospace;
   }
-  /*for extra underline for countryinfo in login form*/
-  #loginInputFieldWrapperCountry:after{
-    content: '';
-    position: absolute;
-    height: 1px;
-    width: 55px;
-    background-color: rgba(255, 255, 255, 0.66);
-    bottom: 50px;
-  }
+  
+  
   #loginInputFieldWrapperCountry{
-    width: 175px;
+    /*width: 175px;*/
   }
 
 
@@ -500,7 +501,9 @@
   	width: 100%;
   	background-color: white;
   }
-
+  #regInputCountry{
+    width: 170px;
+  }
   .regGuideText{
     display: inline-block;
     font-family: serif;
@@ -512,7 +515,11 @@
   .regInputFieldWrapper{
     display: inline-block;
     width: 230px;
+    border-bottom: 1px solid white;
+    position: relative;
+    top: -7px;
   }
+
   .regInputFieldWrapper .inputfields{
     width: 100%;
     text-indent: 10px;
@@ -522,30 +529,20 @@
     height: 23px;
     width: 35px;
     position: absolute;
-    right: 20px;
-    bottom: 50;
+    right: 6px;
+    bottom: 0px;
   }
   
   /* alpha:n/a */
   #regFlag{
     right: 4px;
+    display: none
   }
-  #regInputCountry{
-    width: 164px;
-  }
+  
   #regCC{
     width: 47px;
   }
-  #regInputFieldWrapperCountry:after{
-    content: '';
-    position: absolute;
-    bottom: 47;
-    right: -2px;
-    display: block;
-    height: 1px;
-    width: 68px;
-    background-color: rgba(255, 255, 255, 0.66);
-  }
+  
 
   /*
   #regInputFieldWrapperPhoneNumber{

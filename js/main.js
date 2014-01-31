@@ -221,8 +221,6 @@ function getFriends() {
     	});
 }
 
-function closeFormOnEsc(e){
-	if(e.keyCode == '27'){
-		alert('hello');
-	}
-}
+//function userVarification(){
+
+//}
