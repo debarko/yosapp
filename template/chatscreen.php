@@ -1,6 +1,7 @@
 <div id="leftpannel">
 	<div id="profileinfo"><span id="profilepic"></span><p id="profilename">Tuhin Sengupta</p><p id="editprofiletext">Edit profile</p></div>
-	<div id="concactsearch"><input id="contactSearchbar" type="text" name="fname" value="Search Contacts" onclick='javascript:searchConcats();'><span></span></div>
+	<!-- todo can not call hideInputTipsOnclick() & showInputTipsOnblur from here-->
+	<div id="concactsearch"><input id="contactSearchbar" type="text" name="fname" value="Search Contacts" onfocus='hideInputTipsOnclick("#contactSearchbar");' onblur='showInputTipsOnblur("#contactSearchbar");'/><span></span></div>
 	<div id="contactscontainer">
 		<ul id="contactslist">
 		</ul>
