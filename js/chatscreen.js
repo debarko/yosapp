@@ -273,5 +273,6 @@ function renderCurrent() {
 }
 
 function autoScrollDown(){
+	// todo call this function when msg arrives as well
 	$('#msgcontainer').animate({scrollTop: $('#msgcontainer').get(0).scrollHeight}, 700);
 }
