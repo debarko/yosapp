@@ -65,6 +65,9 @@ function sendMyMsg(message){
 	m = d.getMinutes(); // =>  30
 	formDivElem(0,message,formatAMPM(new Date()));	
 	$("#typemsg").val("");
+
+	//now scroll down msg container to bottom
+	autoScrollDown();
 }
 
 function formDivElem(parent, message, timestamp){
@@ -267,4 +270,8 @@ function renderCurrent() {
 	});
 	YW.DATA[YW.CURR_PARTNER].messages.list=[];
 	YW.DATA[item[0]].messages.unreadCount = 0;
+}
+
+function autoScrollDown(){
+	$('#msgcontainer').animate({scrollTop: $('#msgcontainer').get(0).scrollHeight}, 700);
 }

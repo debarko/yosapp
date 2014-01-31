@@ -743,4 +743,39 @@
   .showTipInputFields{
     color: rgba(255,255,255,0.22);
   }
-} /* hd res layout over */
+
+
+  /*user  varification temporary*/
+  #varifyWindow{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -400px;
+    margin-top: -200px;
+    height: 400px;
+    width: 800px;
+    background-color: #2ab200;
+    z-index: 101;
+  }
+  #varifyWindowContainer{
+    position: relative;
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+    top: 20px;
+  }
+  #varifyWindowContainerHeader{
+    position: relative;
+    color: rgba(255, 255, 255, 0.46);
+    font-size: 25px;
+    font-family: fantasy;
+    }
+  #varifyWindowContainerHeader:after{
+    content: '';
+    display: block;
+    height: 6px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.37);
+    margin-top: 8;
+  }
+} /* hd res layout over  11850 */

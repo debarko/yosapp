@@ -62,3 +62,10 @@
 	<span id="errMsg"></span>
 	<span id="closeErrMsgBox" onclick="javascript:closeErrorMgsBox();"></span>
 </div>
+
+<!-- uservarification temporary  -->
+<div id="varifyWindow">
+	<div id="varifyWindowContainer">
+		<div id="varifyWindowContainerHeader">VARIFICATION</div>
+	</div>
+</div>
