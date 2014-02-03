@@ -70,33 +70,45 @@
 		<div id="progBarBg">
 			<span class="progStepDot" id="fstStop">
 				<div class="innerDisk"></div>
-				<div class="stpDlgBox">
+				<!-- first dialouge box -->
+				<div class="stpDlgBox" id="stpDlgBox1">
 					<div id="verHeaderStp1" class="verHeader">Choose Verifivation Method</div>
 					<div id="verStp1Left">
 						<div id="verStp1LeftTop"><p class="verText">Choose How verification code will be sent to you</p></div>
-						<div id="verStp1LeftBottom"><p class="verText">Code will be sent via SMS</p></div>
+						<div id="verStp1LeftBottom"><p class="verText">Code will be sent via SMS</p><div id="verSelectedIcon"></div></div>
 					</div>
 					<div id="verStp1Right">
-						<div id="verSMSWrapper" class="verMethodSelectionWrapper"><div class="selectVerMethodCheckBox" id="selectSMS"></div><div class="selectIcons" id="selectIconsSMS"></div></div>
-						<div id="verVoiceWrapper" class="verMethodSelectionWrapper"><div class="selectVerMethodCheckBox" id="selectVOICE"></div><div class="selectIcons" id="selectIconsVOICE"></div></div>
+						<div id="verSMSWrapper" class="verMethodSelectionWrapper">
+							<div class="selectVerMethodCheckBox" id="selectSMS"></div>
+							<div class="selectIcons" id="selectIconsSMS"></div>
+							<div class="selectText" id="selectTextSMS"><p>SMS<p></div>
+						</div>
+						<div id="verVoiceWrapper" class="verMethodSelectionWrapper">
+							<div class="selectVerMethodCheckBox" id="selectVOICE"></div>
+							<div class="selectIcons" id="selectIconsVOICE"></div>
+							<div class="selectText" id="selectTextVOICE"><p>CALL</p></div>
+						</div>
 					</div>
 					<div class="nextStpArrow"></div>
 				</div>
 			</span>
+			
 			<span class="progStepDot" id="sndStop">
 				<div class="innerDisk"></div>
-				<div class="stpDlgBox">
+				<div class="stpDlgBox" id="stpDlgBox2">
 					<div id="verHeaderStp2" class="verHeader">Enter Verification Code</div>
 					<div class="nextStpArrow"></div>
 				</div>
 			</span>
+			
 			<span class="progStepDot" id="trdStop">
 				<div class="innerDisk"></div>
-				<div class="stpDlgBox">
+				<div class="stpDlgBox" id="stpDlgBox3">
 					<div id="verHeaderStp3" class="verHeader">Congratulation</div>
 					<div class="nextStpArrow"></div>
 				</div>
 			</span>
+
 		</div>
 	</div>
 </div>
