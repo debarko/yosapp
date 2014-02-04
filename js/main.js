@@ -165,16 +165,6 @@ function showLoginTipOnLoad(){
 	});
 }
 
-//This function sets the required settings so that the 
-//following user becomes the current user
-function setCurrentPartner(elem) {
-	if(elem.children.item(2).innerHTML+elem.children.item(3).id === YW.CURR_PARTNER) {
-		return;
-	}
-	YW.CURR_PARTNER = elem.children.item(2).innerHTML+elem.children.item(3).id;
-	renderCurrent();
-}
-
 // have to also call this function on window resize yet
 function pointerRelativeTooltip(tooltipSpan, hoverElement, xOffset, yOffset){
 	var tooltipSpan = $(tooltipSpan);

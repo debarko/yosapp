@@ -52,13 +52,16 @@ function sendOtherMsg(message){
 	formDivElem(1,message,formatAMPM(new Date()));	
 }
 
-function sendMyMsg(message){
+function sendMyMsg(message, dontReplicate){	
 	if(message===""){
 		return false;
 	}
-	status = sendActualMessage(message);
-	if(!status){
-		return false;
+	if(typeof dontReplicate === "undefined"){
+		status = sendActualMessage(message);
+		if(!status){
+			return false;
+		}
+		storeMessage(YW.CURR_PARTNER, 0, message);
 	}
 	var d = new Date(); // for now
 	h = d.getHours(); // => 9
@@ -236,7 +239,7 @@ function selectMenuItem(selectedMenuItem){
 }
 
 function setLastChat () {
-	YW.CURR_PARTNER = "server";
+	YW.CURR_PARTNER = "0server";
 }
 
 function processMessage(responseJSON) {
@@ -254,25 +257,70 @@ function processMessage(responseJSON) {
 	renderCurrent();
 }
 
+//This function sets the required settings so that the 
+//following user becomes the current user
+function setCurrentPartner(elem) {
+	if(elem.children.item(2).innerHTML+elem.children.item(3).id === YW.CURR_PARTNER) {
+		return;
+	}
+	YW.CURR_PARTNER = elem.children.item(2).innerHTML+elem.children.item(3).id;
+	$("#msgcontainer").html("<br /><br />");
+	renderMessages();
+	renderCurrent();
+}
+
 function renderCurrent() {
-	if(YW.CURR_PARTNER==="server"){
+	if(YW.CURR_PARTNER==="0server"){
 		return false;
 	}
 	if(!YW.DATA[YW.CURR_PARTNER]){
 		return false;
 	}
+	if(!YW.DATA[YW.CURR_PARTNER].messages.list){
+		return false;
+	}
 	YW.DATA[YW.CURR_PARTNER].messages.list.forEach(function(message){
 		if(message[1]){
 			sendOtherMsg(message[0]);
+			storeMessage(YW.CURR_PARTNER, 1, message[0]);
+			autoScrollDown();
 		} else {
+			//currently this scenario can't happen
 			sendMyMsg(message[0]);
 		}
 	});
 	YW.DATA[YW.CURR_PARTNER].messages.list=[];
-	YW.DATA[item[0]].messages.unreadCount = 0;
+	YW.DATA[YW.CURR_PARTNER].messages.unreadCount = 0;
 }
 
 function autoScrollDown(){
 	// todo call this function when msg arrives as well
-	$('#msgcontainer').animate({scrollTop: $('#msgcontainer').get(0).scrollHeight}, 700);
+	$('#msgcontainer').animate({scrollTop: $('#msgcontainer').get(0).scrollHeight}, 50);
+}
+
+function storeMessage(whos, parent, message){
+	if(whos==="0server"){
+		return false;
+	}
+	var tmp_msg_obj = {};
+	tmp_msg_obj.message = message;
+	tmp_msg_obj.parent = parent;
+	YW.DATA[whos].messageTree.push(tmp_msg_obj);
+}
+
+function renderMessages() {
+	if(YW.CURR_PARTNER==="0server"){
+		return false;
+	}
+	if(!YW.DATA[YW.CURR_PARTNER].messageTree){
+		return false;
+	}
+	var tree = YW.DATA[YW.CURR_PARTNER].messageTree;
+	tree.forEach(function(item){
+		if(item.parent===0){
+			sendMyMsg(item.message, 1);
+		} else {
+			sendOtherMsg(item.message);
+		}
+	});
 }

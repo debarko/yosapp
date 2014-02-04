@@ -1,5 +1,5 @@
 function sendActualMessage(message) {
-	if(YW.CURR_PARTNER==="" || YW.CURR_PARTNER==="server"){
+	if(YW.CURR_PARTNER==="" || YW.CURR_PARTNER==="0server"){
 		return false;
 	}
 	$aJX_status = $.ajax({
