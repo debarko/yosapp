@@ -31,7 +31,7 @@
 			//todo check mysql error
 			$uid_in_session = $_SESSION["user_id"];
 			$contactJSON = '{"n":'.$contact.',"cc":'.$cc.'}';
-			$contactComma = '-'.$contact;
+			$contactComma = '-'.$contactJSON;
 			if(!$mysqli->query("INSERT INTO friends(id, list)
                                     VALUES ('$uid_in_session', '$contactJSON')
                                     ON DUPLICATE KEY UPDATE
@@ -60,6 +60,7 @@
 					}
 	            }
 	        }
+	        echo "SUCCESS";
 		}
 	} else if($request === "friends") {
 		// Using prepared statements means that SQL injection is not possible. 

@@ -23,4 +23,5 @@
 	$right_out = str_replace(array("\r", "\n"), '', $right_out);
 	$contact = addslashes(file_get_contents("./template/contact.php"));
 	$contact = str_replace(array("\r", "\n"), '', $contact);
+	$countries = exec("php ./parseCountries.php");
 ?>
