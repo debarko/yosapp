@@ -73,11 +73,11 @@
 				<!-- first dialouge box -->
 				<div class="stpDlgBox" id="stpDlgBox1">
 					<div id="verHeaderStp1" class="verHeader">Choose Verifivation Method</div>
-					<div id="verStp1Left">
-						<div id="verStp1LeftTop"><p class="verText">Choose How verification code will be sent to you</p></div>
-						<div id="verStp1LeftBottom"><p class="verText">Code will be sent via SMS</p><div id="verSelectedIcon"></div></div>
+					<div id="verStp1Left" class="verStpLeft">
+						<div id="verStp1LeftTop" class="verStpLeftTop"><p class="verText">Choose How verification code will be sent to you</p></div>
+						<div id="verStp1LeftBottom" class="verStpLeftBottom"><p class="verText">Code will be sent via SMS</p><div id="verSelectedIcon"></div></div>
 					</div>
-					<div id="verStp1Right">
+					<div id="verStp1Right" class="verStpRight">
 						<div id="verSMSWrapper" class="verMethodSelectionWrapper">
 							<div class="selectVerMethodCheckBox" id="selectSMS"></div>
 							<div class="selectIcons" id="selectIconsSMS"></div>
@@ -97,6 +97,16 @@
 				<div class="innerDisk"></div>
 				<div class="stpDlgBox" id="stpDlgBox2">
 					<div id="verHeaderStp2" class="verHeader">Enter Verification Code</div>
+					<div id="verStp2Left" class="verStpLeft">
+						<div id="verStp2LeftTop" class="verStpLeftTop"><p class="verText verText2">Verification  code will be sent to your registered number shortly</p></div>
+						<div id="verStp2LeftBottom" class="verStpLeftBottom"><p class="verText verText2">Hit resend if you did not get the code already</p></div>
+					</div>
+					<div id="verStp2Right" class="verStpRight">
+						<div id="verStp2RightHeader"><p>Enter 6 digit code here</p></div>
+						<div><input id="verCodeField" type="text" name="verCodeInput" /></div>
+						<div id="verCodeOR">OR</div>	
+						<div id="verResendCode"><p>Resend</p></div>
+					</div>
 					<div class="nextStpArrow"></div>
 				</div>
 			</span>
@@ -105,6 +115,8 @@
 				<div class="innerDisk"></div>
 				<div class="stpDlgBox" id="stpDlgBox3">
 					<div id="verHeaderStp3" class="verHeader">Congratulation</div>
+					<div id="verStp3Icon"></div>
+					<div id="verStp3Text">Your verifucation completed successfully</div>
 					<div class="nextStpArrow"></div>
 				</div>
 			</span>
