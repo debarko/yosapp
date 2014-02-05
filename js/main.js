@@ -214,6 +214,53 @@ function getFriends() {
     	});
 }
 
-//function userVarification(){
+// verification part starts here
 
-//}
+//bring up verification window (first step will be on bt default)
+function showVerWindow(){
+
+	$('#varifyWindow').css('display','inline-block');
+	$('#varifyWindow').animate({opacity:'1'},100,function(){ //the window appears
+		$(this).find('#varifyWindowContainerHeader').animate({opacity:'1'},100,function(){ //header text appears
+			$('#progBarBg').animate({opacity:'1'},100,function(){ //the progress bar appears
+				$('#fstStop').find('.innerDisk').animate({opacity:'1'},200); //first inner disk appears
+				$('#stpDlgBox1').css({opacity:'0',display:'inline-block'});
+				$('#stpDlgBox1').animate({opacity:'1'},300, function(){	// first dialouge box appears but without content
+					$('#stpDlgBox1Container').animate({opacity:'1'},300, verMethodSelect('sms')); //content appears and MSG method selected by default
+				}); 
+			});
+		});
+	});
+
+
+	
+
+}
+//  select verification method function
+function verMethodSelect(method){
+	if( method == 'sms' ){
+		// clear whatever set for voice first
+		$('#verVoiceWrapper').css('opacity','');
+		$('#selectVOICE').css('background-image','');
+		//set css for sms
+		$('#verSMSWrapper').css('opacity','1');
+		$('#selectSMS').css('background-image','url("./icons/check_20x20.png")')
+		$('#verSelectedIcon').css('background-image', 'url("./icons/msg2_min.png")');
+		$('#verStp1LeftBottom').find('p').html('Code will be sent via SMS');
+	}
+	else if( method == 'voice' ){
+		// clear whatever set for voice first
+		$('#verSMSWrapper').css('opacity','');
+		$('#selectSMS').css('background-image','')	
+		//set css for sms
+		$('#verVoiceWrapper').css('opacity','1');
+		$('#selectVOICE').css('background-image','url("./icons/check_20x20.png")');
+		$('#verSelectedIcon').css('background-image', 'url("./icons/voiceCall_min.png")');
+		$('#verStp1LeftBottom').find('p').html('Code will be sent via Voice Call');
+	}
+}
+
+//show codeEnterWindow
+function enterVerCode(){
+	//
+}
