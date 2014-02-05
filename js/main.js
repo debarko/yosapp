@@ -247,11 +247,8 @@ function showVerWindow(){
 			});
 		});
 	});
-
-
-	
-
 }
+
 //  select verification method function
 function verMethodSelect(method){
 	if( method == 'sms' ){
@@ -278,5 +275,59 @@ function verMethodSelect(method){
 
 //show codeEnterWindow
 function enterVerCode(){
-	//
+	// fade out the content of first dialouge 
+	$('#stpDlgBox1Container').animate({opacity:'0'},300,function(){
+		$('#stpDlgBox1').animate({left:'71px'},400, function(){	// move the window to next position
+			// put inner disk in the progress bar
+			$('#sndStop').find('.innerDisk').css('opacity','1');
+			// make right shifted first window disappear
+			$('#stpDlgBox1').css('display','none');
+			//make 2nd dialouge appear but not the content
+			$('#stpDlgBox2').css('display','inline-block');
+			//now fade in the content of the 2nd dialouge box
+			$('#stpDlgBox2Container').animate({opacity:'1'},300,function(){
+				//focus on Enter Code input box
+				$('#verCodeField').focus(); // todo not working
+			});
+		});
+		// put check mark for previous step
+		$('#fstStop').find('.innerDisk').css('background-color','transparent');
+		$('#fstStop').find('.innerDisk').css('background-image','url("./icons/check.png")');
+	});
+}
+
+// shows the last step of varification
+function successDialougeBox(){
+	// fade out the content of second dialouge 
+	$('#stpDlgBox2Container').animate({opacity:'0'},300, function(){
+		$('#stpDlgBox2').animate({left:'71px'},400, function(){	// move the window to next position
+			// put inner disk in the progress bar
+			$('#trdStop').find('.innerDisk').css('opacity','1');
+			// make right shifted first window disappear
+			$('#stpDlgBox2').css('display','none');
+			//make 2nd dialouge appear but not the content
+			$('#stpDlgBox3').css('display','inline-block');
+			//now fade in the content of the 2nd dialouge box
+			$('#stpDlgBox3Container').animate({opacity:'1'},300);
+
+			//animate glow the icon recursive
+			glowSuccessIcon(5);
+			function glowSuccessIcon(times){
+				if (!times){
+					return;
+				}
+				$('#verStp3Icon').animate({opacity:'.2'}, 500, function(){
+					$('#verStp3Icon').animate({opacity:'.6'}, 500, function(){
+						times--;
+						glowSuccessIcon(times);
+					});
+				});
+			}
+			//---glowing ends
+
+		});
+		// put check mark for previous step
+		$('#sndStop').find('.innerDisk').css('background-color','transparent');
+		$('#sndStop').find('.innerDisk').css('background-image','url("./icons/check.png")');
+	});
 }
