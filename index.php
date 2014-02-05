@@ -36,7 +36,8 @@
 		    YW.R_IN			= function() { return '<?php echo $right_in; ?>' };
 		    YW.R_OUT		= function() { return '<?php echo $right_out; ?>' };
 		    YW.CONTACT		= function() { return '<?php echo $contact; ?>' };
-			YW.UA           = function() { return navigator.userAgent; };
+		    YW.UA			= function() { return navigator.userAgent; };
+		    YW.COUNTRIES 	= <?php echo $countries; ?>;
 			
 			//Game Params
 			YW.logged_in	= function() { return '<?php echo ($logged_in)?"true":"false"; ?>'; };

@@ -193,6 +193,22 @@ function closeErrorMgsBox() {
 	$('#errorMsgBox').animate({opacity:'0'},700,"swing",function(){ $('#errorMsgBox').css("visibility","hidden"); });
 }
 
+function dissectPhoneNumber(number) {
+	var BreakException;
+
+	try {
+		YW.COUNTRIES.forEach(function(country){
+			if(number.indexOf(country[1]) === 0){
+				BreakException = country[1];
+				throw BreakException;
+			}
+		});
+	} catch(e) {
+	    if (e!==BreakException) throw e;
+	    return [BreakException, number.slice(BreakException.length)];
+	}
+}
+
 function getFriends() {
 		$aJX_status = $.ajax({
         type: "GET",

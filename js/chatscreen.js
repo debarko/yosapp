@@ -244,6 +244,30 @@ function setLastChat () {
 
 function processMessage(responseJSON) {
 	responseJSON.forEach(function(item){
+		if(!YW.DATA[item[0]]) {
+			var ccPhone = dissectPhoneNumber(item[0]);
+			addContactElem(item[0], ccPhone[1], ccPhone[0]);
+			YW.DATA[item[0]]={"phone": ccPhone[1],"cc": ccPhone[0], "name": item[0], "messages":{}, "messageTree": []};
+			$aJX_status = $.ajax({
+		        type: "POST",
+		        url: "user.php?request=addfriend",
+		        data: {"contact": ccPhone[1], "cc": ccPhone[0], "name": item[0]},
+		        dataType: "text"
+		        })
+		        .success(function(response) {
+		        	times = 0;
+		            if(response==="SUCCESS") {		            	
+		            	return true;
+		            }
+		            else {
+		                return false;
+		            }
+		        })
+		        .fail(function(response) {
+		        	times = 0;
+		        	return false;
+		    	});
+		}
 		if(YW.DATA[item[0]].messages.unreadCount) {
 			YW.DATA[item[0]].messages.unreadCount++;
 		} else {
