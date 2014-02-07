@@ -103,6 +103,29 @@
 	    	echo "sqlfail";
 	    	exit();
 	    }
+	} else if($request === "wpass_check") {
+		if ($stmt = $mysqli->prepare("SELECT w_pass FROM members
+	       WHERE id = ?
+	        LIMIT 1")) {
+	        $stmt->bind_param('s', $_SESSION['user_id']);
+	        $stmt->execute();    // Execute the prepared query.
+	        $stmt->store_result();
+	 
+	        // get variables from result.
+	        $stmt->bind_result($w_pass);
+	        $stmt->fetch();
+	        if ($w_pass !== NULL) {
+	            echo "true";
+	            exit();
+	        } else {
+	            // user has no w_pass.
+	            echo "false";
+	            exit();
+	        }
+	    } else {
+	    	echo "sqlfail";
+	    	exit();
+	    }
 	} else {
 		echo "badparam";
 		exit();

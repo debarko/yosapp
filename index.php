@@ -28,6 +28,7 @@
 		    YW.HOMESCREEN   = function() { return '<?php echo $homescreen; ?>'; };
 		    YW.CHATSCREEN   = function() { return '<?php echo $chatscreen; ?>'; };
 		    YW.CHATBUBBLE	= function() { return '<?php echo $chatbubble; ?>'; };
+		    YW.VERIF		= function() { return '<?php echo $verif; ?>';};
 		    YW.LOGGED_IN_H	= function() { return '<?php echo $header_logged_in; ?>' };
 		    YW.LOGGED_OUT_H	= function() { return '<?php echo $header_logged_out; ?>' };
 		    YW.MODAL		= function() { return '<?php echo $modal_window; ?>' };

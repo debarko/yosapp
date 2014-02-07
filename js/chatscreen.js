@@ -156,10 +156,21 @@ function shareOption(){
 	$('.shareOptionsBar').animate({top:"-1px"},800,"swing");
 }
 
+function showOverlay(callback) {
+	var overlay = $('#overlay');
+	overlay.css({
+		opacity:'0',
+		visibility:'visible'
+	});
+	overlay.animate({opacity:'1'},200,'swing',function(){
+		if(callback){
+			callback();
+		}
+	});
+}
 
 function showModal(defaultSelectedMenu){
 	var modal = $('#modal');
-	var overlay = $('#overlay');
 	
 	if(YW.logged_in()){
 		$('#modalMenuBar').html(YW.L_IN());
@@ -170,11 +181,7 @@ function showModal(defaultSelectedMenu){
 		$('#modalMenuBar').html(YW.L_OUT());
 		$('#modalRightPanel').html(YW.R_OUT());		
 	}
-	overlay.css({
-		opacity:'0',
-		visibility:'visible'
-	});
-	overlay.animate({opacity:'1'},200,'swing',function(){
+	showOverlay(function(){
 		//now bring up the modal
 		modal.css({
 			width:'0px',
@@ -195,7 +202,7 @@ function showModal(defaultSelectedMenu){
 			$('#modalCloseButton').css('visibility','visible');
 			$('#modalContent').css('visibility','visible');
 		});
-	});
+	})
 }
 
 function closeModal(){
@@ -347,4 +354,25 @@ function renderMessages() {
 			sendOtherMsg(item.message);
 		}
 	});
+}
+
+function checkForWPass() {
+$aJX_status = $.ajax({
+		        type: "GET",
+		        url: "user.php?request=wpass_check"
+		        })
+		        .success(function(response) {
+		            if(response==="false") {
+		            	$("#bodybg").html($("#bodybg").html()+YW.VERIF());
+		            	showOverlay();
+		            	showVerWindow();
+		            	return true;		            	
+		            }
+		            else {
+		                return false;		                
+		            }
+		        })
+		        .fail(function(response) {
+		        	return false;
+		    	});	
 }
