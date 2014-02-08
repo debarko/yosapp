@@ -70,22 +70,7 @@
 
 
 /* modal right panel for add contacts */
-#addContactHeader{
-	position: relative;
-	top: -30px;
-	color: rgba(255, 255, 255, 0.46);
-	font-size: 25px;
-	font-family: fantasy;
-}
-#addContactHeader:after{
-	content: '';
-	display: block;
-	height: 6px;
-	width: 100%;
-	background-color: rgba(255, 255, 255, 0.37);
-	margin-top: 8;
-}
-#addContactForm{
+.modalRightMasterDiv{
 	position: relative;
 	width: 250px;
 	display: block;
@@ -93,7 +78,24 @@
 	left: -5%;
 	top: 25%;
 }
-
+#addContactForm{
+	display: none;
+}
+.modalRightHeader{
+	position: relative;
+	top: -30px;
+	color: rgba(255, 255, 255, 0.46);
+	font-size: 25px;
+	font-family: fantasy;
+}
+.modalRightHeader:after{
+	content: '';
+	display: block;
+	height: 6px;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.37);
+	margin-top: 8;
+}
 .inputFieldWraper{
 	display: inline-block;
 	width: 120px;
@@ -301,4 +303,52 @@
 	top: -4px;
 	background-image: url('../icons/singlecheck.png');
 	opacity: .7;
+}
+
+
+/* feedbck right panel*/
+#feedbackform{
+	width: 314;
+	left: 0px;
+}
+
+#feedbackText{
+	font-size: 13px;
+	color: white;
+	margin: 0 0 5 3;
+}
+#feedbackTextArea{
+	border: none;
+	outline: none;
+	background-color: rgba(255, 255, 255, 0.73);
+	font-family: monospace;
+	color: rgba(25, 58, 17, 0.75);
+	padding: 10px;
+}
+#feedbackSubmit{
+	display: inline-block;
+	height: 30px;
+	width: 55px;
+	background-color: rgba(255, 255, 255, 0.78);
+	border-radius: 3px;
+	margin: 8 0 0 1;
+}
+#feedbackSubmit p{
+	padding: 7px;
+	color: rgb(15, 99, 15);
+}
+#feedbackSubmit:hover{
+	-webkit-transform: scale(1.03);
+}
+#feedbackSubmit:active{
+	-webkit-transform: scale(0.95);
+}
+#feedbackIcon{
+	height: 21px;
+	width: 25px;
+	position: relative;
+	top: 7px;
+	background-image: url('../icons/feedback.png');
+	opacity: .8;
+	float: right;
 }

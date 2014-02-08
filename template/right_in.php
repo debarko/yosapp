@@ -1,5 +1,5 @@
-<div id="addContactForm">
-	<div id="addContactHeader">ADD CONTACTS</div>
+<div id="addContactForm" class="modalRightMasterDiv">
+	<div id="addContactHeader" class="modalRightHeader">ADD CONTACTS</div>
 	<div class="inputFieldWraper"><input id="contactFirstName" class="modalInputField" type="text" name="contactFirstName" value="First Name" /></div>
 	<div class="inputFieldWraper" id="lastNameWrapper"><input id="contactLastName" class="modalInputField" type="text" name="contactFirstName" value="Last Name" /></div>
 	<div id="phNumberWrapper" ><input id="phNumber" class="modalInputField" type="text" name="phNumber" value="Phone Number" /></div>
@@ -16,4 +16,12 @@
 			<div class="addContactAnimatedMsgBox" id="phonebookAnimatedMsgBox">Successful</div>
 		</div>
 	</div>
+</div>
+<!-- Feedback Form -->
+<div id="feedbackform" class="modalRightMasterDiv">
+	<div id="feedbackHeader" class="modalRightHeader">FEEDBACK</div>
+	<div id="feedbackText">Please enter your feedback</div>
+	<div id="feedbackInput"><textarea id="feedbackTextArea" rows="10" cols="34" maxlength="500" name="feedbackTextArea" autofocus ></textarea></div>
+	<div id="feedbackSubmit"><p>Send</p></div>
+	<div id="feedbackIcon"></div>
 </div>

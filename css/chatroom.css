@@ -4,22 +4,24 @@
 		background-color: white;
 	}
 
+	.iconIn{
+		display: inline-block;
+		display: inline-block;
+		height: 30px;
+		width: 30px;
+		margin-right: 15px;
+	}
 	#logout{
-		width: 43px;
-		height: 48px;
-		background-image: url('../icons/powerBtn.png');
-		zoom: .6;
+		background-image: url('../icons/out_min.png');
 	}
 	#settings{
-		width: 40px;
-		height: 40px;
-		background-image: url('../icons/settings.png');
-		zoom: .8;
+		background-image: url('../icons/settings_min.png');
 	}
 	#connectivity{
-		width: 33px;
-		height: 25px;
-		background-image: url('../icons/network.png');
+		background-image: url('../icons/conn1_min.png');
+	}
+	.tooltipIn{
+		display: none;
 	}
 
 	#bodybg-chatroom{
@@ -331,7 +333,7 @@
 		background-repeat: no-repeat;
 		height: 100%;
 		width: 30px;
-		background-image: url('../icons/send.png');
+		background-image: url('../icons/sendArrow.png');
 		background-position-y: 49%;
 		float: right;
 		margin-right: 20px;
