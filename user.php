@@ -114,7 +114,7 @@
 	        // get variables from result.
 	        $stmt->bind_result($w_pass);
 	        $stmt->fetch();
-	        if ($w_pass !== NULL) {
+	        if ($w_pass !== NULL && $w_pass !== "") {
 	            echo "true";
 	            exit();
 	        } else {

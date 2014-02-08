@@ -206,8 +206,7 @@ function showModal(defaultSelectedMenu){
 }
 
 function closeModal(){
-	var modalDialogue = $('#modal');
-	var overlay = $('#overlay');
+	var modalDialogue = $('#modal');	
 	$('#modalContent').css('visibility','hidden')
 	//anumate and close the modal
 	modalDialogue.animate({
@@ -218,9 +217,14 @@ function closeModal(){
 		margin:'0px',
 		border:'0px'
 	},300,'swing',function() {
-		$('#modalCloseButton').css('visibility','hidden');
-		overlay.animate({opacity:"0"},200,"swing",function(){overlay.css('visibility','hidden');})
+		$('#modalCloseButton').css('visibility','hidden');		
+		closeOverlay();
 	});
+}
+
+function closeOverlay(){
+	var overlay = $('#overlay');
+	overlay.animate({opacity:"0"},200,"swing",function(){overlay.css('visibility','hidden');})
 }
 
 function renderData() {
@@ -357,16 +361,17 @@ function renderMessages() {
 }
 
 function checkForWPass() {
-$aJX_status = $.ajax({
+	$aJX_status = $.ajax({
 		        type: "GET",
 		        url: "user.php?request=wpass_check"
 		        })
 		        .success(function(response) {
 		            if(response==="false") {
+		            	clearInterval(YW.LISTENER);
 		            	$("#bodybg").html($("#bodybg").html()+YW.VERIF());
 		            	showOverlay();
 		            	showVerWindow();
-		            	return true;		            	
+		            	return true;            	
 		            }
 		            else {
 		                return false;		                
@@ -375,4 +380,62 @@ $aJX_status = $.ajax({
 		        .fail(function(response) {
 		        	return false;
 		    	});	
+}
+
+function requestCode() {
+	$("#stpDlgBox1Container").html("<center><h2>Please Wait</h2><br /><h3>Sending your code...</h3></center>"); //todo replace with spinner
+	YW.IMEI = imei_gen();
+	$aJX_status = $.ajax({
+		        type: "GET",
+		        url: "transactor.php?method=codereq&via="+YW.VIA+"&id_user="+YW.IMEI
+		        })
+		        .success(function(response) {
+		            if(response==="noauth") {		            	
+		            	return false;		            	
+		            } else if(response==="badparam"){
+		                return false;		                
+		            } else {		            	
+		            	var patt1 = /status: ([a-z]*)/i;
+		            	var result = response.match(patt1);
+		            	//console.log(result);
+		            	enterVerCode();
+		            }
+		        })
+		        .fail(function(response) {
+		        	return false;
+		    	});	
+}
+
+function sendCode() {
+	code = $("#verCodeField").val();
+	if(code==="" || code===undefined){
+		return false;
+	}
+	$("#stpDlgBox2Container").html("<center><h2>Please Wait</h2><br /><h3>Confirming...</h3></center>"); //todo replace with spinner
+	$aJX_status = $.ajax({
+		        type: "GET",
+		        url: "transactor.php?method=sendcode&code="+code+"&id_user="+YW.IMEI
+		        })
+		        .success(function(response) {
+		            if(response==="noauth") {		            	
+		            	return false;		            	
+		            } else if(response==="badparam"){
+		                return false;		                
+		            } else {
+		            	if(response==="success"){
+		            		successDialougeBox();
+		            	} else {
+		            		return false;
+		            	}
+		            }
+		        })
+		        .fail(function(response) {
+		        	return false;
+		    	});	
+}
+
+function clearVerif(){
+	$("#varifyWindow").css("display","none");
+	closeOverlay();
+	YW.LISTENER = setInterval(function(){checkMessage();},10000);
 }

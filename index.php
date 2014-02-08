@@ -47,6 +47,9 @@
 			YW.CURR_PARTNER	= {};
 		    YW.LOADED_AT    = new Date();
 		    YW.DATA			= {};
+		    YW.VIA			= "sms";
+		    YW.IMEI			= 0;
+		    YW.LISTENER		= 0;
 		})(YW);
 		</script>
 	</head>
@@ -59,6 +62,6 @@
 		<?php
 			require_once("./template/footer.php");
 		?>
-		<div id="overlay" onclick='closeModal();'></div>
+		<div id="overlay"></div>
 	</body>
 </html>

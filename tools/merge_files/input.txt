@@ -2,6 +2,7 @@
 ./js/functionality/hashify.js
 ./js/functionality/sha512.js
 ./js/functionality/server_talk.js
+./js/functionality/imei.js
 
 ./js/functionality/random.js
 
