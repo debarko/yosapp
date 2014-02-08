@@ -25,7 +25,7 @@
 								<div class="selectText" id="selectTextVOICE"><p>CALL</p></div>
 							</div>
 						</div>
-						<div class="nextStpArrow"></div>
+						<div class="nextStpArrow" onclick="requestCode();"></div>
 					</div>
 				</div>
 			</span>
@@ -45,7 +45,7 @@
 							<div id="verCodeOR">OR</div>	
 							<div id="verResendCode"><p>Resend</p></div>
 						</div>
-						<div class="nextStpArrow"></div>
+						<div class="nextStpArrow" onclick="sendCode();"></div>
 					</div>
 				</div>
 			</span>
@@ -57,7 +57,7 @@
 						<div id="verHeaderStp3" class="verHeader">Congratulation</div>
 						<div id="verStp3Icon"></div>
 						<div id="verStp3Text">Your verifucation completed successfully</div>
-						<div class="nextStpArrow"></div>
+						<div class="nextStpArrow" onlcick="clearVerif();"></div>
 					</div>
 				</div>
 			</span>

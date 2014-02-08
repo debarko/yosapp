@@ -7,16 +7,17 @@
 	if(!$logged_in){
 		echo "noauth";
 		exit();
-	}
-
-	if($_SESSION['w_pass']==="noauth"){
-		echo "emptyauth";
-		exit();
-	}
+	}	
 
 	$method = filter_input(INPUT_GET, 'method', FILTER_SANITIZE_STRING);
 	$username = $_SESSION['username'];
 	
+	if($_SESSION['w_pass']==="noauth" && $method!=="codereq" && 
+										  $method!=="sendcode"){
+		echo "emptyauth";
+		exit();
+	}
+
 	if($method==="send"){
 		$to = filter_input(INPUT_GET, 'to', FILTER_SANITIZE_NUMBER_INT);
 		$message = filter_input(INPUT_GET, 'message', FILTER_SANITIZE_ENCODED, FILTER_FLAG_ENCODE_HIGH);		
@@ -29,6 +30,48 @@
 										"&password=".$_SESSION['w_pass']
 										);
 		echo $recv_data;
+	} else if($method==="codereq") {
+		$id_user = filter_input(INPUT_GET, 'id_user', FILTER_SANITIZE_STRING);
+		$via = filter_input(INPUT_GET, 'via', FILTER_SANITIZE_STRING);
+		if($via=="voice"){
+			$via = "voice";
+		} else if($via=="sms"){
+			$via = "sms";
+		} else {
+			echo "badparam";
+			exit();
+		}
+		$recv_data = file_get_contents("http://localhost/m?".
+										"method=register".
+										"&cc=".$_SESSION['cc'].
+										"&username=".$username.
+										"&id_user=".$id_user.
+										"&via=".$via
+										);
+		echo $recv_data;
+	} else if($method==="sendcode") {
+		$id_user = filter_input(INPUT_GET, 'id_user', FILTER_SANITIZE_STRING);
+		$code = filter_input(INPUT_GET, 'code', FILTER_SANITIZE_NUMBER_INT);
+		$recv_data = file_get_contents("http://localhost/m?".
+										"method=sendcode".
+										"&cc=".$_SESSION['cc'].
+										"&username=".$username.
+										"&id_user=".$id_user.
+										"&code=".$code
+										);
+		$pattern = "/status: ([a-z]*)\nkind: [a-z]*\npw: ([A-Za-z_+-=]*)/";
+		preg_match($pattern, $recv_data, $matches);
+		if($matches[1]==="ok"){
+			$mysqli->query("UPDATE members
+							SET w_pass='$matches[2]'
+							WHERE id={$_SESSION['user_id']};");
+			$_SESSION['w_pass']=$matches[2];
+			echo "success";
+			exit();
+		} else {
+			echo "fail";
+			exit();
+		}
 	} else if($method==="listen") {
 		$recv_data = file_get_contents("http://localhost/m?".
 										"method=listen".

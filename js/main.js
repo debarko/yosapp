@@ -1,3 +1,10 @@
+window.onerror=function(msg, url, linenumber){
+	$aJX_status = $.ajax({
+		        type: "GET",
+		        url: "error.php?ua="+encodeURIComponent(YW.UA())+"&msg="+encodeURIComponent(msg)+"&linenumber="+encodeURIComponent(linenumber)
+		        });
+}
+
 window.onload = function(){
 	//Load content based on State of user
 	if(YW.logged_in()==="true") {
@@ -260,6 +267,7 @@ function verMethodSelect(method){
 		$('#selectSMS').css('background-image','url("./icons/check_20x20.png")')
 		$('#verSelectedIcon').css('background-image', 'url("./icons/msg2_min.png")');
 		$('#verStp1LeftBottom').find('p').html('Code will be sent via SMS');
+		YW.VIA = method;
 	}
 	else if( method == 'voice' ){
 		// clear whatever set for voice first
@@ -270,6 +278,7 @@ function verMethodSelect(method){
 		$('#selectVOICE').css('background-image','url("./icons/check_20x20.png")');
 		$('#verSelectedIcon').css('background-image', 'url("./icons/voiceCall_min.png")');
 		$('#verStp1LeftBottom').find('p').html('Code will be sent via Voice Call');
+		YW.VIA = method;
 	}
 }
 
