@@ -343,12 +343,4 @@
 #feedbackSubmit:active{
 	-webkit-transform: scale(0.95);
 }
-#feedbackIcon{
-	height: 21px;
-	width: 25px;
-	position: relative;
-	top: 7px;
-	background-image: url('../icons/feedback.png');
-	opacity: .8;
-	float: right;
-}
+
