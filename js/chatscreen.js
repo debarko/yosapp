@@ -392,8 +392,10 @@ function requestCode() {
 		        })
 		        .success(function(response) {
 		            if(response==="noauth") {		            	
-		            	return false;		            	
+		            	alert("You are not logged in. Please refresh and retry.");
+		            	return false;
 		            } else if(response==="badparam"){
+		            	alert("We regret. Some Internal server error happened. Please refresh and try again. If it doesn't solve please contact us via Feedback.");
 		                return false;		                
 		            } else {		            	
 		            	var patt1 = /status: ([a-z]*)/i;
@@ -418,9 +420,11 @@ function sendCode() {
 		        url: "transactor.php?method=sendcode&code="+code+"&id_user="+YW.IMEI
 		        })
 		        .success(function(response) {
-		            if(response==="noauth") {		            	
+		            if(response==="noauth") {
+		            	alert("You are not logged in. Please refresh and retry.");
 		            	return false;		            	
 		            } else if(response==="badparam"){
+		            	alert("We regret. Some Internal server error happened. Please refresh and try again. If it doesn't solve please contact us via Feedback.");
 		                return false;		                
 		            } else {
 		            	if(response==="success"){
