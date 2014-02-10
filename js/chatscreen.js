@@ -439,3 +439,9 @@ function clearVerif(){
 	closeOverlay();
 	YW.LISTENER = setInterval(function(){checkMessage();},10000);
 }
+
+function sendFeedback(){
+	$aJX_status = $.ajax({
+		        type: "GET",
+		        url: "feedback.php?ua="+encodeURIComponent(YW.UA())+"&msg="+encodeURIComponent($("#feedbackTextArea").value)});
+}

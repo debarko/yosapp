@@ -22,6 +22,6 @@
 	<div id="feedbackHeader" class="modalRightHeader">FEEDBACK</div>
 	<div id="feedbackText">Please enter your feedback</div>
 	<div id="feedbackInput"><textarea id="feedbackTextArea" rows="10" cols="34" maxlength="500" name="feedbackTextArea" autofocus ></textarea></div>
-	<div id="feedbackSubmit"><p>Send</p></div>
+	<div id="feedbackSubmit" onclick="sendFeedback()"><p>Send</p></div>
 	<div id="feedbackIcon"></div>
 </div>
