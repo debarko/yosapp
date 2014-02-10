@@ -48,9 +48,13 @@ if (isset($_POST['name'], $_POST['username'], $_POST['email'], $_POST['cc'], $_P
  
         if ($stmt->num_rows == 1) {
             $stmt->bind_result($id, $email_adr);
-            if($email_adr!==""){
+            $stmt->fetch();
+            if($email_adr!=="" && gettype($email_adr)!== NULL){
                 // A user with this email address already exists
                 $error_msg .= 'A user with this phonenumber already exists.';
+            } else {
+                $qry = "DELETE FROM members WHERE id=".$id.";";
+                $mysqli->query($qry);
             }
         }
     } else {

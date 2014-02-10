@@ -19,7 +19,9 @@ function formhash(username, password, cc, form) {
                 log_in_user();
             }
             else {
-                form.reset();
+                if(form){
+                    form.reset();
+                }
             }
         })
         .fail(function(response) {
@@ -87,12 +89,23 @@ function regformhash(form, uid, email, password, cc, name) {
         type: "POST",
         url: "register.php",
         data: data,
-        dataType: "json"
+        dataType: "text"
         })
         .success(function(response) {
-            dispErrMsg(response);
+            if(response==="SUCCESS"){
+                formhash(document.getElementById('regInputPhone').value,
+                                  document.getElementById('regpass').value,
+                                  document.getElementById('regInputCountry').value);
+                dispErrMsg("You have successfully registered. Logging you in...");
+                document.getElementById('regform').reset();
+                $("#regform").animate({'opacity':'0'},800);
+                setTimeout(function() {$("#regform").css('visibility','hidden')}, 800);
+            } else {
+                dispErrMsg(response);
+            }
         })
         .fail(function(response) {
-            console.log("ERROR");
+            dispErrMsg("Something went wrong, please refresh the page and try again.");
+            return false;
         });    
 }

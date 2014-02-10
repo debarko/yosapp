@@ -5,6 +5,7 @@ window.onerror=function(msg, url, linenumber){
 		        });
 }
 
+
 window.onload = function(){
 	//Load content based on State of user
 	if(YW.logged_in()==="true") {
