@@ -366,6 +366,7 @@ function checkForWPass() {
 		        url: "user.php?request=wpass_check"
 		        })
 		        .success(function(response) {
+		        	response = response.trim();
 		            if(response==="false") {
 		            	clearInterval(YW.LISTENER);
 		            	$("#bodybg").html($("#bodybg").html()+YW.VERIF());
