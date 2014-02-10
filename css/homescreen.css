@@ -731,6 +731,7 @@
   }
 
   #feedback{
+    display: none;
     height: 70%;
     width: 90px;
     float: right;

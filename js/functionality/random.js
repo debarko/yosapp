@@ -30,6 +30,7 @@ function log_in_user() {
 		renderData();
 		setLastChat();
 		checkForWPass();
+		$("#feedback").css("display","block");
 		YW.LISTENER = setInterval(function(){checkMessage();},10000);
 		$('#typemsg').keypress(function(e) {
 	        // Enter pressed?
