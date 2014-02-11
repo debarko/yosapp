@@ -886,6 +886,7 @@
     bottom: 0px;
     right: 0px;
     margin: -4 4 6 0;
+    z-index: 10;
   }
   .verHeader{
     font-size: 20px;
@@ -1092,5 +1093,26 @@
   }
   #stpDlgBox3{
     display: none;
+  }
+
+  /*1st dialouge box animation styling*/
+  .verLoading{
+    display: none;    
+    height: 128px;
+    width: 128px;
+    margin: 0 auto;
+    background-image: url('../icons/newloading.gif');
+    opacity: .6;
+  }
+  .verLoading span{
+    display: block;
+    width: 332px;
+    position: relative;
+    top: 140px;
+    left: -102px;
+    color: white;
+  }
+  .verLoading span p{
+    text-align: center;
   }
 } /* hd res layout over  11850 */

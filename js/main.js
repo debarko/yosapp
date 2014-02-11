@@ -341,3 +341,32 @@ function successDialougeBox(){
 		$('#sndStop').find('.innerDisk').css('background-image','url("./icons/check.png")');
 	});
 }
+
+
+//dialouge box loading animation
+function firstDlBoxLoading(msg,stepNumber){
+	// elements to be manipulated
+	var leftCol = '';
+	var rightCol = '';
+	var nextArrow = '';
+	var animatingObj = '';
+
+	if (stepNumber == 1) {
+		leftCol = '#verStp1Left';
+		rightCol = '#verStp1Right';
+		nextArrow = '#nextArrow1';
+		animatingObj = '#verLoadingIcon1';
+	}
+	else if (stepNumber == 2) {
+		leftCol = '#verStp2Left';
+		rightCol = '#verStp2Right';
+		nextArrow = '#nextArrow2';
+		animatingObj = '#verLoadingIcon2';
+	}
+	
+	$(leftCol+','+rightCol+','+nextArrow).animate({opacity:'0'},300,function(){
+			$(this).css('display','none');
+			$(animatingObj).css({opacity:'0', display:'block'}).animate({opacity:'.5'},300);
+			$(animatingObj).find('p').html(msg);
+	});
+}

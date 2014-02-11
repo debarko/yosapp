@@ -25,7 +25,8 @@
 								<div class="selectText" id="selectTextVOICE"><p>CALL</p></div>
 							</div>
 						</div>
-						<div class="nextStpArrow" onclick="requestCode();"></div>
+						<div class="nextStpArrow" id="nextArrow1" onclick="requestCode();"></div>
+						<div id="verLoadingIcon1" class="verLoading"><span><p></p></span></div>
 					</div>
 				</div>
 			</span>
@@ -45,7 +46,8 @@
 							<div id="verCodeOR">OR</div>	
 							<div id="verResendCode"><p>Resend</p></div>
 						</div>
-						<div class="nextStpArrow" onclick="sendCode();"></div>
+						<div class="nextStpArrow" id="nextArrow2" onclick="sendCode();"></div>
+						<div id="verLoadingIcon2" class="verLoading"><span><p></p></span></div>
 					</div>
 				</div>
 			</span>
