@@ -344,7 +344,7 @@ function successDialougeBox(){
 
 
 //dialouge box loading animation
-function firstDlBoxLoading(msg,stepNumber){
+function DlBoxLoading(msg,stepNumber){
 	// elements to be manipulated
 	var leftCol = '';
 	var rightCol = '';
