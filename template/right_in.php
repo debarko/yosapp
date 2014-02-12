@@ -25,3 +25,10 @@
 	<div id="feedbackSubmit" onclick="sendFeedback()"><p>Send</p></div>
 	<div id="feedbackIcon"></div>
 </div>
+
+<div id="settingsForm" class="modalRightMasterDiv">
+	<div id="settingsHeader" class="modalRightHeader">SETTINGS</div>
+	<div id="comingSoonBannerSettings" class="comingSoonBanner"></div>
+	<div id="underDevIconSettings" class="underDevIcon"></div>
+	<p id="underDevTextSettings" class="underDevText">This Feature is under construction and will be available in beta realease</p>
+</div>

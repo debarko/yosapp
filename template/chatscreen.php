@@ -7,7 +7,7 @@
 		</ul>
 	</div>
 	<div id="contactoptions">
-		<div class="contactOptionsIcon" id="manualAddContact" onclick='showModal();'></div>
+		<div class="contactOptionsIcon" id="manualAddContact" onclick='showModal("addCon");'></div>
 	</div>
 </div>
 <div id="rightpannel">

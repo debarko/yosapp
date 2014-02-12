@@ -344,3 +344,30 @@
 	-webkit-transform: scale(0.95);
 }
 
+/* settings */
+.comingSoonBanner{
+	width: 175px;
+	height: 112;
+	background-image: url('../icons/comingSoonBanner.png');
+	position: relative;
+	top: -115px;
+	left: -68px;
+}
+
+.underDevIcon{
+	height: 55px;
+	width: 54px;
+	background-image: url('../icons/underDev.png');
+	opacity: .9;
+	margin: 0 auto;
+	position: relative;
+	top: -65px;
+}
+.underDevText{
+	text-align: center;
+	font-size: 14px;
+	color: white;
+	line-height: 20px;
+	position: relative;
+	top: -30;
+}

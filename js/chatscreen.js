@@ -200,10 +200,32 @@ function showModal(defaultSelectedMenu){
 			margin:'-200px 0px 0px -300px'
 		},300,"swing",function(){
 			$('#modalCloseButton').css('visibility','visible');
-			$('#modalContent').css('visibility','visible');
+			$('#modalContent').css('visibility','visible');	
+			selectModalItem(defaultSelectedMenu)
 		});
 	})
 }
+
+function selectModalItem(item){
+	//this function selects modal content. Ex : settings, add contacts etc
+	// disable all previously activated display forms 
+	$('.modalRightMasterDiv').css('display','none');
+	$('.modalMenuItem').css('background-color','');
+	// now selectively on whichever is requested
+	if (item == 'addCon'){
+		$('#addContactForm').css('display','block');
+		$('#modaladdContact').css('background-color','#2AB200');
+	}
+	else if (item == 'feedback'){
+		$('#feedbackform').css('display','block');
+		$('#modalFeedback').css('background-color','#2AB200');
+	}
+	else if (item == 'settings'){
+		$('#settingsForm').css('display','block');
+		$('#modalSettings').css('background-color','#2AB200');
+	}
+}
+
 
 function closeModal(){
 	var modalDialogue = $('#modal');	
@@ -299,6 +321,8 @@ function setCurrentPartner(elem) {
 		return;
 	}
 	YW.CURR_PARTNER = elem.children.item(2).innerHTML+elem.children.item(3).id;
+	// highlight the current partner
+
 	$("#msgcontainer").html("<br /><br />");
 	renderMessages();
 	renderCurrent();
