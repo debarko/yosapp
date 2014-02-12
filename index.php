@@ -50,6 +50,7 @@
 		    YW.VIA			= "sms";
 		    YW.IMEI			= 0;
 		    YW.LISTENER		= 0;
+		    YW.NAME			= "<?php echo (isset($_SESSION['name']))?$_SESSION['name']:0; ?>";
 		})(YW);
 		</script>
 	</head>

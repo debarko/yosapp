@@ -9,11 +9,12 @@ if (isset($_POST['username'], $_POST['cc'], $_POST['password'])) {
     $cc = $_POST['cc'];
  
     if (login($username, $password, $cc, $mysqli) == true) {
-        // Login success 
-        echo "true";
+        // Login success
+        $name_of_user = $_SESSION['name'];
+        echo "{\"status\": true, \"name\": \"$name_of_user\"}";
     } else {
         // Login failed 
-        echo "false";
+        echo "{\"status\": \"false\", \"reason\": \"Username and Password do not match.\"}";
     }
 } else {
     // The correct POST variables were not sent to this page. 

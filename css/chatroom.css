@@ -86,6 +86,7 @@
 	#editprofiletext{
 		font-size: 12px;
 		margin-top: 10px;
+		visibility: hidden;
 	}
 
 	/*contact search bar*/
