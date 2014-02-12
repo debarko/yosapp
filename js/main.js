@@ -366,7 +366,35 @@ function DlBoxLoading(msg,stepNumber){
 	
 	$(leftCol+','+rightCol+','+nextArrow).animate({opacity:'0'},300,function(){
 			$(this).css('display','none');
-			$(animatingObj).css({opacity:'0', display:'block'}).animate({opacity:'.5'},300);
+			$(animatingObj).css({opacity:'0', display:'block'});
 			$(animatingObj).find('p').html(msg);
+			$(animatingObj).animate({opacity:'.6'},300);
+
+			
 	});
+}
+
+function DlBoxFinalMsg(msg, stepNumber){
+	var prevObj = '';
+	var newObjIcon = '';
+	var newText = '';
+	
+	if( stepNumber == 1 ) {
+		prevObj = '#verLoadingIcon1';
+		newObjIcon = '#verFaildMsg1Ref';
+		newText = '#verFaildMsg1Text';
+	}
+	else if( stepNumber == 2 ) {
+		prevObj = '#verLoadingIcon2';
+		newObjIcon = '#verFaildMsg2Ref';
+		newText = '#verFaildMsg2Text';
+	}
+	
+	$(prevObj).animate({opacity:'0'}, 300, function(){
+		$(this).css('display','none')
+		$(newText).html(msg);
+		$(newObjIcon+','+newText).css({opacity:'0', display:'block'});
+		$(newObjIcon+','+newText).animate({opacity:'1'},300);
+	});
+
 }
