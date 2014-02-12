@@ -384,7 +384,7 @@ function checkForWPass() {
 }
 
 function requestCode() {
-	$("#stpDlgBox1Container").html("<center><h2>Please Wait</h2><br /><h3>Sending your code...</h3></center>"); //todo replace with spinner
+	DlBoxLoading("Please Wait. Sending your code.",1);
 	YW.IMEI = imei_gen();
 	$aJX_status = $.ajax({
 		        type: "GET",
@@ -392,16 +392,24 @@ function requestCode() {
 		        })
 		        .success(function(response) {
 		            if(response==="noauth") {		            	
-		            	alert("You are not logged in. Please refresh and retry.");
+		            	DlBoxFinalMsg("You are not logged in. Please refresh and retry.", 1);
 		            	return false;
 		            } else if(response==="badparam"){
-		            	alert("We regret. Some Internal server error happened. Please refresh and try again. If it doesn't solve please contact us via Feedback.");
+		            	DlBoxFinalMsg("We regret. Internal server error happened. Please refresh and try again. If it doesn't solve please contact us via Feedback.", 1);
 		                return false;		                
 		            } else {		            	
 		            	var patt1 = /status: ([a-z]*)/i;
 		            	var result = response.match(patt1);
-		            	//console.log(result);
-		            	enterVerCode();
+		            	if(result && result[1]!=="fail"){
+		            		enterVerCode();
+		            	} else {
+		            		console.log(response);
+		            		var patt2 = /status: ([a-z]*)\nretry_after: ([0-9]*)/i;
+		            		var result2 = response.match(patt2);
+		            		if(result2 && result2[2]){
+		            			DlBoxFinalMsg("Trying too soon. Please try after "+Math.floor(result2[2]/60)+" minutes.", 1);
+		            		}
+		            	} 	
 		            }
 		        })
 		        .fail(function(response) {
@@ -414,22 +422,23 @@ function sendCode() {
 	if(code==="" || code===undefined){
 		return false;
 	}
-	$("#stpDlgBox2Container").html("<center><h2>Please Wait</h2><br /><h3>Confirming...</h3></center>"); //todo replace with spinner
+	DlBoxLoading("Please Wait. Confirming your code.",2);
 	$aJX_status = $.ajax({
 		        type: "GET",
 		        url: "transactor.php?method=sendcode&code="+code+"&id_user="+YW.IMEI
 		        })
 		        .success(function(response) {
 		            if(response==="noauth") {
-		            	alert("You are not logged in. Please refresh and retry.");
+		            	DlBoxFinalMsg("You are not logged in. Please refresh and retry.", 2);
 		            	return false;		            	
 		            } else if(response==="badparam"){
-		            	alert("We regret. Some Internal server error happened. Please refresh and try again. If it doesn't solve please contact us via Feedback.");
+		            	DlBoxFinalMsg("We regret. Some Internal server error happened. Please refresh and try again. If it doesn't solve please contact us via Feedback.", 2);
 		                return false;		                
 		            } else {
 		            	if(response==="success"){
 		            		successDialougeBox();
 		            	} else {
+		            		DlBoxFinalMsg("Wrong Code. Please try again.", 2);
 		            		return false;
 		            	}
 		            }

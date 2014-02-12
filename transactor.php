@@ -61,7 +61,7 @@
 										);
 		$pattern = "/status: ([a-z]*)\nkind: [a-z]*\npw: ([A-Za-z_+-=]*)/";
 		preg_match($pattern, $recv_data, $matches);
-		if($matches[1]==="ok"){
+		if(isset($matches[1]) && $matches[1]==="ok"){
 			$mysqli->query("UPDATE members
 							SET w_pass='$matches[2]'
 							WHERE id={$_SESSION['user_id']};");
