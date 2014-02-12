@@ -45,8 +45,6 @@
 						<div id="verStp2Right" class="verStpRight">
 							<div id="verStp2RightHeader"><p>Enter 6 digit code here</p></div>
 							<div><input id="verCodeField" type="text" name="verCodeInput" /></div>
-							<div id="verCodeOR">OR</div>	
-							<div id="verResendCode"><p>Resend</p></div>
 						</div>
 						<div class="nextStpArrow" id="nextArrow2" onclick="sendCode();"></div>
 						<div id="verLoadingIcon2" class="verLoading"><span><p></p></span></div>

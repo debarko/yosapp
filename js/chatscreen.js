@@ -403,7 +403,6 @@ function requestCode() {
 		            	if(result && result[1]!=="fail"){
 		            		enterVerCode();
 		            	} else {
-		            		console.log(response);
 		            		var patt2 = /status: ([a-z]*)\nretry_after: ([0-9]*)/i;
 		            		var result2 = response.match(patt2);
 		            		if(result2 && result2[2]){
