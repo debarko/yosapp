@@ -15,10 +15,12 @@ function formhash(username, password, cc, form) {
         dataType: "json"
         })
         .success(function(response) {
-            if(response===true) {
+            if(response.status===true) {
+                YW.NAME = response.name;
                 log_in_user();
             }
             else {
+                dispErrMsg(response.reason);
                 if(form){
                     form.reset();
                 }

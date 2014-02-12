@@ -7,7 +7,6 @@ function sendActualMessage(message) {
         url: "./transactor.php?method=send&to="+YW.CURR_PARTNER+"&message="+message,
         })
         .success(function(response) {
-        	times = 0;
             if(response==="sent") {
             	return true;
             }
@@ -16,7 +15,6 @@ function sendActualMessage(message) {
             }
         })
         .fail(function(response) {
-        	times = 0;
         	return false;
     	});
 
@@ -29,14 +27,15 @@ function checkMessage() {
         url: "./transactor.php?method=listen",
         })
         .success(function(response) {
-        	times = 0;
             if(response==="empty") {
             	return false;
             } else if(response==="nomessage") {
                 return false;
             } else if(response==="noconnect") {
+                checkForWPass();
                 return false;
             } else if(response==="emptyauth") {
+                checkForWPass();
                 return false;
             } else {
             	processMessage(response);
@@ -44,7 +43,6 @@ function checkMessage() {
             }
         })
         .fail(function(response) {
-        	times = 0;
         	return false;
     	});
 

@@ -32,6 +32,7 @@ function log_in_user() {
 		checkForWPass();
 		$("#feedback").css("display","block");
 		YW.LISTENER = setInterval(function(){checkMessage();},10000);
+		$("#profilename").html(YW.NAME);
 		$('#typemsg').keypress(function(e) {
 	        // Enter pressed?
 	        if(e.keyCode == 10 || e.keyCode == 13) {
