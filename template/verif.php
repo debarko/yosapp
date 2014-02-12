@@ -27,6 +27,8 @@
 						</div>
 						<div class="nextStpArrow" id="nextArrow1" onclick="requestCode();"></div>
 						<div id="verLoadingIcon1" class="verLoading"><span><p></p></span></div>
+						<div id="verFaildMsg1Ref" class="verFaildMsgRef"></div>
+						<div id="verFaildMsg1Text" class="verFaildMsgText"></div>
 					</div>
 				</div>
 			</span>
@@ -48,6 +50,9 @@
 						</div>
 						<div class="nextStpArrow" id="nextArrow2" onclick="sendCode();"></div>
 						<div id="verLoadingIcon2" class="verLoading"><span><p></p></span></div>
+						<div id="verLoadingIcon2" class="verLoading"><span><p></p></span></div>
+						<div id="verFaildMsg2Ref" class="verFaildMsgRef"></div>
+						<div id="verFaildMsg2Text" class="verFaildMsgText"></div>
 					</div>
 				</div>
 			</span>

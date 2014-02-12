@@ -1115,4 +1115,39 @@
   .verLoading span p{
     text-align: center;
   }
+
+  .verFaildMsgRef{
+    display: none;
+    height: 90px;
+    width: 90px;
+    margin: 23 auto 0 auto;
+    background-image: url('../icons/reload_min.png');
+    border: 1px solid rgba(255, 255, 255, 0.27);
+    background-color: rgba(255, 255, 255, 0.24); 
+    opacity: .9;
+  }
+  .verFaildMsgRef:hover{
+    -webkit-transform: scale(1.03);
+  }
+  .verFaildMsgRef:active{
+    -webkit-transform: scale(0.97);
+  }
+  .verFaildMsgText{
+    display: none;
+    text-align: center;
+    color: white;
+    font-size: 13px;
+    margin: 20 0 0 0;
+  }
+  .verFaildMsgText:after{
+    content: '';
+    position: absolute;
+    height: 32px;
+    width: 32px;
+    margin: -11 0 0 15;
+    background-image: url('../icons/x-icon_min.png');
+    opacity: .6;
+    
+  }
+
 } /* hd res layout over  11850 */
