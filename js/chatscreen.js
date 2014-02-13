@@ -321,9 +321,13 @@ function setCurrentPartner(elem) {
 		return;
 	}
 	YW.CURR_PARTNER = elem.children.item(2).innerHTML+elem.children.item(3).id;
-	// highlight the current partner
-
 	$("#msgcontainer").html("<br /><br />");
+	//clear previously selected partner
+	$('.contact').css('background-color','');
+	// get the current partners number (without cc)
+	var currPartnerNum = YW.CURR_PARTNER.substring(2, YW.CURR_PARTNER.length);
+	//highlight current partner
+	$('#'+currPartnerNum).parent().css('background-color','rgba(42, 178, 0, 0.52)')
 	renderMessages();
 	renderCurrent();
 }
