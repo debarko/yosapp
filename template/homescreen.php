@@ -5,8 +5,8 @@
 		LOGIN
 		<span></span>
 	</div>
-	<div class="loginFormElementWrapper"><div class="loginGuideText">Phone</div><div class="loginInputFieldWrapper"><input id="userfield" class="inputfields showTipInputFields" tip="Ex: 9876543210" type="text" name="" onclick='hideInputTipsOnclick("#userfield");' onblur='showInputTipsOnblur("#userfield");'/></div></div>
-	<div class="loginFormElementWrapper"><div class="loginGuideText">Password</div><div class="loginInputFieldWrapper"><input id="passfield" class="inputfields showTipInputFields" tip="1234" type="password" name=""  onfocus='hideInputTipsOnclick("#passfield");' onblur='showInputTipsOnblur("#passfield");'/></div></div>
+	<div class="loginFormElementWrapper"><div class="loginGuideText">Phone</div><div class="loginInputFieldWrapper"><input id="userfield" class="inputfields" type="text" name=""/><span class="inputFieldTip">Ex: 9876543210</span></div></div>
+	<div class="loginFormElementWrapper"><div class="loginGuideText">Password</div><div class="loginInputFieldWrapper"><input id="passfield" class="inputfields" tip="1234" type="password" name=""  onkeyup='hideTip();'/><span class="inputFieldTip">Ex: 9876543210</span></div></div>
 	<div class="loginFormElementWrapper"><div class="loginGuideText">Country</div><div class="loginInputFieldWrapper" id="loginInputFieldWrapperCountry">
 																																							<input id="countryField" class="inputfields showTipInputFields" tip="Ex: India" type="text" name="" onfocus='hideInputTipsOnclick("#countryField");' onblur='showInputTipsOnblur("#countryField");'/>
 																																							<div id="loginCC" class="regCountryInfo">(+91)</div>

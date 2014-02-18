@@ -173,17 +173,13 @@ function showLoginTipOnLoad(){
 	});
 }
 
-// have to also call this function on window resize yet
-function pointerRelativeTooltip(tooltipSpan, hoverElement, xOffset, yOffset){
-	var tooltipSpan = $(tooltipSpan);
-	var absoluteCordinate = $(hoverElement).offset();
-	window.onmousemove = function (e) {
-	    var x = e.clientX,
-	        y = e.clientY;
-		tooltipSpan.css('left', (x-absoluteCordinate.left+xOffset) + 'px');   //+125
-	    tooltipSpan.css('top',  (y-absoluteCordinate.top+yOffset) + 'px');    //+35
-	}
+
+// hide input field tip on keyup
+function hideTip() {
+	
+	alert($(this).html());
 }
+
 
 // function that pops up error msg
 function dispErrMsg(msg) {
