@@ -93,7 +93,9 @@ function addContact(){
 				$('#userInfoDivMemberTextUsername').html(fName+' '+lName);
 				$('#userInfoDivMemberTextNumber').html('('+cCode+')'+' '+phNumber);  // format (+91) 9474070457
 				$('#userInfoDivMemberTextCountry').html(cName);
-				addContactElem(fName+' '+lName, phNumber, cCode)
+				addContactElem(fName+' '+lName, phNumber, cCode);
+				itemNumber = parseInt(cCode+''+phNumber);
+				YW.DATA[itemNumber]={"phone": phNumber,"cc": cCode, "name": fName+' '+lName, "messages":{}, "messageTree": []};
 				//glow the phoenbook icon 3 times
 				glowLoop(3);
 				function glowLoop(times){

@@ -96,6 +96,10 @@ function formDivElem(parent, message, timestamp){
 		tagOtherBubble(new_id);
 	}
 
+	//convert the msg to smileys
+	//message.replace(/\u/g,"u+");
+	//message = minEmoji(message);
+
 	//set the message in the newly added div
 	setMessage(new_id, message);
 	
@@ -258,6 +262,11 @@ function renderData() {
 function addContactElem(name, phone, cc, image){
 	$('#contactslist').append(YW.CONTACT())[$('#contactslist').length - 1];
 	var currentContact;
+	var date_data = new Date();
+	date_data = date_data.getTime();
+	var letter = name.substr(0,1);
+	letter = letter.toUpperCase();
+	$("#contactslist li:last #image").attr("src","./profile.php?w=30&h=30&l="+letter+"&time="+date_data);
 	$('#contactslist li:last #name').html(name);
 	$('#contactslist li:last #cc').html(cc);
 	$('#contactslist li:last #number').attr("id",phone);
