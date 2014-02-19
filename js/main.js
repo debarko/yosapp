@@ -175,9 +175,20 @@ function showLoginTipOnLoad(){
 
 
 // hide input field tip on keyup
-function hideTip() {
-	
-	alert($(this).html());
+function hideTip(ele) {
+	var element = $(ele);
+	var ipText = element.val();
+	var tip = element.next();
+	if(ipText != '') {
+		if(tip.css('display') != 'none') {
+			tip.css('display','none');
+			return;
+		}
+		return;
+	}
+	else {
+		tip.css('display','inline-block');
+	}
 }
 
 

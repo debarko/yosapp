@@ -324,10 +324,14 @@
     margin-top: 10;
     z-index: 0
   }
+  .inputFieldTip4reg{
+    left: 15px;
+  }
   #countryField{
     width: 175px;
   }
   #loginCC{
+    display: none;
     bottom: 33px;
     right: 20px;  
   }
@@ -552,6 +556,7 @@
   }
   
   #regCC{
+    display: none;
     width: 47px;
   }
   
@@ -776,11 +781,6 @@
     visibility: hidden;
     z-index: 100;
   }
-
-  .showTipInputFields{
-    color: rgba(255,255,255,0.22);
-  }
-
 
   /*user  varification temporary*/
   #varifyWindow{
