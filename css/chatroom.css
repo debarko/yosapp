@@ -138,9 +138,20 @@
 		border-bottom-right-radius: 5px;
 		background-color: rgba(0, 0, 0, 0);
 	}
-	.contact img{
+	.contact #contactImage{
+		height: 30px;
+		width: 30px;
 		float: left;
+		background-color: transparent;
 		margin: 0 10 0 17;
+	}
+	.contact #contactImage p{
+		font-family: 'Sigmar One', cursive;
+		color: white;
+		font-size: 32px;
+		position: relative;
+		top: 0px;
+		left: 0px;
 	}
 	.contact span{
 		margin-top: 8px;

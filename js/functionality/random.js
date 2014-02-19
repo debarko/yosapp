@@ -72,3 +72,8 @@ function showInputTipsOnblur(id){
 		inputElement.addClass('showTipInputFields');
 	}
 }
+
+// random int generator within range
+function getRandomInt (min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}

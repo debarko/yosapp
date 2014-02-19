@@ -267,7 +267,9 @@ function addContactElem(name, phone, cc, image){
 	date_data = date_data.getTime();
 	var letter = name.substr(0,1);
 	letter = letter.toUpperCase();
-	$("#contactslist li:last #image").attr("src","./profile.php?w=30&h=30&l="+letter+"&time="+date_data);
+	// get randowm background for contact image
+	randomPicGen( $("#contactslist li:last #contactImage"), name )
+	//$("#contactslist li:last #contactImage");
 	$('#contactslist li:last #name').html(name);
 	$('#contactslist li:last #cc').html(cc);
 	$('#contactslist li:last #number').attr("id",phone);
@@ -495,4 +497,19 @@ function sendFeedback(){
 	$aJX_status = $.ajax({
 		        type: "GET",
 		        url: "feedback.php?ua="+encodeURIComponent(YW.UA())+"&msg="+encodeURIComponent($("#feedbackTextArea").value)});
+}
+
+function randomPicGen(imageElem, name){
+	var red = getRandomInt(136, 202);
+	var green = getRandomInt(136, 202);
+	var blue = getRandomInt(136, 202);
+	var textXOffset = getRandomInt(-2, 8);
+	var textYOffset = getRandomInt(-5, 0);
+
+	imageElem.css('background-color','rgba('+red+','+green+','+blue+',1)');
+	imageElem.find('p').html( name.substr(0,1).toUpperCase() );
+	imageElem.find('p').css({
+		top: textYOffset+'px',
+		left: textXOffset+'px'
+	});
 }
