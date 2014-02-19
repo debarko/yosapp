@@ -56,7 +56,6 @@
 }*/
 .modalMenuItem p{
 	padding: 13;
-	font-family: sans-serif;
 }
 .modalMenuItem:hover{
 	background-color: #2AB200;
@@ -86,7 +85,7 @@
 	top: -30px;
 	color: rgba(255, 255, 255, 0.46);
 	font-size: 25px;
-	font-family: fantasy;
+	font-family: 'Anton' sans-serif;
 }
 .modalRightHeader:after{
 	content: '';
@@ -158,7 +157,6 @@
 	border: none;
 	border-radius: 2px;
 	font-size: 14px;
-	font-family: sans-serif;
 	color: rgb(90, 85, 76);
 }
  #addContactAnimation{
@@ -223,7 +221,7 @@
 #userInfoHeader{
 	position: relative;
 	top: -30px;
-	font-family: fantasy;
+	font-family: 'Anton' sans-serif;
 	font-size: 25px;
 	color: white;
 	opacity: .5;
@@ -272,7 +270,6 @@
 	margin-left: 10px;
 	font-size: 13px;
 	color: rgba(255, 255, 255, 0.76);
-	font-family: sans-serif;
 }
 #phonebookContainter{
 	display: inline-block;
@@ -289,7 +286,6 @@
 	margin-left: 10px;
 	font-size: 14px;
 	color: rgba(255, 255, 255, 0.76);
-	font-family: sans-serif;
 	position: relative;
 	top: -7px;
 }
