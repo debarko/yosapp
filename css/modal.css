@@ -105,6 +105,7 @@
 	left: 20px;
 	margin: 25 0 0 0;
 	font-size: 11px;
+	z-index: -1;
 }
 #AddConLNameTip{
 	margin-left: 130px;
@@ -161,6 +162,7 @@
 	width: 100%;
 	margin-top: 15px;
 	text-indent: 15px;
+	z-index: 1;
 }
 
 #addButton{
