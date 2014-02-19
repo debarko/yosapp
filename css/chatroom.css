@@ -75,8 +75,7 @@
 		display: block;
 		float: left;
 		width: 50px;
-		height: 50px;
-		background-image: url('../icons/profilepic.jpg');
+		height: 50px;		
 	}
 
 	#profilename{

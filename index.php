@@ -16,10 +16,12 @@
 		<link rel="stylesheet" type="text/css" media="all" href="css/homescreen.css">
 		<link rel="stylesheet" type="text/css" media="all" href="css/chatroom.css">
 		<link rel="stylesheet" type="text/css" media="all" href="css/modal.css">
+		<link rel="stylesheet" type="text/css" media="all" href="css/minEmoji.css">
 		<!-- Third Party APIs -->
 		<link href='http://fonts.googleapis.com/css?family=Lustria' rel='stylesheet' type='text/css'>
 		<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
 		<script language="javascript" type="text/javascript" src="js/library/jquery.min.js"></script>
+		<script language="javascript" type="text/javascript" src="js/library/minEmoji.js"></script>
 		<!-- Our singleton and minified code -->
 		<script language="javascript" type="text/javascript" src="js/script.js"></script>
 		<script type="text/javascript">
