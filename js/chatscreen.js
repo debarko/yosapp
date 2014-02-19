@@ -206,6 +206,7 @@ function showModal(defaultSelectedMenu){
 			$('#modalCloseButton').css('visibility','visible');
 			$('#modalContent').css('visibility','visible');	
 			selectModalItem(defaultSelectedMenu)
+			$('#contactFirstName').focus(); // auto focus of first name
 		});
 	})
 }
