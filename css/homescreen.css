@@ -95,7 +95,7 @@
     height: 28px;
     line-height: 30px;
     text-align: center;
-    font-family: monospace;
+    font-size: 13px;
     visibility: visible;
     opacity:0;
     border-radius: 1px;
@@ -155,7 +155,7 @@
     height: 28px;
     line-height: 30px;
     text-align: center;
-    font-family: monospace;
+    font-size: 13px;
     visibility: visible;
     opacity:0;
     border-radius: 1px;
@@ -212,7 +212,7 @@
     height: 28px;
     line-height: 30px;
     text-align: center;
-    font-family: monospace;
+   font-size: 13px;
     visibility: visible;
     opacity:0;
     border-radius: 1px;
@@ -268,7 +268,6 @@
   	right: 50%;
     margin-right: 10%;
   	color: white;
-  	font-family: monospace;
   	font-size: 20px;
   	visibility:hidden;
   	opacity:0;
@@ -280,7 +279,7 @@
   	position: relative;
   	bottom: 25px;
   	font-size: 40px;
-  	font-family: fantasy;
+  	font-family: 'Anton' sans-serif;
   	opacity: .5;
   }
 
@@ -312,7 +311,6 @@
   	border: none;
   	width: 100%;
   	color: white;
-  	font-family: monospace;
   	font-size: 20px;
     z-index: 10
   }
@@ -342,7 +340,6 @@
     position: absolute;
     margin-top: 5px;
     font-size: 10px;
-    font-family: sans-serif;
     width: 105px;
     opacity: .6;
     display: none;
@@ -414,7 +411,6 @@
   .squaredTwo p{
   	width: 80px;
   	font-size: 12px;
-  	font-family: monospace;
   	position: relative;
   	top: -17px;
   	left: 25px;
@@ -426,7 +422,6 @@
   	top: -18px;
   	left: 126px;
   	font-size: 12px;
-  	font-family: sans-serif;
   }
 
 
@@ -437,7 +432,6 @@
     width: 105px;
     border: none;
     background-color: white;
-    font-family: monospace;
     color: #2aB200;
     font-size: 19px;
     font-weight: bolder;
@@ -467,7 +461,6 @@
   left: 485px;
   color: rgba(255, 255, 255, 0.59);
   font-size: 13px;
-  font-family: monospace;
   }
   
   
@@ -496,7 +489,6 @@
   	opacity: 0;
   	width: 322px;
   	color: white;
-  	font-family: monospace;
   	font-size: 20px;
   }
 
@@ -504,7 +496,7 @@
   	position: relative;
   	bottom: 25px;
   	font-size: 40px;
-  	font-family: fantasy;
+  	font-family: 'Anton' sans-serif;
   	opacity: .5;
   }
 
@@ -522,7 +514,6 @@
   }
   .regGuideText{
     display: inline-block;
-    font-family: serif;
     font-size: 19px;
     opacity: .8;
     margin-right: 10px; 
@@ -570,7 +561,6 @@
   	width: 105px;
   	border: none;
   	background-color: white;
-  	font-family: monospace;
   	color: #2aB200;
   	font-size: 19px;
   	font-weight: bolder;
@@ -609,8 +599,7 @@
     height: 40px;
     line-height: 40px;
     text-align: center;
-    font-family: monospace;
-    font-size: 12px;
+    font-size: 13px;
     visibility: visible;
     opacity:0;
    }
@@ -700,8 +689,8 @@
   }
   #closeErrMsgBox{
     position: absolute;
-    left: -4px;
-    top: -3px;
+    left: -9px;
+    top: -9px;
     display: inline-block;
     height: 20px;
     width: 20px;
@@ -736,7 +725,6 @@
   	margin: 0 auto;
   	width: 295px;
   	color: rgba(255, 255, 255, 0.71);
-  	font-family: sans-serif;
   	font-size: 13px;
   }
   #copyright p{
@@ -807,7 +795,7 @@
     position: relative;
     color: rgba(255, 255, 255, 0.46);
     font-size: 25px;
-    font-family: fantasy;
+    font-family: 'Anton' sans-serif;
     opacity: 0;
     }
   #varifyWindowContainerHeader:after{
@@ -900,7 +888,7 @@
   .verHeader{
     font-size: 20px;
     color: rgba(255, 255, 255, 0.75);
-    font-family: fantasy;
+    font-family: 'Anton' sans-serif;
     margin: 10 0 5 9;
   }
 
