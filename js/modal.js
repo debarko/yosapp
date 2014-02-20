@@ -4,6 +4,10 @@ function closeOnEsc(e){
 	}
 }
 
+function isInt(n) {
+   return typeof n === 'number' && n % 1 == 0;
+}
+
 function addContact(){
 	
 	var arrow = $('#addContactAnimation').find('#arrow');
@@ -13,6 +17,35 @@ function addContact(){
 	var cCode = $('#countryCode').val();
 	var phNumber = $('#phNumber').val();
 	var cName = $('#countryName').val();
+	if(fName===""){
+		alert("Empty First Name");
+		return false;
+	}
+	if(lName===""){
+		alert("Empty Last Name");
+		return false;
+	}
+	if(parseInt(cCode) != cCode){
+		alert("Wrong CC");
+		return;
+	}
+	cCode = parseInt(cCode);
+	if(!isInt(cCode) || cCode===0 || cCode===""){
+		alert("Wrong CC");
+		return false;
+	}
+	if(parseInt(phNumber) != phNumber){
+		alert("Wrong Phone Number");
+		return;
+	}
+	phNumber = parseInt(phNumber);
+	if(!isInt(phNumber) || phNumber===0 || phNumber===""){
+		alert("Wrong Phone Number");
+		return false;
+	}
+	if(cName===""){
+		cName = "Random";
+	}
 	$('#contactNameAnimatedMsgBox').html(fName+' '+lName).animate({opacity:'1'},700, "swing");
 	
 	// animate the lower portion of the dialouge
