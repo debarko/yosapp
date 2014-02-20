@@ -280,7 +280,12 @@ function selectMenuItem(selectedMenuItem){
 }
 
 function setLastChat () {
-	YW.CURR_PARTNER = "0server";
+	$("#contactslist").children().each(function(index, item){
+		var temp = $(item).find("span").eq(2).html()+''+$(item).find("span").eq(3).attr("id");
+		if(temp==="0server"){			
+			setCurrentPartner(item);
+		}
+	});
 }
 
 function processMessage(responseJSON) {
@@ -346,11 +351,9 @@ function setCurrentPartner(elem) {
     		$(obj).css('background-color','');
     	}
 	});
-	// get the current partners number (without cc)
-	var currPartnerNum = YW.CURR_PARTNER.substring(2, YW.CURR_PARTNER.length);
 	//highlight current partner
-	$('#'+currPartnerNum).parent().css('background-color','rgba(42, 178, 0, 0.52)');
-	$('#'+currPartnerNum).parent().find('#unreadMsgCnt').css('display', 'none');
+	$(elem).css('background-color','rgba(42, 178, 0, 0.52)');
+	$(elem).find('#unreadMsgCnt').css('display', 'none');
 	renderMessages();
 	renderCurrent();
 }
