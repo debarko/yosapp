@@ -25,15 +25,6 @@ function addContact(){
 		alert("Empty Last Name");
 		return false;
 	}
-	if(parseInt(cCode) != cCode){
-		alert("Wrong CC");
-		return;
-	}
-	cCode = parseInt(cCode);
-	if(!isInt(cCode) || cCode===0 || cCode===""){
-		alert("Wrong CC");
-		return false;
-	}
 	if(parseInt(phNumber) != phNumber){
 		alert("Wrong Phone Number");
 		return;
@@ -41,6 +32,15 @@ function addContact(){
 	phNumber = parseInt(phNumber);
 	if(!isInt(phNumber) || phNumber===0 || phNumber===""){
 		alert("Wrong Phone Number");
+		return false;
+	}
+	if(parseInt(cCode) != cCode){
+		alert("Wrong CC");
+		return;
+	}
+	cCode = parseInt(cCode);
+	if(!isInt(cCode) || cCode===0 || cCode===""){
+		alert("Wrong CC");
 		return false;
 	}
 	if(cName===""){
