@@ -91,7 +91,6 @@
 		// Arrays we'll use later
 		$keys = array();
 		$newArray = array();
-		
 		$recv_data = explode("\n", $recv_data);
 		// Do it
 		$data = csvToArray($recv_data, ',');
