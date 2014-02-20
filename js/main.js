@@ -415,7 +415,7 @@ function showReleaseDetails(){
 }
 
 function showVersionWindow(callback){
-	$('#varifyWindow').css('display','inline-block');
+	$('#varifyWindow').css({opacity: '0', display: 'block'});
 	$('#varifyWindow').animate({opacity:'1'},100,function(){ //the window appears
 		$('#varifyWindow').html(YW.RELEASECON());
 		if(callback){
