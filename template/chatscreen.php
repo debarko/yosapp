@@ -7,7 +7,7 @@
 		</ul>
 	</div>
 	<div id="contactoptions">
-		<div class="contactOptionsIcon" id="manualAddContact" onclick='showModal("addCon");'></div>
+		<div class="contactOptionsIcon" id="manualAddContact" onmouseover='showPointerOnHover(this);' onclick='showModal("addCon");'></div>
 	</div>
 </div>
 <div id="rightpannel">
@@ -16,9 +16,9 @@
 		<br>
 	</div>
 	<div id="createmsgbar" class="clearfix">
-		<div id="attachment"></div>
-		<div id="smiley" onclick='drag();'></div>
+		<div id="attachment" onmouseover='showPointerOnHover(this);'></div>
+		<div id="smiley" onmouseover='showPointerOnHover(this);' onclick='drag();'></div>
 		<div id="msgtypebar"><input id="typemsg" type="text" name="typemsg" value="" onclick='sendMyMsg($("#typemsg").val());'/></div>
-		<div id="sendbutton" onclick='javascript:sendMyMsg($("#typemsg").val()); autoScrollDown(); $("#typemsg").focus();'></div>
+		<div id="sendbutton" onclick='javascript:sendMyMsg($("#typemsg").val()); autoScrollDown(); $("#typemsg").focus();' onmouseover='showPointerOnHover(this);'></div>
 	</div>
 </div>

@@ -405,3 +405,11 @@ function DlBoxFinalMsg(msg, stepNumber){
 	});
 
 }
+
+function showReleaseDetails(){
+	alert('success');
+}
+
+function showPointerOnHover(elem){
+	$(elem).css('cursor', 'pointer');
+}

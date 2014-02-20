@@ -15,7 +15,7 @@
 
 	<!--<div><input id=rememberme type="checkbox" name="isrememberme" value="remember me">Keep me loggend in<br></div> -->
 	<div>
-		<input id="loginsubmit" type="button" value="Login" 
+		<input id="loginsubmit" type="button" value="Login" onmouseover='showPointerOnHover(this);'
 				onclick="formhash(document.getElementById('userfield').value,
 								  document.getElementById('passfield').value,
 								  document.getElementById('countryField').value,
@@ -45,7 +45,7 @@
 																					<div id="regFlag" class="regCountryInfo"></div>
 																				</div></div>
 	<div>
-		<input id="regsubmitbutton"  type="button" value="Signup" 
+		<input id="regsubmitbutton"  type="button" value="Signup" onmouseover='showPointerOnHover(this);'
 		onclick="
 			regformhash(document.getElementById('regform'),
 						document.getElementById('regInputPhone'),

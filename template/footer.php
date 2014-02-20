@@ -2,7 +2,7 @@
 
 		<div id="footer">
 			<div></div>
-			<div id="feedback" onclick='showModal("feedback");'><p>Feedback</p></div>
+			<div id="feedback" onmouseover='showPointerOnHover(this);' onclick='showModal("feedback");'><p>Feedback</p></div>
 			<div id="whatsapponwebText">Whatsapp On Web</div>
 		</div>
 	</div>
