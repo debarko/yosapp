@@ -16,8 +16,6 @@
 		<br>
 	</div>
 	<div id="createmsgbar" class="clearfix">
-		<div id="attachment" onmouseover='showPointerOnHover(this);'></div>
-		<div id="smiley" onmouseover='showPointerOnHover(this);' onclick='drag();'></div>
 		<div id="msgtypebar"><input id="typemsg" type="text" name="typemsg" value="" onclick='sendMyMsg($("#typemsg").val());'/></div>
 		<div id="sendbutton" onclick='javascript:sendMyMsg($("#typemsg").val()); autoScrollDown(); $("#typemsg").focus();' onmouseover='showPointerOnHover(this);'></div>
 	</div>

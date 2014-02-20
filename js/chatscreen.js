@@ -56,6 +56,9 @@ function sendMyMsg(message, dontReplicate){
 	if(message===""){
 		return false;
 	}
+	if(YW.CURR_PARTNER==="0server"){
+		dontReplicate = 1;
+	}
 	if(typeof dontReplicate === "undefined"){
 		status = sendActualMessage(message);
 		if(!status){
@@ -69,6 +72,9 @@ function sendMyMsg(message, dontReplicate){
 	formDivElem(0,message,formatAMPM(new Date()));	
 	$("#typemsg").val("");
 
+	if(YW.CURR_PARTNER==="0server"){
+		sendOtherMsg("Sorry! But this is just an alpha release. I am not intelligent enough to answer your queries.");
+	}
 	//now scroll down msg container to bottom
 	autoScrollDown();
 }
@@ -280,7 +286,12 @@ function selectMenuItem(selectedMenuItem){
 }
 
 function setLastChat () {
-	YW.CURR_PARTNER = "0server";
+	$("#contactslist").children().each(function(index, item){
+		var temp = $(item).find("span").eq(2).html()+''+$(item).find("span").eq(3).attr("id");
+		if(temp==="0server"){			
+			setCurrentPartner(item);
+		}
+	});
 }
 
 function processMessage(responseJSON) {
@@ -346,11 +357,9 @@ function setCurrentPartner(elem) {
     		$(obj).css('background-color','');
     	}
 	});
-	// get the current partners number (without cc)
-	var currPartnerNum = YW.CURR_PARTNER.substring(2, YW.CURR_PARTNER.length);
 	//highlight current partner
-	$('#'+currPartnerNum).parent().css('background-color','rgba(42, 178, 0, 0.52)');
-	$('#'+currPartnerNum).parent().find('#unreadMsgCnt').css('display', 'none');
+	$(elem).css('background-color','rgba(42, 178, 0, 0.52)');
+	$(elem).find('#unreadMsgCnt').css('display', 'none');
 	renderMessages();
 	renderCurrent();
 }
@@ -360,9 +369,6 @@ function replaceAll(find, replace, str) {
 }
 
 function renderCurrent() {
-	if(YW.CURR_PARTNER==="0server"){
-		return false;
-	}
 	if(!YW.DATA[YW.CURR_PARTNER]){
 		return false;
 	}
@@ -391,9 +397,6 @@ function autoScrollDown(){
 }
 
 function storeMessage(whos, parent, message){
-	if(whos==="0server"){
-		return false;
-	}
 	var tmp_msg_obj = {};
 	tmp_msg_obj.message = message;
 	tmp_msg_obj.parent = parent;
@@ -401,9 +404,6 @@ function storeMessage(whos, parent, message){
 }
 
 function renderMessages() {
-	if(YW.CURR_PARTNER==="0server"){
-		return false;
-	}
 	if(!YW.DATA[YW.CURR_PARTNER].messageTree){
 		return false;
 	}
