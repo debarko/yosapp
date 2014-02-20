@@ -1,6 +1,6 @@
 <div id="master">
 		<div id="header">
-			<div id="banner" >Welcome To<br>&nbsp;whatsaap</div>
+			<div id="bannerText">YOSAPP<span>Alpfa Release</span></div>
 			<div id="icons">
 			</div>
 		</div>
