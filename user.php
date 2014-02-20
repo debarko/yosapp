@@ -77,7 +77,7 @@
 
 	        if ($stmt->num_rows == 1) {
 	            $list = explode('-', $list);
-	            $ret_data = '{"server":{"phone":"server","cc": 0, "name":"Yosapp Server", "messages":{}, "messageTree": []},';
+	            $ret_data = '{"0server":{"phone":"server","cc": 0, "name":"Yosapp Server", "messages":{}, "messageTree": []},';
 	            $count = 0;
 	            foreach ($list as $value) {
 	            	$value = json_decode($value);
@@ -96,7 +96,7 @@
 	            exit();
 	        } else {
 	            // No user exists.
-	            echo '{"server":{"phone":"server","cc": 0, "name":"Yosapp Server", "messages":{}, "messageTree": []}}';
+	            echo '{"0server":{"phone":"server","cc": 0, "name":"Yosapp Server", "messages":{}, "messageTree": []}}';
 	            exit();
 	        }
 	    } else {

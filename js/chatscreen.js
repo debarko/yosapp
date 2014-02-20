@@ -345,6 +345,10 @@ function setCurrentPartner(elem) {
 	renderCurrent();
 }
 
+function replaceAll(find, replace, str) {
+  return str.replace(new RegExp(find, 'g'), replace);
+}
+
 function renderCurrent() {
 	if(YW.CURR_PARTNER==="0server"){
 		return false;
@@ -356,6 +360,8 @@ function renderCurrent() {
 		return false;
 	}
 	YW.DATA[YW.CURR_PARTNER].messages.list.forEach(function(message){
+		message[0] = decodeURIComponent(message[0]);
+		message[0] = replaceAll("\n","<br />",message[0]);
 		if(message[1]){
 			sendOtherMsg(message[0]);
 			storeMessage(YW.CURR_PARTNER, 1, message[0]);
