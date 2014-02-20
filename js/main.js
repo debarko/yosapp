@@ -407,7 +407,16 @@ function DlBoxFinalMsg(msg, stepNumber){
 }
 
 function showReleaseDetails(){
-	alert('success');
+	$("#bodybg").html($("#bodybg").html()+YW.VERIF());
+	showOverlay();
+	showVersionWindow();
+}
+
+function showVersionWindow(){
+	$('#varifyWindow').css('display','inline-block');
+	$('#varifyWindow').animate({opacity:'1'},100,function(){ //the window appears
+		$('#varifyWindow').html("");
+	});
 }
 
 function showPointerOnHover(elem){
