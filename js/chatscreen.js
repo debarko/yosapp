@@ -320,6 +320,16 @@ function processMessage(responseJSON) {
 		YW.DATA[item[0]].messages.list.push([item[2],1])
 	});
 	renderCurrent();
+	processUnread();
+}
+
+function processUnread(){
+	$("#contactslist").children().each(function(index, item){
+		var temp = $(item).find("span").eq(2).html()+''+$(item).find("span").eq(3).attr("id");
+		if(YW.DATA[temp].messages.unreadCount && YW.DATA[temp].messages.unreadCount!==0){
+			showUnreadMsg(item, YW.DATA[temp].messages.unreadCount);
+		}
+	});
 }
 
 //This function sets the required settings so that the 
