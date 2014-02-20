@@ -10,6 +10,6 @@ imagettftext($Image, 0.7*$_GET['w'], 0, mt_rand(0.15*$_GET['w'],0.25*$_GET['w'])
 
 
 header('Content-type: image/png');
-imagepng($Image);
+imagepng($Image, NULL, 9);
 imagedestroy($Image);
 ?>

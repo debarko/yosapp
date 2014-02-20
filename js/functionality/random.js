@@ -1,4 +1,5 @@
 function maximize(html_val, callback){
+	$("#whatsapponwebText").css("display","none");
 	$('#header').animate({height:"6%"},500,"linear",function(){
 		//change content here
 	});
@@ -29,7 +30,7 @@ function log_in_user() {
 		setSearchContainerHeight();
 		renderData();
 		setLastChat();
-		checkForWPass();
+		checkForWPass();		
 		$("#feedback").css("display","block");
 		YW.LISTENER = setInterval(function(){checkMessage();},10000);
 		$('#profilepic').css('background-image','url("profile.php?w=50&h=50&l='+YW.NAME.substr(0,1).toUpperCase()+'&time='+new Date().getTime()+'")');
