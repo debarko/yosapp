@@ -409,16 +409,42 @@ function DlBoxFinalMsg(msg, stepNumber){
 function showReleaseDetails(){
 	$("#bodybg").html($("#bodybg").html()+YW.VERIF());
 	showOverlay();
-	showVersionWindow();
+	showVersionWindow(function(){
+		selectVersion('#alphaMenuItem');
+	});
 }
 
-function showVersionWindow(){
+function showVersionWindow(callback){
 	$('#varifyWindow').css('display','inline-block');
 	$('#varifyWindow').animate({opacity:'1'},100,function(){ //the window appears
-		$('#varifyWindow').html("");
+		$('#varifyWindow').html(YW.RELEASECON());
+		if(callback){
+			callback();
+		}
 	});
 }
 
 function showPointerOnHover(elem){
 	$(elem).css('cursor', 'pointer');
+}
+
+function selectVersion(elem){
+	// clear previously selected items background color
+	$('.RC').css('background-color','');
+	// now select the current clicked  element
+	$(elem).css('background-color','#2AB200');
+	//change the header accordingly
+	var releaseName = $(elem).html();
+	$('#releaseHeader').html(releaseName+' Release');
+	//put description inside
+	$('#releaseVersionText').html('This is '+releaseName+' Version');
+}
+
+function closeReleaseWindow(){
+	$('#varifyWindow').animate({opacity: '0'},300, function(){
+		$('#varifyWindow').css('display','none');
+		$('#overlay').animate({opacity: '0'},300, function(){
+			$('#overlay').css('display','none');
+		});
+	});
 }

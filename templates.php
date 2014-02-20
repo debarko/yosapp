@@ -26,4 +26,6 @@
 	$countries = exec("php ./parseCountries.php");
 	$verif = addslashes(file_get_contents("./template/verif.php"));
 	$verif = str_replace(array("\r", "\n"), '', $verif);
+	$releaseCon = addslashes(file_get_contents("./template/releaseCon.php"));
+	$releaseCon = str_replace(array("\r", "\n"), '', $releaseCon);
 ?>
