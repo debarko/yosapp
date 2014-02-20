@@ -159,6 +159,25 @@
 		color: rgba(40, 48, 38, 0.77);
 		font-size: 13px;
 	}
+
+	.contact #unreadMsgCnt{
+		height: 23px;
+		width: 23px;
+		background-color: rgb(228, 97, 97);
+		border-radius: 15px;
+		font-size: 14px;
+		text-align: center;
+		padding: 1px;
+		line-height: 22px;
+		color: rgba(255, 255, 255, 0.92);
+		float: right;
+		position: relative;
+		top: -5.5px;
+		right: 3px;
+		font-weight: 700;
+		display: none
+	}
+
 	.contact:hover{
 		background-color: rgba(209, 247, 209, 0.64);
 	}

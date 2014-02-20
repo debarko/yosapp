@@ -444,7 +444,7 @@ function closeReleaseWindow(){
 	$('#varifyWindow').animate({opacity: '0'},300, function(){
 		$('#varifyWindow').css('display','none');
 		$('#overlay').animate({opacity: '0'},300, function(){
-			$('#overlay').css('display','none');
+			$('#overlay').css('visibility','hidden');
 		});
 	});
 }

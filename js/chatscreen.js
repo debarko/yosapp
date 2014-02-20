@@ -152,10 +152,6 @@ function setOptionsWidth(id, parent){
 }
 
 
-function searchConcats(){
-	$("#contactSearchbar").val("");
-}
-
 function shareOption(){
 	$('.shareOptionsBar').animate({top:"-1px"},800,"swing");
 }
@@ -334,12 +330,17 @@ function setCurrentPartner(elem) {
 	}
 	YW.CURR_PARTNER = elem.children.item(2).innerHTML+elem.children.item(3).id;
 	$("#msgcontainer").html("<br /><br />");
-	//clear previously selected partner
-	$('.contact').css('background-color','');
+	//clear previously selected partner and do not clear undrad contact background
+	$('.contact').each(function(i, obj) {
+    	if ( $(obj).css('background-color') == 'rgba(42, 178, 0, 0.521569)' ){
+    		$(obj).css('background-color','');
+    	}
+	});
 	// get the current partners number (without cc)
 	var currPartnerNum = YW.CURR_PARTNER.substring(2, YW.CURR_PARTNER.length);
 	//highlight current partner
-	$('#'+currPartnerNum).parent().css('background-color','rgba(42, 178, 0, 0.52)')
+	$('#'+currPartnerNum).parent().css('background-color','rgba(42, 178, 0, 0.52)');
+	$('#'+currPartnerNum).parent().find('#unreadMsgCnt').css('display', 'none');
 	renderMessages();
 	renderCurrent();
 }
@@ -514,4 +515,13 @@ function randomPicGen(imageElem, name){
 		top: textYOffset+'px',
 		left: textXOffset+'px'
 	});
+}
+
+function showUnreadMsg(contact, number) {
+
+	if ( number > 99 ){
+		number = '*'
+	}
+	$(contact).find('#unreadMsgCnt').css('display', 'block').html(number);
+	$(contact).css('background-color', 'rgba(255, 82, 0, 0.0901961)');
 }
