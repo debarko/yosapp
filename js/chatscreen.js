@@ -56,6 +56,9 @@ function sendMyMsg(message, dontReplicate){
 	if(message===""){
 		return false;
 	}
+	if(YW.CURR_PARTNER==="0server"){
+		dontReplicate = 1;
+	}
 	if(typeof dontReplicate === "undefined"){
 		status = sendActualMessage(message);
 		if(!status){
@@ -69,6 +72,9 @@ function sendMyMsg(message, dontReplicate){
 	formDivElem(0,message,formatAMPM(new Date()));	
 	$("#typemsg").val("");
 
+	if(YW.CURR_PARTNER==="0server"){
+		sendOtherMsg("Sorry! But this is just an alpha release. I am not intelligent enough to answer your queries.");
+	}
 	//now scroll down msg container to bottom
 	autoScrollDown();
 }
@@ -363,9 +369,6 @@ function replaceAll(find, replace, str) {
 }
 
 function renderCurrent() {
-	if(YW.CURR_PARTNER==="0server"){
-		return false;
-	}
 	if(!YW.DATA[YW.CURR_PARTNER]){
 		return false;
 	}
@@ -394,9 +397,6 @@ function autoScrollDown(){
 }
 
 function storeMessage(whos, parent, message){
-	if(whos==="0server"){
-		return false;
-	}
 	var tmp_msg_obj = {};
 	tmp_msg_obj.message = message;
 	tmp_msg_obj.parent = parent;
@@ -404,9 +404,6 @@ function storeMessage(whos, parent, message){
 }
 
 function renderMessages() {
-	if(YW.CURR_PARTNER==="0server"){
-		return false;
-	}
 	if(!YW.DATA[YW.CURR_PARTNER].messageTree){
 		return false;
 	}
