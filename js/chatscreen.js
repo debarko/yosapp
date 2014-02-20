@@ -496,7 +496,9 @@ function clearVerif(){
 function sendFeedback(){
 	$aJX_status = $.ajax({
 		        type: "GET",
-		        url: "feedback.php?ua="+encodeURIComponent(YW.UA())+"&msg="+encodeURIComponent($("#feedbackTextArea").value)});
+		        url: "feedback.php?ua="+encodeURIComponent(YW.UA())+"&msg="+encodeURIComponent($("#feedbackTextArea").value)});	
+	closeModal();
+	alert("Thanks for your feedback. We will get back to you shortly.");
 }
 
 function randomPicGen(imageElem, name){
