@@ -62,7 +62,7 @@
 						<div id="verHeaderStp3" class="verHeader">Congratulation</div>
 						<div id="verStp3Icon"></div>
 						<div id="verStp3Text">Your verifucation completed successfully</div>
-						<div class="nextStpArrow" onlcick="clearVerif();"></div>
+						<div class="nextStpArrow" onclick="clearVerif();"></div>
 					</div>
 				</div>
 			</span>
