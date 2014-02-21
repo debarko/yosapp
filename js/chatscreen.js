@@ -248,10 +248,23 @@ function selectModalItem(item){
 	}
 	else if (item == 'RC1'){
 		$('#modalMenuRC1').css('background-color','#2AB200');
-		$('#releaseHeader').html('Beta Release');
+		$('#releaseHeader').html('RC1 Release');
 		$('#releaseVersionText').html('This version(RC1) will be released in july');
 		return;
 	}
+	else if (item == 'dev'){
+		$('#modalMenuDevlopers').css('background-color','#2AB200');
+		$('#releaseHeader').html('About Developers');
+		$('#releaseVersionText').html('Front End: Tuhin Sengupta</br>Back End: Debarko De </br> Graphic Designer: Subho Saha');
+		return;
+	}
+	else if (item == 'vision'){
+		$('#modalMenuVesion').css('background-color','#2AB200');
+		$('#releaseHeader').html('Our vision');
+		$('#releaseVersionText').html('We believe: human knowledge belongs to the world. ');
+		return;
+	}
+
 
 }
 

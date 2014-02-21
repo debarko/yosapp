@@ -38,7 +38,7 @@
 }
 .modalMenuItem{
 	position: relative;
-	top: 30px;
+	top: 20px;
 	width: 100%;
 	height: 40px;
 }
@@ -59,6 +59,23 @@
 }
 .modalMenuItem:hover{
 	background-color: #2AB200;
+}
+.modalMenuHeader{
+	margin: 35 0 0 0;
+}
+.modalMenuHeader p{
+	font-family: 'Anton' sans-serif;
+	text-indent: 10px;
+	font-size: 24px;
+	color: rgba(255, 255, 255, 0.81);
+}
+.modalMenuHeader:after{
+	content: '';
+	position: absolute;
+	margin: 4 0 0 0;
+	height: 1px;
+	width: 170px;
+	background: -webkit-gradient(linear, 0 0, 100% 0, from(#59C238), to(#59C238), color-stop(50%, white));
 }
 #modalRightPanel{
 	display: inline-block;
