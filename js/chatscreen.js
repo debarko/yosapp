@@ -73,7 +73,7 @@ function sendMyMsg(message, dontReplicate){
 	$("#typemsg").val("");
 
 	if(YW.CURR_PARTNER==="0server"){
-		sendOtherMsg("Sorry! But this is just an alpha release. I am not intelligent enough to answer your queries.");
+		sendOtherMsg(YW.ELIZA.transform(message));
 	}
 	//now scroll down msg container to bottom
 	autoScrollDown();
@@ -328,10 +328,30 @@ function processMessage(responseJSON) {
 		if(!YW.DATA[item[0]].messages.list) {
 			YW.DATA[item[0]].messages.list = [];
 		}
-		YW.DATA[item[0]].messages.list.push([item[2],1])
+		YW.DATA[item[0]].messages.list.push([item[2],1]);
+		if(item[0]!=='0server' && !document.hasFocus()){
+			notify(YW.DATA[item[0]].name+' ('+item[0]+')', item[2]);
+		}
 	});
 	renderCurrent();
 	processUnread();
+	calcUnread();
+}
+
+function calcUnread() {
+	//Calculates the current unreda messages and sets the window title.
+	YW.UNREAD = 0;
+	for (var item in YW.DATA) {
+		if(YW.DATA[item].messages.unreadCount){
+			YW.UNREAD += YW.DATA[item].messages.unreadCount;
+		}
+	}
+	if(YW.UNREAD===0){
+		document.title = "YOSAPP";
+	} else {
+		document.title = "("+YW.UNREAD+") | YOSAPP";
+	}
+	return YW.UNREAD;
 }
 
 function processUnread(){
@@ -345,7 +365,7 @@ function processUnread(){
 
 //This function sets the required settings so that the 
 //following user becomes the current user
-function setCurrentPartner(elem) {
+function setCurrentPartner(elem) { 
 	if(elem.children.item(2).innerHTML+elem.children.item(3).id === YW.CURR_PARTNER) {
 		return;
 	}
@@ -362,6 +382,7 @@ function setCurrentPartner(elem) {
 	$(elem).find('#unreadMsgCnt').css('display', 'none');
 	renderMessages();
 	renderCurrent();
+	calcUnread();
 }
 
 function replaceAll(find, replace, str) {
@@ -369,6 +390,7 @@ function replaceAll(find, replace, str) {
 }
 
 function renderCurrent() {
+	//render the current selected users messages which are unread
 	if(!YW.DATA[YW.CURR_PARTNER]){
 		return false;
 	}
@@ -396,14 +418,32 @@ function autoScrollDown(){
 	$('#msgcontainer').animate({scrollTop: $('#msgcontainer').get(0).scrollHeight}, 50);
 }
 
+function notify(title, bodyMsg){
+	//send desktop notificationns
+	var myNotification = new Notify(title, {
+	    body: bodyMsg,
+	    icon: "./icons/logo_min.png"
+	});
+	myNotification.show();
+}
+
+function reqNotifPerms(){
+	//request for permissions in desktop notifications
+	var myNotification = new Notify('Test');
+	if(myNotification.needsPermission()){
+		myNotification.requestPermission();
+	}
+}
+
 function storeMessage(whos, parent, message){
 	var tmp_msg_obj = {};
 	tmp_msg_obj.message = message;
 	tmp_msg_obj.parent = parent;
-	YW.DATA[whos].messageTree.push(tmp_msg_obj);
+	YW.DATA[whos].messageTree.push(tmp_msg_obj);	
 }
 
 function renderMessages() {
+	//show current session messages.
 	if(!YW.DATA[YW.CURR_PARTNER].messageTree){
 		return false;
 	}

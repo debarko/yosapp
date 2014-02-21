@@ -5,7 +5,6 @@ window.onerror=function(msg, url, linenumber){
 		        });
 }
 
-
 window.onload = function(){
 	//Load content based on State of user
 	if(YW.logged_in()==="true") {
@@ -22,7 +21,7 @@ window.onload = function(){
 			function(){$(".logintooltips").find("span").animate({opacity:'1'},600);},
 			function(){$(".logintooltips").find("span").animate({opacity:'0'},600);}
 	);
-
+	
 	var isloginclicked = false;
 	$("#loginbutton").click(
 			function(){
