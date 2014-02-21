@@ -11,6 +11,7 @@
 
 <html>
 	<head>
+		<title>YOSAPP</title>
 		<link rel="stylesheet" type="text/css" href="css/reset.css">		
 		<!--Assume that all the css files will be merged to one while running -->
 		<link rel="stylesheet" type="text/css" media="all" href="css/homescreen.css">
@@ -58,6 +59,7 @@
 		    YW.IMEI			= 0;
 		    YW.LISTENER		= 0;
 		    YW.NAME			= "<?php echo (isset($_SESSION['name']))?$_SESSION['name']:0; ?>";
+		    YW.UNREAD		= 0;
 		})(YW);
 		</script>
 	</head>
