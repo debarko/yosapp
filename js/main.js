@@ -404,8 +404,6 @@ function DlBoxFinalMsg(msg, stepNumber){
 	});
 
 }
-
-
 function showVersionWindow(callback){
 	$('#varifyWindow').css({opacity: '0', display: 'block'});
 	$('#varifyWindow').animate({opacity:'1'},100,function(){ //the window appears
@@ -415,26 +413,6 @@ function showVersionWindow(callback){
 		}
 	});
 }
-
 function showPointerOnHover(elem){
 	$(elem).css('cursor', 'pointer');
-}
-
-function selectVersion(elem){
-	// clear previously selected items background color
-	$('.RC').css('background-color','');
-	// now select the current clicked  element
-	$(elem).css('background-color','#2AB200');
-	//change the header accordingly
-	var releaseName = $(elem).html();
-	$('#releaseHeader').html(releaseName+' Release');
-	//put description inside
-	$('#releaseVersionText').html('This is '+releaseName+' Version');
-}
-
-function closeReleaseWindow(){
-	$('#varifyWindow').animate({opacity: '0'},300, function(){
-		$('#varifyWindow').css('display','none');
-		closeOverlay();
-	});
 }

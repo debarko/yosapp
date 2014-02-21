@@ -35,7 +35,11 @@ function log_in_user() {
 		showServerMessages();		
 		$("#feedback").css("display","block");
 		YW.LISTENER = setInterval(function(){checkMessage();},10000);
-		$('#profilepic').css('background-image','url("profile.php?w=50&h=50&l='+YW.NAME.substr(0,1).toUpperCase()+'&time='+new Date().getTime()+'")');
+		
+		//$('#profilepic').css('background-image','url("profile.php?w=50&h=50&l='+YW.NAME.substr(0,1).toUpperCase()+'&time='+new Date().getTime()+'")');
+		randomPicGen($('#profilepic'), YW.NAME);
+
+
 		$("#profilename").html(YW.NAME);
 		$('#typemsg').keypress(function(e) {
 	        // Enter pressed?
