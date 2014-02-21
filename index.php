@@ -11,8 +11,7 @@
 
 <html>
 	<head>
-		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="favicon.ico" />
 		<title>YOSAPP</title>
 		<link rel="stylesheet" type="text/css" href="css/reset.css">		
 		<!--Assume that all the css files will be merged to one while running -->
