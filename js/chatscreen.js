@@ -177,7 +177,7 @@ function showOverlay(callback) {
 
 function showModal(defaultSelectedMenu){
 	var modal = $('#modal');
-	
+	modal.css('display','block');
 	if(YW.logged_in() == 'true' ){
 		$('#modalMenuBar').html(YW.L_IN());
 		$('#modalRightPanel').html(YW.R_IN());
@@ -205,7 +205,7 @@ function showModal(defaultSelectedMenu){
 			margin:'-200px 0px 0px -300px'
 		},300,"swing",function(){
 			$('#modalCloseButton').css('visibility','visible');
-			$('#modalContent').css('visibility','visible');	
+			$('#modalContent').css('visibility','visible');
 			selectModalItem(defaultSelectedMenu)
 			$('#contactFirstName').focus(); // auto focus of first name
 		});
@@ -281,7 +281,8 @@ function closeModal(){
 		margin:'0px',
 		border:'0px'
 	},300,'swing',function() {
-		$('#modalCloseButton').css('visibility','hidden');		
+		$('#modalCloseButton').css('visibility','hidden');
+		$('#modal').css('display','none');
 		closeOverlay();
 	});
 }

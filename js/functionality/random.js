@@ -21,6 +21,7 @@ function maximize(html_val, callback){
 
 //Logs in a user upon successful login
 function log_in_user() {
+	YW.logged_in = function() { return 'true'; }
 	getFriends();
 	maximize(YW.CHATSCREEN()+YW.MODAL(), function(){
 		$('#typemsg').focus();
