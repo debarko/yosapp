@@ -52,12 +52,9 @@ function log_in_user() {
 
 function showServerMessages(){
 	jsnData=[
-				["0server", formatAMPM(new Date()),"Hi there!!"],
-				["0server", formatAMPM(new Date()),"Welcome to Yosapp.com. I hope you are already knowing about this. If not then let me introduce you a bit."],
-				["0server", formatAMPM(new Date()),"My name is Yosapp Server. Am your host here today. So lets begin by saying that this is a Online portal for Whatsapp."],
-				["0server", formatAMPM(new Date()),"Below you can type messages and send them to your friends. Pretty Simple right? Lets start by doing something new., such as Adding a Friend."],
-				["0server", formatAMPM(new Date()),"Click on the small icon at the bottom left corner and your are set to go..."],
-				["0server", formatAMPM(new Date()),"If you want then am here only. Just type in your query and I will try to find a solution."]
+				["0server", formatAMPM(new Date()),"Hey you!!"],
+				["0server", formatAMPM(new Date()),"Welcome to Yosapp.com. My name is Yosapp Server. You can ask me anything you want.. Hope you already know that this is an online version of Whatsapp."],
+				["0server", formatAMPM(new Date()),"Below you can type messages and send them to your friends. Pretty Simple right? Lets start by doing something new., such as Adding a Friend."]
 			];
 	processMessage(jsnData);
 }
