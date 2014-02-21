@@ -150,8 +150,8 @@ window.onload = function(){
 		$('#regsubmitbutton').css('-webkit-transform','1');
 	})	
 
-	//this will show all the input field tips on page load
-	showInputTipsOnload();
+	// append modal content into dom
+	$("#footer").html($("#footer").html()+YW.MODAL());
 
 };
 
@@ -405,13 +405,6 @@ function DlBoxFinalMsg(msg, stepNumber){
 
 }
 
-function showReleaseDetails(){
-	$("#bodybg").html($("#bodybg").html()+YW.VERIF());
-	showOverlay();
-	showVersionWindow(function(){
-		selectVersion('#alphaMenuItem');
-	});
-}
 
 function showVersionWindow(callback){
 	$('#varifyWindow').css({opacity: '0', display: 'block'});

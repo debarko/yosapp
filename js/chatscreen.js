@@ -178,12 +178,11 @@ function showOverlay(callback) {
 function showModal(defaultSelectedMenu){
 	var modal = $('#modal');
 	
-	if(YW.logged_in()){
+	if(YW.logged_in() == 'true' ){
 		$('#modalMenuBar').html(YW.L_IN());
 		$('#modalRightPanel').html(YW.R_IN());
 	}
-	else
-	{
+	else{
 		$('#modalMenuBar').html(YW.L_OUT());
 		$('#modalRightPanel').html(YW.R_OUT());		
 	}
@@ -222,15 +221,38 @@ function selectModalItem(item){
 	if (item == 'addCon'){
 		$('#addContactForm').css('display','block');
 		$('#modaladdContact').css('background-color','#2AB200');
+		return;
 	}
 	else if (item == 'feedback'){
 		$('#feedbackform').css('display','block');
 		$('#modalFeedback').css('background-color','#2AB200');
+		return;
 	}
 	else if (item == 'settings'){
 		$('#settingsForm').css('display','block');
 		$('#modalSettings').css('background-color','#2AB200');
+		return;
 	}
+	else if (item == 'alpha'){
+		$('#modalMenuAlpha').css('background-color','#2AB200');
+		$('#releaseHeader').html('Alpha Release');
+		$('#releaseVersionText').html('This is current version');
+		return;
+	}
+
+	else if (item == 'beta'){
+		$('#modalMenuBeta').css('background-color','#2AB200');
+		$('#releaseHeader').html('Beta Release');
+		$('#releaseVersionText').html('This version(Beta) will be released in april');
+		return;
+	}
+	else if (item == 'RC1'){
+		$('#modalMenuRC1').css('background-color','#2AB200');
+		$('#releaseHeader').html('Beta Release');
+		$('#releaseVersionText').html('This version(RC1) will be released in july');
+		return;
+	}
+
 }
 
 
