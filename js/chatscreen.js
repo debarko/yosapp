@@ -73,7 +73,7 @@ function sendMyMsg(message, dontReplicate){
 	$("#typemsg").val("");
 
 	if(YW.CURR_PARTNER==="0server"){
-		sendOtherMsg("Sorry! But this is just an alpha release. I am not intelligent enough to answer your queries.");
+		sendOtherMsg(YW.ELIZA.transform(message));
 	}
 	//now scroll down msg container to bottom
 	autoScrollDown();

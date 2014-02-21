@@ -22,12 +22,14 @@
 		<!-- Third Party APIs -->
 		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'> 
+		<link href='http://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
 
 		<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
 		<script language="javascript" type="text/javascript" src="js/library/jquery.min.js"></script>
 		<script language="javascript" type="text/javascript" src="js/library/minEmoji.js"></script>
 		<script language="javascript" type="text/javascript" src="js/library/notify/notify.js"></script>
+		<script LANGUAGE="JavaScript" TYPE="text/javascript" SRC="js/library/elizabot/elizabot.js"></script>
+		<script LANGUAGE="JavaScript" TYPE="text/javascript" SRC="js/library/elizabot/elizadata.js"></script>
 		<!-- Our singleton and minified code -->
 		<script language="javascript" type="text/javascript" src="js/script.js"></script>
 		<script type="text/javascript">
@@ -61,6 +63,7 @@
 		    YW.LISTENER		= 0;
 		    YW.NAME			= "<?php echo (isset($_SESSION['name']))?$_SESSION['name']:0; ?>";
 		    YW.UNREAD		= 0;
+		    YW.ELIZA 		= new ElizaBot();
 		})(YW);
 		</script>
 	</head>
