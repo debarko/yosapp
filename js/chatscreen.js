@@ -259,7 +259,7 @@ function selectModalItem(item){
 		return;
 	}
 	else if (item == 'vision'){
-		$('#modalMenuDevlopers').css('background-color','#2AB200');
+		$('#modalMenuVesion').css('background-color','#2AB200');
 		$('#releaseHeader').html('Our vision');
 		$('#releaseVersionText').html('We believe: human knowledge belongs to the world. ');
 		return;
