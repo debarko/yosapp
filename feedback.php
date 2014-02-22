@@ -6,7 +6,6 @@ sec_session_start(); // Our custom secure way of starting a PHP session.
 $msg = ($_GET['msg'])?$_GET['msg']:"";
 $ua = ($_GET['ua'])?$_GET['ua']:"";
 
-$msg = urldecode($msg);
 $ua = urldecode($ua);
 
 $now = time();
