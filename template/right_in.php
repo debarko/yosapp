@@ -31,7 +31,7 @@
 		<div class="animatedIcons" id="phonebook"></div>
 		<div id="addContactAnimatedMsgBoxWrapper">
 			<div class="addContactAnimatedMsgBox" id="contactNameAnimatedMsgBox"></div>
-			<div class="addContactAnimatedMsgBox" id="addingTextAnimatedMsgBox">Adding...</div>
+			<div class="addContactAnimatedMsgBox" id="addingTextAnimatedMsgBox">Updating...</div>
 			<div class="addContactAnimatedMsgBox" id="phonebookAnimatedMsgBox">Successful</div>
 		</div>
 	</div>

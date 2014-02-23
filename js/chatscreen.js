@@ -242,8 +242,8 @@ function selectModalItem(item, thisElem){
 		var cc = contact.find('#cc').html();
 		$('#contactFirstNameEdit').val(name);
 		$('#phNumberEdit').val(number);
+		$('#phNumberEdit #countryCodeEdit').prop('disabled', true);
 		$('#countryCodeEdit').val(cc);
-		$('#countryCodeEdit').prop('disabled', true);
 		return;
 	}
 

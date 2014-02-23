@@ -66,10 +66,10 @@
 	top: 20px;
 	height: 1px;
 	width: 100%;
-	background: white;
-    background: -webkit-linear-gradient(left, #5B8F4B, white, #5B8F4B);
-    background: -moz-linear-gradient(left, #5B8F4B, white, #5B8F4B);
-    background: -o-linear-gradient(left, #5B8F4B, white, #5B8F4B);
+	background: #5B8F4B;
+    background: -webkit-linear-gradient(left, white, #5B8F4B, white);
+    background: -webkit-linear-gradient(left, white, #5B8F4B, white);
+    background: -webkit-linear-gradient(left, white, #5B8F4B, white);
 }
 
 #profilepic{
@@ -106,7 +106,7 @@
 	display: block;
 	margin: 15 auto 8 auto;
 	background: rgba(42, 178, 0, 0.69);
-	height: 5%;
+	height: 0%;
 	width: 95%;
 }
 
