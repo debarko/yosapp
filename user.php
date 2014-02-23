@@ -15,7 +15,7 @@
 		$contact = filter_input(INPUT_POST, 'contact', FILTER_SANITIZE_STRING);
 		$cc = filter_input(INPUT_POST, 'cc', FILTER_SANITIZE_NUMBER_INT);
 		$name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
-		if($contact===""){
+		if($contact==="" || $name===""){
 			echo "badparam";
 			exit();
 		}
@@ -39,7 +39,7 @@
 				echo ("Error friends: ".$mysqli->error);
 				exit();
 			}
-			if ($stmt = $mysqli->prepare("SELECT id 
+			if ($stmt = $mysqli->prepare("SELECT id, name 
                                       FROM members 
                                       WHERE username = ? 
                                       AND cc = ?
@@ -50,7 +50,16 @@
 	            $stmt->store_result();
 	 
 	            if ($stmt->num_rows == 1) {
-	            	//Do nothing as it is already there
+	            	//Change name if it is only number
+	            	$stmt->bind_result($user_id, $name_db);
+        			$stmt->fetch();
+
+        			if($name_db === $cc.$contact){
+        				if(!$mysqli->query("update members set name='$name' where id=$user_id;")) {
+							echo ("Error members: ".$mysqli->error);
+							exit();
+						}	
+        			}
 	            } else {
 	            	//Insert his name and all
 	            	if(!$mysqli->query("INSERT INTO members(username, name, cc)
