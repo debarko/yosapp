@@ -75,7 +75,10 @@
 	margin: 4 0 0 0;
 	height: 1px;
 	width: 170px;
-	background: -webkit-gradient(linear, 0 0, 100% 0, from(#59C238), to(#59C238), color-stop(50%, white));
+	background: white;
+    background: -webkit-linear-gradient(left, #59C238, white, #59C238);
+    background: -moz-linear-gradient(left, #59C238, white, #59C238);
+    background: -o-linear-gradient(left, #59C238, white, #59C238);
 }
 #modalRightPanel{
 	display: inline-block;
@@ -114,7 +117,7 @@
 }
 .inputFieldWraper{
 	display: inline-block;
-	width: 120px;
+	width: 250px;
 }
 .inputFieldTip4Cont{
 	color: black;
@@ -134,12 +137,12 @@
 #lastNameWrapper{
 	margin-left: 5px;
 }
-#lastNameWrapper:after{
+#firstNameWrapper:after{
 	content: '';
 	position: absolute;
 	height: 25px;
 	width: 25px;
-	margin: 18 0 0 21;
+	margin: 18 0 0 16;
 	background-image: url('../icons/user.png');
 	opacity: .7;
 }
@@ -148,7 +151,7 @@
 	position: absolute;
 	height: 30px;
 	width: 25px;
-	margin: 15 0 0 17;
+	margin: 15 0 0 13;
 	background-image: url('../icons/phone_min.png');
 	opacity: .7;
 }

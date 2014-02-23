@@ -31,7 +31,10 @@ body{
 #bannerText:after{
   content: '';
   position: absolute;
-  background: -webkit-gradient(linear, 0 0, 100% 0, from(#2aB200), to(#2aB200), color-stop(50%, white));
+  background: white;
+  background: -webkit-linear-gradient(left, #2AB200, white, #2AB200);
+  background: -moz-linear-gradient(left, #2AB200, white, #2AB200);
+  background: -o-linear-gradient(left, #2AB200, white, #2AB200);
   width: 100px;
   height: 1px;
   top: 36px;
@@ -249,7 +252,10 @@ div.liketooltip span:after {
 #headsep{
 	height: 1px;
     border: 0;
-    background: -webkit-gradient(linear, 0 0, 100% 0, from(#2aB200), to(#2aB200), color-stop(50%, white));
+    background: white;
+    background: -webkit-linear-gradient(left, #2AB200, white, #2AB200);
+    background: -moz-linear-gradient(left, #2AB200, white, #2AB200);
+    background: -o-linear-gradient(left, #2AB200, white, #2AB200);
 }
 
 
@@ -714,7 +720,10 @@ div.logintooltips span:after {
 #footsep{
 	height: 1px;
 	border: 0;
-	background: -webkit-gradient(linear, 0 0, 100% 0, from(#2aB200), to(#2aB200), color-stop(50%, white));
+	background: white;
+  background: -webkit-linear-gradient(left, #2AB200, white, #2AB200);
+  background: -moz-linear-gradient(left, #2AB200, white, #2AB200);
+  background: -o-linear-gradient(left, #2AB200, white, #2AB200);
 }
 
 #footer{
@@ -949,7 +958,10 @@ div.logintooltips span:after {
   left: 1px;
   bottom: 35%;
   background-color: rgba(255, 255, 255, 0.31);
-  background: -webkit-gradient(linear, 0 0, 100% 0, from(#45bb21), to(#45bb21), color-stop(50%, rgba(255, 255, 255, 0.31)));
+  background: white;
+  background: -webkit-linear-gradient(left, #45bb21, white, #45bb21);
+  background: -moz-linear-gradient(left, #45bb21, white, #45bb21);
+  background: -o-linear-gradient(left, #45bb21, white, #45bb21);
 }
 #verSelectedIcon{
   position: absolute;
@@ -978,7 +990,10 @@ div.logintooltips span:after {
   height: 80%;
   width: 1px;
   background-color: rgba(255, 255, 255, 0.31);
-  background: -webkit-gradient(linear, 0 0, 0 100%, from(#45bb21), to(#45bb21), color-stop(50%, rgba(255, 255, 255, 0.4)));
+  background: white;
+  background: -webkit-linear-gradient(top, #45bb21, white, #45bb21);
+  background: -moz-linear-gradient(top, #45bb21, white, #45bb21);
+  background: -o-linear-gradient(top, #45bb21, white, #45bb21);
 }
 .verMethodSelectionWrapper{
   width: 90%;
@@ -1213,7 +1228,10 @@ div.logintooltips span:after {
   position: absolute;
   height: 1px;
   width: 100%;
-  background: -webkit-gradient(linear, 0 0, 100% 0, from(#2aB200), to(#2aB200), color-stop(50%, white));
+  background: white;
+  background: -webkit-linear-gradient(left, #2AB200, white, #2AB200);
+  background: -moz-linear-gradient(left, #2AB200, white, #2AB200);
+  background: -o-linear-gradient(left, #2AB200, white, #2AB200);
   top: 32px;
   left: -25px;
 }

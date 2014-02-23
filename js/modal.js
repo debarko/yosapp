@@ -13,16 +13,11 @@ function addContact(){
 	var arrow = $('#addContactAnimation').find('#arrow');
 	//show contact name under the user icon
 	var fName = $('#contactFirstName').val();
-	var lName = $('#contactLastName').val();
 	var cCode = $('#countryCode').val();
 	var phNumber = $('#phNumber').val();
 	var cName = $('#countryName').val();
 	if(fName===""){
 		alert("Empty First Name");
-		return false;
-	}
-	if(lName===""){
-		alert("Empty Last Name");
 		return false;
 	}
 	if(parseInt(phNumber) != phNumber){
@@ -46,7 +41,7 @@ function addContact(){
 	if(cName===""){
 		cName = "Random";
 	}
-	$('#contactNameAnimatedMsgBox').html(fName+' '+lName).animate({opacity:'1'},700, "swing");
+	$('#contactNameAnimatedMsgBox').html(fName).animate({opacity:'1'},700, "swing");
 	
 	// animate the lower portion of the dialouge
 	times=1;
@@ -55,7 +50,7 @@ function addContact(){
 	$aJX_status = $.ajax({
         type: "POST",
         url: "user.php?request=addfriend",
-        data: {"contact": phNumber, "cc": cCode, "name": fName+' '+lName},
+        data: {"contact": phNumber, "cc": cCode, "name": fName},
         dataType: "text"
         })
         .success(function(response) {
