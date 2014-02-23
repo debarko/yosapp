@@ -1,5 +1,4 @@
 <?php
-	header('Location: ./sitedown.html');
 	require_once 'includes.php';
 	require_once 'templates.php';
 
