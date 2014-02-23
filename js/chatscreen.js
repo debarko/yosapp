@@ -175,7 +175,7 @@ function showOverlay(callback) {
 	});
 }
 
-function showModal(defaultSelectedMenu){
+function showModal(defaultSelectedMenu, thisElem){
 	var modal = $('#modal');
 	modal.css('display','block');
 	if(YW.logged_in() == 'true' ){
@@ -206,13 +206,13 @@ function showModal(defaultSelectedMenu){
 		},300,"swing",function(){
 			$('#modalCloseButton').css('visibility','visible');
 			$('#modalContent').css('visibility','visible');
-			selectModalItem(defaultSelectedMenu)
+			selectModalItem(defaultSelectedMenu, thisElem)
 			$('#contactFirstName').focus(); // auto focus of first name
 		});
 	})
 }
 
-function selectModalItem(item){
+function selectModalItem(item, thisElem){
 	//this function selects modal content. Ex : settings, add contacts etc
 	// disable all previously activated display forms 
 	$('.modalRightMasterDiv').css('display','none');
@@ -233,6 +233,21 @@ function selectModalItem(item){
 		$('#modalSettings').css('background-color','#2AB200');
 		return;
 	}
+	else if (item == 'editCon'){
+		$('#editContactForm').css('display','block');
+		$('#modaleditContact').css('background-color','#2AB200');
+		var contact = $(thisElem).parent();
+		var name = contact.find('#name').html();
+		var number = contact.find('span').eq(3).attr('id');
+		var cc = contact.find('#cc').html();
+		$('#contactFirstNameEdit').val(name);
+		$('#phNumberEdit').val(number);
+		$('#countryCodeEdit').val(cc);
+		$('#countryCodeEdit').prop('disabled', true);
+		return;
+	}
+
+
 	else if (item == 'alpha'){
 		$('#modalMenuAlpha').css('background-color','#2AB200');
 		$('#releaseHeader').html('Alpha Release');
@@ -412,10 +427,13 @@ function setCurrentPartner(elem) {
     	if ( $(obj).css('background-color') == 'rgba(42, 178, 0, 0.521569)' ){
     		$(obj).css('background-color','');
     	}
+    	// clear all the edit option link
+    	$(obj).find('#editContactButton').css('display','');
 	});
 	//highlight current partner
 	$(elem).css('background-color','rgba(42, 178, 0, 0.52)');
 	$(elem).find('#unreadMsgCnt').css('display', 'none');
+	$(elem).find('#editContactButton').css('display','inline-block');
 	renderMessages();
 	renderCurrent();
 	calcUnread();

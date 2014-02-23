@@ -1,429 +1,443 @@
-@CHARSET "UTF-8";
-@media only screen and (min-width: 1024px) {
-	#bodybg-chatroom{
-		background-color: white;
-	}
+#bodybg-chatroom{
+	background-color: white;
+}
 
-	.iconIn{
-		display: inline-block;
-		display: inline-block;
-		height: 30px;
-		width: 30px;
-		margin-right: 15px;
-	}
-	#logout{
-		background-image: url('../icons/out_min.png');
-	}
-	#settings{
-		background-image: url('../icons/settings_min.png');
-	}
-	#connectivity{
-		background-image: url('../icons/conn1_min.png');
-	}
-	.tooltipIn{
-		display: none;
-	}
+.iconIn{
+	display: inline-block;
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+	margin-right: 15px;
+}
+#logout{
+	background-image: url('../icons/out_min.png');
+}
+#settings{
+	background-image: url('../icons/settings_min.png');
+}
+#connectivity{
+	background-image: url('../icons/conn1_min.png');
+}
+.tooltipIn{
+	display: none;
+}
 
-	#bodybg-chatroom{
-		width: 100%;
-		height: 80%;
-		background-color: white;
-	}
+#bodybg-chatroom{
+	width: 100%;
+	height: 80%;
+	background-color: white;
+}
 
-	#leftpannel{
-		float: left;
-		position: relative;
-		height: 100%;
-		width: 240px;
-		/*border-right: 1px solid rgba(100, 184, 100, 0.56);*/
-		overflow: hidden;
-	}
-	#leftpannel:after{
-		content: '';
-		display: block;
-		position: absolute;
-		width: 1px;
-		height: 100%;
-		left: 99.5%;
-		top: 1px;
-		background-color: rgba(100, 184, 100, 0.56);
-	}
+#leftpannel{
+	float: left;
+	position: relative;
+	height: 100%;
+	width: 240px;
+	/*border-right: 1px solid rgba(100, 184, 100, 0.56);*/
+	overflow: hidden;
+}
+#leftpannel:after{
+	content: '';
+	display: block;
+	position: absolute;
+	width: 1px;
+	height: 100%;
+	left: 99.5%;
+	top: 1px;
+	background-color: rgba(100, 184, 100, 0.56);
+}
 
 
-	#profileinfo{
-		position: relative;
-		width: 85%;
-		height: 10%;
-		background-color: white;
-		margin: 0 auto;
-		margin-top: 10px;
-		color: #3A693A;
-		text-indent: 15px;
-	}
+#profileinfo{
+	position: relative;
+	width: 85%;
+	height: 10%;
+	background-color: white;
+	margin: 0 auto;
+	margin-top: 10px;
+	color: #3A693A;
+	text-indent: 15px;
+}
 
-	#profileinfo:after{
-		content: "";
-		display: block;
-		position: relative;
-		top: 20px;
-		height: 1px;
-		width: 100%;
-		background: -webkit-gradient(linear, 0 0, 100% 0, from(#FFFFFF), to(#FFFFFF), color-stop(50%, #5B8F4B));
-	}
+#profileinfo:after{
+	content: "";
+	display: block;
+	position: relative;
+	top: 20px;
+	height: 1px;
+	width: 100%;
+	background: white;
+    background: -webkit-linear-gradient(left, #5B8F4B, white, #5B8F4B);
+    background: -moz-linear-gradient(left, #5B8F4B, white, #5B8F4B);
+    background: -o-linear-gradient(left, #5B8F4B, white, #5B8F4B);
+}
 
-	#profilepic{
-		display: block;
-		float: left;
-		width: 50px;
-		height: 50px;
-
-	}
-	#profilepic p{
-		font-family: 'Sigmar One', cursive;
-		color: white;
-		font-size: 55px;
-		position: relative;
-		text-indent: -2px;
-		top: 0px;
-		left: 0px;
-	}
-
-	#profilename{
-		position: relative;
-		top: 7px;
-	}
-	#editprofiletext{
-		font-size: 12px;
-		margin-top: 10px;
-		visibility: hidden;
-	}
-
-	/*contact search bar*/
-
-	#concactsearch{
-		visibility: hidden;
-		display: block;
-		margin: 15 auto 8 auto;
-		background: rgba(42, 178, 0, 0.69);
-		height: 5%;
-		width: 95%;
-	}
-
-	#concactsearch input{
-		border: none;
-		height: 25px;
-		width: 200px;
-		background-color: rgba(0,0,0,0);
-		text-indent: 10px;
-		color: white;
-		padding-bottom: 1px;
-	}
-
-
-	#concactsearch span{
-		display: inline-block;
-		position: relative;
-		top: 4px;
-		float: right;
-		height: 22px;
-		width: 28px;
-		background-image: url('../icons/searchicon.png')
-	}
-
-	#contactscontainer{
-		overflow-y: hidden;
-		position: absolute;
-		width: 95%;
-		height: 72%;
-	}
-	#contactscontainer:hover{
-		overflow-y: auto; 
-	}
-	.contact{
-		display: block;
-		width: 100%;
-		height: 30px;
-		margin: 3 auto;
-		border-top-right-radius: 7px;
-		border-bottom-right-radius: 7px;
-		background-color: rgba(0, 0, 0, 0);
-	}
-	.contact #contactImage{
-		height: 30px;
-		width: 30px;
-		float: left;
-		background-color: transparent;
-		margin: 0 10 0 17;
-	}
-	.contact #contactImage p{
-		font-family: 'Sigmar One', cursive;
-		color: white;
-		font-size: 32px;
-		position: relative;
-		top: 0px;
-		left: 0px;
-	}
-	.contact span{
-		margin-top: 8px;
-		display: inline-block;
-		color: rgba(40, 48, 38, 0.77);
-		font-size: 13px;
-	}
-
-	.contact #unreadMsgCnt{
-		height: 23px;
-		width: 23px;
-		background-color: rgb(228, 97, 97);
-		border-radius: 15px;
-		font-size: 14px;
-		text-align: center;
-		padding: 1px;
-		line-height: 22px;
-		color: rgba(255, 255, 255, 0.92);
-		float: right;
-		position: relative;
-		top: -5.5px;
-		right: 3px;
-		font-weight: 700;
-		display: none
-	}
-
-	.contact:hover{
-		background-color: rgba(209, 247, 209, 0.64);
-	}
-	#contactoptions{
-	    width: 100%;
-	    height: 40px;
-	    background-color: #B4D3B0;
-	    position: absolute;
-	    bottom: 0px;
-	}
-	#manualAddContact{
-		display: inline-block;
-		height: 40px;
-		width: 40px;
-		margin-left: 10px;
-		background-image: url('../icons/signup1.png');
-		background-repeat: no-repeat;
-		background-position: -1 6;
-	}
-	#rightpannel{
-		height: 100%;
-		margin-left: 240px;
-	}
-
-	#msgcontainer{
-		overflow-y: auto;
-		height: 93%;
-		background-image: url('http://theorydesign.ca/img/bgservices.jpg');
-	}
-
-	.recmsg:before {
-		content: "";
-		position: absolute;
-		border-top: 5px solid rgba(229, 86, 86, 0);
-		border-right: 10px solid #E08510;
-		border-bottom: 5px solid rgba(0, 0, 0, 0);
-		margin: 8px 0 0 -10px;
-	}
-
-	
-	.shareOptionsBar{
-		position: relative;
-		top: -16px;
-		z-index: 2;
-		height: 15px;
-		overflow-y: hidden;
-	}
-
-	.shareOptionsBar_left{
-		margin-left: 10px;
-	}
-
-	.shareOptionsBar .before{
-		display: inline-block;
-		float: left;
-		border-bottom: 15px solid transparent;
-		border-right: 10px solid rgba(0, 0, 0, 0.22);
-	}
-
-	.shareOptionsBar .midbar{
-		display: inline-block;
-		width: 85%;
-		height: 15px;
-		background-color: rgba(0, 0, 0, 0.22);
-	}
-
-	.shareOptionsBar .after{
-		display: inline-block;
-		border-bottom: 15px solid transparent;
-		border-left: 10px solid rgba(0, 0, 0, 0.22);
-	}
-
-	.textbox{
-		color: white;
-		line-height: 1.2em;
-		padding: 10px;
-		position: relative;
-		margin-right: 0px;
-		font-size: 0.9em;
-		text-align: justify;
-	}
-
-	#deliverystatus{
-		background-image: url('../icons/singlecheck.png');
-		display: inline-block;
-		width: 20px;
-		height: 20px;
-		float: right;
-		zoom: .7;
-		margin: -5 5 0 2;
-	}
-
-	#timestamp{
-		display: inline-block;
-		float: right;
-		font-size: 10px;
-		opacity: .6;
-		margin-bottom: 2px;
-		margin-right: 5px;
-		color: white;
-		position: relative;
-		top: -3px;
-	}
-
-	#mother_div{
-		min-width: 50px;
-		max-width: 70%;
-	}
-
-	.mother_div_right{
-		right: 10px;
-		position: relative;
-	}
-
-	.recmsg {
-		background: #E08510;
-		left: 10px;
-	}
-	
-	.sent_recv{
-		-moz-border-radius: 10px;
-		-webkit-border-radius: 10px;
-		border-radius: 3px;
-		display: inline-block;
-		position: relative;
-		z-index: 9;
-		margin: 1 0;
-		min-width: 150px;
-	}
-
-	.sentmsg {
-		background: #2AB200;
-	}
-
-	.sentmsg:before {
-		content: "";
-		position: absolute;
-		right: -10px;
-		width: 0;
-		height: 0;
-		border-top: 5px solid rgba(229, 86, 86, 0);
-		border-left: 10px solid #2AB200;
-		border-bottom: 5px solid rgba(0, 0, 0, 0);
-		margin: 8 0 0 0;
-	}
-
-	#createmsgbar{
-		height: 7%;
-		width: 100%;
-		background-color: rgba(0, 0, 0, 0.3);
-	}
-
-	#attachment{
-
-		background-repeat: no-repeat;
-		height: 100%;
-		width: 30px;
-		background-image: url('../icons/attachmenticon.png');
-		background-position-y: 49%;
-		float: left;
-		margin-left: 15px;
-		opacity: 0.5;
-	}
-
-	#attachment:hover{
-		opacity: 1.0;
-	}
-
-	#smiley{
-		background-repeat: no-repeat;
-		height: 100%;
-		width: 25px;
-		background-image: url('../icons/smiley.png');
-		background-position-y: 49%;
-		float: left;
-		margin-left: 15px;
-		opacity: 0.5;
-	}
-	
-	#smiley:hover{
-		opacity: 1.0;
-	}
-
-	#sendbutton{
-		background-repeat: no-repeat;
-		height: 100%;
-		width: 30px;
-		background-image: url('../icons/sendArrow.png');
-		background-position-y: 49%;
-		float: right;
-		margin-right: 20px;
-		opacity: 0.5;
-	}
-
-	#sendbutton:hover{
-		opacity: 1.0;
-	}
-
-	#msgtypebar{
-		width: 80%;
-		float: left;
-		height: 100%;
-		margin-left: 2%;
-	}
-
-	#msgtypebar input{
-		width: 100%;
-		border: none;
-		height: 81%;
-		margin-top: .5%;
-		background-color: rgba(255, 255, 255, 0);
-		border-radius: 6px;
-		border-bottom: 2px solid rgba(34, 153, 175, 0.73);
-	}
-
-	/*Scroll bar*/
-	/* design scrollbar */
-
-	 ::-webkit-scrollbar{
-	       width: 10px;
-	 } /* this targets the default scrollbar (compulsory) */
-
-	 ::-webkit-scrollbar-track {
-	      background-color: rgba(0, 0, 0, 0);
-	} /* the new scrollbar will have a flat appearance with the set
-	background color */
-	::-webkit-scrollbar-thumb {
-	      background-color: rgba(25, 163, 228, 0.32);
-	} /* this will style the thumb, ignoring the track */
-	::-webkit-scrollbar-button {
-	      background-color: rgba(124, 41, 41, 0);
-	} /* optionally, you can style the top and the bottom buttons (left and
-	right for horizontal bars) */
-	::-webkit-scrollbar-corner {
-	      background-color: rgba(124, 41, 41, 0);
-	} /* if both the vertical and the horizontal bars appear, then perhaps
-	the right bottom corner also needs to be styled */
+#profilepic{
+	display: block;
+	float: left;
+	width: 50px;
+	height: 50px;
 
 }
+#profilepic p{
+	font-family: 'Sigmar One', cursive;
+	color: white;
+	font-size: 55px;
+	position: relative;
+	text-indent: -2px;
+	top: 0px;
+	left: 0px;
+}
+
+#profilename{
+	position: relative;
+	top: 7px;
+}
+#editprofiletext{
+	font-size: 12px;
+	margin-top: 10px;
+	visibility: hidden;
+}
+
+/*contact search bar*/
+
+#concactsearch{
+	visibility: hidden;
+	display: block;
+	margin: 15 auto 8 auto;
+	background: rgba(42, 178, 0, 0.69);
+	height: 5%;
+	width: 95%;
+}
+
+#concactsearch input{
+	border: none;
+	height: 25px;
+	width: 200px;
+	background-color: rgba(0,0,0,0);
+	text-indent: 10px;
+	color: white;
+	padding-bottom: 1px;
+}
+
+
+#concactsearch span{
+	display: inline-block;
+	position: relative;
+	top: 4px;
+	float: right;
+	height: 22px;
+	width: 28px;
+	background-image: url('../icons/searchicon.png')
+}
+
+#contactscontainer{
+	overflow-y: hidden;
+	position: absolute;
+	width: 95%;
+	height: 72%;
+}
+#contactscontainer:hover{
+	overflow-y: auto; 
+}
+.contact{
+	display: block;
+	width: 100%;
+	height: 30px;
+	margin: 3 auto;
+	border-top-right-radius: 7px;
+	border-bottom-right-radius: 7px;
+	background-color: rgba(0, 0, 0, 0);
+}
+.contact #contactImage{
+	height: 30px;
+	width: 30px;
+	float: left;
+	background-color: transparent;
+	margin: 0 10 0 17;
+}
+.contact #contactImage p{
+	font-family: 'Sigmar One', cursive;
+	color: white;
+	font-size: 32px;
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+.contact span{
+	margin-top: 8px;
+	display: inline-block;
+	color: rgba(40, 48, 38, 0.77);
+	font-size: 13px;
+}
+
+.contact #unreadMsgCnt{
+	height: 23px;
+	width: 23px;
+	background-color: rgb(228, 97, 97);
+	border-radius: 15px;
+	font-size: 14px;
+	text-align: center;
+	padding: 1px;
+	line-height: 22px;
+	color: rgba(255, 255, 255, 0.92);
+	float: right;
+	position: relative;
+	top: -5.5px;
+	right: 3px;
+	font-weight: 700;
+	display: none
+}
+
+.contact #editContactButton{
+	color: rgba(255, 255, 255, 0.8);
+	font-size: 11px;
+	float: right;
+	line-height: 0px;
+	margin: 15 10 0 0;
+	display: none;
+}
+.contact #editContactButton:hover{
+	text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.41);
+	color: white;
+}
+
+.contact:hover{
+	background-color: rgba(209, 247, 209, 0.64);
+}
+#contactoptions{
+    width: 100%;
+    height: 40px;
+    background-color: #B4D3B0;
+    position: absolute;
+    bottom: 0px;
+}
+#manualAddContact{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	margin-left: 10px;
+	background-image: url('../icons/signup1.png');
+	background-repeat: no-repeat;
+	background-position: -1 6;
+}
+#rightpannel{
+	height: 100%;
+	margin-left: 240px;
+}
+
+#msgcontainer{
+	overflow-y: auto;
+	height: 93%;
+	background-image: url('http://theorydesign.ca/img/bgservices.jpg');
+}
+
+.recmsg:before {
+	content: "";
+	position: absolute;
+	border-top: 5px solid rgba(229, 86, 86, 0);
+	border-right: 10px solid #E08510;
+	border-bottom: 5px solid rgba(0, 0, 0, 0);
+	margin: 8px 0 0 -10px;
+}
+
+
+.shareOptionsBar{
+	position: relative;
+	top: -16px;
+	z-index: 2;
+	height: 15px;
+	overflow-y: hidden;
+}
+
+.shareOptionsBar_left{
+	margin-left: 10px;
+}
+
+.shareOptionsBar .before{
+	display: inline-block;
+	float: left;
+	border-bottom: 15px solid transparent;
+	border-right: 10px solid rgba(0, 0, 0, 0.22);
+}
+
+.shareOptionsBar .midbar{
+	display: inline-block;
+	width: 85%;
+	height: 15px;
+	background-color: rgba(0, 0, 0, 0.22);
+}
+
+.shareOptionsBar .after{
+	display: inline-block;
+	border-bottom: 15px solid transparent;
+	border-left: 10px solid rgba(0, 0, 0, 0.22);
+}
+
+.textbox{
+	color: white;
+	line-height: 1.2em;
+	padding: 10px;
+	position: relative;
+	margin-right: 0px;
+	font-size: 0.9em;
+	text-align: justify;
+}
+
+#deliverystatus{
+	background-image: url('../icons/singlecheck.png');
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	float: right;
+	zoom: .7;
+	margin: -5 5 0 2;
+}
+
+#timestamp{
+	display: inline-block;
+	float: right;
+	font-size: 10px;
+	opacity: .6;
+	margin-bottom: 2px;
+	margin-right: 5px;
+	color: white;
+	position: relative;
+	top: -3px;
+}
+
+#mother_div{
+	min-width: 50px;
+	max-width: 70%;
+}
+
+.mother_div_right{
+	right: 10px;
+	position: relative;
+}
+
+.recmsg {
+	background: #E08510;
+	left: 10px;
+}
+
+.sent_recv{
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+	z-index: 9;
+	margin: 1 0;
+	min-width: 150px;
+}
+
+.sentmsg {
+	background: #2AB200;
+}
+
+.sentmsg:before {
+	content: "";
+	position: absolute;
+	right: -10px;
+	width: 0;
+	height: 0;
+	border-top: 5px solid rgba(229, 86, 86, 0);
+	border-left: 10px solid #2AB200;
+	border-bottom: 5px solid rgba(0, 0, 0, 0);
+	margin: 8 0 0 0;
+}
+
+#createmsgbar{
+	height: 7%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+#attachment{
+
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 30px;
+	background-image: url('../icons/attachmenticon.png');
+	background-position-y: 49%;
+	float: left;
+	margin-left: 15px;
+	opacity: 0.5;
+}
+
+#attachment:hover{
+	opacity: 1.0;
+}
+
+#smiley{
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 25px;
+	background-image: url('../icons/smiley.png');
+	background-position-y: 49%;
+	float: left;
+	margin-left: 15px;
+	opacity: 0.5;
+}
+
+#smiley:hover{
+	opacity: 1.0;
+}
+
+#sendbutton{
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 30px;
+	background-image: url('../icons/sendArrow.png');
+	background-position-y: 49%;
+	float: right;
+	margin-right: 20px;
+	opacity: 0.5;
+}
+
+#sendbutton:hover{
+	opacity: 1.0;
+}
+
+#msgtypebar{
+	width: 80%;
+	float: left;
+	height: 100%;
+	margin-left: 2%;
+}
+
+#msgtypebar input{
+	width: 100%;
+	border: none;
+	height: 81%;
+	margin-top: .5%;
+	background-color: rgba(255, 255, 255, 0);
+	border-radius: 6px;
+	border-bottom: 2px solid rgba(34, 153, 175, 0.73);
+}
+
+/*Scroll bar*/
+/* design scrollbar */
+
+ ::-webkit-scrollbar{
+       width: 10px;
+ } /* this targets the default scrollbar (compulsory) */
+
+ ::-webkit-scrollbar-track {
+      background-color: rgba(0, 0, 0, 0);
+} /* the new scrollbar will have a flat appearance with the set
+background color */
+::-webkit-scrollbar-thumb {
+      background-color: rgba(25, 163, 228, 0.32);
+} /* this will style the thumb, ignoring the track */
+::-webkit-scrollbar-button {
+      background-color: rgba(124, 41, 41, 0);
+} /* optionally, you can style the top and the bottom buttons (left and
+right for horizontal bars) */
+::-webkit-scrollbar-corner {
+      background-color: rgba(124, 41, 41, 0);
+} /* if both the vertical and the horizontal bars appear, then perhaps
+the right bottom corner also needs to be styled */
+
+
