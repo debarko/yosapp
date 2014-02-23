@@ -91,3 +91,33 @@ function showInputTipsOnblur(id){
 function getRandomInt (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+function countryToCC(country){
+	var BreakException;
+	try{
+		YW.COUNTRIES.forEach(function(item, itemIndex, arr){
+		    if(item[0]==country){
+		        BreakException = item[1];
+				throw BreakException;
+		    }
+		});
+	} catch(e) {
+		if (e!==BreakException) throw e;
+	    return BreakException;
+	}
+}
+
+function CCtoCountry(cc){
+	var BreakException;
+	try{
+		YW.COUNTRIES.forEach(function(item, itemIndex, arr){
+		    if(item[1]==cc){
+		        BreakException = item[0];
+				throw BreakException;
+		    }
+		});
+	} catch(e) {
+		if (e!==BreakException) throw e;
+	    return BreakException;
+	}
+}

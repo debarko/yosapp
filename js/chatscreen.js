@@ -241,9 +241,11 @@ function selectModalItem(item, thisElem){
 		var number = contact.find('span').eq(3).attr('id');
 		var cc = contact.find('#cc').html();
 		$('#contactFirstNameEdit').val(name);
+		//Disabling phone, cc and country
+		$('#phNumberEdit, #countryCodeEdit, #countryNameEdit').prop('disabled', true);
 		$('#phNumberEdit').val(number);
-		$('#phNumberEdit #countryCodeEdit').prop('disabled', true);
 		$('#countryCodeEdit').val(cc);
+		$('#countryNameEdit').val(CCtoCountry(cc))
 		return;
 	}
 
@@ -326,6 +328,10 @@ function addContactElem(name, phone, cc, image){
 	$('#contactslist li:last #name').html(name);
 	$('#contactslist li:last #cc').html(cc);
 	$('#contactslist li:last #number').attr("id",phone);
+	if(phone=="server"){
+		alert(1);
+		$('#contactslist li:last #editContactButton').remove();
+	}
 	return currentContact;
 }
 
