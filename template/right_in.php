@@ -26,19 +26,9 @@
 	<div class="inputFieldWraper" id="countryNameWrapper" ><input id="countryNameEdit" class="modalInputField" type="text" name="countryName" value="" /></div>
 	<div class="inputFieldWraper" id="countryCodeWrapper" ><input id="countryCodeEdit" class="modalInputField" type="text" name="countryCode" value="" /></div>
 	<div >
-		<input id="updateButton" class="modalRightButton" type="button" value="Update" onclick='UpdateContact();' />&nbsp;&nbsp;
+		<input id="updateButton" class="modalRightButton" type="button" value="Update" onclick='updateContact();' />&nbsp;&nbsp;
 		<input id="ClearButton" class="modalRightButton" type="button" value="Clear" onclick='emptyEditContact();' />
 		<div id="delButtonWrapper"><input id="deleteButton" class="modalRightButton" type="button" value="Delete" onclick=';' /></div>
-	</div>
-	<div id="addContactAnimation">
-		<div class="animatedIcons" id="user"></div>
-		<div class="animatedIcons" id="arrow"></div>
-		<div class="animatedIcons" id="phonebook"></div>
-		<div id="addContactAnimatedMsgBoxWrapper">
-			<div class="addContactAnimatedMsgBox" id="contactNameAnimatedMsgBox"></div>
-			<div class="addContactAnimatedMsgBox" id="addingTextAnimatedMsgBox">Updating...</div>
-			<div class="addContactAnimatedMsgBox" id="phonebookAnimatedMsgBox">Successful</div>
-		</div>
 	</div>
 </div>
 

@@ -178,9 +178,11 @@
             }
             $user_id = $_SESSION['user_id'];
             if(!$mysqli->query("UPDATE friends SET list='$restore' WHERE id=$user_id;")) {
-				echo ("Error members: ".$mysqli->error);
+				echo ("sqlfail");
 				exit();
 			}
+			echo "success";
+			exit();
 	    } else {
 	    	echo "sqlfail";
 	    	exit();

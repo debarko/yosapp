@@ -83,6 +83,7 @@ body{
   border-bottom-right-radius: 10px;
   border-top: 0px;
   display: none;
+  z-index: 101;
 }
 #notify p{
   color: rgba(255, 255, 255, 0.95);

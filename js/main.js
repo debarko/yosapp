@@ -380,6 +380,8 @@ function DlBoxLoading(msg,stepNumber){
 	});
 }
 
+
+
 function DlBoxFinalMsg(msg, stepNumber){
 	var prevObj = '';
 	var newObjIcon = '';
@@ -434,3 +436,5 @@ function hideNotif(){
 		});
 	});
 }
+
+	
