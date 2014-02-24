@@ -5,7 +5,7 @@
 	<div id="phNumberWrapper" ><input id="phNumber" class="modalInputField" type="text" name="phNumber" value="" onkeyup='hideTip(this);' /><span class="inputFieldTip inputFieldTip4Cont">Ex: 9876543210</span></div>
 	<div class="inputFieldWraper" id="countryNameWrapper" ><input id="countryName" class="modalInputField" type="text" name="countryName" value="" onkeyup='hideTip(this);' /><span class="inputFieldTip inputFieldTip4Cont">Ex: India</span></div>
 	<div class="inputFieldWraper" id="countryCodeWrapper" ><input id="countryCode" class="modalInputField" type="text" name="countryCode" value="" onkeyup='hideTip(this);' /><span class="inputFieldTip inputFieldTip4Cont" id="addConCCTip">Ex: 91</span></div>
-	<div ><input id="addButton" type="button" value="ADD" onclick='addContact();' /></div>
+	<div ><input id="addButton" class="modalRightButton" type="button" value="ADD" onclick='addContact();' /></div>
 	<div id="addContactAnimation">
 		<div class="animatedIcons" id="user"></div>
 		<div class="animatedIcons" id="arrow"></div>
@@ -26,8 +26,9 @@
 	<div class="inputFieldWraper" id="countryNameWrapper" ><input id="countryNameEdit" class="modalInputField" type="text" name="countryName" value="" /></div>
 	<div class="inputFieldWraper" id="countryCodeWrapper" ><input id="countryCodeEdit" class="modalInputField" type="text" name="countryCode" value="" /></div>
 	<div >
-		<input id="addButton" type="button" value="Update" onclick='UpdateContact();' />&nbsp;&nbsp;
-		<input id="addButton" type="button" value="Clear" onclick='emptyEditContact();' />
+		<input id="updateButton" class="modalRightButton" type="button" value="Update" onclick='UpdateContact();' />&nbsp;&nbsp;
+		<input id="ClearButton" class="modalRightButton" type="button" value="Clear" onclick='emptyEditContact();' />
+		<input id="deleteButton" class="modalRightButton" type="button" value="Delete" onclick=';' />
 	</div>
 	<div id="addContactAnimation">
 		<div class="animatedIcons" id="user"></div>

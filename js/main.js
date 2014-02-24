@@ -416,3 +416,15 @@ function showVersionWindow(callback){
 function showPointerOnHover(elem){
 	$(elem).css('cursor', 'pointer');
 }
+function showNotif(msg){
+	// clear previous view
+	$('#notify').css({display: 'block', height: '0px'});
+	$('#notify').animate({height: '50px'}, 500, function(){
+		$('#notify').find('p').html(msg);
+	});
+}
+function hideNotif(){
+	$('#notify').find('p').html('');
+	$('#notify').animate({height: '0px'}, 500);	
+	$('#notify').css({display: 'block', height: '0px'});
+}

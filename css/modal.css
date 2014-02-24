@@ -185,7 +185,7 @@
 	z-index: 1;
 }
 
-#addButton{
+.modalRightButton{
 	height: 30px;
 	width: 70;
 	margin: 15 0 0 0;
@@ -418,4 +418,11 @@
 	overflow-y: auto;
 	overflow-x: hidden;
 	max-height: 100px;
+}
+/*Edit contact*/
+#deleteButton{
+	float: right;
+}
+#deleteButton:after{
+	content: '';
 }
