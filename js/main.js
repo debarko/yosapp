@@ -417,14 +417,20 @@ function showPointerOnHover(elem){
 	$(elem).css('cursor', 'pointer');
 }
 function showNotif(msg){
-	// clear previous view
-	$('#notify').css({display: 'block', height: '0px'});
-	$('#notify').animate({height: '50px'}, 500, function(){
-		$('#notify').find('p').html(msg);
+	var notif = $('#notify');
+	var notifMsg = notif.find('p');
+	notif.css({display: 'block', height: '0px'});
+	notifMsg.html(msg).css('opacity','0');
+	notif.animate({height: '50px'}, 500, function(){
+		notifMsg.animate({opacity:'1'},400);
 	});
 }
 function hideNotif(){
-	$('#notify').find('p').html('');
-	$('#notify').animate({height: '0px'}, 500);	
-	$('#notify').css({display: 'block', height: '0px'});
+	var notif = $('#notify');
+	var notifMsg = notif.find('p');
+	notifMsg.animate({opacity:'0'}, 400, function(){
+		notif.animate({height: '0px'}, 500, function(){
+			notif.css('display','none');
+		});
+	});
 }

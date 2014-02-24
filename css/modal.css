@@ -423,6 +423,17 @@
 #deleteButton{
 	float: right;
 }
-#deleteButton:after{
-	content: '';
+#delButtonWrapper{
+	display: inline;
 }
+#delButtonWrapper:after{
+	content: '';
+	height: 45px;
+	width: 1px;
+	background-color: white;
+	background: -webkit-linear-gradient(top, #2AB200, white, #2AB200);
+	background: -moz-linear-gradient(top, #2AB200, white, #2AB200);
+	background: -o-linear-gradient(top, #2AB200, white, #2AB200);
+	position: absolute;
+	margin: 10 0 0 16;
+}	

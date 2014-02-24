@@ -28,7 +28,7 @@
 	<div >
 		<input id="updateButton" class="modalRightButton" type="button" value="Update" onclick='UpdateContact();' />&nbsp;&nbsp;
 		<input id="ClearButton" class="modalRightButton" type="button" value="Clear" onclick='emptyEditContact();' />
-		<input id="deleteButton" class="modalRightButton" type="button" value="Delete" onclick=';' />
+		<div id="delButtonWrapper"><input id="deleteButton" class="modalRightButton" type="button" value="Delete" onclick=';' /></div>
 	</div>
 	<div id="addContactAnimation">
 		<div class="animatedIcons" id="user"></div>
