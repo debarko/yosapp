@@ -639,3 +639,28 @@ function showUnreadMsg(contact, number) {
 	$(contact).find('#unreadMsgCnt').css('display', 'block').html(number);
 	$(contact).css('background-color', 'rgba(255, 82, 0, 0.0901961)');
 }
+
+function renderSearchedContact(){
+	var searchIpbar = $('#contactSearchbar');
+	var searchString = searchIpbar.val();
+	
+	if( searchString == ''){
+		$('.contact').css('display','block');
+		return;	
+	}
+	//first hide all the contacts and then selectively show those matched searched string
+	$('.contact').css('display','none');
+	
+	// pass search string into searching function
+	var result = findContactByName(searchString);
+	// result contains all the matched contact objects
+	for (var i=0; i<result.length; i++){
+		var phone = result[i].phone;
+		var cc = result[i].cc;
+		$('[id='+phone+']').each(function(i, obj) {
+    		if( $(obj).prev().html() == cc ){
+    			$(obj).parent().css('display','block');
+    		}
+		});
+	}
+}

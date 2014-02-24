@@ -1,7 +1,10 @@
 <div id="leftpannel">
 	<div id="profileinfo"><span id="profilepic"><p></p></span><p id="profilename">&nbsp;</p><p id="editprofiletext">Edit profile</p></div>
-	<!-- todo can not call hideInputTipsOnclick() & showInputTipsOnblur from here-->
-	<div id="concactsearch"><input id="contactSearchbar" type="text" name="fname" value="Search Contacts" onfocus='hideInputTipsOnclick("#contactSearchbar");' onblur='showInputTipsOnblur("#contactSearchbar");'/><span></span></div>
+	<div id="concactsearch">
+		<input id="contactSearchbar" type="text" name="fname" value="" onkeyup='hideTip(this); renderSearchedContact();'/>
+		<span class="" id="contactSearchTip" onclick='focusItem("#contactSearchbar");'>Search Contacts</span>
+		<span id="searchIcon"></span>
+	</div>
 	<div id="contactscontainer">
 		<ul id="contactslist">
 		</ul>

@@ -72,20 +72,8 @@ function showInputTipsOnload(){
 	    return tip; 
 	});
 }
-function hideInputTipsOnclick(id){
-	var inputElement = $(id);
-	if( inputElement.val() == inputElement.attr('tip') ){
-		inputElement.removeClass('showTipInputFields');
-		inputElement.val('');
-	}
-}
-function showInputTipsOnblur(id){
-	var inputElement = $(id);
-	if( inputElement.val() == ''){
-		inputElement.val( inputElement.attr('tip') );
-		inputElement.addClass('showTipInputFields');
-	}
-}
+
+
 
 // random int generator within range
 function getRandomInt (min, max) {
@@ -135,4 +123,8 @@ function findContactByName(name){
 		}
 	}
 	return contacts;
+}
+
+function focusItem(elem2Focus){
+	$(elem2Focus).focus();
 }

@@ -156,7 +156,8 @@ function fillEditContact(name, cc, phone){
 }
 
 function emptyEditContact(){
-	$('#contactFirstNameEdit').val("");
+	$('#contactFirstNameEdit').val("").focus();
+	hideTip('#contactFirstNameEdit');
 	$('#phNumberEdit').val("");
 	$('#countryCodeEdit').val("");
 	$('#countryNameEdit').val("");

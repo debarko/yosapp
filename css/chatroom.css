@@ -102,18 +102,17 @@
 /*contact search bar*/
 
 #concactsearch{
-	visibility: hidden;
 	display: block;
 	margin: 15 auto 8 auto;
 	background: rgba(42, 178, 0, 0.69);
-	height: 0%;
+	height: 5%;
 	width: 95%;
 }
 
 #concactsearch input{
 	border: none;
 	height: 25px;
-	width: 200px;
+	width: 195px;
 	background-color: rgba(0,0,0,0);
 	text-indent: 10px;
 	color: white;
@@ -121,14 +120,24 @@
 }
 
 
-#concactsearch span{
+#concactsearch #searchIcon{
 	display: inline-block;
 	position: relative;
-	top: 4px;
+	top: 2px;
 	float: right;
 	height: 22px;
 	width: 28px;
 	background-image: url('../icons/searchicon.png')
+}
+#contactSearchTip{
+	position: absolute;
+	width: 100px;
+	height: 25px;
+	margin: 0;
+	left: 10.5%;
+	font-size: 12px;
+	line-height: 25px;
+	color: rgba(255, 255, 255, 0.84);
 }
 
 #contactscontainer{
