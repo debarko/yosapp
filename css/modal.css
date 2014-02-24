@@ -403,3 +403,19 @@
 	position: relative;
 	top: -30;
 }
+.searchElem {
+	color: #FFFFFF;
+	padding: 5px 5px;
+	font-size: 11px;
+	cursor: pointer;
+}
+.searchElem:hover {
+	background-color: rgba(255, 255, 255, 0.2);
+}
+#firstNameList{
+	background-color: rgba(0, 0, 0, 0.73);
+	position: absolute;
+	overflow-y: auto;
+	overflow-x: hidden;
+	max-height: 100px;
+}

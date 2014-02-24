@@ -20,11 +20,15 @@
 <!-- edit contact form -->
 <div id="editContactForm" class="modalRightMasterDiv">
 	<div id="editContactHeader" class="modalRightHeader">EDIT CONTACTS</div>
-	<div class="inputFieldWraper" id="firstNameWrapper"><input id="contactFirstNameEdit" class="modalInputField" type="text" name="contactFirstName" value="hi"/></div>
-	<div id="phNumberWrapper" ><input id="phNumberEdit" class="modalInputField" type="text" name="phNumber" value="" onkeyup='hideTip(this);' /></div>
+	<div class="inputFieldWraper" id="firstNameWrapper"><input id="contactFirstNameEdit" onkeyup="suggestNames(this.value); hideTip(this);" class="modalInputField" type="text" name="contactFirstName" value="" /><span class="inputFieldTip inputFieldTip4Cont">Ex: Thomas matheson</span></div>
+	<div class="inputFieldWraper" id="firstNameList"></div>
+	<div id="phNumberWrapper" ><input id="phNumberEdit" class="modalInputField" type="text" name="phNumber" value="" /></div>
 	<div class="inputFieldWraper" id="countryNameWrapper" ><input id="countryNameEdit" class="modalInputField" type="text" name="countryName" value="" /></div>
 	<div class="inputFieldWraper" id="countryCodeWrapper" ><input id="countryCodeEdit" class="modalInputField" type="text" name="countryCode" value="" /></div>
-	<div ><input id="addButton" type="button" value="Update" onclick='UpdateContact();' /></div>
+	<div >
+		<input id="addButton" type="button" value="Update" onclick='UpdateContact();' />&nbsp;&nbsp;
+		<input id="addButton" type="button" value="Clear" onclick='emptyEditContact();' />
+	</div>
 	<div id="addContactAnimation">
 		<div class="animatedIcons" id="user"></div>
 		<div class="animatedIcons" id="arrow"></div>

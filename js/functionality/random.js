@@ -121,3 +121,18 @@ function CCtoCountry(cc){
 	    return BreakException;
 	}
 }
+
+function findContactByName(name){
+	name = name.toLowerCase();
+	var contacts = [];
+	for(var item in YW.DATA){
+		if(item==="0server"){
+			continue;
+		}
+		var subName = YW.DATA[item].name.substring(0, name.length);
+		if(subName.toLowerCase() == name){			
+			contacts.push(YW.DATA[item]);
+		}
+	}
+	return contacts;
+}

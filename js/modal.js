@@ -17,7 +17,7 @@ function addContact(){
 	var phNumber = $('#phNumber').val();
 	var cName = $('#countryName').val();
 	if(fName===""){
-		alert("Empty First Name");
+		alert("Empty Name");
 		return false;
 	}
 	if(parseInt(phNumber) != phNumber){
@@ -118,12 +118,12 @@ function addContact(){
 			$('#addContactForm').html(animationContent);
 			$('#addContactForm').fadeIn(400,function(){
 				//now put the name, phone number, cc and country name.
-				$('#userInfoDivMemberTextUsername').html(fName+' '+lName);
+				$('#userInfoDivMemberTextUsername').html(fName);
 				$('#userInfoDivMemberTextNumber').html('('+cCode+')'+' '+phNumber);  // format (+91) 9474070457
 				$('#userInfoDivMemberTextCountry').html(cName);
-				addContactElem(fName+' '+lName, phNumber, cCode);
+				addContactElem(fName, phNumber, cCode);
 				itemNumber = parseInt(cCode+''+phNumber);
-				YW.DATA[itemNumber]={"phone": phNumber,"cc": cCode, "name": fName+' '+lName, "messages":{}, "messageTree": []};
+				YW.DATA[itemNumber]={"phone": phNumber,"cc": cCode, "name": fName, "messages":{}, "messageTree": []};
 				//glow the phoenbook icon 3 times
 				glowLoop(3);
 				function glowLoop(times){
@@ -140,4 +140,68 @@ function addContact(){
 			});
 		});
 	}
+}
+
+function addSearchElem(name, cc, phone){
+	var searchElem = '<div class="searchElem" onclick="fillEditContact(\''+name+'\','+cc+','+phone+')">'+name+' (+'+cc+'-'+phone+')</div>';
+	$('#firstNameList').append(searchElem);
+}
+
+function fillEditContact(name, cc, phone){
+	$('#contactFirstNameEdit').val(name);
+	$('#phNumberEdit').val(phone);
+	$('#countryCodeEdit').val(cc);
+	$('#countryNameEdit').val(CCtoCountry(cc));
+	$('#firstNameList').html("");
+}
+
+function emptyEditContact(){
+	$('#contactFirstNameEdit').val("");
+	$('#phNumberEdit').val("");
+	$('#countryCodeEdit').val("");
+	$('#countryNameEdit').val("");
+}
+
+function suggestNames(name){	
+	$('#firstNameList').html("");
+	if(name==""){
+		return false;
+	}
+	if($('#phNumberEdit').val()!=""){
+		return false;
+	}
+	var elements = findContactByName(name);
+	elements.forEach(function(item){
+		addSearchElem(item.name, item.cc, item.phone);
+	});
+}
+
+function updateContact(){	
+	var fName = $('#contactFirstNameEdit').val();
+	var cCode = $('#countryCodeEdit').val();
+	var phNumber = $('#phNumberEdit').val();
+	var cName = $('#countryName').val();
+	if(fName===""){
+		alert("Empty Name");
+		return false;
+	}
+
+	//todo on fail what to do?
+	$aJX_status = $.ajax({
+        type: "POST",
+        url: "user.php?request=updateFriend",
+        data: {"contact": phNumber, "cc": cCode, "name": fName},
+        dataType: "text"
+        })
+        .success(function(response) {
+            if(response===true) {
+            	return true;
+            }
+            else {
+                return false;
+            }
+        })
+        .fail(function(response) {
+        	return false;
+    	});
 }

@@ -240,12 +240,11 @@ function selectModalItem(item, thisElem){
 		var name = contact.find('#name').html();
 		var number = contact.find('span').eq(3).attr('id');
 		var cc = contact.find('#cc').html();
-		$('#contactFirstNameEdit').val(name);
+		fillEditContact(name, cc, number);
+		$('#contactFirstNameEdit').focus();
+		hideTip($('#contactFirstNameEdit'));
 		//Disabling phone, cc and country
 		$('#phNumberEdit, #countryCodeEdit, #countryNameEdit').prop('disabled', true);
-		$('#phNumberEdit').val(number);
-		$('#countryCodeEdit').val(cc);
-		$('#countryNameEdit').val(CCtoCountry(cc))
 		return;
 	}
 
@@ -329,7 +328,6 @@ function addContactElem(name, phone, cc, image){
 	$('#contactslist li:last #cc').html(cc);
 	$('#contactslist li:last #number').attr("id",phone);
 	if(phone=="server"){
-		alert(1);
 		$('#contactslist li:last #editContactButton').remove();
 	}
 	return currentContact;

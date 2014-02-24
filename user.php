@@ -30,7 +30,7 @@
 		if($recv_data) { //Check for availability of User
 			//todo check mysql error
 			$uid_in_session = $_SESSION["user_id"];
-			$contactJSON = '{"n":'.$contact.',"cc":'.$cc.'}';
+			$contactJSON = '{"n":'.$contact.',"cc":'.$cc.', "name":"'.$name.'"}';
 			$contactComma = '-'.$contactJSON;
 			if(!$mysqli->query("INSERT INTO friends(id, list)
                                     VALUES ('$uid_in_session', '$contactJSON')
@@ -55,7 +55,7 @@
         			$stmt->fetch();
 
         			if($name_db === $cc.$contact){
-        				if(!$mysqli->query("update members set name='$name' where id=$user_id;")) {
+        				if(!$mysqli->query("UPDATE members SET name='$name' WHERE id=$user_id;")) {
 							echo ("Error members: ".$mysqli->error);
 							exit();
 						}	
@@ -90,13 +90,20 @@
 	            $count = 0;
 	            foreach ($list as $value) {
 	            	$value = json_decode($value);
-	            	$user_data = getUserDetails($mysqli, $value->n, $value->cc);
-	            	if(!$user_data) {
-	            		$count++;
-	            		continue;
+	            	$user_data = "";
+	            	$friend_name = "";
+	            	if(!isset($value->name)){
+		            	$user_data = getUserDetails($mysqli, $value->n, $value->cc);
+		            	if(!$user_data) {
+		            		$count++;
+		            		continue;
+		            	}
+		            	$friend_name = $user_data->name;
+	            	} else {
+	            		$friend_name = $value->name;
 	            	}
 	            	$ccPhone = $value->cc.$value->n;
-	            	$ret_data .= "\"$ccPhone\":{\"phone\":\"$value->n\",\"cc\":$value->cc,\"name\": \"$user_data->name\",\"messages\": {}, \"messageTree\": []}";
+	            	$ret_data .= "\"$ccPhone\":{\"phone\":\"$value->n\",\"cc\":$value->cc,\"name\": \"$friend_name\",\"messages\": {}, \"messageTree\": []}";
                     if((count($list)-1)>$count++){
                     	$ret_data .= ",";
                     }
@@ -131,6 +138,49 @@
 	            echo "false";
 	            exit();
 	        }
+	    } else {
+	    	echo "sqlfail";
+	    	exit();
+	    }
+	} else if($request === "updateFriend") {
+		$contact = filter_input(INPUT_POST, 'contact', FILTER_SANITIZE_STRING);
+		$cc = filter_input(INPUT_POST, 'cc', FILTER_SANITIZE_NUMBER_INT);
+		$name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+		if($contact==="" || $name===""){
+			echo "badparam";
+			exit();
+		}		
+		if ($stmt = $mysqli->prepare("SELECT list FROM friends
+	       WHERE id = ?
+	        LIMIT 1")) {
+	        $stmt->bind_param('s', $_SESSION['user_id']);
+	        $stmt->execute();    // Execute the prepared query.
+	        $stmt->store_result();
+	 
+	        // get variables from result.
+	        $stmt->bind_result($list);
+	        $stmt->fetch();
+	        
+	        //update friends;
+	        $list = explode('-', $list);
+	        $restore = "";
+	        foreach ($list as $value) {
+            	$value = json_decode($value);
+            	if($value->n==$contact && $value->cc==$cc){
+            		//update name
+            		$value->name = $name;
+            	}
+            	$value = json_encode($value);
+            	if($restore!=""){
+            		$value = '-'.$value;
+            	}
+            	$restore .= $value;            	
+            }
+            $user_id = $_SESSION['user_id'];
+            if(!$mysqli->query("UPDATE friends SET list='$restore' WHERE id=$user_id;")) {
+				echo ("Error members: ".$mysqli->error);
+				exit();
+			}
 	    } else {
 	    	echo "sqlfail";
 	    	exit();
