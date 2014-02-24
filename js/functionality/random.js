@@ -128,3 +128,11 @@ function findContactByName(name){
 function focusItem(elem2Focus){
 	$(elem2Focus).focus();
 }
+
+function updateContactname(fName, cCode, phNumber){
+	$('[id='+phNumber+']').each(function(i, obj) {
+		if( $(obj).prev().html() == cCode ){
+			$(obj).prev().prev().html(fName);
+		}
+	});
+}

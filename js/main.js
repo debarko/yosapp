@@ -418,13 +418,13 @@ function showPointerOnHover(elem){
 }
 function showNotif(msg){
 	// clear previous view
+	$('#notify').find('p').html(msg);
 	$('#notify').css({display: 'block', height: '0px'});
-	$('#notify').animate({height: '50px'}, 500, function(){
-		$('#notify').find('p').html(msg);
-	});
+	$('#notify').animate({height: '50px'}, 500);
 }
-function hideNotif(){
-	$('#notify').find('p').html('');
-	$('#notify').animate({height: '0px'}, 500);	
+function hideNotif(){	
+	$('#notify').animate({height: '0px'}, 500, function(){
+		$('#notify').find('p').html('');
+	});	
 	$('#notify').css({display: 'block', height: '0px'});
 }

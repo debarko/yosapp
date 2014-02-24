@@ -187,6 +187,7 @@ function updateContact(){
 		return false;
 	}
 
+	showNotif("Processing your update request.");
 	//todo on fail what to do?
 	$aJX_status = $.ajax({
         type: "POST",
@@ -195,14 +196,57 @@ function updateContact(){
         dataType: "text"
         })
         .success(function(response) {
-            if(response===true) {
+            if(response==="noauth"){
+            	closeModal();
+            	showNotif("You are not logged in.");
+            	setTimeout(function(){
+            		hideNotif();
+            		window.location='logout.php';            		
+            	}, 3000);            	
+            }
+            if(response==="badparam"){
+            	closeModal();
+            	showNotif("Something went wrong with updating the name. Please try again.");
+            	setTimeout(function(){
+            		hideNotif();
+            	}, 3000);
+            	return false;
+            }
+            if(response==="sqlfail"){
+            	closeModal();
+            	showNotif("Database was unreachable. Please try again after sometime.");
+            	setTimeout(function(){
+            		hideNotif();
+            	}, 3000);
+            	return false;
+            }
+            if(response==="success") {
+            	var fName = $('#contactFirstNameEdit').val();
+				var cCode = $('#countryCodeEdit').val();
+				var phNumber = $('#phNumberEdit').val();
+            	updateContactname(fName, cCode, phNumber);
+            	emptyEditContact();
+            	showNotif("Successfully updated.");
+            	setTimeout(function(){
+            		hideNotif();
+            	}, 3000);
             	return true;
             }
             else {
+            	closeModal();
+            	showNotif("Some unknown error happened. Please report a feedback with details.");
+            	setTimeout(function(){
+            		hideNotif();
+            	}, 3000);
                 return false;
             }
         })
         .fail(function(response) {
-        	return false;
+        	closeModal();
+        	showNotif("Network Error. Please refresh the page and try again.");
+        	setTimeout(function(){
+        		hideNotif();
+        	}, 3000);
+            return false;
     	});
 }
