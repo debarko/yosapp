@@ -32,7 +32,6 @@ function log_in_user() {
 		renderData();
 		setLastChat();
 		checkForWPass();
-		showServerMessages();		
 		$("#feedback").css("display","block");
 		YW.LISTENER = setInterval(function(){checkMessage();},10000);
 		

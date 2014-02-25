@@ -235,6 +235,7 @@ function getFriends() {
             }
             else {
             	YW.DATA = JSON.parse(response);
+				showServerMessages();
                 return true;
             }
         })
