@@ -402,9 +402,9 @@ function calcUnread() {
 		}
 	}
 	if(YW.UNREAD===0){
-		document.title = "YOSAPP";
+		document.title = "Yosapp";
 	} else {
-		document.title = "("+YW.UNREAD+") | YOSAPP";
+		document.title = "("+YW.UNREAD+") Yosapp";
 	}
 	return YW.UNREAD;
 }

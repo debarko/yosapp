@@ -12,7 +12,7 @@
 <html>
 	<head>
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-		<title>YOSAPP</title>
+		<title>Yosapp</title>
 		<link rel="stylesheet" type="text/css" href="css/reset.css">		
 		<!--Assume that all the css files will be merged to one while running -->
 		<link rel="stylesheet" type="text/css" media="all" href="css/homescreen.css">
