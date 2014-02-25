@@ -250,3 +250,73 @@ function updateContact(){
             return false;
     	});
 }
+
+function deleteContact(){
+	var cCode = $('#countryCodeEdit').val();
+	var phNumber = $('#phNumberEdit').val();
+	showNotif("Processing delete request.");
+	$aJX_status = $.ajax({
+        type: "POST",
+        url: "user.php?request=deleteFriend",
+        data: {"contact": phNumber, "cc": cCode},
+        dataType: "text"
+        })
+        .success(function(response) {
+            if(response==="noauth"){
+            	closeModal();
+            	showNotif("You are not logged in.");
+            	setTimeout(function(){
+            		hideNotif();
+            		window.location='logout.php';            		
+            	}, 3000);            	
+            }
+            if(response==="badparam"){
+            	closeModal();
+            	showNotif("Something went wrong with deleting the name. Please try again.");
+            	setTimeout(function(){
+            		hideNotif();
+            	}, 3000);
+            	return false;
+            }
+            if(response==="sqlfail"){
+            	closeModal();
+            	showNotif("Database was unreachable. Please try again after sometime.");
+            	setTimeout(function(){
+            		hideNotif();
+            	}, 3000);
+            	return false;
+            }
+            if(response==="success") {
+            	var cCode = $('#countryCodeEdit').val();
+				var phNumber = $('#phNumberEdit').val();
+				emptyEditContact();
+				closeModal();
+				$('[id='+phNumber+']').each(function(i, obj) {
+					if( $(obj).prev().html() == cCode ){
+						$(obj).parent().remove();
+						showNotif("Delete successfully.");
+			        	setTimeout(function(){
+			        		hideNotif();
+			        	}, 3000);
+						return true;
+					}
+				});
+            }
+            else {
+            	closeModal();
+            	showNotif("Some unknown error happened. Please report a feedback with details.");
+            	setTimeout(function(){
+            		hideNotif();
+            	}, 3000);
+                return false;
+            }
+        })
+        .fail(function(response) {
+        	closeModal();
+        	showNotif("Network Error. Please refresh the page and try again.");
+        	setTimeout(function(){
+        		hideNotif();
+        	}, 3000);
+            return false;
+    	});
+}

@@ -187,6 +187,58 @@
 	    	echo "sqlfail";
 	    	exit();
 	    }
+	} else if($request === "deleteFriend") {
+		$contact = filter_input(INPUT_POST, 'contact', FILTER_SANITIZE_STRING);
+		$cc = filter_input(INPUT_POST, 'cc', FILTER_SANITIZE_NUMBER_INT);
+		if($contact===""){
+			echo "badparam";
+			exit();
+		}		
+		if ($stmt = $mysqli->prepare("SELECT list FROM friends
+	       WHERE id = ?
+	        LIMIT 1")) {
+	        $stmt->bind_param('s', $_SESSION['user_id']);
+	        $stmt->execute();    // Execute the prepared query.
+	        $stmt->store_result();
+	 
+	        // get variables from result.
+	        $stmt->bind_result($list);
+	        $stmt->fetch();
+	        
+	        //update friends;
+	        $list = explode('-', $list);
+	        $restore = "";
+	        foreach ($list as $value) {
+            	$value = json_decode($value);
+            	if($value->n==$contact && $value->cc==$cc){
+            		//update name
+            		continue;
+            	}
+            	$value = json_encode($value);
+            	if($restore!=""){
+            		$value = '-'.$value;
+            	}
+            	$restore .= $value;            	
+            }
+            $user_id = $_SESSION['user_id'];
+            if($restore==""){
+            	if(!$mysqli->query("DELETE FROM friends WHERE id=$user_id;")) {
+					echo ("sqlfail");
+					exit();
+				}
+            }
+            else {
+            	if(!$mysqli->query("UPDATE friends SET list='$restore' WHERE id=$user_id;")) {
+					echo ("sqlfail");
+					exit();
+				}
+            }
+			echo "success";
+			exit();
+	    } else {
+	    	echo "sqlfail";
+	    	exit();
+	    }
 	} else {
 		echo "badparam";
 		exit();
