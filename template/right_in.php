@@ -28,7 +28,7 @@
 	<div >
 		<input id="updateButton" class="modalRightButton" type="button" value="Update" onclick='updateContact();' />&nbsp;&nbsp;
 		<input id="ClearButton" class="modalRightButton" type="button" value="Clear" onclick='emptyEditContact();' />
-		<div id="delButtonWrapper"><input id="deleteButton" class="modalRightButton" type="button" value="Delete" onclick=';' /></div>
+		<div id="delButtonWrapper"><input id="deleteButton" class="modalRightButton" type="button" value="Delete" onclick='deleteContact();' /></div>
 	</div>
 </div>
 
