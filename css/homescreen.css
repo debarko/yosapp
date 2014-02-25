@@ -55,11 +55,11 @@ body{
 }
 
 #icons{
-	top: 100%;
-  right: 50px;
+	top: 60px;
+  right:50px;
   position: relative;
   float: right;
-  margin-top: -50px;
+
 }
 .icon{
 	margin-left:20px;

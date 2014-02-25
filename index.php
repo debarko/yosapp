@@ -32,7 +32,6 @@
 			ga('create', 'UA-48289387-1', 'yosapp.com');
 			ga('send', 'pageview');
 		</script>
-
 		<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
 		<script language="javascript" type="text/javascript" src="js/library/jquery.min.js"></script>
 		<script language="javascript" type="text/javascript" src="js/library/minEmoji.js"></script>
