@@ -225,6 +225,7 @@ function updateContact(){
 				var cCode = $('#countryCodeEdit').val();
 				var phNumber = $('#phNumberEdit').val();
             	updateContactname(fName, cCode, phNumber);
+            	YW.DATA[cCode+phNumber].name = fName;
             	emptyEditContact();
             	showNotif("Successfully updated.");
             	setTimeout(function(){
@@ -291,6 +292,7 @@ function deleteContact(){
 				var phNumber = $('#phNumberEdit').val();
 				emptyEditContact();
 				closeModal();
+				delete YW.DATA[cCode+phNumber];
 				$('[id='+phNumber+']').each(function(i, obj) {
 					if( $(obj).prev().html() == cCode ){
 						$(obj).parent().remove();
