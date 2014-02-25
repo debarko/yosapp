@@ -322,3 +322,15 @@ function deleteContact(){
             return false;
     	});
 }
+function renderProfPrev(ipElem){
+	var newName = $(ipElem).val();
+	$('#profPreviewName').html(newName);
+	if( newName == ''){
+		$('#profPreviewName').html( $('#profilename').html() );	
+		randomPicGen( $('#profPreviewPic'), $('#profilename').html() );
+		return;
+	}
+	if ( newName.length == 1 ){
+		randomPicGen( $('#profPreviewPic'), newName );
+	}
+}

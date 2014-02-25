@@ -68,8 +68,8 @@
 	width: 100%;
 	background: #5B8F4B;
     background: -webkit-linear-gradient(left, white, #5B8F4B, white);
-    background: -webkit-linear-gradient(left, white, #5B8F4B, white);
-    background: -webkit-linear-gradient(left, white, #5B8F4B, white);
+    background: -moz-linear-gradient(left, white, #5B8F4B, white);
+    background: -o-linear-gradient(left, white, #5B8F4B, white);
 }
 
 #profilepic{
@@ -94,9 +94,9 @@
 	top: 7px;
 }
 #editprofiletext{
-	font-size: 12px;
+	font-size: 9px;
 	margin-top: 10px;
-	visibility: hidden;
+	cursor: pointer;
 }
 
 /*contact search bar*/

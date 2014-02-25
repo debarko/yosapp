@@ -17,6 +17,30 @@
 		</div>
 	</div>
 </div>
+<!-- Edit Profile -->
+<div id="editProfForm" class="modalRightMasterDiv">
+	<div id="EditProfHeader" class="modalRightHeader">EDIT PROFILE</div>
+	<div id="profPreview">
+		<div id="profPrevHeader" class="rightSmallHeaders">Profile Prewiew</div>
+		<div id="profPreviewPic"><p></p></div>
+		<div id="profPreviewName">Tuhin Sengupta</div>
+	</div>
+	<div id="changeProfNameHeader" class="rightSmallHeaders">Change Profile Nmae</div>
+	<div id="changeNameWrapper">
+		<input id="editProfName" class="modalInputField" type="text" spellcheck="false" value="" onkeyup='hideTip(this); renderProfPrev(this);'/><span class="inputFieldTip inputFieldTip4Cont">Enter New Name</span>
+		<input id="changeNameButton" class="modalRightButton" type="button" value="Change"/>
+	</div>
+	<div id="changeProfPassHeader" class="rightSmallHeaders">Change Password</div>
+	<div id="changePassWrapper">
+		<div id="changePassIpWrapper">
+			<input id="editProfPass" class="modalInputField" type="password" value="" onkeyup='hideTip(this);'/><span class="inputFieldTip inputFieldTip4Cont">Enter New Password</span>
+			<input id="editProfPassRe" class="modalInputField" type="password" value="" onkeyup='hideTip(this);'/><span class="inputFieldTip inputFieldTip4Cont">Confirm New Password</span>
+		</div>
+		<input id="changepassButton" class="modalRightButton" type="button" value="Change"/>
+	</div>
+	
+
+</div>
 <!-- edit contact form -->
 <div id="editContactForm" class="modalRightMasterDiv">
 	<div id="editContactHeader" class="modalRightHeader">EDIT CONTACTS</div>

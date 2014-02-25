@@ -194,8 +194,25 @@
 	border: none;
 	border-radius: 2px;
 	font-size: 14px;
-	color: rgb(90, 85, 76);
+	color: rgb(36, 128, 51);
+	font-weight: bolder;
+	cursor: pointer;
+	outline: none;
+	-webkit-transition: all .05s ease-in-out; 
+	-moz-transition: all .05s ease-in-out;
+	-o-transition: all .05s ease-in-out;
 }
+.modalRightButton:hover{
+	-webkit-transform: scale(1.05);
+	-moz-transform: scale(1.05);
+	-o-transform: scale(1.05);
+}
+.modalRightButton:active{
+	-webkit-transform: scale(0.95);
+	-moz-transform: scale(0.95);
+	-o-transform: scale(0.95);
+}
+
  #addContactAnimation{
 	height: 25;
 	width: 124%;
@@ -437,4 +454,85 @@
 	background: -o-linear-gradient(top, #2AB200, white, #2AB200);
 	position: absolute;
 	margin: 10 0 0 16;
-}	
+}
+/* Edit Profile */
+.rightSmallHeaders{
+	color: rgba(255, 255, 255, 0.66);
+	font-size: 10px;
+	text-align: center;
+	margin: -10 0 10 0;
+}
+.rightSmallHeaders:after{
+	content: '';
+	position: absolute;
+	height: 1px;
+	width: 100px;
+	background-color: rgba(255, 255, 255, 0.51);
+	background: -webkit-linear-gradient(left, #2AB200, white, #2AB200);
+	background: -moz-linear-gradient(left, #2AB200, white, #2AB200);
+	background: -o-linear-gradient(left, #2AB200, white, #2AB200);
+	margin: 12 0 0 -80;
+}
+#profPreview{
+	height: 50px;
+	width: 200px;
+	margin: 0 auto;
+}
+#profPreviewPic{
+	display: inline-block;
+	height: 50px;
+	width: 50px;
+	background-color: rgba(57, 193, 219, 0.81);
+}
+#profPreviewPic p{
+	font-family: 'Sigmar One', cursive;
+	color: white;
+	font-size: 55px;
+	position: relative;
+	text-indent: -2px;
+	top: 0px;
+	left: 0px;
+}
+#profPreviewName{
+	display: inline-block;
+	color: #F0FFF0;
+	text-indent: 15px;
+	width: 136px;
+	position: relative;
+	top: -25px;
+	left: -5px;
+}
+#editProfName{
+	width: 190px;
+}
+#changeProfNameHeader{
+	margin: 35 0 0 0;
+}
+#changeProfNameHeader:after{
+	margin-left: -105px;
+	width: 120px;
+}
+#changeNameWrapper{
+	width: 263;	
+}
+
+#changeNameButton{
+	position: relative;
+	left: 15px;
+	top: 1px;
+}
+#changeProfPassHeader{
+	margin: 20 0 0 0;
+}
+#editProfPass{
+	width: 190px;
+}
+#editProfPassRe{
+	width: 190px
+}
+#changepassButton{
+	position: relative;
+	left: 208px;
+	top: -67px;
+}
+

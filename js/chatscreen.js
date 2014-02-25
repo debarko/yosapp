@@ -223,6 +223,14 @@ function selectModalItem(item, thisElem){
 		$('#modaladdContact').css('background-color','#2AB200');
 		return;
 	}
+	else if ( item == 'editProf'){
+		$('#editProfForm').css('display','block');
+		$('#modalEditProfile').css('background-color','#2AB200');
+		// show current name in preview profile initially
+		$('#profPreviewName').html( $('#profilename').html() );
+		randomPicGen( $('#profPreviewPic'), $('#profilename').html() );
+		return;
+	}
 	else if (item == 'feedback'){
 		$('#feedbackform').css('display','block');
 		$('#modalFeedback').css('background-color','#2AB200');

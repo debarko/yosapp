@@ -1,5 +1,11 @@
 <div id="leftpannel">
-	<div id="profileinfo"><span id="profilepic"><p></p></span><p id="profilename">&nbsp;</p><p id="editprofiletext">Edit profile</p></div>
+	<div id="profileinfo">
+		<span id="profilepic">
+			<p></p>
+		</span>
+		<p id="profilename">&nbsp;</p>
+		<p id="editprofiletext" onclick='showModal("editProf");'>Edit profile</p>
+	</div>
 	<div id="concactsearch">
 		<input id="contactSearchbar" type="text" name="fname" value="" onkeyup='hideTip(this); renderSearchedContact();'/>
 		<span class="" id="contactSearchTip" onclick='focusItem("#contactSearchbar");'>Search Contacts</span>
