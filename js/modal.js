@@ -17,30 +17,53 @@ function addContact(){
 	var phNumber = $('#phNumber').val();
 	var cName = $('#countryName').val();
 	if(fName===""){
-		alert("Empty Name");
+        showNotif("Empty Name");
+        setTimeout(function(){
+            hideNotif();
+        }, 3000);
 		return false;
 	}
 	if(parseInt(phNumber) != phNumber){
-		alert("Wrong Phone Number");
+		showNotif("Wrong Phone Number");
+        setTimeout(function(){
+            hideNotif();
+        }, 3000);
 		return;
 	}
 	phNumber = parseInt(phNumber);
 	if(!isInt(phNumber) || phNumber===0 || phNumber===""){
-		alert("Wrong Phone Number");
+        showNotif("Wrong Phone Number");
+        setTimeout(function(){
+            hideNotif();
+        }, 3000);
 		return false;
 	}
 	if(parseInt(cCode) != cCode){
-		alert("Wrong CC");
+        showNotif("Wrong CC");
+        setTimeout(function(){
+            hideNotif();
+        }, 3000);
 		return;
 	}
 	cCode = parseInt(cCode);
 	if(!isInt(cCode) || cCode===0 || cCode===""){
-		alert("Wrong CC");
+        showNotif("Wrong CC");
+        setTimeout(function(){
+            hideNotif();
+        }, 3000);
 		return false;
 	}
 	if(cName===""){
 		cName = "Random";
 	}
+    itemNumber = parseInt(cCode+''+phNumber);
+    if(YW.DATA[itemNumber]){
+        showNotif("Duplicate Contact");
+        setTimeout(function(){
+            hideNotif();
+        }, 3000);
+        return false;
+    }
 	$('#contactNameAnimatedMsgBox').html(fName).animate({opacity:'1'},700, "swing");
 	
 	// animate the lower portion of the dialouge
