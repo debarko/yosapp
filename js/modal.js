@@ -411,6 +411,8 @@ function editProfileClick(){
             		hideNotif();
             	}, 3000);
 				$('#profilename').html(name);
+                randomPicGen($('#profilepic'), name);
+                YW.NAME = name;
             }
             else {
             	closeModal();
