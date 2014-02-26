@@ -459,4 +459,30 @@ function closePrompt(){
 		closeOverlay();
 	});
 }
-	
+
+function suggestCountries(){
+	var searchString = $('#countryField').val();
+	var result = countrySuggest(searchString);
+	$('#countrySuggBox').html('');
+	if( searchString == '' ){
+		$('#countrySuggBox').css('display','none');
+		return;
+	}
+	else{
+		$('#countrySuggBox').css('display','block');
+	}
+	if( result.length == 0 ){
+
+		$('#countrySuggBox').append('<div class="suggestedElem"><p>No such country</p></div>');
+		return;
+	}
+	for ( var i=0; i < result.length; i++  ){
+		//console.log(result[i][0])
+		$('#countrySuggBox').append('<div class="suggestedElem" onclick=\'selectCountry('+'"'+result[i][0]+'","'+countryToCC(result[i][0])+'");\'><p>'+result[i][0]+' '+'(+'+countryToCC(result[i][0])+')</p></div>');
+	}
+}
+
+function selectCountry( country, cc ){
+	$('#countryField').val(country+' (+'+cc+')');
+	$('#countrySuggBox').css('display','none');
+}
