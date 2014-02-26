@@ -31,10 +31,25 @@ function checkMessage() {
             	return false;
             } else if(response==="nomessage") {
                 return false;
+            } else if(response==="noauth") {
+                showNotif("You are not logged in.");
+                setTimeout(function(){
+                    hideNotif();
+                    window.location='logout.php';
+                }, 3000);
+                return false;
             } else if(response==="noconnect") {
+                showNotif("We can't connect to Whatsapp. Please send a feedback.");
+                setTimeout(function(){
+                    hideNotif();
+                }, 3000);
                 checkForWPass();
                 return false;
             } else if(response==="emptyauth") {
+                showNotif("It seems that you haven't verified yet. Checking...");
+                setTimeout(function(){
+                    hideNotif();
+                }, 3000);
                 checkForWPass();
                 return false;
             } else {

@@ -17,30 +17,53 @@ function addContact(){
 	var phNumber = $('#phNumber').val();
 	var cName = $('#countryName').val();
 	if(fName===""){
-		alert("Empty Name");
+        showNotif("Empty Name");
+        setTimeout(function(){
+            hideNotif();
+        }, 3000);
 		return false;
 	}
 	if(parseInt(phNumber) != phNumber){
-		alert("Wrong Phone Number");
+		showNotif("Wrong Phone Number");
+        setTimeout(function(){
+            hideNotif();
+        }, 3000);
 		return;
 	}
 	phNumber = parseInt(phNumber);
 	if(!isInt(phNumber) || phNumber===0 || phNumber===""){
-		alert("Wrong Phone Number");
+        showNotif("Wrong Phone Number");
+        setTimeout(function(){
+            hideNotif();
+        }, 3000);
 		return false;
 	}
 	if(parseInt(cCode) != cCode){
-		alert("Wrong CC");
+        showNotif("Wrong CC");
+        setTimeout(function(){
+            hideNotif();
+        }, 3000);
 		return;
 	}
 	cCode = parseInt(cCode);
 	if(!isInt(cCode) || cCode===0 || cCode===""){
-		alert("Wrong CC");
+        showNotif("Wrong CC");
+        setTimeout(function(){
+            hideNotif();
+        }, 3000);
 		return false;
 	}
 	if(cName===""){
 		cName = "Random";
 	}
+    itemNumber = parseInt(cCode+''+phNumber);
+    if(YW.DATA[itemNumber]){
+        showNotif("Duplicate Contact");
+        setTimeout(function(){
+            hideNotif();
+        }, 3000);
+        return false;
+    }
 	$('#contactNameAnimatedMsgBox').html(fName).animate({opacity:'1'},700, "swing");
 	
 	// animate the lower portion of the dialouge
@@ -183,7 +206,10 @@ function updateContact(){
 	var phNumber = $('#phNumberEdit').val();
 	var cName = $('#countryName').val();
 	if(fName===""){
-		alert("Empty Name");
+		showNotif("Empty Name.");
+        setTimeout(function(){
+            hideNotif();
+        }, 3000);
 		return false;
 	}
 
@@ -202,7 +228,7 @@ function updateContact(){
             	setTimeout(function(){
             		hideNotif();
             		window.location='logout.php';            		
-            	}, 3000);            	
+            	}, 3000);
             }
             if(response==="badparam"){
             	closeModal();
@@ -322,6 +348,7 @@ function deleteContact(){
             return false;
     	});
 }
+
 function renderProfPrev(ipElem){
 	var newName = $(ipElem).val();
 	$('#profPreviewName').html(newName);
@@ -333,4 +360,162 @@ function renderProfPrev(ipElem){
 	if ( newName.length == 1 ){
 		randomPicGen( $('#profPreviewPic'), newName );
 	}
+}
+
+function editProfileClick(){
+	var name = $('#editProfName').val();
+	if(name==="")
+	{
+		showNotif("Name field is empty.");
+    	setTimeout(function(){
+    		hideNotif();
+    	}, 3000);
+    	return false;
+	}
+	showNotif("Processing your Name Update Request.");
+	$aJX_status = $.ajax({
+        type: "POST",
+        url: "user.php?request=updateName",
+        data: {"name": name},
+        dataType: "text"
+        })
+        .success(function(response) {
+            if(response==="noauth"){
+            	closeModal();
+            	showNotif("You are not logged in.");
+            	setTimeout(function(){
+            		hideNotif();
+            		window.location='logout.php';            		
+            	}, 3000);            	
+            }
+            if(response==="badparam"){
+            	closeModal();
+            	showNotif("Something went wrong with upgrading your name. Please try again.");
+            	setTimeout(function(){
+            		hideNotif();
+            	}, 3000);
+            	return false;
+            }
+            if(response==="sqlfail"){
+            	closeModal();
+            	showNotif("Database was unreachable. Please try again after sometime.");
+            	setTimeout(function(){
+            		hideNotif();
+            	}, 3000);
+            	return false;
+            }
+            if(response==="success") {
+				closeModal();
+				showNotif("Your name has been successfully updated.");
+            	setTimeout(function(){
+            		hideNotif();
+            	}, 3000);
+				$('#profilename').html(name);
+                randomPicGen($('#profilepic'), name);
+                YW.NAME = name;
+            }
+            else {
+            	closeModal();
+            	showNotif("Some unknown error happened. Please report a feedback with details.");
+            	setTimeout(function(){
+            		hideNotif();
+            	}, 3000);
+                return false;
+            }
+        })
+        .fail(function(response) {
+        	closeModal();
+        	showNotif("Network Error. Please refresh the page and try again.");
+        	setTimeout(function(){
+        		hideNotif();
+        	}, 3000);
+            return false;
+    	});
+}
+
+function changePassword(){
+	var pass=$('#editProfPass').val();
+	var rePass=$('#editProfPassRe').val();
+	if(pass===""){
+		showNotif("Password field is empty.");
+    	setTimeout(function(){
+    		hideNotif();
+    	}, 3000);
+    	return false;
+	}
+	if(pass!==rePass){
+		showNotif("Both the passwords do not match.");
+    	setTimeout(function(){
+    		hideNotif();
+    	}, 3000);
+    	$('#editProfPassRe').val("");
+    	$('#editProfPass').val("");
+    	return false;
+	}
+	var re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/; 
+    if (!re.test(pass)) {
+        showNotif("Passwords must contain at least one number, one lowercase and one uppercase letter.  Please try again.");
+    	setTimeout(function(){
+    		hideNotif();
+    	}, 3000);
+    	$('#editProfPassRe').val("");
+    	$('#editProfPass').val("");
+    	return false;
+    }
+    var p = hex_sha512(pass);
+    $aJX_status = $.ajax({
+        type: "POST",
+        url: "user.php?request=updatePass",
+        data: {"p": p},
+        dataType: "text"
+        })
+        .success(function(response) {
+            if(response==="noauth"){
+            	closeModal();
+            	showNotif("You are not logged in.");
+            	setTimeout(function(){
+            		hideNotif();
+            		window.location='logout.php';
+            	}, 3000);
+            }
+            if(response==="badparam"){
+            	closeModal();
+            	showNotif("Something went wrong with upgrading your name. Please try again.");
+            	setTimeout(function(){
+            		hideNotif();
+            	}, 3000);
+            	return false;
+            }
+            if(response==="sqlfail"){
+            	closeModal();
+            	showNotif("Database was unreachable. Please try again after sometime.");
+            	setTimeout(function(){
+            		hideNotif();
+            	}, 3000);
+            	return false;
+            }
+            if(response==="success") {
+				closeModal();
+				showNotif("Your password has been successfully updated.");
+            	setTimeout(function(){
+            		hideNotif();
+            	}, 3000);
+            }
+            else {
+            	closeModal();
+            	showNotif("Some unknown error happened. Please report a feedback with details.");
+            	setTimeout(function(){
+            		hideNotif();
+            	}, 3000);
+                return false;
+            }
+        })
+        .fail(function(response) {
+        	closeModal();
+        	showNotif("Network Error. Please refresh the page and try again.");
+        	setTimeout(function(){
+        		hideNotif();
+        	}, 3000);
+            return false;
+    	});
 }

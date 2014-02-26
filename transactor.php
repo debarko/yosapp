@@ -7,7 +7,7 @@
 	if(!$logged_in){
 		echo "noauth";
 		exit();
-	}	
+	}
 
 	$method = filter_input(INPUT_GET, 'method', FILTER_SANITIZE_STRING);
 	$username = $_SESSION['username'];

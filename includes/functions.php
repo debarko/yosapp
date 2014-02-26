@@ -143,7 +143,6 @@ function login($username, $password, $cc, $mysqli) {
                     $_SESSION['cc'] = $cc;
                     $_SESSION['login_string'] = hash('sha512', 
                               $password . $user_browser);
-                    error_log(var_export($_SESSION,true));
                     // Login successful.
                     return true;
                 } else {
