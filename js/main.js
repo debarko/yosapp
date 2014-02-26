@@ -152,6 +152,7 @@ window.onload = function(){
 
 	// append modal content into dom
 	$("#footer").html($("#footer").html()+YW.MODAL());
+	$("#footer").html($("#footer").html()+YW.PROMPT());
 
 };
 
@@ -438,4 +439,24 @@ function hideNotif(){
 	});
 }
 
+function showPrompt(message, yesCB, noCB){
+	showOverlay();
+	var prompt = $('#prompt');
+	var msgBox = $('#prompMsg').find('p');
+	$('#promptYes').attr('onclick', yesCB);
+	$('#promptNo').attr('onclick', noCB);
+	msgBox.html(message);
+	prompt.css({opacity:'0', display:'block'});
+	prompt.animate({opacity:'1'},400, function(){
+		
+	});
+}
+
+function closePrompt(){
+	var prompt = $('#prompt');
+	prompt.animate({opacity:'0'}, 400, function(){
+		prompt.css('display','none');
+		closeOverlay();
+	});
+}
 	

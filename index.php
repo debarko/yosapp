@@ -56,7 +56,7 @@
 		    YW.R_OUT		= function() { return '<?php echo $right_out; ?>' };
 		    YW.CONTACT		= function() { return '<?php echo $contact; ?>' };
 		    YW.RELEASECON	= function() { return '<?php echo $releaseCon; ?>' };
-		    YW.VISION	    = function() { return '<?php echo $vision; ?>' };
+		    YW.PROMPT		= function() { return '<?php echo $prompt; ?>' };
 		    YW.UA			= function() { return navigator.userAgent; };
 		    YW.COUNTRIES 	= <?php echo $countries; ?>;
 			

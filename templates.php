@@ -28,6 +28,6 @@
 	$verif = str_replace(array("\r", "\n"), '', $verif);
 	$releaseCon = addslashes(file_get_contents("./template/releaseCon.php"));
 	$releaseCon = str_replace(array("\r", "\n"), '', $releaseCon);
-	$vision = addslashes(file_get_contents("./template/vision.php"));
-	$vision = str_replace(array("\r", "\n"), '', $vision);
+	$prompt = addslashes(file_get_contents("./template/prompt.php"));
+	$prompt = str_replace(array("\r", "\n"), '', $prompt);
 ?>

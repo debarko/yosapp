@@ -1266,3 +1266,83 @@ div.logintooltips span:after {
   font-size: 14px;
   overflow-y: auto;
 }
+/* prompt */
+#prompt{
+  position: absolute;
+  height: 100px;
+  width: 300px;
+  background-color: #2AB200;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -150px;
+  border-radius: 5px;
+  z-index: 999;
+  display: none;
+}
+#promptIconMsgWrapper{
+  height: 65px;
+}
+#promptIcon{
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  background-color: rgba(255, 255, 255, 0.23);
+  background-image: url('../icons/qmark_min.png');
+  background-position: 7 6;
+  background-repeat: no-repeat;
+  opacity: .4;
+  border-radius: 25px;
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+#prompMsg{
+  display: inline-block;
+  width: 180px;
+  height: 50px;
+  position: relative;
+  top: -30px;
+  left: 10px;
+}
+#prompMsg p{
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  position: relative;
+  top: 15px;
+}
+.promptButttons{
+  color: white;
+  display: inline-block;
+  margin-left: 50;
+  height: 25px;
+  width: 56px;
+  padding: 0px;
+  background-color: rgba(255, 255, 255, 0.16);
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.24);
+  cursor: pointer;
+  -webkit-transition: all .1s ease-in-out;
+  -moz-transition: all .1s ease-in-out;
+  -o-transition: all .1s ease-in-out;
+}
+.promptButttons:hover{
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.54);
+}
+.promptButttons:active{
+  -webkit-transform: scale(0.95); 
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0);
+}
+.promptButttons p{
+  text-indent: 11px;
+  padding: 3px;
+}
+#promptNo P{
+  text-indent: 13px;
+}
+#promptNo{
+  margin-left: 85px;
+}
