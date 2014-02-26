@@ -490,6 +490,7 @@ function notify(title, bodyMsg){
 	    body: bodyMsg,
 	    icon: "./icons/logo_min.png"
 	});
+	YW.NOTIFSOUND.play();
 	myNotification.show();
 }
 
