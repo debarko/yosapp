@@ -94,6 +94,19 @@ function countryToCC(country){
 	}
 }
 
+function countrySuggest(name){
+	name = name.toLowerCase();
+	var country = []
+	for(someCounter=0;someCounter<YW.COUNTRIES.length;someCounter++){
+		var countryInQuestion = YW.COUNTRIES[someCounter][0];
+		var subName = countryInQuestion.substring(0, name.length);
+		if(subName.toLowerCase() == name){
+			country.push(YW.COUNTRIES[someCounter]);
+		}
+	}
+	return country;
+}
+
 function CCtoCountry(cc){
 	var BreakException;
 	try{
