@@ -621,7 +621,10 @@ function sendFeedback(){
 		        type: "GET",
 		        url: "feedback.php?ua="+encodeURIComponent(YW.UA())+"&msg="+encodeURIComponent($("#feedbackTextArea").val() )});
 	closeModal();
-	alert("Thanks for your feedback. We will get back to you shortly.");
+	showNotif("Thanks for your feedback. We will get back to you shortly.");
+	setTimeout(function(){
+		hideNotif();
+	}, 3000);
 }
 
 function randomPicGen(imageElem, name){

@@ -206,7 +206,10 @@ function updateContact(){
 	var phNumber = $('#phNumberEdit').val();
 	var cName = $('#countryName').val();
 	if(fName===""){
-		alert("Empty Name");
+		showNotif("Empty Name.");
+        setTimeout(function(){
+            hideNotif();
+        }, 3000);
 		return false;
 	}
 
