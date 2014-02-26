@@ -239,6 +239,47 @@
 	    	echo "sqlfail";
 	    	exit();
 	    }
+	} else if($request === "updateName") {
+		$name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+		if($name===""){
+			echo "badparam";
+			exit();
+		}
+        $user_id = $_SESSION['user_id'];
+        if(!$mysqli->query("UPDATE members SET name='$name' WHERE id=$user_id;")) {
+			echo ("sqlfail");
+			exit();
+		}
+		$_SESSION['name']=$name;
+		echo "success";
+		exit();
+	} else if($request === "updatePass") {
+		$password = filter_input(INPUT_POST, 'p', FILTER_SANITIZE_STRING);
+		if($password===""){
+			echo "badparam";
+			exit();
+		}        
+        if (strlen($password) != 128) {
+	        // The hashed pwd should be 128 characters long.
+	        // If it's not, something really odd has happened
+	        echo "badparam";
+	        exit();
+	    }
+	    // Create a random salt
+        $random_salt = hash('sha512', uniqid(openssl_random_pseudo_bytes(16), TRUE));
+ 
+        // Create salted password 
+        $password = hash('sha512', $password . $random_salt);
+
+	    $user_id = $_SESSION['user_id'];
+        if(!$mysqli->query("UPDATE members SET password='$password', salt='$random_salt' WHERE id=$user_id;")) {
+			echo ("sqlfail");
+			exit();
+		}
+		$user_browser = $_SERVER['HTTP_USER_AGENT'];
+		$_SESSION['login_string'] = hash('sha512', $password . $user_browser);
+		echo "success";
+		exit();
 	} else {
 		echo "badparam";
 		exit();

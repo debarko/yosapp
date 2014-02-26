@@ -28,7 +28,7 @@
 	<div id="changeProfNameHeader" class="rightSmallHeaders">Change Profile Nmae</div>
 	<div id="changeNameWrapper">
 		<input id="editProfName" class="modalInputField" type="text" spellcheck="false" value="" onkeyup='hideTip(this); renderProfPrev(this);'/><span class="inputFieldTip inputFieldTip4Cont">Enter New Name</span>
-		<input id="changeNameButton" class="modalRightButton" type="button" value="Change"/>
+		<input id="changeNameButton" class="modalRightButton" type="button" value="Change" onclick="editProfileClick();"/>
 	</div>
 	<div id="changeProfPassHeader" class="rightSmallHeaders">Change Password</div>
 	<div id="changePassWrapper">
@@ -36,7 +36,7 @@
 			<input id="editProfPass" class="modalInputField" type="password" value="" onkeyup='hideTip(this);'/><span class="inputFieldTip inputFieldTip4Cont">Enter New Password</span>
 			<input id="editProfPassRe" class="modalInputField" type="password" value="" onkeyup='hideTip(this);'/><span class="inputFieldTip inputFieldTip4Cont">Confirm New Password</span>
 		</div>
-		<input id="changepassButton" class="modalRightButton" type="button" value="Change"/>
+		<input id="changepassButton" class="modalRightButton" type="button" value="Change" onclick="changePassword();"/>
 	</div>
 	
 
