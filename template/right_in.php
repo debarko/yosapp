@@ -3,8 +3,12 @@
 	<div id="addContactHeader" class="modalRightHeader">ADD CONTACTS</div>
 	<div class="inputFieldWraper" id="firstNameWrapper"><input id="contactFirstName" class="modalInputField" type="text" name="contactFirstName" value="" onkeyup='hideTip(this);'/><span class="inputFieldTip inputFieldTip4Cont">Ex: Thomas matheson</span></div>
 	<div id="phNumberWrapper" ><input id="phNumber" class="modalInputField" type="text" name="phNumber" value="" onkeyup='hideTip(this);' /><span class="inputFieldTip inputFieldTip4Cont">Ex: 9876543210</span></div>
-	<div class="inputFieldWraper" id="countryNameWrapper" ><input id="countryName" class="modalInputField" type="text" name="countryName" value="" onkeyup='hideTip(this);' /><span class="inputFieldTip inputFieldTip4Cont">Ex: India</span></div>
-	<div class="inputFieldWraper" id="countryCodeWrapper" ><input id="countryCode" class="modalInputField" type="text" name="countryCode" value="" onkeyup='hideTip(this);' /><span class="inputFieldTip inputFieldTip4Cont" id="addConCCTip">Ex: 91</span></div>
+	<div class="inputFieldWraper" id="countryNameWrapper" >
+		<input id="countryName" class="modalInputField" type="text" name="AddConCountryName" value="" onkeyup='hideTip(this); suggestCountries(this);' />
+		<span class="inputFieldTip inputFieldTip4Cont" style="margin-top: -20px;">Ex: India</span>
+		<div id="countrySuggBox" class=""></div>
+	</div>
+	<div class="inputFieldWraper" id="countryCodeWrapper" ><input id="countryCode" class="modalInputField" type="text" name="countryCode" value="" onkeyup='hideTip(this);' /><span class="inputFieldTip inputFieldTip4Cont" id="addConCCTip">CC</span></div>
 	<div ><input id="addButton" class="modalRightButton" type="button" value="ADD" onclick='addContact();' /></div>
 	<div id="addContactAnimation">
 		<div class="animatedIcons" id="user"></div>

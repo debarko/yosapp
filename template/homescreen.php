@@ -42,7 +42,8 @@
 	<div class="regFormElementWrapper"><div class="regGuideText">Name</div><div class="regInputFieldWrapper" id="regInputFieldWrapperName"><input id="name_reg" class="inputfields" type="text" name="name" onkeyup='hideTip(this);'/><span class="inputFieldTip inputFieldTip4reg">Ex: Smith Wilson</span></div></div>
 	<div class="regFormElementWrapper"><div class="regGuideText">Email</div><div class="regInputFieldWrapper" id="regInputFieldWrapperEmail"><input id="email" class="inputfields" type="text" name="email" onkeyup='hideTip(this);'/><span class="inputFieldTip inputFieldTip4reg">Ex: smith@domain.com</span></div></div>
 	<div class="regFormElementWrapper"><div class="regGuideText">Country</div><div class="regInputFieldWrapper" id="regInputFieldWrapperCountry">
-																					<input id="regInputCountry" class="inputfields" type="text" name="regInputCountry" onkeyup='hideTip(this); suggestCountries(this);' /><span class="inputFieldTip inputFieldTip4reg">Ex: 91 (For India) </span>
+																					<input id="regInputCountry" class="inputfields" type="text" name="regInputCountry" onkeyup='hideTip(this); suggestCountries(this);' />
+																					<span class="inputFieldTip inputFieldTip4reg">Ex: 91 (For India) </span>
 																					<div id="regCC" class="regCountryInfo">(+91)</div>
 																					<div id="regFlag" class="regCountryInfo"></div>
 																					<div id="countrySuggBox" class=""></div>

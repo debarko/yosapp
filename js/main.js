@@ -462,12 +462,14 @@ function closePrompt(){
 
 function suggestCountries( elem ){
 	var ipFiled = $(elem);
-	var suggestBox = ipFiled.nextAll().eq(3);
+	var suggestBox = ipFiled.parent().children().eq( ipFiled.parent().children().length - 1 ); // select last child of ipFields parent
 	var searchString = ipFiled.val();
 	var result = countrySuggest(searchString);
 	suggestBox.html('');
 	if( searchString == '' ){
 		suggestBox.css('display','none');
+		$('#addConCCTip').prev().val('');
+		$('#addConCCTip').html('CC');
 		return;
 	}
 	else{
@@ -476,6 +478,8 @@ function suggestCountries( elem ){
 	if( result.length == 0 ){
 
 		suggestBox.append('<div class="suggestedElem"><p>No such country</p></div>');
+		$('#addConCCTip').prev().val('');
+		$('#addConCCTip').html('CC');
 		return;
 	}
 	for ( var i=0; i < result.length; i++  ){
@@ -485,12 +489,18 @@ function suggestCountries( elem ){
 }
 //regex		var matches = str.match(/([a-zA-Z]+) \(+/); to get country name
 //regex     var matches = str.match(/\+([0-9]+)\)/);  to get country code
-
 function selectCountry( country, cc , thisElem ){
 	var suggestBox = $(thisElem).parent();
-	var countryField = suggestBox.prevAll().eq(3);
-	countryField.val(country+' (+'+cc+')');
+	var countryField = suggestBox.parent().children().eq(0); // select first sibling
 	suggestBox.css('display','none');
+	if ( countryField.attr('name') == 'AddConCountryName' ){ // if from add contact
+		countryField.val( country );
+		var ccIpField = countryField.parent().next().children().eq(0);
+		ccIpField.val( '+'+cc );
+		$('#addConCCTip').html('');
+		return;
+	}
+	countryField.val(country+' (+'+cc+')');
 	
 }
 
