@@ -43,6 +43,7 @@ function formatAMPM(date) {
 }
 
 function sendOtherMsg(message){
+	askNotifPerm();
 	if(message===""){
 		return false;
 	}
@@ -500,6 +501,23 @@ function reqNotifPerms(){
 	if(myNotification.needsPermission()){
 		myNotification.requestPermission();
 	}
+}
+
+function askNotifPerm(){
+	if(getValue("askNotifPerm")===1){
+		showPrompt("Do you want to show Desktop Notifications when you get a message?",
+			function(){
+				reqNotifPerms();
+				setValue("askNotifPerm",0);
+				closePrompt();
+			},
+			function(){
+				setValue("askNotifPerm",0);
+				closePrompt();
+			});
+		return true;
+	}
+	return false;
 }
 
 function storeMessage(whos, parent, message){

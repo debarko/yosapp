@@ -74,7 +74,7 @@ if (isset($_POST['name'], $_POST['username'], $_POST['email'], $_POST['cc'], $_P
         $password = hash('sha512', $password . $random_salt);
  
         // Insert the new user into the database 
-        if ($insert_stmt = $mysqli->prepare("INSERT INTO members (username, email, password, salt, cc, name) VALUES (?, ?, ?, ?, ?, ?)")) {
+        if ($insert_stmt = $mysqli->prepare("INSERT INTO members (username, email, password, salt, cc, name, keyVal) VALUES (?, ?, ?, ?, ?, ?, '{}')")) {
             $insert_stmt->bind_param('ssssis', $username, $email, $password, $random_salt, $cc, $name);
             // Execute the prepared query.
             if (! $insert_stmt->execute()) {

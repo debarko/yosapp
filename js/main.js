@@ -443,8 +443,16 @@ function showPrompt(message, yesCB, noCB){
 	showOverlay();
 	var prompt = $('#prompt');
 	var msgBox = $('#prompMsg').find('p');
-	$('#promptYes').attr('onclick', yesCB);
-	$('#promptNo').attr('onclick', noCB);
+	$('#promptYes').click(function(){
+							event.preventDefault();
+							if(typeof yesCB==="function")
+								yesCB();
+						  });
+	$('#promptNo').click(function(){
+							event.preventDefault();
+							if(typeof noCB==="function")
+								noCB();
+						  });
 	msgBox.html(message);
 	prompt.css({opacity:'0', display:'block'});
 	prompt.animate({opacity:'1'},400, function(){

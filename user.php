@@ -280,6 +280,15 @@
 		$_SESSION['login_string'] = hash('sha512', $password . $user_browser);
 		echo "success";
 		exit();
+	} else if($request === "getkeyVal") {
+		getkeyVal($mysqli);
+	} else if($request === "setkeyVal") {
+		if(!filter_input(INPUT_POST, 'value', FILTER_SANITIZE_STRING)){
+			echo "badparam";
+			exit();
+		}
+		$value = filter_input(INPUT_POST, 'value', FILTER_SANITIZE_STRING);
+		setkeyVal($mysqli, $value);
 	} else {
 		echo "badparam";
 		exit();
