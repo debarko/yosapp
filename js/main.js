@@ -460,29 +460,41 @@ function closePrompt(){
 	});
 }
 
-function suggestCountries(){
-	var searchString = $('#countryField').val();
+function suggestCountries( elem ){
+	var ipFiled = $(elem);
+	var suggestBox = ipFiled.nextAll().eq(3);
+	var searchString = ipFiled.val();
 	var result = countrySuggest(searchString);
-	$('#countrySuggBox').html('');
+	suggestBox.html('');
 	if( searchString == '' ){
-		$('#countrySuggBox').css('display','none');
+		suggestBox.css('display','none');
 		return;
 	}
 	else{
-		$('#countrySuggBox').css('display','block');
+		suggestBox.css('display','block');
 	}
 	if( result.length == 0 ){
 
-		$('#countrySuggBox').append('<div class="suggestedElem"><p>No such country</p></div>');
+		suggestBox.append('<div class="suggestedElem"><p>No such country</p></div>');
 		return;
 	}
 	for ( var i=0; i < result.length; i++  ){
 		//console.log(result[i][0])
-		$('#countrySuggBox').append('<div class="suggestedElem" onclick=\'selectCountry('+'"'+result[i][0]+'","'+countryToCC(result[i][0])+'");\'><p>'+result[i][0]+' '+'(+'+countryToCC(result[i][0])+')</p></div>');
+		suggestBox.append('<div class="suggestedElem" onclick=\'selectCountry('+'"'+result[i][0]+'","'+countryToCC(result[i][0])+'", this);\'><p>'+result[i][0]+' '+'(+'+countryToCC(result[i][0])+')</p></div>');
 	}
 }
+//regex		var matches = str.match(/([a-zA-Z]+) \(+/); to get country name
+//regex     var matches = str.match(/\+([0-9]+)\)/);  to get country code
 
-function selectCountry( country, cc ){
-	$('#countryField').val(country+' (+'+cc+')');
-	$('#countrySuggBox').css('display','none');
+function selectCountry( country, cc , thisElem ){
+	var suggestBox = $(thisElem).parent();
+	var countryField = suggestBox.prevAll().eq(3);
+	countryField.val(country+' (+'+cc+')');
+	suggestBox.css('display','none');
+	
+}
+
+function extractCC(str){
+	var matches = str.match(/\+([0-9]+)\)/);
+	return matches[1];
 }

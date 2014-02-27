@@ -97,7 +97,8 @@ function regformhash(form, uid, email, password, cc, name) {
             if(response==="SUCCESS"){
                 formhash(document.getElementById('regInputPhone').value,
                                   document.getElementById('regpass').value,
-                                  document.getElementById('regInputCountry').value);
+                                  extractCC( document.getElementById('regInputCountry').value )
+                        );
                 dispErrMsg("You have successfully registered. Logging you in...");
                 document.getElementById('regform').reset();
                 $("#regform").animate({'opacity':'0'},800);
