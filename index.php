@@ -29,6 +29,7 @@
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 			ga('create', 'UA-48289387-1', 'yosapp.com');
+			ga('require', 'linkid', 'linkid.js');
 			ga('send', 'pageview');
 		</script>
 		<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
