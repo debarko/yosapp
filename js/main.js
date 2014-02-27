@@ -572,8 +572,3 @@ function navigateSuggested( unicode ){
 	}
 
 }
-
-function extractCC(str){
-	var matches = str.match(/\+([0-9]+)\)/);
-	return matches[1];
-}

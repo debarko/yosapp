@@ -184,3 +184,26 @@ function getValue(key){
 	}
 	return YW.KEYVAL[key];
 }
+
+function extractCC(str){
+	var matches = str.match(/\+([0-9]+)\)/);
+	return matches[1];
+}
+
+function setSelectionRange(input, selectionStart, selectionEnd) {
+  if (input.setSelectionRange) {
+    input.focus();
+    input.setSelectionRange(selectionStart, selectionEnd);
+  }
+  else if (input.createTextRange) {
+    var range = input.createTextRange();
+    range.collapse(true);
+    range.moveEnd('character', selectionEnd);
+    range.moveStart('character', selectionStart);
+    range.select();
+  }
+}
+
+function setCaretToPos (input, pos) {
+  setSelectionRange( input.get(0), pos, pos );
+}
