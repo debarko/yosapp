@@ -207,3 +207,7 @@ function setSelectionRange(input, selectionStart, selectionEnd) {
 function setCaretToPos (input, pos) {
   setSelectionRange( input.get(0), pos, pos );
 }
+
+function getCaretPos( elem ){
+	return elem.get(0).selectionStart;
+}

@@ -469,6 +469,8 @@ function closePrompt(){
 }
 
 function suggestCountries( elem, e ){
+	// position cret to the right of last letter always
+	//setCaretToPos ( $(elem), $(elem).val().length );
 	var unicode=e.keyCode? e.keyCode : e.charCode
 	if( (unicode > 37 && unicode < 41) || unicode == 13 || ( unicode > 32 && unicode < 37) ){ //if navigation buttons are pressed 
 		if( unicode ==  33 ){ //if page up
