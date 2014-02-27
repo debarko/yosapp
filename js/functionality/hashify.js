@@ -86,7 +86,7 @@ function regformhash(form, uid, email, password, cc, name) {
                 "email": email.value,
                 "p": p,
                 "name": name.value,
-                "cc": cc.value}
+                "cc": extractCC( cc.value )} // todo check if working ( this is only change i did in this function)
     $.ajax({
         type: "POST",
         url: "register.php",

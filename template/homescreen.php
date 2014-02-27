@@ -20,7 +20,7 @@
 		<input id="loginsubmit" type="button" value="Login" onmouseover='showPointerOnHover(this);'
 				onclick="formhash(document.getElementById('userfield').value,
 								  document.getElementById('passfield').value,
-								  extractCC(document.getElementById('countryField').value),
+								  extractCC( document.getElementById('countryField').value ),
 								  document.getElementById('loginform'))" />
 	</div>
 	<div class="squaredTwo">
