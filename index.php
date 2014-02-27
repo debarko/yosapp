@@ -71,6 +71,7 @@
 		    YW.IMEI			= 0;
 		    YW.LISTENER		= 0;
 		    YW.NAME			= "<?php echo (isset($_SESSION['name']))?$_SESSION['name']:0; ?>";
+		    YW.KEYVAL		= JSON.parse(decodeURIComponent('<?php echo (isset($_SESSION["keyVal"]))?$_SESSION["keyVal"]:"{}"; ?>'));
 		    YW.UNREAD		= 0;
 		    YW.ELIZA 		= new ElizaBot();
 		    YW.NOTIFSOUND	= new buzz.sound("sound/notif", {
@@ -79,6 +80,9 @@
 							    autoplay: false,
 							    loop: false
 							  });
+		    YW.KEYDEF		= {
+		    					"askNotifPerm":1
+		    				  };
 		})(YW);
 		</script>
 	</head>

@@ -100,7 +100,7 @@ function sec_session_start() {
 
 function login($username, $password, $cc, $mysqli) {
     // Using prepared statements means that SQL injection is not possible. 
-    if ($stmt = $mysqli->prepare("SELECT id, username, password, salt, name, w_pass 
+    if ($stmt = $mysqli->prepare("SELECT id, username, password, salt, name, w_pass, keyVal 
         FROM members
         WHERE username = ?
         AND cc = ?
@@ -110,7 +110,7 @@ function login($username, $password, $cc, $mysqli) {
         $stmt->store_result();
  
         // get variables from result.
-        $stmt->bind_result($user_id, $username, $db_password, $salt, $name, $w_pass);
+        $stmt->bind_result($user_id, $username, $db_password, $salt, $name, $w_pass, $keyVal);
         $stmt->fetch();
  
         // hash the password with the unique salt.
@@ -141,6 +141,7 @@ function login($username, $password, $cc, $mysqli) {
                     $_SESSION['w_pass'] = (isset($w_pass))?$w_pass:"noauth";
                     $_SESSION['name'] = $name;
                     $_SESSION['cc'] = $cc;
+                    $_SESSION['keyVal'] = $keyVal;
                     $_SESSION['login_string'] = hash('sha512', 
                               $password . $user_browser);
                     // Login successful.
@@ -193,6 +194,7 @@ function login_check($mysqli) {
                         $_SESSION['username'],
                         $_SESSION['name'],
                         $_SESSION['w_pass'],
+                        $_SESSION['keyVal'],
                         $_SESSION['cc'], 
                         $_SESSION['login_string'])) {
  
@@ -235,6 +237,44 @@ function login_check($mysqli) {
     } else {
         // Not logged in 
         return false;
+    }
+}
+
+function getkeyVal($mysqli){
+    if ($stmt = $mysqli->prepare("SELECT keyVal 
+        FROM members
+        WHERE id = ?
+        LIMIT 1")) {
+        $stmt->bind_param('i', $_SESSION['user_id']);  // Bind "$username" to parameter.
+        $stmt->execute();    // Execute the prepared query.
+        $stmt->store_result();
+ 
+        // get variables from result.
+        $stmt->bind_result($keyVal);
+        $stmt->fetch();
+        echo $keyVal;
+        $_SESSION['keyVal']=$keyVal;
+        exit();
+    } else {
+        echo "sqlfail";
+        exit();
+    }
+}
+
+function setkeyVal($mysqli, $value){
+    if ($stmt = $mysqli->prepare("UPDATE members SET
+        keyVal = ?
+        WHERE id = ?
+        LIMIT 1")) {
+        $stmt->bind_param('si', $value, $_SESSION['user_id']);  // Bind "$username" to parameter.
+        $stmt->execute();    // Execute the prepared query.
+        $_SESSION['keyVal']=$value;
+        // get variables from result.
+        echo "success";
+        exit();
+    } else {
+        echo "sqlfail";
+        exit();
     }
 }
 ?>

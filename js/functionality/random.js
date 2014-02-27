@@ -21,7 +21,8 @@ function maximize(html_val, callback){
 
 //Logs in a user upon successful login
 function log_in_user() {
-	YW.logged_in = function() { return 'true'; }
+	YW.logged_in = function() { return 'true'; };
+	getkeyVal();
 	getFriends();
 	maximize(YW.CHATSCREEN()+YW.MODAL(), function(){
 		$('#typemsg').focus();
@@ -31,7 +32,7 @@ function log_in_user() {
 		setSearchContainerHeight();
 		renderData();
 		setLastChat();
-		checkForWPass();
+		checkForWPass();		
 		$("#feedback").css("display","block");
 		YW.LISTENER = setInterval(function(){checkMessage();},10000);
 		
@@ -147,4 +148,39 @@ function updateContactname(fName, cCode, phNumber){
 			$(obj).prev().prev().html(fName);
 		}
 	});
+}
+
+function getkeyVal(){
+	$.ajax({
+	        type: "POST",
+	        url: "user.php?request=getkeyVal",
+	        dataType: "text"
+	        })
+	        .success(function(response) {
+	            if(response!=="sqlfail") {
+	            	response = decodeURIComponent(response);
+	                YW.KEYVAL = JSON.parse(response);
+	            }
+	        });
+}
+
+function setkeyVal(){
+	$.ajax({
+        type: "POST",
+        url: "user.php?request=setkeyVal",
+        data: {"value":encodeURIComponent(JSON.stringify(YW.KEYVAL))},
+        dataType: "text"
+        });
+}
+
+function setValue(key,value){
+	YW.KEYVAL[key] = value;
+	setkeyVal();
+}
+
+function getValue(key){
+	if(YW.KEYVAL[key]===undefined){
+		setValue(key, YW.KEYDEF[key]);
+	}
+	return YW.KEYVAL[key];
 }
