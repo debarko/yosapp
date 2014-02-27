@@ -6,7 +6,7 @@
 	<div class="inputFieldWraper" id="countryNameWrapper" >
 		<input id="countryName" class="modalInputField" type="text" name="AddConCountryName" value="" onkeyup='hideTip(this); suggestCountries(this);' />
 		<span class="inputFieldTip inputFieldTip4Cont" style="margin-top: -20px;">Ex: India</span>
-		<div id="countrySuggBox" class=""></div>
+		<div class="countrySuggBox" id="countrySuggBox" ></div>
 	</div>
 	<div class="inputFieldWraper" id="countryCodeWrapper" ><input id="countryCode" class="modalInputField" type="text" name="countryCode" value="" onkeyup='hideTip(this);' disabled/><span class="inputFieldTip inputFieldTip4Cont" id="addConCCTip">CC</span></div>
 	<div ><input id="addButton" class="modalRightButton" type="button" value="ADD" onclick='addContact();' /></div>

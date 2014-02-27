@@ -11,7 +11,7 @@
 																																							<input id="countryField" class="inputfields" type="text" name="" onkeyup='hideTip(this); suggestCountries(this);'/><span class="inputFieldTip">Ex: 91 ( For India )</span>
 																																							<div id="loginCC" class="regCountryInfo">(+91)</div>
 																																							<div id="loginFlag" class="regCountryInfo"></div>
-																																							<div id="countrySuggBox" class=""></div>
+																																							<div class="countrySuggBox"></div>
 																																					
 																				   </div></div>
 
@@ -46,7 +46,7 @@
 																					<span class="inputFieldTip inputFieldTip4reg">Ex: 91 (For India) </span>
 																					<div id="regCC" class="regCountryInfo">(+91)</div>
 																					<div id="regFlag" class="regCountryInfo"></div>
-																					<div id="countrySuggBox" class=""></div>
+																					<div class="countrySuggBox"></div>
 																				</div></div>
 	<div>
 		<input id="regsubmitbutton"  type="button" value="Signup" onmouseover='showPointerOnHover(this);'

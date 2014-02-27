@@ -213,6 +213,11 @@
 	-o-transform: scale(0.95);
 }
 
+#countrySuggBox{
+	width: 249px;
+	max-height: 115px;
+}
+
  #addContactAnimation{
 	height: 25;
 	width: 124%;

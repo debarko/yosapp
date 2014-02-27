@@ -362,7 +362,7 @@ height:60%;
   bottom: 33px;
   right: 20px;  
 }
-#countrySuggBox{
+.countrySuggBox{
   position: absolute;
   width: 230px;
   background-color: rgba(0, 0, 0, 0.75);
