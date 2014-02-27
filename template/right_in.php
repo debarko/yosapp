@@ -8,7 +8,7 @@
 		<span class="inputFieldTip inputFieldTip4Cont" style="margin-top: -20px;">Ex: India</span>
 		<div id="countrySuggBox" class=""></div>
 	</div>
-	<div class="inputFieldWraper" id="countryCodeWrapper" ><input id="countryCode" class="modalInputField" type="text" name="countryCode" value="" onkeyup='hideTip(this);' /><span class="inputFieldTip inputFieldTip4Cont" id="addConCCTip">CC</span></div>
+	<div class="inputFieldWraper" id="countryCodeWrapper" ><input id="countryCode" class="modalInputField" type="text" name="countryCode" value="" onkeyup='hideTip(this);' disabled/><span class="inputFieldTip inputFieldTip4Cont" id="addConCCTip">CC</span></div>
 	<div ><input id="addButton" class="modalRightButton" type="button" value="ADD" onclick='addContact();' /></div>
 	<div id="addContactAnimation">
 		<div class="animatedIcons" id="user"></div>
