@@ -236,6 +236,8 @@ function getFriends() {
             }
             else {
             	YW.DATA = JSON.parse(response);
+            	renderData();
+            	setLastChat();
 				showServerMessages();
                 return true;
             }

@@ -39,6 +39,7 @@ merge_files () {
 			done
 
 		echo '[MERGE SUCCESS] The files listed in "'$1'" have been successfully merged into "'$2'"';
+		/usr/bin/java -jar ./tools/yuicompressor.jar --type js -o ./js/script.min.js ./js/script.js;
 	fi
 
 }
@@ -58,6 +59,7 @@ echo '[COMPRESSION OK]';
 }
 
 #START
+rm ./js/script.min.js;
 if [ $# -lt 2 ]; then
     echo '';
     echo '[HELP]';
@@ -75,5 +77,3 @@ else
 		merge_files $1 $2;
 	fi	
 fi
-
-

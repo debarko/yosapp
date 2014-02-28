@@ -7,9 +7,7 @@
 	//Combines all files together
 	if(DEBUG){
 		exec("./tools/mergejs ./tools/merge_files/input.txt ./js/script.js");
-		exec("java -jar tools/yuicompressor-2.4.8.jar --type js -o js/script.min.js js/script.js");
-		exec(".tools/mergecss");
-		exec("java -jar tools/yuicompressor-2.4.8.jar --type css -o css/design.min.css css/design.css");
+		exec("./tools/mergecss");
 	}
 	//tool to merge all code in one file
 	$logged_in = login_check($mysqli);	

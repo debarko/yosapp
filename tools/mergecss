@@ -1,14 +1,18 @@
-rm ./css/design.css
-cat ./css/reset.css > ./css/design.css
-echo >> ./css/design.css
-echo >> ./css/design.css
-echo >> ./css/design.css
-cat ./css/homescreen.css >> ./css/design.css
-echo >> ./css/design.css
-echo >> ./css/design.css
-echo >> ./css/design.css
-cat ./css/chatroom.css >> ./css/design.css
-echo >> ./css/design.css
-echo >> ./css/design.css
-echo >> ./css/design.css
-cat ./css/modal.css >> ./css/design.css
+#!/bin/bash
+
+rm ./css/design.css;
+rm ./css/design.min.css;
+cat ./css/reset.css > ./css/design.css;
+echo >> ./css/design.css;
+echo >> ./css/design.css;
+echo >> ./css/design.css;
+cat ./css/homescreen.css >> ./css/design.css;
+echo >> ./css/design.css;
+echo >> ./css/design.css;
+echo >> ./css/design.css;
+cat ./css/chatroom.css >> ./css/design.css;
+echo >> ./css/design.css;
+echo >> ./css/design.css;
+echo >> ./css/design.css;
+cat ./css/modal.css >> ./css/design.css;
+/usr/bin/java -jar ./tools/yuicompressor.jar --type css -o ./css/design.min.css ./css/design.css;
