@@ -6,7 +6,6 @@
 	sec_session_start();
 	$logged_in = login_check($mysqli);	
 ?>
-
 <html>
 	<head>
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
@@ -16,11 +15,38 @@
 		<meta name="keywords" content="Yosapp,Whatsapp on web, Whatsapp, Landline Whatsapp, Online messenger, Cross platform, Encrypted, Secure, Safe">
 		<meta name="author" content="Folks Freak">
 		<!--Assume that all the css files will be merged to one while running -->
+		<?php
+	      if(!DEBUG) {
+	        $cssFiles = array('design.min');
+	      }
+	      else {
+	        $cssFiles = array('reset', // This should be the first css file
+							  'modal', 'chatroom', 'homescreen',
+	                          'reset'); // This should be the last css file
+
+	      }
+	      foreach($cssFiles as $cssFile){
+	        $cssFile .= '.css';
+	        $mtime = filemtime('./css/' . $cssFile);
+	        echo '<link rel="stylesheet" href="./css/'.$cssFile.'?v='.$mtime.'"></link>'."\n";
+	      }
+	    ?>
 		<link rel="stylesheet" type="text/css" media="all" href="css/design.min.css">
 		<!-- Third Party APIs -->
 		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>		
+	</head>
+	<body>
+		<?php
+			require_once("./template/header.php");
+		?>
+		<div id="bodybg">
+		</div>
+		<?php
+			require_once("./template/footer.php");
+		?>
+		<div id="overlay"></div>
 		<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script language="javascript" type="text/javascript" src="js/library/buzz.min.js"></script>
@@ -28,6 +54,20 @@
 		<script LANGUAGE="JavaScript" TYPE="text/javascript" SRC="js/library/elizabot/elizabot.min.js"></script>
 		<script LANGUAGE="JavaScript" TYPE="text/javascript" SRC="js/library/elizabot/elizadata.min.js"></script>
 		<!-- Our singleton and minified code -->
+		<?php
+		    if(!DEBUG) {
+		      $jsFiles = array('script.min');
+		    }
+		    else {
+		      $jsFiles = array('functionality/email_validation', 'functionality/hashify',
+		          'functionality/random', 'functionality/imei', 'functionality/server_talk', 'functionality/sha512',
+		          'main', 'chatscreen', 'modal');
+		    }
+		    foreach($jsFiles as $jsFile) {
+		      $mtime = filemtime('./js/'.$jsFile.'.js');
+		      echo '<script type="text/javascript" src="./js/'.$jsFile.'.js?v='.$mtime.'"></script>'."\n";
+		    }
+	    ?>
 		<script language="javascript" type="text/javascript" src="js/script.min.js"></script>
 		<!-- GoogleAnalyticsObject -->
 		<script>
@@ -85,16 +125,5 @@
 		    				  };
 		})(YW);
 		</script>
-	</head>
-	<body>
-		<?php
-			require_once("./template/header.php");
-		?>
-		<div id="bodybg">
-		</div>
-		<?php
-			require_once("./template/footer.php");
-		?>
-		<div id="overlay"></div>
 	</body>
 </html>
