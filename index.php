@@ -4,7 +4,9 @@
 
 	sec_session_start();
 	//remove from production environment
-	exec("./tools/mergejs ./tools/merge_files/input.txt ./js/script.js");
+	if(DEBUG){
+		exec("./tools/mergejs ./tools/merge_files/input.txt ./js/script.js");
+	}
 	//tool to merge all code in one file
 	$logged_in = login_check($mysqli);
 ?>
