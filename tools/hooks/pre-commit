@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "Merging and Minifying js files..."
+./tools/mergejs ./tools/merge_files/input.txt ./js/script.js
+echo "Merging and Minifying CSS files..."
+./tools/mergecss

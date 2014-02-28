@@ -8,6 +8,7 @@ define("PASSWORD", "thunderdrag");    // The database password.
 define("DATABASE", "yowsapp");    // The database name. 
 define("CAN_REGISTER", "any");
 define("DEFAULT_ROLE", "member");
- 
+
+define("DEBUG", TRUE); 
 define("SECURE", FALSE);    // FOR DEVELOPMENT ONLY!!!!
 ?> 

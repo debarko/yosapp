@@ -1,46 +1,38 @@
 function maximize(html_val, callback){
 	$("#whatsapponwebText").css("display","none");
-	$('#header').animate({height:"6%"},500,"linear",function(){
-		//change content here
-	});
-	$('#footer').animate({height:"6%"},500,"linear",function(){
-		//change content here
-	});
+	$("#bannerText").fadeOut(500);	
+	$('#header').animate({height:"6%"},500);
+	$('#footer').animate({height:"6%"},500);
 	$('#bodybg').animate({height:"88%"},500);
 	$('#bodybg').fadeOut(500, function(){
+		$('#bodybg').fadeIn(500);
 		$('#bodybg').html(html_val);
 		$('#bodybg').css('background-color','white');
-		$('#bodybg').fadeIn(400, function(){
-			if(callback) {
-				callback();
-			}
-		});
+		if(callback) {
+			callback();
+		}
 	});
-	
 }
 
 //Logs in a user upon successful login
 function log_in_user() {
 	YW.logged_in = function() { return 'true'; };
+	YW.LISTENER = setInterval(function(){checkMessage();},10000);
+	checkForWPass();
 	getkeyVal();
-	getFriends();
 	maximize(YW.CHATSCREEN()+YW.MODAL(), function(){
+		//Fetch Friends from Server
+		getFriends();
+		//Focus the messege enter bar
 		$('#typemsg').focus();
 		$('#icons').html(YW.LOGGED_IN_H());
 		$('#icons').css("top","2px");
-		$('#icons').css("right","2px");		
+		$('#icons').css("right","2px");
 		setSearchContainerHeight();
-		renderData();
-		setLastChat();
-		checkForWPass();		
-		$("#feedback").css("display","block");
-		YW.LISTENER = setInterval(function(){checkMessage();},10000);
-		
-		//$('#profilepic').css('background-image','url("profile.php?w=50&h=50&l='+YW.NAME.substr(0,1).toUpperCase()+'&time='+new Date().getTime()+'")');
+		//Set up profile name and picture
 		randomPicGen($('#profilepic'), YW.NAME);
-
-
 		$("#profilename").html(YW.NAME);
+		$("#feedback").css("display","block");
 		$('#typemsg').keypress(function(e) {
 	        // Enter pressed?
 	        if(e.keyCode == 10 || e.keyCode == 13) {
