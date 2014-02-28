@@ -4,10 +4,12 @@
 	require_once 'templates.php';
 
 	sec_session_start();
-	//remove from production environment
+	//Combines all files together
 	if(DEBUG){
 		exec("./tools/mergejs ./tools/merge_files/input.txt ./js/script.js");
 		exec("java -jar tools/yuicompressor-2.4.8.jar --type js -o js/script.min.js js/script.js");
+		exec(".tools/mergecss");
+		exec("java -jar tools/yuicompressor-2.4.8.jar --type css -o css/design.min.css css/design.css");
 	}
 	//tool to merge all code in one file
 	$logged_in = login_check($mysqli);	
@@ -21,11 +23,8 @@
 		<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
 		<meta name="keywords" content="Yosapp,Whatsapp on web, Whatsapp, Landline Whatsapp, Online messenger, Cross platform, Encrypted, Secure, Safe">
 		<meta name="author" content="Folks Freak">
-		<link rel="stylesheet" type="text/css" href="css/reset.css">		
 		<!--Assume that all the css files will be merged to one while running -->
-		<link rel="stylesheet" type="text/css" media="all" href="css/homescreen.css">
-		<link rel="stylesheet" type="text/css" media="all" href="css/chatroom.css">
-		<link rel="stylesheet" type="text/css" media="all" href="css/modal.css">
+		<link rel="stylesheet" type="text/css" media="all" href="css/design.min.css">
 		<!-- Third Party APIs -->
 		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
