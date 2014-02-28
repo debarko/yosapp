@@ -7,6 +7,7 @@
 	//remove from production environment
 	if(DEBUG){
 		exec("./tools/mergejs ./tools/merge_files/input.txt ./js/script.js");
+		exec("java -jar tools/yuicompressor-2.4.8.jar --type js -o js/script.min.js js/script.js");
 	}
 	//tool to merge all code in one file
 	$logged_in = login_check($mysqli);	
@@ -33,10 +34,10 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script language="javascript" type="text/javascript" src="js/library/buzz.min.js"></script>
 		<script language="javascript" type="text/javascript" src="js/library/notify/notify.js"></script>
-		<script LANGUAGE="JavaScript" TYPE="text/javascript" SRC="js/library/elizabot/elizabot.js"></script>
-		<script LANGUAGE="JavaScript" TYPE="text/javascript" SRC="js/library/elizabot/elizadata.js"></script>
+		<script LANGUAGE="JavaScript" TYPE="text/javascript" SRC="js/library/elizabot/elizabot.min.js"></script>
+		<script LANGUAGE="JavaScript" TYPE="text/javascript" SRC="js/library/elizabot/elizadata.min.js"></script>
 		<!-- Our singleton and minified code -->
-		<script language="javascript" type="text/javascript" src="js/script.js"></script>
+		<script language="javascript" type="text/javascript" src="js/script.min.js"></script>
 		<!-- GoogleAnalyticsObject -->
 		<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
