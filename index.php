@@ -31,7 +31,6 @@
 	        echo '<link rel="stylesheet" href="./css/'.$cssFile.'?v='.$mtime.'"></link>'."\n";
 	      }
 	    ?>
-		<link rel="stylesheet" type="text/css" media="all" href="css/design.min.css">
 		<!-- Third Party APIs -->
 		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
@@ -68,7 +67,6 @@
 		      echo '<script type="text/javascript" src="./js/'.$jsFile.'.js?v='.$mtime.'"></script>'."\n";
 		    }
 	    ?>
-		<script language="javascript" type="text/javascript" src="js/script.min.js"></script>
 		<!-- GoogleAnalyticsObject -->
 		<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
