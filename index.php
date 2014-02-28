@@ -1,4 +1,5 @@
 <?php
+	header('Content-type: text/html; charset=utf-8');
 	require_once 'includes.php';
 	require_once 'templates.php';
 
@@ -8,7 +9,7 @@
 		exec("./tools/mergejs ./tools/merge_files/input.txt ./js/script.js");
 	}
 	//tool to merge all code in one file
-	$logged_in = login_check($mysqli);
+	$logged_in = login_check($mysqli);	
 ?>
 
 <html>
@@ -17,7 +18,6 @@
 		<title>Yosapp</title>
 		<meta name="description" content="Yosapp brings the power of Whatsapp to desktop browsers. Whatsapp on web has never been easier.">
 		<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="keywords" content="Yosapp,Whatsapp on web, Whatsapp, Landline Whatsapp, Online messenger, Cross platform, Encrypted, Secure, Safe">
 		<meta name="author" content="Folks Freak">
 		<link rel="stylesheet" type="text/css" href="css/reset.css">		
@@ -28,7 +28,15 @@
 		<!-- Third Party APIs -->
 		<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>		
+		<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script language="javascript" type="text/javascript" src="js/library/buzz.min.js"></script>
+		<script language="javascript" type="text/javascript" src="js/library/notify/notify.js"></script>
+		<script LANGUAGE="JavaScript" TYPE="text/javascript" SRC="js/library/elizabot/elizabot.js"></script>
+		<script LANGUAGE="JavaScript" TYPE="text/javascript" SRC="js/library/elizabot/elizadata.js"></script>
+		<!-- Our singleton and minified code -->
+		<script language="javascript" type="text/javascript" src="js/script.js"></script>
 		<!-- GoogleAnalyticsObject -->
 		<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -39,14 +47,7 @@
 			ga('require', 'linkid', 'linkid.js');
 			ga('send', 'pageview');
 		</script>
-		<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
-		<script language="javascript" type="text/javascript" src="js/library/jquery.min.js"></script>
-		<script language="javascript" type="text/javascript" src="js/library/buzz.min.js"></script>
-		<script language="javascript" type="text/javascript" src="js/library/notify/notify.js"></script>
-		<script LANGUAGE="JavaScript" TYPE="text/javascript" SRC="js/library/elizabot/elizabot.js"></script>
-		<script LANGUAGE="JavaScript" TYPE="text/javascript" SRC="js/library/elizabot/elizadata.js"></script>
-		<!-- Our singleton and minified code -->
-		<script language="javascript" type="text/javascript" src="js/script.js"></script>
+		<!--Our site script-->
 		<script type="text/javascript">
 		window.YW = {};
 		(function(YW) {
