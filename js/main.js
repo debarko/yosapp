@@ -26,8 +26,10 @@ window.onload = function(){
 	$("#loginbutton").click(
 			function(){
 				if(isloginclicked){
-					$("#loginform").animate({'opacity':'0'},800);
-					setTimeout(function() {$("#loginform").css('visibility','hidden')}, 800);
+					$("#loginform").animate({'opacity':'0'},800, function(){
+						$("#loginform").css('visibility','hidden').find('#countryField').val(''); // clear  country value
+						hideTip( '#countryField' );
+					});
 					isloginclicked = false;
 				}
 				else{
@@ -37,8 +39,10 @@ window.onload = function(){
 					$('#userfield').focus();
 					isloginclicked = true;
 					//virtually unclick the signup button also
-					$("#regform").animate({'opacity':'0'},800);
-					setTimeout(function() {$("#regform").css('visibility','hidden')}, 800);
+					$("#regform").animate({'opacity':'0'}, 800, function(){
+						$("#regform").css('visibility','hidden').find('#regInputCountry').val(''); // clear country value
+						hideTip('#regInputCountry');
+					});
 					issignupclicked = false;
 
 				}
@@ -58,8 +62,10 @@ window.onload = function(){
 	$("#signup").click(
 			function(){
 				if(issignupclicked){
-					$("#regform").animate({'opacity':'0'},800);
-					setTimeout(function() {$("#regform").css('visibility','hidden')}, 800);
+					$("#regform").animate({'opacity':'0'}, 800, function(){
+						$("#regform").css('visibility','hidden').find('#regInputCountry').val('');
+						hideTip('#regInputCountry');
+					});
 					issignupclicked = false;	
 				}
 				else{
@@ -69,8 +75,10 @@ window.onload = function(){
 					$('#regInputPhone').focus();
 					issignupclicked = true;
 					//disapear login form
-					$("#loginform").animate({'opacity':'0'},800);
-					setTimeout(function() {$("#loginform").css('visibility','hidden')}, 800);
+					$("#loginform").animate({'opacity':'0'}, 800, function(){
+						$("#loginform").css('visibility','hidden').find('#countryField').val('');
+						hideTip( '#countryField' );
+					});
 					isloginclicked = false;
 				}
 			}
@@ -119,31 +127,19 @@ window.onload = function(){
 			function(){$(".liketooltip").find("span").css("z-index", "0").animate({opacity:'0'},600);}
 	);
 
-    $('#loginform').keypress(function(e) {
-        // Enter pressed?
-        if(e.keyCode == 10 || e.keyCode == 13) {
-            formhash(
-            	document.getElementById('userfield').value,
-				document.getElementById('passfield').value,
-				document.getElementById('countryField').value,
-				document.getElementById('loginform')
-			);
-        }
-    });
+   //  $('#loginform').keypress(function(e) {
+   //      // Enter pressed?
+   //      if(e.keyCode == 10 || e.keyCode == 13) {
+   //          formhash(
+   //          	document.getElementById('userfield').value,
+			// 	document.getElementById('passfield').value,
+			// 	document.getElementById('countryField').value,
+			// 	document.getElementById('loginform')
+			// );
+   //      }
+   //  });
 
-    $('#regform').keypress(function(e) {
-        // Enter pressed?
-        if(e.keyCode == 10 || e.keyCode == 13) {
-            regformhash(document.getElementById('regform'),
-						document.getElementById('regInputPhone'),
-					 	document.getElementById('email'),
-					 	document.getElementById('regpass'),
-					 	document.getElementById('regInputCountry'),
-					 	document.getElementById('name_reg')
-					 	);
-        }
-    });
-
+ 
     //pointerRelativeTooltip('#usernameLoginTooltip','#userfield',125,35);
     //pointerRelativeTooltip('#passLoginTooltip','#passfield',125,60);
 	$('#regsubmitbutton').click(function(){
@@ -472,7 +468,8 @@ function suggestCountries( elem, e ){
 	// position cret to the right of last letter always
 	//setCaretToPos ( $(elem), $(elem).val().length );
 	var unicode=e.keyCode? e.keyCode : e.charCode
-	if( (unicode > 37 && unicode < 41) || unicode == 13 || ( unicode > 32 && unicode < 37) ){ //if navigation buttons are pressed 
+	// (up=38), (right=39), (down=40), (enter=10,13), (pgup=33), (pgdn=34), (end=35), (home=36)
+	if( (unicode > 37 && unicode < 41) || unicode == 13 || unicode == 10 || ( unicode > 32 && unicode < 37) ){ //if navigation buttons are pressed 
 		if( unicode ==  33 ){ //if page up
 			for (var indx = 0; indx < 4; indx++ ){
 				navigateSuggested( 38 ); // simulate 4 time 'up arrrow' keystroke
@@ -485,7 +482,7 @@ function suggestCountries( elem, e ){
 			}
 			return;
 		}
-		navigateSuggested( unicode );
+		navigateSuggested( unicode ); // take action for up, down, right, home, end and enters
 		return;
 	}
 
@@ -501,17 +498,28 @@ function suggestCountries( elem, e ){
 		suggestBox.css('display','none');
 		$('#addConCCTip').prev().val('');
 		$('#addConCCTip').html('CC');
-		ipFiled.attr('preval',searchString);
+		ipFiled.attr('preval',searchString).attr('ready','no');
+		ipFiled.siblings().eq(2).removeClass('countryReady').removeClass('countryNotReady');
 		return;
 	}
 	else{
 		suggestBox.css('display','block');
 	}
-	if( result.length == 0 ){
 
+	if( result.length == 0 ){ // means no countries found
+		//check further if input text has only one possible outcome
+		result1 = searchString.match(/([a-zA-Z\s-_]+) /);
+		if( result1 != null ){
+			countryname = countrySuggest( result1[1].trim() )[0][0];
+			suggestBox.append('<div class="suggestedElem" id="selectedCountry" onclick=\'selectCountry('+'"'+countryname+'","'+countryToCC(countryname)+'", this);\' onmouseover=\'hoverSuggest(this);\'><p>'+countryname+' '+'(+'+countryToCC(countryname)+')</p></div>');			
+			ipFiled.attr('preval',searchString).attr('ready','no');
+			ipFiled.siblings().eq(2).removeClass('countryReady').addClass('countryNotReady');
+			return;
+		}
 		suggestBox.append('<div class="suggestedElem"><p>No such country</p></div>');
 		$('#addConCCTip').prev().val('');
 		$('#addConCCTip').html('CC');
+		//ipFiled.attr('preval',searchString).attr('ready','no');
 		return;
 	}
 	for ( var i=0; i < result.length; i++  ){
@@ -534,9 +542,12 @@ function selectCountry( country, cc , thisElem ){
 		var ccIpField = countryField.parent().next().children().eq(0);
 		ccIpField.val( '+'+cc );
 		$('#addConCCTip').html('');
+		countryField.attr('ready','yes');	
 		return;
 	}
 	countryField.val(country+' (+'+cc+')');
+	countryField.attr('ready','yes');
+	countryField.siblings().eq(2).removeClass('countryNotReady').addClass('countryReady');
 }
 function hoverSuggest(thisElem){
 	$('#selectedCountry').attr('id',''); // clear any previously highlighted country suggestion
@@ -544,7 +555,8 @@ function hoverSuggest(thisElem){
 }
 function navigateSuggested( unicode ){
 	var lastPos = $('.countrySuggBox').children().length; // get position of last element 
-	if( unicode == 38 && $('#selectedCountry').attr('pos') != "0" ){ 
+	
+	if( unicode == 38 && $('#selectedCountry').attr('pos') != "0" ){  // if 'up' is pressed and if first item not selected
 		$('#selectedCountry').attr('id','').prev().attr('id','selectedCountry');
 		if( parseInt( $('#selectedCountry').attr('pos') ) < (lastPos-5) ){
 			var grtr = (parseInt( $('#selectedCountry').attr('pos') - 2) );
@@ -552,7 +564,7 @@ function navigateSuggested( unicode ){
 		}
 		return;
 	}
-	if( unicode == 40 && parseInt($('#selectedCountry').attr('pos')) != lastPos-1 ){
+	if( unicode == 40 && parseInt($('#selectedCountry').attr('pos')) != lastPos-1 ){	// if 'down' is pressed and last item is not selected
 		$('#selectedCountry').attr('id','').next().attr('id','selectedCountry')
 		if( parseInt( $('#selectedCountry').attr('pos') ) > 4 ){
 			var grtr = parseInt( $('#selectedCountry').attr('pos') ) - 4;
@@ -560,17 +572,69 @@ function navigateSuggested( unicode ){
 		}
 		return;
 	}
-	if( unicode == 35 ){
+	if( unicode == 35 ){	// if 'end' is pressed 
 		$('#selectedCountry').attr('id','');
 		$("[pos="+(lastPos-1)+"]").attr('id','selectedCountry');
 		$('.countrySuggBox').scrollTop( lastPos*20 );
 		return;	
 	}
-	if( unicode == 36 ){
+	if( unicode == 36 ){ 	// if home is pressed
 		$('#selectedCountry').attr('id','');
 		$("[pos=0]").attr('id','selectedCountry');
 		$('.countrySuggBox').scrollTop( 0 );
 		return;	
 	}
 
+	if ( unicode == 13 || unicode == 10 ){ // if enter is pressed 
+		
+		var ipFiled = $('#selectedCountry').parent().parent().children().eq(0);
+		if( ipFiled.attr('ready') == 'yes' &&  ipFiled.attr('id') != 'countryName' ) {// if country field is ready for login
+			//login user here
+			if( ipFiled.attr('id') == 'countryField' ){ // if login form
+				formhash( 	document.getElementById('userfield').value,
+							document.getElementById('passfield').value,
+							extractCC( document.getElementById('countryField').value ),
+							document.getElementById('loginform')
+						);
+				return;
+			}
+			if( ipFiled.attr('id') == 'regInputCountry' ){ // if signup form
+				
+				regformhash(	document.getElementById('regform'),
+								document.getElementById('regInputPhone'),
+							 	document.getElementById('email'),
+							 	document.getElementById('regpass'),
+							 	document.getElementById('regInputCountry'),
+							 	document.getElementById('name_reg')
+					 		);
+			}
+
+			return;
+		}
+
+		if( ipFiled.attr('id') == 'countryName' && $('#countryCode').val() != '' ){ // if its about add contact form cc field is filled then add contact
+			addContact();
+		}
+		
+		// if first time enter is pressed select the highlighted list item and not login
+		if( $('#selectedCountry').length == 1 ){ // if any list item is highlighted 
+			var htmlval = $('#selectedCountry').html();
+			var countryName = htmlval.match(/([a-zA-Z\s-_]+) \(+/)[1];
+			var cc = htmlval.match(/\+([0-9]+)\)/)[1];
+			selectCountry( countryName, cc, '#selectedCountry' ); // selected the highlighted list item
+			$('#selectedCountry')
+			return;
+		}
+		
+	};
+
 }
+
+
+
+
+
+
+
+
+

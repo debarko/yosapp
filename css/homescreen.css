@@ -606,13 +606,24 @@ font-size: 13px;
   width: 35px;
   position: absolute;
   right: 6px;
-  bottom: 0px;
+  bottom: 32px;
+  background-repeat: no-repeat;
+  opacity: .8;
+}
+.countryReady{
+  background-image: url('../icons/check_20x20.png');
+  background-position: 9 2;
+}
+.countryNotReady{
+  background-image: url('../icons/x-icon_23x23.png');
+  background-position: 7 2;
 }
 
 /* alpha:n/a */
 #regFlag{
   right: 4px;
-  display: none
+  top: 0px;
+
 }
 
 #regCC{
