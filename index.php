@@ -4,12 +4,6 @@
 	require_once 'templates.php';
 
 	sec_session_start();
-	//Combines all files together
-	if(DEBUG){
-		exec("./tools/mergejs ./tools/merge_files/input.txt ./js/script.js");
-		exec("./tools/mergecss");
-	}
-	//tool to merge all code in one file
 	$logged_in = login_check($mysqli);	
 ?>
 

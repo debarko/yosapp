@@ -69,8 +69,6 @@ input[type=checkbox] {
 
 
 
-
-
 body{
   background-color:#2aB200;
 }
@@ -1460,8 +1458,6 @@ div.logintooltips span:after {
   margin-left: 85px;
 }
 
-
-
 #bodybg-chatroom{
 	background-color: white;
 }
@@ -1912,8 +1908,6 @@ right for horizontal bars) */
       background-color: rgba(124, 41, 41, 0);
 } /* if both the vertical and the horizontal bars appear, then perhaps
 the right bottom corner also needs to be styled */
-
-
 
 
 

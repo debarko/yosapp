@@ -14,7 +14,7 @@ merge_files () {
 		merge_file=$2;			
 
 			if [ -f $merge_file ] ; then
-				rm $merge_file;
+				rm -f $merge_file;
 			fi
 
 			header 'Merging js from "'$1'" begins' >> $merge_file;
@@ -59,7 +59,10 @@ echo '[COMPRESSION OK]';
 }
 
 #START
-rm ./js/script.min.js;
+if [ -f './js/script.min.js' ] ; then
+	echo 'Deleting Previous minified code';
+	rm -f './js/script.min.js';
+fi
 if [ $# -lt 2 ]; then
     echo '';
     echo '[HELP]';
