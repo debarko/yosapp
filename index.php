@@ -13,6 +13,11 @@
 	<head>
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 		<title>Yosapp</title>
+		<meta name="description" content="Yosapp brings the power of Whatsapp to desktop browsers. Whatsapp on web has never been easier.">
+		<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="keywords" content="Yosapp,Whatsapp on web, Whatsapp, Landline Whatsapp, Online messenger, Cross platform, Encrypted, Secure, Safe">
+		<meta name="author" content="Folks Freak">
 		<link rel="stylesheet" type="text/css" href="css/reset.css">		
 		<!--Assume that all the css files will be merged to one while running -->
 		<link rel="stylesheet" type="text/css" media="all" href="css/homescreen.css">
