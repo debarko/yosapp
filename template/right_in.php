@@ -49,7 +49,7 @@
 <div id="editContactForm" class="modalRightMasterDiv">
 	<div id="editContactHeader" class="modalRightHeader">EDIT CONTACTS</div>
 	<div class="inputFieldWraper" id="firstNameWrapper"><input id="contactFirstNameEdit" onkeyup="suggestNames(this.value); hideTip(this);" class="modalInputField" type="text" name="contactFirstName" value="" /><span class="inputFieldTip4Cont">Ex: Thomas matheson</span></div>
-	<div class="inputFieldWraper" id="firstNameList"></div>
+	<div class="inputFieldWraper countrySuggBox" id="firstNameList"></div>
 	<div id="phNumberWrapper" ><input id="phNumberEdit" class="modalInputField" type="text" name="phNumber" value="" /></div>
 	<div class="inputFieldWraper" id="countryNameWrapper" ><input id="countryNameEdit" class="modalInputField" type="text" name="countryName" value="" /></div>
 	<div class="inputFieldWraper" id="countryCodeWrapper" ><input id="countryCodeEdit" class="modalInputField" type="text" name="countryCode" value="" /></div>

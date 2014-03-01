@@ -123,7 +123,7 @@ function addContact(){
 				$(element).animate({opacity:opa2},ms,'swing');
 			});
 		}
-	}
+    }
 
 	//second part of the animation
 	function addedSuccessfullyAnimation(){
@@ -151,7 +151,9 @@ function addContact(){
 				glowLoop(3);
 				function glowLoop(times){
 					if(!times){
-						return;
+						// final state
+
+                        return;
 					}
 					$('#phonebookContainter').animate({opacity:'.3'},300,'swing',function(){
 						$('#phonebookContainter').animate({opacity:'.6'},300,'swing',function(){
@@ -166,8 +168,9 @@ function addContact(){
 }
 
 function addSearchElem(name, cc, phone){
-	var searchElem = '<div class="searchElem" onclick="fillEditContact(\''+name+'\','+cc+','+phone+')">'+name+' (+'+cc+'-'+phone+')</div>';
-	$('#firstNameList').append(searchElem);
+	var searchElem = '<div class="suggestedElem" onclick="fillEditContact(\''+name+'\','+cc+','+phone+')"><p>'+name+' (+'+cc+'-'+phone+')</p></div>';
+	$('#firstNameList').append(searchElem).css('display','block');
+
 }
 
 function fillEditContact(name, cc, phone){
@@ -189,9 +192,11 @@ function emptyEditContact(){
 function suggestNames(name){	
 	$('#firstNameList').html("");
 	if(name==""){
-		return false;
+		$('#firstNameList').css('display','none');
+        return false;
 	}
 	if($('#phNumberEdit').val()!=""){
+        $('#firstNameList').css('display','none');
 		return false;
 	}
 	var elements = findContactByName(name);
