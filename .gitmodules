@@ -1,6 +1,3 @@
 [submodule "js/library/notify"]
 	path = js/library/notify
 	url = https://github.com/alexgibson/notify.js
-[submodule "js/yosappjs"]
-	path = js/yosappjs
-	url = git@bitbucket.org:folks/yosappjs.git
