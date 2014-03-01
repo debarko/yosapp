@@ -217,16 +217,16 @@ function selectModalItem(item, thisElem){
 	//this function selects modal content. Ex : settings, add contacts etc
 	// disable all previously activated display forms 
 	$('.modalRightMasterDiv').css('display','none');
-	$('.modalMenuItem').css('background-color','');
+	$('.modalMenuItem').removeClass('selectedModalMenuItem');
 	// now selectively on whichever is requested
 	if (item == 'addCon'){
 		$('#addContactForm').css('display','block');
-		$('#modaladdContact').css('background-color','#2AB200');
+		$('#modaladdContact').addClass('selectedModalMenuItem');
 		return;
 	}
 	else if ( item == 'editProf'){
 		$('#editProfForm').css('display','block');
-		$('#modalEditProfile').css('background-color','#2AB200');
+		$('#modalEditProfile').addClass('selectedModalMenuItem');
 		// show current name in preview profile initially
 		$('#profPreviewName').html( $('#profilename').html() );
 		randomPicGen( $('#profPreviewPic'), $('#profilename').html() );
@@ -234,17 +234,17 @@ function selectModalItem(item, thisElem){
 	}
 	else if (item == 'feedback'){
 		$('#feedbackform').css('display','block');
-		$('#modalFeedback').css('background-color','#2AB200');
+		$('#modalFeedback').addClass('selectedModalMenuItem');
 		return;
 	}
 	else if (item == 'settings'){
 		$('#settingsForm').css('display','block');
-		$('#modalSettings').css('background-color','#2AB200');
+		$('#modalSettings').addClass('selectedModalMenuItem');
 		return;
 	}
 	else if (item == 'editCon'){
 		$('#editContactForm').css('display','block');
-		$('#modaleditContact').css('background-color','#2AB200');
+		$('#modaleditContact').addClass('selectedModalMenuItem');
 		var contact = $(thisElem).parent();
 		var name = contact.find('#name').html();
 		var number = contact.find('span').eq(3).attr('id');
@@ -259,32 +259,32 @@ function selectModalItem(item, thisElem){
 
 
 	else if (item == 'alpha'){
-		$('#modalMenuAlpha').css('background-color','#2AB200');
+		$('#modalMenuAlpha').addClass('selectedModalMenuItem');
 		$('#releaseHeader').html('Alpha Release');
 		$('#releaseVersionText').html('This is current version');
 		return;
 	}
 
 	else if (item == 'beta'){
-		$('#modalMenuBeta').css('background-color','#2AB200');
+		$('#modalMenuBeta').addClass('selectedModalMenuItem');
 		$('#releaseHeader').html('Beta Release');
 		$('#releaseVersionText').html('This version(Beta) will be released in april');
 		return;
 	}
 	else if (item == 'RC1'){
-		$('#modalMenuRC1').css('background-color','#2AB200');
+		$('#modalMenuRC1').addClass('selectedModalMenuItem');
 		$('#releaseHeader').html('RC1 Release');
 		$('#releaseVersionText').html('This version(RC1) will be released in july');
 		return;
 	}
 	else if (item == 'dev'){
-		$('#modalMenuDevlopers').css('background-color','#2AB200');
+		$('#modalMenuDevlopers').addClass('selectedModalMenuItem');
 		$('#releaseHeader').html('About Developers');
 		$('#releaseVersionText').html('Front End: Tuhin Sengupta</br>Back End: Debarko De </br> Graphic Designer: Subho Saha');
 		return;
 	}
 	else if (item == 'vision'){
-		$('#modalMenuVesion').css('background-color','#2AB200');
+		$('#modalMenuVesion').addClass('selectedModalMenuItem');
 		$('#releaseHeader').html('Our vision');
 		$('#releaseVersionText').html('We believe: human knowledge belongs to the world. ');
 		return;
