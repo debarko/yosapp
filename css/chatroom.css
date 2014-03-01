@@ -178,6 +178,9 @@
 	display: inline-block;
 	color: rgba(40, 48, 38, 0.77);
 	font-size: 13px;
+	max-width: 130px;
+	height: 13px;
+	overflow: hidden;
 }
 
 .contact #unreadMsgCnt{
