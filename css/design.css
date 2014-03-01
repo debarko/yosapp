@@ -677,13 +677,24 @@ font-size: 13px;
   width: 35px;
   position: absolute;
   right: 6px;
-  bottom: 0px;
+  bottom: 32px;
+  background-repeat: no-repeat;
+  opacity: .8;
+}
+.countryReady{
+  background-image: url('../icons/check_20x20.png');
+  background-position: 9 2;
+}
+.countryNotReady{
+  background-image: url('../icons/x-icon_23x23.png');
+  background-position: 7 2;
 }
 
 /* alpha:n/a */
 #regFlag{
   right: 4px;
-  display: none
+  top: 0px;
+
 }
 
 #regCC{
@@ -815,8 +826,7 @@ div.logintooltips span:after {
   border-radius: 2px;
   visibility: hidden;
 }
-#errorMsgBox:after{
-  content: "";
+#errorMsgBoxArrow{
   display: inline-block;
   position: absolute;
   right: -20px;
@@ -1638,6 +1648,9 @@ div.logintooltips span:after {
 	display: inline-block;
 	color: rgba(40, 48, 38, 0.77);
 	font-size: 13px;
+	max-width: 130px;
+	height: 13px;
+	overflow: hidden;
 }
 
 .contact #unreadMsgCnt{
@@ -1971,9 +1984,41 @@ the right bottom corner also needs to be styled */
 	padding: 13;
 	text-indent: 15;
 }
-.modalMenuItem:hover{
+.modalMenuItem:hover {
 	background-color: #2AB200;
+	z-index: 1;
+	width: 101%;
 }
+.selectedModalMenuItem{
+	background-color: #2AB200;
+	z-index: 1;
+	width: 101%;
+}
+.selectedModalMenuItem:before{
+	content: '';
+	position: absolute;
+	width: 99%;
+	height: 1px;
+	background-color: white;
+	background: -webkit-linear-gradient(left, transparent, white, white);
+	background: -moz-linear-gradient(left, transparent, white, white);
+	background: -o-linear-gradient(left, transparent, white, white);
+	opacity: .6;
+
+}
+.selectedModalMenuItem:after{
+	content: '';
+	position: absolute;
+	margin: -3 0 0 0;
+	width: 99%;
+	height: 1px;
+	background-color: white;
+	background: -webkit-linear-gradient(left, transparent, white, white);
+	background: -moz-linear-gradient(left, transparent, white, white);
+	background: -o-linear-gradient(left, transparent, white, white);
+	opacity: .6;
+}
+
 .modalMenuHeader{
 	margin: 35 0 0 0;
 }
@@ -1993,13 +2038,24 @@ the right bottom corner also needs to be styled */
     background: -webkit-linear-gradient(left, #59C238, white, #59C238);
     background: -moz-linear-gradient(left, #59C238, white, #59C238);
     background: -o-linear-gradient(left, #59C238, white, #59C238);
+    display: none;	
 }
 #modalRightPanel{
 	display: inline-block;
 	height: 100%;
 	width: 430px
 }
-
+#modalRightPanel:before{
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 1px;
+	background-color: rgba(255, 255, 255, 0.47);
+	background: -webkit-linear-gradient(top, #2AB200, white, white,white, #2AB200);
+	background: -moz-linear-gradient(top, #2AB200, white, white,white, #2AB200);
+	background: -o-linear-gradient(top, #2AB200, white, white,white, #2AB200);
+	opacity: .6;
+}
 
 
 /* modal right panel for add contacts */
@@ -2034,11 +2090,12 @@ the right bottom corner also needs to be styled */
 	width: 250px;
 }
 .inputFieldTip4Cont{
+	position: absolute;
 	color: black;
 	opacity: 1;
 	left: 20px;
 	margin: 25 0 0 0;
-	font-size: 11px;
+	font-size: 12px;
 	z-index: -1;
 }
 #AddConLNameTip{
@@ -2322,6 +2379,19 @@ the right bottom corner also needs to be styled */
 	left: -68px;
 }
 
+.switchWrapper{
+	background-color: transparent;
+}
+.slider{
+	background-color: transparent;
+}
+.slider:after{
+	content: ''	;
+}
+.slider:before{
+	content: ''	;
+}
+
 .underDevIcon{
 	height: 55px;
 	width: 54px;
@@ -2339,6 +2409,9 @@ the right bottom corner also needs to be styled */
 	position: relative;
 	top: -30;
 }
+
+/*edit contact*/
+
 .searchElem {
 	color: #FFFFFF;
 	padding: 5px 5px;
@@ -2349,12 +2422,15 @@ the right bottom corner also needs to be styled */
 	background-color: rgba(255, 255, 255, 0.2);
 }
 #firstNameList{
-	background-color: rgba(0, 0, 0, 0.73);
+	width: 250px;
+/*	background-color: rgba(0, 0, 0, 0.73);
 	position: absolute;
 	overflow-y: auto;
 	overflow-x: hidden;
-	max-height: 100px;
+	max-height: 100px;*/
 }
+
+
 /*Edit contact*/
 #deleteButton{
 	float: right;
