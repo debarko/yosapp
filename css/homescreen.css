@@ -755,8 +755,7 @@ div.logintooltips span:after {
   border-radius: 2px;
   visibility: hidden;
 }
-#errorMsgBox:after{
-  content: "";
+#errorMsgBoxArrow{
   display: inline-block;
   position: absolute;
   right: -20px;

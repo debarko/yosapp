@@ -189,8 +189,27 @@ function hideTip(ele) {
 
 
 // function that pops up error msg
-function dispErrMsg(msg) {
+function dispErrMsg(msg, callingForm) {
 	var dialogueBox = $('#errorMsgBox'); 
+	
+	// adjust arrow direction and close button position based on calling Form
+	if( callingForm == 'login'){
+		$('#errorMsgBoxArrow').css({
+			'border-right': '20px solid rgba(255, 255, 255, 0.19)',
+			'border-left': '0px',
+			left: '-20px'
+		});
+		$('#closeErrMsgBox').css('left','235px');
+	}
+	else if( callingForm == 'reg' ){
+		$('#errorMsgBoxArrow').css({
+			'border-right': '',
+			'border-left': '',
+			left: ''
+		});
+		$('#closeErrMsgBox').css('left','');	
+	}
+
 	// check and see if the Dialogue box is on 
 	if ( dialogueBox.css('visibility') == "hidden" ) {
 		dialogueBox.css('opacity','0');

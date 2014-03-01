@@ -453,6 +453,19 @@
 	left: -68px;
 }
 
+.switchWrapper{
+	background-color: transparent;
+}
+.slider{
+	background-color: transparent;
+}
+.slider:after{
+	content: ''	;
+}
+.slider:before{
+	content: ''	;
+}
+
 .underDevIcon{
 	height: 55px;
 	width: 54px;
@@ -470,6 +483,9 @@
 	position: relative;
 	top: -30;
 }
+
+/*edit contact*/
+
 .searchElem {
 	color: #FFFFFF;
 	padding: 5px 5px;

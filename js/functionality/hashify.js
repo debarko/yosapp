@@ -20,7 +20,7 @@ function formhash(username, password, cc, form) {
                 log_in_user();
             }
             else {
-                dispErrMsg(response.reason);
+                dispErrMsg(response.reason, 'login');
                 if(form){
                     form.reset();
                 }
@@ -40,7 +40,7 @@ function regformhash(form, uid, email, password, cc, name) {
           name.value == '') {
  
         //alert('You must provide all the requested details. Please try again');
-        dispErrMsg('You must provide all the requested details. Please try again');
+        dispErrMsg('You must provide all the requested details. Please try again', 'reg');
         return false;
     }
  
@@ -49,7 +49,7 @@ function regformhash(form, uid, email, password, cc, name) {
     re = /^\w+$/; 
     if(!re.test(form.username.value)) { 
         //alert("Usernames may contain only digits along with country code");
-        dispErrMsg('Usernames may contain only digits along with country code');
+        dispErrMsg('Usernames may contain only digits along with country code', 'reg');
         form.username.focus();
         return false; 
     }
@@ -59,7 +59,7 @@ function regformhash(form, uid, email, password, cc, name) {
     // specific guidance to the user
     if (password.value.length < 6) {
         //alert('Passwords must be at least 6 characters long.  Please try again');
-        dispErrMsg('Passwords must be at least 6 characters long.  Please try again');
+        dispErrMsg('Passwords must be at least 6 characters long.  Please try again', 'reg');
         form.password.focus();
         return false;
     }
@@ -70,13 +70,13 @@ function regformhash(form, uid, email, password, cc, name) {
     var re = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/; 
     if (!re.test(password.value)) {
         //alert('Passwords must contain at least one number, one lowercase and one uppercase letter.  Please try again');
-        dispErrMsg('Passwords must contain at least one number, one lowercase and one uppercase letter.  Please try again');
+        dispErrMsg('Passwords must contain at least one number, one lowercase and one uppercase letter.  Please try again', 'reg');
         return false;
     }
  
     if (!checkEmail(email.value)) {
         //alert('Your email is not a valid address. Please try again');
-        dispErrMsg('Your email is not a valid address. Please try again');
+        dispErrMsg('Your email is not a valid address. Please try again', 'reg');
         form.email.focus();
         return false;
     }
@@ -99,16 +99,16 @@ function regformhash(form, uid, email, password, cc, name) {
                                   document.getElementById('regpass').value,
                                   extractCC( document.getElementById('regInputCountry').value )
                         );
-                dispErrMsg("You have successfully registered. Logging you in...");
+                dispErrMsg("You have successfully registered. Logging you in...", 'reg');
                 document.getElementById('regform').reset();
                 $("#regform").animate({'opacity':'0'},800);
                 setTimeout(function() {$("#regform").css('visibility','hidden')}, 800);
             } else {
-                dispErrMsg(response);
+                dispErrMsg(response, 'reg');
             }
         })
         .fail(function(response) {
-            dispErrMsg("Something went wrong, please refresh the page and try again.");
+            dispErrMsg("Something went wrong, please refresh the page and try again.", 'reg');
             return false;
         });    
 }
