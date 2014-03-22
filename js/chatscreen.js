@@ -152,15 +152,11 @@ function setTimeStamp(id, timestamp){
 	$("#"+id+" > #mother_div > #sent_recv > #timestamp").html(timestamp);
 }
 
-function showFullImage(url){
-	window.open(url);
-}
-
 function setImg(id, message){
 	var dataInHere = message.slice(message.indexOf("preview:")+8);
 	dataInHere = dataInHere.slice(0,dataInHere.length-1);
 	var url = message.slice(message.indexOf("[ image: ")+9, message.indexOf(", preview:"));
-	message = "<img src=\"data:image/jpg;base64,"+dataInHere+"\" width=\"150\" height=\"150\" onclick=\"showFullImage(\""+url+"\")\" />"
+	message = "<img src=\"data:image/jpg;base64,"+dataInHere+"\" width=\"150\" height=\"150\" onclick='loadMediaURL(\""+encodeURIComponent(url)+"\")' />"
 	$("#"+id+" > #mother_div > #sent_recv > .textbox").html(message+$("#"+id+" > #mother_div > #sent_recv > .textbox").html());
 }
 
@@ -725,4 +721,24 @@ function renderSearchedContact(){
     		}
 		});
 	}
+}
+
+function loadMediaURL(url){
+	url = decodeURIComponent(url);
+	console.log(url);
+	$('#mediaDisplay #displayContent').html('<img src="'+url+'" />');
+	showMediaDisplay();
+}
+
+function showMediaDisplay(){
+	showOverlay();
+	$('#mediaDisplay').css({display: "block"});
+}
+
+function closeMediaDisplay(){
+	closeOverlay();
+	$('#mediaDisplay').css({
+		display: "none",
+	});
+	$('#mediaDisplay #displayContent').html("<center>Loading</center>");
 }
