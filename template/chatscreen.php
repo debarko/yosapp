@@ -29,4 +29,7 @@
 		<div id="sendbutton" onclick='javascript:sendMyMsg($("#typemsg").val()); autoScrollDown(); $("#typemsg").focus();' onmouseover='showPointerOnHover(this);'></div>
 	</div>
 </div>
-<div id="mediaDisplay"><span id="modalCloseButton" onclick="closeMediaDisplay();" style="visibility: visible;"></span><center><div id="displayContent">Loading</div></center></div>
+<div id="mediaDisplay">
+	<span id="modalCloseButton" onclick="closeMediaDisplay();"></span>
+	<div id="displayContent">Loading</div>
+</div>

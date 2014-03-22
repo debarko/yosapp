@@ -726,7 +726,10 @@ function renderSearchedContact(){
 function loadMediaURL(url){
 	url = decodeURIComponent(url);
 	console.log(url);
+	var img = new Image();
+	img.src = url
 	$('#mediaDisplay #displayContent').html('<img src="'+url+'" />');
+	$('#mediaDisplay').css({height: img.height+'px', width: img.width+'px'})
 	showMediaDisplay();
 }
 

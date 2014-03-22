@@ -413,7 +413,7 @@
 }
 
 #mediaDisplay {
-	background-color: #2aB200;
+	background-color: rgba(179, 179, 179, 0.5);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -423,14 +423,11 @@
 	z-index: 1000;
 	display: none;
 	padding: 10px;
-	-moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  border: 1px;
-  max-width: 500px;
-	max-height: 500px;
+	border-radius: 5px;
+	border: 1px;
+	width: 200px;
+	height: 40px;
 }
-
 #mediaDisplay #displayContent{
 	position: absolute;
 	top: 0;
@@ -438,8 +435,8 @@
 	right: 0;
 	bottom: 0;
 	margin: auto;
+	border-radius: 5px;
 }
-
 #mediaDisplay span{
 	z-index: 2;
 }
