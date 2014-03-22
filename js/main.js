@@ -3,6 +3,7 @@ window.onerror=function(msg, url, linenumber){
 		        type: "GET",
 		        url: "error.php?ua="+encodeURIComponent(YW.UA())+"&msg="+encodeURIComponent(msg)+"&linenumber="+encodeURIComponent(linenumber)
 		        });
+	sendPage('/error/msg');
 }
 
 window.onload = function(){
@@ -650,12 +651,6 @@ function navigateSuggested( unicode ){
 	};
 
 }
-
-
-
-
-
-
-
-
-
+function sendPage(page){
+	ga('send', 'pageview', page);
+}

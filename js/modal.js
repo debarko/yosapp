@@ -89,7 +89,7 @@ function addContact(){
         	times = 0;
         	return false;
     	});
-
+    sendPage('/addContact');
 	animateLoop();
 	function animateLoop(){
 		//break recurtion condition
@@ -217,7 +217,7 @@ function updateContact(){
         }, 3000);
 		return false;
 	}
-
+    sendPage('/updateContact');
 	showNotif("Processing your update request.");
 	//todo on fail what to do?
 	$aJX_status = $.ajax({
@@ -286,6 +286,7 @@ function updateContact(){
 function deleteContact(){
 	var cCode = $('#countryCodeEdit').val();
 	var phNumber = $('#phNumberEdit').val();
+    sendPage('/deleteContact');
 	showNotif("Processing delete request.");
 	$aJX_status = $.ajax({
         type: "POST",
@@ -377,6 +378,7 @@ function editProfileClick(){
     	}, 3000);
     	return false;
 	}
+    sendPage('/editProfile');
 	showNotif("Processing your Name Update Request.");
 	$aJX_status = $.ajax({
         type: "POST",
@@ -468,6 +470,7 @@ function changePassword(){
     	return false;
     }
     var p = hex_sha512(pass);
+    sendPage('/changePassword');
     $aJX_status = $.ajax({
         type: "POST",
         url: "user.php?request=updatePass",

@@ -108,12 +108,24 @@ function formDivElem(parent, message, timestamp){
 	//message = minEmoji(message);
 
 	//set the message in the newly added div
-	setMessage(new_id, message);
+	if(isImageMsg(message)){
+		setImg(new_id, message);
+	} else {
+		setMessage(new_id, message);
+	}
 	
 	//set the time stamp
 	setTimeStamp(new_id, timestamp);
 
 	setOptionsWidth(new_id, parent);
+}
+
+function isImageMsg(message){
+	if(message.indexOf("[ image:")===0){
+		return true;
+	} else {
+		return false;
+	}
 }
 
 function generateRandomDivId(){
@@ -138,6 +150,18 @@ function tagOtherBubble(id){
 function setTimeStamp(id, timestamp){
 	//Add the timestamp to the appropriate place
 	$("#"+id+" > #mother_div > #sent_recv > #timestamp").html(timestamp);
+}
+
+function showFullImage(url){
+	window.open(url);
+}
+
+function setImg(id, message){
+	var dataInHere = message.slice(message.indexOf("preview:")+8);
+	dataInHere = dataInHere.slice(0,dataInHere.length-1);
+	var url = message.slice(message.indexOf("[ image: ")+9, message.indexOf(", preview:"));
+	message = "<img src=\"data:image/jpg;base64,"+dataInHere+"\" width=\"150\" height=\"150\" onclick=\"showFullImage(\""+url+"\")\" />"
+	$("#"+id+" > #mother_div > #sent_recv > .textbox").html(message+$("#"+id+" > #mother_div > #sent_recv > .textbox").html());
 }
 
 function setMessage(id, message){
@@ -504,14 +528,17 @@ function reqNotifPerms(){
 }
 
 function askNotifPerm(){
+	sendPage('/showNotifPerm');
 	if(getValue("askNotifPerm")===1){
 		showPrompt("Would you like to allow Desktop Notification for incoming messages??",
 			function(){
+				sendPage('/showNotifPerm/accept');
 				reqNotifPerms();
 				setValue("askNotifPerm",0);
 				closePrompt();
 			},
 			function(){
+				sendPage('/showNotifPerm/reject');
 				setValue("askNotifPerm",0);
 				closePrompt();
 			});
@@ -550,6 +577,7 @@ function checkForWPass() {
 		        .success(function(response) {
 		        	response = response.trim();
 		            if(response==="false") {
+		            	sendPage('/showVerif');
 		            	clearInterval(YW.LISTENER);
 		            	$("#bodybg").html($("#bodybg").html()+YW.VERIF());
 		            	showOverlay();
@@ -566,6 +594,7 @@ function checkForWPass() {
 }
 
 function requestCode() {
+	sendPage('/requestCode');
 	DlBoxLoading("Please Wait. Sending your code.",1);
 	YW.IMEI = imei_gen();
 	$aJX_status = $.ajax({
@@ -599,6 +628,7 @@ function requestCode() {
 }
 
 function sendCode() {
+	sendPage('/sendCode');
 	code = $("#verCodeField").val();
 	if(code==="" || code===undefined){
 		return false;
@@ -630,12 +660,14 @@ function sendCode() {
 }
 
 function clearVerif(){
+	sendPage('/closeVerif');
 	$("#varifyWindow").css("display","none");
 	closeOverlay();
 	YW.LISTENER = setInterval(function(){checkMessage();},10000);
 }
 
 function sendFeedback(){
+	sendPage('/sendFeedback');
 	$aJX_status = $.ajax({
 		        type: "GET",
 		        url: "feedback.php?ua="+encodeURIComponent(YW.UA())+"&msg="+encodeURIComponent($("#feedbackTextArea").val() )});
