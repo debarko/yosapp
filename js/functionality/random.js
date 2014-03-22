@@ -19,10 +19,10 @@ function log_in_user() {
 	sendPage('/login');
 	YW.logged_in = function() { return 'true'; };
 	YW.LISTENER = setInterval(function(){checkMessage();},10000);
-	checkForWPass();
 	getkeyVal();
 	maximize(YW.CHATSCREEN()+YW.MODAL(), function(){
 		//Fetch Friends from Server
+		checkForWPass();
 		getFriends();
 		//Focus the messege enter bar
 		$('#typemsg').focus();
