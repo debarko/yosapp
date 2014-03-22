@@ -524,8 +524,8 @@ function reqNotifPerms(){
 }
 
 function askNotifPerm(){
-	sendPage('/showNotifPerm');
 	if(getValue("askNotifPerm")===1){
+		sendPage('/showNotifPerm');
 		showPrompt("Would you like to allow Desktop Notification for incoming messages??",
 			function(){
 				sendPage('/showNotifPerm/accept');
