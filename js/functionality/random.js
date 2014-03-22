@@ -16,6 +16,7 @@ function maximize(html_val, callback){
 
 //Logs in a user upon successful login
 function log_in_user() {
+	sendPage('/login');
 	YW.logged_in = function() { return 'true'; };
 	YW.LISTENER = setInterval(function(){checkMessage();},10000);
 	getkeyVal();
