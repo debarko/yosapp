@@ -427,6 +427,8 @@
 	border: 1px;
 	width: 200px;
 	height: 40px;
+	max-width: 500px;
+	max-height: 500px;
 }
 #mediaDisplay #displayContent{
 	position: absolute;
@@ -437,7 +439,13 @@
 	margin: auto;
 	border-radius: 5px;
 }
+#mediaDisplay .mediaLoading{
+	position: absolute;
+	top: 20;
+	left: 80;
+}
 #mediaDisplay span{
+	cursor: pointer;
 	z-index: 2;
 }
 
@@ -451,7 +459,11 @@
 	max-width: 500px;
 	max-height: 500px;
 }
-
+.imgThumb{
+	min-height: 130px;
+	min-width: 130px;
+	cursor: pointer;
+}
 #msgtypebar{
 	width: 80%;
 	float: left;

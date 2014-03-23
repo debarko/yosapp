@@ -156,7 +156,7 @@ function setImg(id, message){
 	var dataInHere = message.slice(message.indexOf("preview:")+8);
 	dataInHere = dataInHere.slice(0,dataInHere.length-1);
 	var url = message.slice(message.indexOf("[ image: ")+9, message.indexOf(", preview:"));
-	message = "<img src=\"data:image/jpg;base64,"+dataInHere+"\" width=\"150\" height=\"150\" onclick='loadMediaURL(\""+encodeURIComponent(url)+"\")' />"
+	message = "<img class=\"imgThumb\" src=\"data:image/jpg;base64,"+dataInHere+"\" onclick='loadMediaURL(\""+encodeURIComponent(url)+"\")' />"
 	$("#"+id+" > #mother_div > #sent_recv > .textbox").html(message+$("#"+id+" > #mother_div > #sent_recv > .textbox").html());
 }
 
@@ -727,9 +727,13 @@ function loadMediaURL(url){
 	url = decodeURIComponent(url);
 	console.log(url);
 	var img = new Image();
-	img.src = url
-	$('#mediaDisplay #displayContent').html('<img src="'+url+'" />');
-	$('#mediaDisplay').css({height: img.height+'px', width: img.width+'px'})
+	img.src = url;
+	img.onload = function(){
+		$('#mediaDisplay #displayContent').html(img);
+		var width = $('#displayContent img').width();
+		var height = $('#displayContent img').height();
+		$('#mediaDisplay').css({height: height+'px', width: width+'px'});
+	}
 	showMediaDisplay();
 }
 
@@ -742,6 +746,8 @@ function closeMediaDisplay(){
 	closeOverlay();
 	$('#mediaDisplay').css({
 		display: "none",
+		width: "200px",
+		height: "40px"
 	});
-	$('#mediaDisplay #displayContent').html("<center>Loading</center>");
+	$('#mediaDisplay #displayContent').html("<div class=\"mediaLoading\">Loading</div>");
 }

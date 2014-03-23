@@ -31,5 +31,7 @@
 </div>
 <div id="mediaDisplay">
 	<span id="modalCloseButton" onclick="closeMediaDisplay();"></span>
-	<div id="displayContent">Loading</div>
+	<div id="displayContent">
+		<div class="mediaLoading">Loading</div>
+	</div>
 </div>
