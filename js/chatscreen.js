@@ -108,8 +108,10 @@ function formDivElem(parent, message, timestamp){
 	//message = minEmoji(message);
 
 	//set the message in the newly added div
-	if(isImageMsg(message)){
+	if(isImageMsg(message)) {
 		setImg(new_id, message);
+	} else if(isVideoMsg(message)) {
+		setVid(new_id, message);
 	} else {
 		setMessage(new_id, message);
 	}
@@ -118,6 +120,14 @@ function formDivElem(parent, message, timestamp){
 	setTimeStamp(new_id, timestamp);
 
 	setOptionsWidth(new_id, parent);
+}
+
+function isVideoMsg(message){
+	if(message.indexOf("[ video:")===0){
+		return true;
+	} else {
+		return false;
+	}
 }
 
 function isImageMsg(message){
@@ -156,7 +166,15 @@ function setImg(id, message){
 	var dataInHere = message.slice(message.indexOf("preview:")+8);
 	dataInHere = dataInHere.slice(0,dataInHere.length-1);
 	var url = message.slice(message.indexOf("[ image: ")+9, message.indexOf(", preview:"));
-	message = "<img class=\"imgThumb\" src=\"data:image/jpg;base64,"+dataInHere+"\" onclick='loadMediaURL(\""+encodeURIComponent(url)+"\")' />"
+	message = "<img class=\"imgThumb\" src=\"data:image/jpg;base64,"+dataInHere+"\" onclick='loadMediaURL(\""+encodeURIComponent(url)+"\", \"image\")' />"
+	$("#"+id+" > #mother_div > #sent_recv > .textbox").html(message+$("#"+id+" > #mother_div > #sent_recv > .textbox").html());
+}
+
+function setVid(id, message){
+	var dataInHere = message.slice(message.indexOf("preview:")+8);
+	dataInHere = dataInHere.slice(0,dataInHere.length-1);
+	var url = message.slice(message.indexOf("[ video: ")+9, message.indexOf(", preview:"));
+	message = "<img class=\"imgThumb\" src=\"data:image/jpg;base64,"+dataInHere+"\" onclick='loadMediaURL(\""+encodeURIComponent(url)+"\", \"video\")' />"
 	$("#"+id+" > #mother_div > #sent_recv > .textbox").html(message+$("#"+id+" > #mother_div > #sent_recv > .textbox").html());
 }
 
@@ -414,7 +432,13 @@ function processMessage(responseJSON) {
 		}
 		YW.DATA[item[0]].messages.list.push([item[2],1]);
 		if(item[0]!=='0server' && !document.hasFocus()){
-			notify(YW.DATA[item[0]].name+' ('+item[0]+')', item[2]);
+			var messageHere = decodeURIComponent(item[2]);
+			if(isImageMsg( messageHere )){
+				messageHere = "Sent you an Image."
+			} else if (isVideoMsg( messageHere )){
+				messageHere = "Sent you a Video."
+			}
+			notify(YW.DATA[item[0]].name+' ('+item[0]+')', messageHere);
 		}
 	});
 	renderCurrent();
@@ -723,18 +747,65 @@ function renderSearchedContact(){
 	}
 }
 
-function loadMediaURL(url){
+function loadMediaURL(url, type){
 	url = decodeURIComponent(url);
 	console.log(url);
-	var img = new Image();
-	img.src = url;
-	img.onload = function(){
-		$('#mediaDisplay #displayContent').html(img);
-		var width = $('#displayContent img').width();
-		var height = $('#displayContent img').height();
-		$('#mediaDisplay').css({height: height+'px', width: width+'px'});
+	if(type === "image"){
+		var img = new Image();
+		img.src = url;
+		img.onload = function(){
+			$('#mediaDisplay #displayContent').html(img);
+			var width = $('#displayContent img').width();
+			var height = $('#displayContent img').height();
+			$('#mediaDisplay').css({height: height+'px', width: width+'px'});
+		}
+	} else if(type === "video"){
+		$('#mediaDisplay').css({height: 460+'px', width: 618+'px', "max-width": 700+'px'});
+		$('#mediaDisplay #displayContent').html('<video src="'+ url +'" width="640" height="480"></video>');
+		$('video').mediaelementplayer({
+		    // if the <video width> is not specified, this is the default
+		    defaultVideoWidth: 640,
+		    // if the <video height> is not specified, this is the default
+		    defaultVideoHeight: 480,
+		    // if set, overrides <video width>
+		    videoWidth: -1,
+		    // if set, overrides <video height>
+		    videoHeight: -1,
+		    // width of audio player
+		    audioWidth: 400,
+		    // height of audio player
+		    audioHeight: 30,
+		    // initial volume when the player starts
+		    startVolume: 1.0,
+		    // useful for <audio> player loops
+		    loop: false,
+		    // enables Flash and Silverlight to resize to content size
+		    enableAutosize: true,
+		    // the order of controls you want on the control bar (and other plugins below)
+		    features: ['playpause','progress','current','duration','volume','fullscreen'],
+		    // Hide controls when playing and mouse is not over the video
+		    alwaysShowControls: false,
+		    // force iPad's native controls
+		    iPadUseNativeControls: false,
+		    // force iPhone's native controls
+		    iPhoneUseNativeControls: false, 
+		    // force Android's native controls
+		    AndroidUseNativeControls: false,
+		    // forces the hour marker (##:00:00)
+		    alwaysShowHours: false,
+		    // show framecount in timecode (##:00:00:00)
+		    showTimecodeFrameCount: false,
+		    // used when showTimecodeFrameCount is set to true
+		    framesPerSecond: 25,
+		    // turns keyboard support on and off for this instance
+		    enableKeyboard: true,
+		    // when this player starts, it will pause other players
+		    pauseOtherPlayers: true,
+		    // array of keyboard commands
+		    keyActions: []
+		});
 	}
-	showMediaDisplay();
+		showMediaDisplay();
 }
 
 function showMediaDisplay(){
@@ -747,7 +818,8 @@ function closeMediaDisplay(){
 	$('#mediaDisplay').css({
 		display: "none",
 		width: "200px",
-		height: "40px"
+		height: "40px",
+		"max-width": '500px'
 	});
 	$('#mediaDisplay #displayContent').html("<div class=\"mediaLoading\">Loading</div>");
 }
