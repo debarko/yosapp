@@ -1,0 +1,14 @@
+{
+  "version": "0.1",
+  "name": "Yosapp",
+  "description": "Whatsapp Client for Desktop",
+  "developer": {
+    "name": "Folks Freak",
+    "url": "http://folksfreak.com"
+  },
+  "default_locale": "en",
+  "icons": {
+    "60": "/icons/logos/logo_60.png",
+    "128": "/icons/logos/logo_128.png"
+  }
+}
