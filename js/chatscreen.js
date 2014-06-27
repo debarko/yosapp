@@ -299,33 +299,38 @@ function selectModalItem(item, thisElem){
 	else if (item == 'alpha'){
 		$('#modalMenuAlpha').addClass('selectedModalMenuItem');
 		$('#releaseHeader').html('Alpha Release');
-		$('#releaseVersionText').html('This is current version');
-		return;
+		$('#releaseVersionText').html(
+			'Current Version:<br />Highly possible that it will be buggy.<br />'+
+			'We are working to fix a lot. But it is too soon to say it is complete. No group support.<br />'+
+			'<br />'+
+			'1. Basic Messaging with Phone Numbers<br />'+
+			'2. Image Receival<br />'+
+			'3. Video Receival<br />'+
+			'4. Adding of new Friends<br />'+
+			'5. Deleting Friends<br />'+
+			'6. Editing Friends<br />'+
+			'7. Connecting with Whatsapp Servers');
 	}
-
 	else if (item == 'beta'){
 		$('#modalMenuBeta').addClass('selectedModalMenuItem');
 		$('#releaseHeader').html('Beta Release');
-		$('#releaseVersionText').html('This version(Beta) will be released in april');
-		return;
+		$('#releaseVersionText').html('This version will have mobile UI.');
 	}
 	else if (item == 'RC1'){
 		$('#modalMenuRC1').addClass('selectedModalMenuItem');
-		$('#releaseHeader').html('RC1 Release');
-		$('#releaseVersionText').html('This version(RC1) will be released in july');
-		return;
+		$('#releaseHeader').html('Stable Release');
+		$('#releaseVersionText').html('We are planning on a week per so saying anything about this is too far fetched.');
 	}
 	else if (item == 'dev'){
 		$('#modalMenuDevlopers').addClass('selectedModalMenuItem');
-		$('#releaseHeader').html('About Developers');
-		$('#releaseVersionText').html('Front End: Tuhin Sengupta</br>Back End: Debarko De </br> Graphic Designer: Subho Saha');
-		return;
+		$('#releaseHeader').html('Open Source');
+		$('#releaseVersionText').html('This is an Open Source Project and is based on Tarek Galal\'s Yowsup Project.<br />'+
+			'If you want the code for the project, then contact at support@yosapp.com');
 	}
 	else if (item == 'vision'){
 		$('#modalMenuVesion').addClass('selectedModalMenuItem');
 		$('#releaseHeader').html('Our vision');
-		$('#releaseVersionText').html('We believe: human knowledge belongs to the world. ');
-		return;
+		$('#releaseVersionText').html('We believe: Human knowledge belongs to the world.<br/><br />Messages which are typed in the user data are not stored on Yosapp servers and they are directly forwarded to Whatsapp servers. We are just storing the username, password for your Yosapp account and the list of friends with whom you are connected at this moment. This app is an UNOFFICIAL client born out of necessity and require. It also allows landline users to connect to Whatsapp network through the portal.');
 	}
 
 
