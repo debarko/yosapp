@@ -325,7 +325,7 @@ function selectModalItem(item, thisElem){
 		$('#modalMenuDevlopers').addClass('selectedModalMenuItem');
 		$('#releaseHeader').html('Open Source');
 		$('#releaseVersionText').html('This is an Open Source Project and is based on Tarek Galal\'s Yowsup Project.<br />'+
-			'If you want the code for the project, then contact at support@yosapp.com');
+			'If you want the code for the project, then contact us at support@yosapp.com');
 	}
 	else if (item == 'vision'){
 		$('#modalMenuVesion').addClass('selectedModalMenuItem');
