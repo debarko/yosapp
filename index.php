@@ -77,6 +77,7 @@
 			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 			ga('create', 'UA-48289387-1', 'yosapp.com');
 			ga('require', 'linkid', 'linkid.js');
+			ga('require', 'displayfeatures');
 			ga('send', 'pageview');
 		</script>
 		<!--Our site script-->
