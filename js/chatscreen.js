@@ -333,6 +333,7 @@ function selectModalItem(item, thisElem){
 
 
 function closeModal(){
+	sendPage('/home');
 	var modalDialogue = $('#modal');	
 	$('#modalContent').css('visibility','hidden')
 	//anumate and close the modal
@@ -697,7 +698,6 @@ function sendFeedback(){
 	showNotif("Thanks for your feedback. We will get back to you shortly.");
 	setTimeout(function(){
 		hideNotif();
-		sendPage('/home');
 	}, 3000);
 }
 

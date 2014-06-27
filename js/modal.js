@@ -279,12 +279,10 @@ function updateContact(){
             	}, 3000);
                 return false;
             }
-            sendPage('/home');
         })
         .fail(function(response) {
         	closeModal();
             sendPage('/updateContact/networkError');
-            sendPage('/home');
         	showNotif("Network Error. Please refresh the page and try again.");
         	setTimeout(function(){
         		hideNotif();
@@ -360,12 +358,10 @@ function deleteContact(){
             	}, 3000);
                 return false;
             }
-            sendPage('/home');
         })
         .fail(function(response) {
         	closeModal();
             sendPage('/deleteContact/networkError');
-            sendPage('/home');
         	showNotif("Network Error. Please refresh the page and try again.");
         	setTimeout(function(){
         		hideNotif();
@@ -453,12 +449,10 @@ function editProfileClick(){
             	}, 3000);
                 return false;
             }
-            sendPage('/home');
         })
         .fail(function(response) {
         	closeModal();
             sendPage('/editProfile/networkError');
-            sendPage('/ome');
         	showNotif("Network Error. Please refresh the page and try again.");
         	setTimeout(function(){
         		hideNotif();
@@ -549,12 +543,10 @@ function changePassword(){
             	}, 3000);
                 return false;
             }
-            sendPage('/home');
         })
         .fail(function(response) {
         	closeModal();
             sendPage('/changePassword/networkError');
-            sendPage('/home');
         	showNotif("Network Error. Please refresh the page and try again.");
         	setTimeout(function(){
         		hideNotif();
