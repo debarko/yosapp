@@ -147,6 +147,7 @@ function addContact(){
 				addContactElem(fName, phNumber, cCode);
 				itemNumber = parseInt(cCode+''+phNumber);
 				YW.DATA[itemNumber]={"phone": phNumber,"cc": cCode, "name": fName, "messages":{}, "messageTree": []};
+                sendPage('/home');
 				//glow the phoenbook icon 3 times
 				glowLoop(3);
 				function glowLoop(times){
@@ -229,6 +230,7 @@ function updateContact(){
         .success(function(response) {
             if(response==="noauth"){
             	closeModal();
+                sendPage('/updateContact/noauth');
             	showNotif("You are not logged in.");
             	setTimeout(function(){
             		hideNotif();
@@ -237,6 +239,7 @@ function updateContact(){
             }
             if(response==="badparam"){
             	closeModal();
+                sendPage('/updateContact/badparam');
             	showNotif("Something went wrong with updating the name. Please try again.");
             	setTimeout(function(){
             		hideNotif();
@@ -245,6 +248,7 @@ function updateContact(){
             }
             if(response==="sqlfail"){
             	closeModal();
+                sendPage('/updateContact/sqlfail');
             	showNotif("Database was unreachable. Please try again after sometime.");
             	setTimeout(function(){
             		hideNotif();
@@ -255,7 +259,9 @@ function updateContact(){
             	var fName = $('#contactFirstNameEdit').val();
 				var cCode = $('#countryCodeEdit').val();
 				var phNumber = $('#phNumberEdit').val();
-            	updateContactname(fName, cCode, phNumber);
+            	
+                sendPage('/updateContact/success');
+                updateContactname(fName, cCode, phNumber);
             	YW.DATA[cCode+phNumber].name = fName;
             	emptyEditContact();
             	showNotif("Successfully updated.");
@@ -267,14 +273,18 @@ function updateContact(){
             else {
             	closeModal();
             	showNotif("Some unknown error happened. Please report a feedback with details.");
+                sendPage('/updateContact/error');
             	setTimeout(function(){
             		hideNotif();
             	}, 3000);
                 return false;
             }
+            sendPage('/home');
         })
         .fail(function(response) {
         	closeModal();
+            sendPage('/updateContact/networkError');
+            sendPage('/home');
         	showNotif("Network Error. Please refresh the page and try again.");
         	setTimeout(function(){
         		hideNotif();
@@ -297,6 +307,7 @@ function deleteContact(){
         .success(function(response) {
             if(response==="noauth"){
             	closeModal();
+                sendPage('/deleteContact/noauth');
             	showNotif("You are not logged in.");
             	setTimeout(function(){
             		hideNotif();
@@ -305,6 +316,7 @@ function deleteContact(){
             }
             if(response==="badparam"){
             	closeModal();
+                sendPage('/deleteContact/badparam');
             	showNotif("Something went wrong with deleting the name. Please try again.");
             	setTimeout(function(){
             		hideNotif();
@@ -313,6 +325,7 @@ function deleteContact(){
             }
             if(response==="sqlfail"){
             	closeModal();
+                sendPage('/deleteContact/sqlfail');
             	showNotif("Database was unreachable. Please try again after sometime.");
             	setTimeout(function(){
             		hideNotif();
@@ -322,6 +335,8 @@ function deleteContact(){
             if(response==="success") {
             	var cCode = $('#countryCodeEdit').val();
 				var phNumber = $('#phNumberEdit').val();
+
+                sendPage('/deleteContact/success');
 				emptyEditContact();
 				closeModal();
 				delete YW.DATA[cCode+phNumber];
@@ -338,15 +353,19 @@ function deleteContact(){
             }
             else {
             	closeModal();
+                sendPage('/deleteContact/error');
             	showNotif("Some unknown error happened. Please report a feedback with details.");
             	setTimeout(function(){
             		hideNotif();
             	}, 3000);
                 return false;
             }
+            sendPage('/home');
         })
         .fail(function(response) {
         	closeModal();
+            sendPage('/deleteContact/networkError');
+            sendPage('/home');
         	showNotif("Network Error. Please refresh the page and try again.");
         	setTimeout(function(){
         		hideNotif();
@@ -389,6 +408,7 @@ function editProfileClick(){
         .success(function(response) {
             if(response==="noauth"){
             	closeModal();
+                sendPage('/editProfile/noauth');
             	showNotif("You are not logged in.");
             	setTimeout(function(){
             		hideNotif();
@@ -397,6 +417,7 @@ function editProfileClick(){
             }
             if(response==="badparam"){
             	closeModal();
+                sendPage('/editProfile/badparam');
             	showNotif("Something went wrong with upgrading your name. Please try again.");
             	setTimeout(function(){
             		hideNotif();
@@ -405,6 +426,7 @@ function editProfileClick(){
             }
             if(response==="sqlfail"){
             	closeModal();
+                sendPage('/editProfile/sqlfail');
             	showNotif("Database was unreachable. Please try again after sometime.");
             	setTimeout(function(){
             		hideNotif();
@@ -413,6 +435,7 @@ function editProfileClick(){
             }
             if(response==="success") {
 				closeModal();
+                sendPage('/editProfile/success');
 				showNotif("Your name has been successfully updated.");
             	setTimeout(function(){
             		hideNotif();
@@ -423,15 +446,19 @@ function editProfileClick(){
             }
             else {
             	closeModal();
+                sendPage('/editProfile/error');
             	showNotif("Some unknown error happened. Please report a feedback with details.");
             	setTimeout(function(){
             		hideNotif();
             	}, 3000);
                 return false;
             }
+            sendPage('/home');
         })
         .fail(function(response) {
         	closeModal();
+            sendPage('/editProfile/networkError');
+            sendPage('/ome');
         	showNotif("Network Error. Please refresh the page and try again.");
         	setTimeout(function(){
         		hideNotif();
@@ -480,6 +507,7 @@ function changePassword(){
         .success(function(response) {
             if(response==="noauth"){
             	closeModal();
+                sendPage('/changePassword/noauth');
             	showNotif("You are not logged in.");
             	setTimeout(function(){
             		hideNotif();
@@ -488,6 +516,7 @@ function changePassword(){
             }
             if(response==="badparam"){
             	closeModal();
+                sendPage('/changePassword/badparam');
             	showNotif("Something went wrong with upgrading your name. Please try again.");
             	setTimeout(function(){
             		hideNotif();
@@ -496,6 +525,7 @@ function changePassword(){
             }
             if(response==="sqlfail"){
             	closeModal();
+                sendPage('/changePassword/sqlfail');
             	showNotif("Database was unreachable. Please try again after sometime.");
             	setTimeout(function(){
             		hideNotif();
@@ -504,6 +534,7 @@ function changePassword(){
             }
             if(response==="success") {
 				closeModal();
+                sendPage('/changePassword/success');
 				showNotif("Your password has been successfully updated.");
             	setTimeout(function(){
             		hideNotif();
@@ -511,15 +542,19 @@ function changePassword(){
             }
             else {
             	closeModal();
+                sendPage('/changePassword/error');
             	showNotif("Some unknown error happened. Please report a feedback with details.");
             	setTimeout(function(){
             		hideNotif();
             	}, 3000);
                 return false;
             }
+            sendPage('/home');
         })
         .fail(function(response) {
         	closeModal();
+            sendPage('/changePassword/networkError');
+            sendPage('/home');
         	showNotif("Network Error. Please refresh the page and try again.");
         	setTimeout(function(){
         		hideNotif();

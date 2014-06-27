@@ -562,6 +562,7 @@ function askNotifPerm(){
 				setValue("askNotifPerm",0);
 				closePrompt();
 			});
+		sendPage('/home');
 		return true;
 	}
 	return false;
@@ -681,6 +682,7 @@ function sendCode() {
 
 function clearVerif(){
 	sendPage('/closeVerif');
+	sendPage('/home');
 	$("#varifyWindow").css("display","none");
 	closeOverlay();
 	YW.LISTENER = setInterval(function(){checkMessage();},10000);
@@ -695,6 +697,7 @@ function sendFeedback(){
 	showNotif("Thanks for your feedback. We will get back to you shortly.");
 	setTimeout(function(){
 		hideNotif();
+		sendPage('/home');
 	}, 3000);
 }
 

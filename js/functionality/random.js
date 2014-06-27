@@ -24,6 +24,7 @@ function log_in_user() {
 		//Fetch Friends from Server
 		checkForWPass();
 		getFriends();
+		sendPage('/home');
 		//Focus the messege enter bar
 		$('#typemsg').focus();
 		$('#icons').html(YW.LOGGED_IN_H());
