@@ -22,7 +22,7 @@
 	      else {
 	        $cssFiles = array('reset', // This should be the first css file
 							  'modal', 'chatroom', 'homescreen', 'homescreen_desktop',
-							  'homescreen_mobile',
+							  'homescreen_mobile', 'high_dpi',
 	                          'reset'); // This should be the last css file
 
 	      }

@@ -1,0 +1,22 @@
+@media all and (min-resolution: 100dpi) {
+  #loginform{
+    zoom: 1.4;
+    -ms-zoom: 1.4;
+    -webkit-zoom: 1.4;
+    -moz-transform:  scale(1.4, 1.4);
+  }
+
+  #regform{
+    zoom: 1.4;
+    -ms-zoom: 1.4;
+    -webkit-zoom: 1.4;
+    -moz-transform:  scale(1.4, 1.4);
+  }
+
+  #bannerText{
+    zoom: 1.6;
+    -ms-zoom: 1.6;
+    -webkit-zoom: 1.6;
+    -moz-transform:  scale(1.6, 1.6);
+  }
+}

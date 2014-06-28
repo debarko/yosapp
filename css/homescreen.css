@@ -632,9 +632,8 @@ div.logintooltips span:after {
 }
 #errMsg{
   display: block;
-  padding: 12 10 0 20;
   color: rgb(255, 249, 249);
-  font-size: 13;
+  font-size: 12;
   line-height: 20px;
 }
 

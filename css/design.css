@@ -77,28 +77,26 @@ body{
   width: 100%;
   height: 100%;
   margin: 0px;
-  min-height:500px;
   background-color: #2aB200;
   border-color: rgba(255, 255, 255, 0.0);
   overflow: hidden;
 }
 
 #header{
-	height:20%;
-	background-color:#2aB200;
-	overflow: hidden;
+  height:20%;
+  background-color:#2aB200;
+  overflow: hidden;
 }
 
 #bannerText{
-	display: inline-block;
-  font-size: 35px;
+  display: inline-block;
   color: rgba(255, 255, 255, 0.82);
   font-family: 'Anton' sans-serif;
-  position: absolute;
-  top: 20%;
-  margin-top: -70px;
-  margin-left: 50px;
+  position: relative;
+  top: 40%;
+  left: 10%;
 }
+
 #bannerText:after{
   content: '';
   position: absolute;
@@ -106,42 +104,38 @@ body{
   background: -webkit-linear-gradient(left, #2AB200, white, #2AB200);
   background: -moz-linear-gradient(left, #2AB200, white, #2AB200);
   background: -o-linear-gradient(left, #2AB200, white, #2AB200);
-  width: 100px;
-  height: 1px;
-  top: 36px;
   left: 0px;
 }
+
 #bannerText span{
-  font-size: 12px;
-  width: 100px;
   position: absolute;
-  top: 39px;
-  left: 0px;
   text-align: right;
   -webkit-transition: all .1s ease-in-out; -moz-transition: all .1s ease-in-out;
+  left: 0px;
 }
+
 #bannerText span:hover{
   color: white;
   text-shadow: rgba(255, 255, 255, 0.49) 0px 0px 4px;
 }
 
 #icons{
-	top: 60px;
-  right:50px;
+  top: 40%;
+  right:10%;
   position: relative;
   float: right;
 }
 
 .icon{
-	margin-left:20px;
+  margin-left:20px;
   right:25px;
   position: relative;
   float: right;
 }
 
 .icon:hover{
-	-webkit-transform: scale(1.2);
-	-moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
 }
 
 #notify{
@@ -157,6 +151,7 @@ body{
   display: none;
   z-index: 101;
 }
+
 #notify p{
   color: rgba(255, 255, 255, 0.95);
   font-size: 13px;
@@ -165,16 +160,14 @@ body{
   word-wrap: break-word;
 }
 
-
 #signup{
-position: relative;
-float: right;
-height: 30px;
-width: 36px;
-background-image: url('../icons/signup1.png');
--webkit-transition: all .3s ease-in-out; -moz-transition: all .3s ease-in-out;
+  position: relative;
+  float: right;
+  height: 30px;
+  width: 36px;
+  background-image: url('../icons/signup1.png');
+  -webkit-transition: all .3s ease-in-out; -moz-transition: all .3s ease-in-out;
 }
-
 
 /*tooltip for signup icon*/
 div.signuptooltip {
@@ -223,171 +216,50 @@ div.signuptooltip span:after {
   border-right: 12px solid transparent;
   border-left: 12px solid transparent;
 }
-#help{
-position: relative;
-float: right;
-display: block;
-height: 30px;
-width: 25px;
-background-image: url('../icons/help2.png');
--webkit-transition: all .3s ease-in-out; -moz-transition: all .3s ease-in-out;
-display: none;
-}
-
-
-/*tooltip for help icon*/
-div.helptooltip {
-  position: relative;
-  display: inline;
-}
-div.helptooltip span {
-  position: absolute;
-  bottom:13px;
-  left:17px;
-  z-index: 999;
-  width:100px;
-  color: rgba(255,255,255,.65);
-  background: #2AB200;
-  border: 1px solid rgba(255,255,255,.35);
-  height: 28px;
-  line-height: 30px;
-  text-align: center;
-  font-size: 13px;
-  visibility: visible;
-  opacity:0;
-  border-radius: 1px;
-}
-div.helptooltip span:before {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -12px;
-  width: 0; height: 0;
-  border-top: 9px solid rgba(255, 255, 255, 0.51);
-  border-right: 10px solid transparent;
-  border-left: 12px solid transparent;
-}
-div.helptooltip span:after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -8px;
-  width: 0; height: 0;
-  border-top: 8px solid #2aB200;
-  border-right: 8px solid transparent;
-  border-left: 8px solid transparent;
-}
-
-
-#like{
-	position: relative;
-	float: right;
-	display: block;
-	height: 30px;
-	width: 30px;
-	background-image: url('../icons/like.png');
-	-webkit-transition: all .3s ease-in-out; -moz-transition: all .3s ease-in-out;
-  display: none;
-}
-
-/*tooltip for like icon*/
-div.liketooltip {
-  position: relative;
-  display: inline;
-}
-div.liketooltip span {
-  position: absolute;
-  bottom:13px;
-  left:63px;
-  z-index: 999;
-  width:120px;
-  color: rgba(255,255,255,.65);
-  background: #2AB200;
-  border: 1px solid rgba(255,255,255,.35);
-  height: 28px;
-  line-height: 30px;
-  text-align: center;
- font-size: 13px;
-  visibility: visible;
-  opacity:0;
-  border-radius: 1px;
-}
-div.liketooltip span:before {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -12px;
-  width: 0; height: 0;
-  border-top: 9px solid rgba(255, 255, 255, 0.51);
-  border-right: 10px solid transparent;
-  border-left: 12px solid transparent;
-}
-div.liketooltip span:after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -8px;
-  width: 0; height: 0;
-  border-top: 8px solid #2aB200;
-  border-right: 8px solid transparent;
-  border-left: 8px solid transparent;
-}
-
-
-
-
 
 #headsep{
-	height: 1px;
-    border: 0;
-    background: white;
-    background: -webkit-linear-gradient(left, #2AB200, white, #2AB200);
-    background: -moz-linear-gradient(left, #2AB200, white, #2AB200);
-    background: -o-linear-gradient(left, #2AB200, white, #2AB200);
+  height: 1px;
+  border: 0;
+  background: white;
+  background: -webkit-linear-gradient(left, #2AB200, white, #2AB200);
+  background: -moz-linear-gradient(left, #2AB200, white, #2AB200);
+  background: -o-linear-gradient(left, #2AB200, white, #2AB200);
 }
-
 
 #bodybg{
-height:60%;
+  height:60%;
 }
 
-/*format both form*/
-/*  */
-
+/* Login form starts here */
 #loginform{
-	position: relative;
-	width: 322px;
-	top: 50%;
+  position: absolute;
+  width: 322px;
+  top: 50%;
+  left: 50%;
   height: 175px;
-  margin-top: -87px;
-	float: right;
-	right: 55.5%;
-  margin-right: 10%;
-	color: white;
-	font-size: 20px;
-	visibility:hidden;
-	opacity:0;
+  float: left;
+  color: white;
+  font-size: 20px;
+  visibility:hidden;
+  opacity:0;
 }
+
 .loginFormElementWrapper{
   margin-top: 5px;
 }
 #loginheadertext{
-	position: relative;
-	bottom: 25px;
-	font-size: 40px;
-	font-family: 'Anton' sans-serif;
-	opacity: .5;
+  position: relative;
+  bottom: 25px;
+  font-size: 40px;
+  font-family: 'Anton' sans-serif;
+  opacity: .5;
 }
 
 #loginheadertext span{
-	display: block;
-	height: 4px;
-	width: 100%;
-	background-color: white;
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: white;
 }
 
 .loginGuideText{
@@ -406,12 +278,12 @@ height:60%;
 
 
 .inputfields{
-	position:relative;
-	background-color: transparent;
-	border: none;
-	width: 100%;
-	color: white;
-	font-size: 20px;
+  position:relative;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  color: white;
+  font-size: 20px;
   z-index: 10
 }
 .inputFieldTip{
@@ -491,9 +363,6 @@ height:60%;
   display: inline-block;
 }
 
-
-
-
 /* SQUARED TWO */
 /*outer box*/
 .squaredTwo {
@@ -549,24 +418,24 @@ height:60%;
 }
 
 .squaredTwo p{
-	width: 80px;
-	font-size: 12px;
-	position: relative;
-	top: -17px;
-	left: 25px;
+  width: 80px;
+  font-size: 12px;
+  position: relative;
+  top: -17px;
+  left: 25px;
 }
 
 #forgotpassword{
-	position: relative;
-	width:110px;
-	top: -18px;
-	left: 126px;
-	font-size: 12px;
+  position: relative;
+  width:110px;
+  top: -18px;
+  left: 126px;
+  font-size: 12px;
 }
 
 
 #loginsubmit{
-	position: relative;
+  position: relative;
   top: 10px;
   height: 40px;
   width: 105px;
@@ -584,67 +453,110 @@ height:60%;
   -webkit-transform: scale(1.05);
   -moz-transform: scale(1.05);
 }
+/* Login form ends here */
 
-
-/*format the login button*/
+/* login button */
 #loginbutton{
-display: block;
-width: 80px;
-height: 80px;
-margin: 0 auto;
-background-image: url('../icons/logo_min.png');
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  background-image: url('../icons/logo_min.png');
 }
 
 #logintext{
-position: relative;
-top: 120px;
-left: 485px;
-color: rgba(255, 255, 255, 0.59);
-font-size: 13px;
+  position: relative;
+  top: 120px;
+  left: 485px;
+  color: rgba(255, 255, 255, 0.59);
+  font-size: 13px;
 }
-
-
-#loginInputFieldWrapperCountry{
-  /*width: 175px;*/
-}
-
 
 /*scale up the whatsaap icon on hover*/
 #loginbutton{ -webkit-transition: all .3s ease-in-out; -moz-transition: all .3s ease-in-out; }
 #loginbutton:hover{
-	-webkit-transform: scale(1.1);
-	-moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
 }
 
-
-/*registration form*/
-#regform{
+/* tooltip for loginbutton*/
+div.logintooltips {
   position: relative;
+  top: 50%;
+  display: block;
+  margin-top: -50px;
+  float: left;
+  left: 50%;
+  margin-left: -70px;
+}
+div.logintooltips span {
+  position: relative;
+  left: 126px;
+  float: right;
+  top: -60px;
+  width:135px;
+  color: rgba(255,255,255,.65);
+  background: #2AB200;
+  border: 1px solid rgba(255,255,255,.35);
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 13px;
+  visibility: visible;
+  opacity:0;
+ }
+div.logintooltips span:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -12px;
+  width: 0;
+  height: 0;
+  border-right: 16px solid rgba(255,255,255,.35);
+  border-top: 11px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+div.logintooltips span:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -12px;
+  left: -14px;
+  width: 0;
+  height: 0;
+  border-right: 16px solid #2AB200;
+  border-top: 11px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+
+/* Registration form starts here */
+#regform{
+  position: absolute;
   top: 50%;
   float: left;
   left: 50%;
-  margin-top: -115px;
-  margin-left: 10%;
-	visibility: hidden;
-	opacity: 0;
-	width: 322px;
-	color: white;
-	font-size: 20px;
+  visibility: hidden;
+  opacity: 0;
+  width: 322px;
+  color: white;
+  font-size: 20px;
 }
 
 #regheadertext{
-	position: relative;
-	bottom: 25px;
-	font-size: 40px;
-	font-family: 'Anton' sans-serif;
-	opacity: .5;
+  position: relative;
+  bottom: 25px;
+  font-size: 40px;
+  font-family: 'Anton' sans-serif;
+  opacity: .5;
 }
 
 #regheadertext span{
-	display: block;
-	height: 4px;
-	width: 100%;
-	background-color: white;
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: white;
 }
 .regFormElementWrapper{
   height: 30px  
@@ -694,7 +606,6 @@ font-size: 13px;
 #regFlag{
   right: 4px;
   top: 0px;
-
 }
 
 #regCC{
@@ -702,20 +613,17 @@ font-size: 13px;
   width: 47px;
 }
 
-
-
-
 #regsubmitbutton{
-	position: relative;
-	top: 10px;
-	height: 40px;
-	width: 105px;
-	border: none;
-	background-color: white;
-	color: #2aB200;
-	font-size: 19px;
-	font-weight: bolder;
-	border-radius: 3px;
+  position: relative;
+  top: 10px;
+  height: 40px;
+  width: 105px;
+  border: none;
+  background-color: white;
+  color: #2aB200;
+  font-size: 19px;
+  font-weight: bolder;
+  border-radius: 3px;
   outline: none;
   -webkit-transition: all .1s ease-in-out; 
   -moz-transition: all .1s ease-in-out;
@@ -726,108 +634,50 @@ font-size: 13px;
   -moz-transform: scale(1.05);
 }
 
-
-
-/* tooltip for loginbutton*/
-div.logintooltips {
-  position: relative;
-  top: 50%;
-  display: block;
-  margin-top: -50px;
-  float: left;
-  left: 50%;
-  margin-left: -70px;
-}
-div.logintooltips span {
-  position: relative;
-  left: 126px;
-  float: right;
-  top: -60px;
-  width:135px;
-  color: rgba(255,255,255,.65);
-  background: #2AB200;
-  border: 1px solid rgba(255,255,255,.35);
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  font-size: 13px;
-  visibility: visible;
-  opacity:0;
- }
-div.logintooltips span:before {
-	content: '';
-  position: absolute;
-  top: 50%;
-  right: 100%;
-  margin-top: -12px;
-  width: 0;
-  height: 0;
-  border-right: 16px solid rgba(255,255,255,.35);
-  border-top: 11px solid transparent;
-  border-bottom: 12px solid transparent;
-}
-div.logintooltips span:after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 100%;
-  margin-top: -12px;
-  left: -14px;
-  width: 0;
-  height: 0;
-  border-right: 16px solid #2AB200;
-  border-top: 11px solid transparent;
-  border-bottom: 12px solid transparent;
-}
-
-
 #uid{
-    position:relative;
-    top:50px;
-    width:200px;
-    height:35px;
-    background-color:#ffffff;
-    border-radius:5px;
+  position:relative;
+  top:50px;
+  width:200px;
+  height:35px;
+  background-color:#ffffff;
+  border-radius:5px;
 }
 #uid:after{
-    content:"";
-    display:block;
-    position:relative;
-    top:-10px;
-    left:185px;
-    width:0px;
-    height:0px;
-    border-top:50px solid #2aB200;
-    border-left:50px solid #2aB200;
-    border-bottom:50px solid #2aB200;
-    border-right:50px solid #2aB200;
-    border-radius:50px;
-    opacity:1;
-    z-index:999;
+  content:"";
+  display:block;
+  position:relative;
+  top:-10px;
+  left:185px;
+  width:0px;
+  height:0px;
+  border-top:50px solid #2aB200;
+  border-left:50px solid #2aB200;
+  border-bottom:50px solid #2aB200;
+  border-right:50px solid #2aB200;
+  border-radius:50px;
+  opacity:1;
+  z-index:999;
 }
 
 #pass{
-    position:relative;
-    top:60px;
-    width:200px;
-    height:35px;
-    background-color:#ffffff;
-    border-radius:5px;
+  position:relative;
+  top:60px;
+  width:200px;
+  height:35px;
+  background-color:#ffffff;
+  border-radius:5px;
 }
 
 #errorMsgBox{
-  height: 70px;
-  width: 250px;
   background-color: rgba(255, 255, 255, 0.19);
   position: absolute;
-  bottom: 22%;
+  bottom: 21%;
   margin-left: 50%;
-  left: -125px;
   border-radius: 2px;
   visibility: hidden;
+  z-index: 10;
 }
 #errorMsgBoxArrow{
-  display: inline-block;
   position: absolute;
   right: -20px;
   height: 0px;
@@ -860,16 +710,16 @@ div.logintooltips span:after {
 }
 
 #footsep{
-	height: 1px;
-	border: 0;
-	background: white;
+  height: 1px;
+  border: 0;
+  background: white;
   background: -webkit-linear-gradient(left, #2AB200, white, #2AB200);
   background: -moz-linear-gradient(left, #2AB200, white, #2AB200);
   background: -o-linear-gradient(left, #2AB200, white, #2AB200);
 }
 
 #footer{
-	height: 20%;
+  height: 20%;
 }
 
 #whatsapponwebText{
@@ -900,7 +750,7 @@ div.logintooltips span:after {
 }
 
 #copyright{
-	color: rgba(255, 255, 255, 0.71);
+  color: rgba(255, 255, 255, 0.71);
   font-size: 13px;
   text-align: center;
   position: relative;
@@ -1467,7 +1317,7 @@ div.logintooltips span:after {
 #promptNo{
   margin-left: 85px;
 }
-
+/* Registration form ends here */
 #bodybg-chatroom{
 	background-color: white;
 }
@@ -2583,3 +2433,91 @@ the right bottom corner also needs to be styled */
 	top: -67px;
 }
 
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only all and (max-device-aspect-ratio: 1/1) {
+  #master{
+    min-height:300px;
+  }
+
+  #bannerText{
+    font-size: 25px;
+  }
+
+  #bannerText:after{
+    width: 69px;
+    height: 1px;
+    top: 27px;
+  }
+
+  #bannerText span{
+    font-size: 10px;
+    width: 65px;
+    top: 31px;
+  }
+
+  #loginform{
+    margin-top: -110px;
+    margin-left: -155px;
+    background-color: #2aB200;
+  }
+
+  #regform{
+    margin-top: -110px;
+    margin-left: -170px;
+    background-color: #2aB200;
+  }
+
+  #errorMsgBox{
+    height: 25px;
+    width: 320px;
+    left: -160px;
+  }
+
+  #errorMsgBoxArrow{
+    display: none;
+  }
+}
+/* Desktops ----------- */
+@media all and (min-device-aspect-ratio: 1/1) {
+  #master{
+    min-height:500px;
+  }
+
+  #bannerText{
+    font-size: 35px;
+  }
+
+  #bannerText:after{
+    width: 100px;
+    height: 1px;
+    top: 36px;
+  }
+
+  #bannerText span{
+    font-size: 12px;
+    width: 100px;
+    top: 39px;
+  }
+
+  #loginform{
+    margin-top: -87px;
+    margin-left: -415px;
+  }
+
+  #regform{
+    margin-top: -115px;
+    margin-left: 94px;
+  }
+
+  #errorMsgBox{
+    height: 70px;
+    width: 250px;
+    left: -125px;
+  }
+
+  #errorMsgBoxArrow{
+    display: inline-block;
+  }
+
+}

@@ -16,4 +16,6 @@ cat ./css/homescreen_mobile.css >> ./css/design.css;
 echo >> ./css/design.css;
 cat ./css/homescreen_desktop.css >> ./css/design.css;
 echo "Minification in process";
+cat ./css/high_dpi.css >> ./css/design.css;
+echo "Minification in process";
 /usr/bin/java -jar ./tools/yuicompressor.jar --type css -o ./css/design.min.css ./css/design.css;
