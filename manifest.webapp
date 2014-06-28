@@ -6,6 +6,7 @@
     "name": "Folks Freak",
     "url": "http://folksfreak.com"
   },
+  "orientation": ["portrait"]
   "default_locale": "en",
   "icons": {
     "60": "/icons/logos/logo_60.png",

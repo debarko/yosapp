@@ -21,7 +21,8 @@
 	      }
 	      else {
 	        $cssFiles = array('reset', // This should be the first css file
-							  'modal', 'chatroom', 'homescreen',
+							  'modal', 'chatroom', 'homescreen', 'homescreen_desktop',
+							  'homescreen_mobile',
 	                          'reset'); // This should be the last css file
 
 	      }
