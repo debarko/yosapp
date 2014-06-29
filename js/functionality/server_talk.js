@@ -66,3 +66,26 @@ function checkMessage() {
 
   return $aJX_status;
 }
+
+function getFriends() {
+  $aJX_status = $.ajax({
+      type: "GET",
+      url: "./user.php?request=friends",
+    })
+    .success(function (response) {
+      times = 0;
+      if (response === "empty") {
+        return false;
+      } else {
+        YW.DATA = JSON.parse(response);
+        renderData();
+        setLastChat();
+        showServerMessages();
+        return true;
+      }
+    })
+    .fail(function (response) {
+      times = 0;
+      return false;
+    });
+}

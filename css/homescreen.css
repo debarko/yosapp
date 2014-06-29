@@ -60,6 +60,7 @@ body{
   right:25px;
   position: relative;
   float: right;
+  cursor: pointer;
 }
 
 .icon:hover{

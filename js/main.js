@@ -1,61 +1,66 @@
+'use strict';
+//Global Variables
+var isloginclicked = false,
+  issignupclicked = false;
+
+
 window.onerror = function (msg, url, linenumber) {
   $aJX_status = $.ajax({
-    type: "GET",
-    url: "error.php?ua=" + encodeURIComponent(YW.UA()) + "&msg=" + encodeURIComponent(msg) + "&linenumber=" + encodeURIComponent(linenumber)
+    type: 'GET',
+    url: 'error.php?ua=' + encodeURIComponent(YW.UA()) + '&msg=' + encodeURIComponent(msg) + '&linenumber=' + encodeURIComponent(linenumber)
   });
-}
+};
 
 function toggleLogin() {
   if (isloginclicked) {
-    $("#loginform").animate({
+    $('#loginform').animate({
       'opacity': '0'
     }, 800, function () {
-      $("#loginform").css('visibility', 'hidden').find('#countryField').val(''); // clear  country value
+      $('#loginform').css('visibility', 'hidden').find('#countryField').val(''); // clear  country value
       hideTip('#countryField');
     });
     isloginclicked = false;
   } else {
-    $("#loginform").css('visibility', 'visible');
-    $("#loginform").animate({
+    $('#loginform').css('visibility', 'visible');
+    $('#loginform').animate({
       'opacity': '1'
     }, 800);
     //focus username field
     $('#userfield').focus();
     isloginclicked = true;
     //virtually unclick the signup button also
-    $("#regform").animate({
+    $('#regform').animate({
       'opacity': '0'
     }, 800, function () {
-      $("#regform").css('visibility', 'hidden').find('#regInputCountry').val(''); // clear country value
+      $('#regform').css('visibility', 'hidden').find('#regInputCountry').val(''); // clear country value
       hideTip('#regInputCountry');
     });
     issignupclicked = false;
-
   }
 }
 
 function toggleSignup() {
   if (issignupclicked) {
-    $("#regform").animate({
+    $('#regform').animate({
       'opacity': '0'
     }, 800, function () {
-      $("#regform").css('visibility', 'hidden').find('#regInputCountry').val('');
+      $('#regform').css('visibility', 'hidden').find('#regInputCountry').val('');
       hideTip('#regInputCountry');
     });
     issignupclicked = false;
   } else {
-    $("#regform").css('visibility', 'visible');
-    $("#regform").animate({
+    $('#regform').css('visibility', 'visible');
+    $('#regform').animate({
       'opacity': '1'
     }, 800);
     //focus first field
     $('#regInputPhone').focus();
     issignupclicked = true;
     //disapear login form
-    $("#loginform").animate({
+    $('#loginform').animate({
       'opacity': '0'
     }, 800, function () {
-      $("#loginform").css('visibility', 'hidden').find('#countryField').val('');
+      $('#loginform').css('visibility', 'hidden').find('#countryField').val('');
       hideTip('#countryField');
     });
     isloginclicked = false;
@@ -64,140 +69,78 @@ function toggleSignup() {
 
 window.onload = function () {
   //Load content based on State of user
-  if (YW.logged_in() === "true") {
+  if (YW.logged_in() === 'true') {
     logged_in_start();
   } else {
     logged_out_start();
   }
 
   //show login tooltip when hover over loginbutton
-  $("#loginbutton").hover(
+  $('#loginbutton').hover(
     function () {
-      $(".logintooltips").find("span").animate({
+      $('.logintooltips').find('span').animate({
         opacity: '1'
       }, 600);
     },
     function () {
-      $(".logintooltips").find("span").animate({
+      $('.logintooltips').find('span').animate({
         opacity: '0'
       }, 600);
     }
   );
-
-  var isloginclicked = false;
-  $("#loginbutton").click(toggleLogin);
-
-  // change cursor into pointer when mouse over any icons (help. signup & like)
-  $('.icon').css('cursor', 'pointer');
-
   //show signup tooltip when hover over signup
-  $("#signup").hover(
+  $('#signup').hover(
     function () {
-      $(".signuptooltip").find("span").css("z-index", "999").animate({
+      $('.signuptooltip').find('span').css('z-index', '999').animate({
         opacity: '1'
       }, 600);
     },
     function () {
-      $(".signuptooltip").find("span").css("z-index", "0").animate({
+      $('.signuptooltip').find('span').css('z-index', '0').animate({
         opacity: '0'
       }, 600);
     }
   );
 
-  var issignupclicked = false;
-  $("#signup").click(toggleSignup);
-  // dissappear signUp & error Msg box when pressed 'Esc' from within
+
+  $('#loginbutton').click(toggleLogin);
+  $('#signup').click(toggleSignup);
+
   $('#regform').keyup(function (e) {
-    if (e.keyCode == '27') {
-      //first check if error msg is visible and close that on first 'Esc' press
-      if ($('#errorMsgBox').css('visibility') == 'visible') {
-        closeErrorMgsBox();
-      }
-      // otherwise disappear sign up form straight away
-      else {
-        $("#regform").animate({
-          'opacity': '0'
-        }, 500);
-        setTimeout(function () {
-          $("#regform").css('visibility', 'hidden')
-        }, 800);
-        issignupclicked = false;
-      }
-    }
-  });
+  	closeFormOnEsc(e, '#regform');
+   });
 
   $('#loginform').keyup(function (e) {
-    if (e.keyCode == '27') {
-      //first check if error msg is visible, and if yes then close that first on 'Esc' press
-      if ($('#errorMsgBox').css('visibility') == 'visible') {
-        closeErrorMgsBox();
-      }
-      // otherwise disappear login form straight away
-      else {
-        $("#loginform").animate({
-          'opacity': '0'
-        }, 500);
-        setTimeout(function () {
-          $("#regform").css('visibility', 'hidden')
-        }, 800);
-        isloginclicked = false;
-      }
-    }
+  	closeFormOnEsc(e, '#loginform');
   });
 
-
-
-  //show help tooltip when hover over signup
-  $("#help").hover(
-    function () {
-      $(".helptooltip").find("span").css("z-index", "999").animate({
-        opacity: '1'
-      }, 600);
-    },
-    function () {
-      $(".helptooltip").find("span").css("z-index", "0").animate({
-        opacity: '0'
-      }, 600);
-    }
-  );
-  //show like tooltip when hover over signup
-  $("#like").hover(
-    function () {
-      $(".liketooltip").find("span").css("z-index", "999").animate({
-        opacity: '1'
-      }, 600);
-    },
-    function () {
-      $(".liketooltip").find("span").css("z-index", "0").animate({
-        opacity: '0'
-      }, 600);
-    }
-  );
-
-  //  $('#loginform').keypress(function(e) {
-  //      // Enter pressed?
-  //      if(e.keyCode == 10 || e.keyCode == 13) {
-  //          formhash(
-  //          	document.getElementById('userfield').value,
-  // 	document.getElementById('passfield').value,
-  // 	document.getElementById('countryField').value,
-  // 	document.getElementById('loginform')
-  // );
-  //      }
-  //  });
-
-
-  //pointerRelativeTooltip('#usernameLoginTooltip','#userfield',125,35);
-  //pointerRelativeTooltip('#passLoginTooltip','#passfield',125,60);
   $('#regsubmitbutton').click(function () {
     $('#regsubmitbutton').css('-webkit-transform', '1');
   })
 
   // append modal content into dom
-  $("#footer").html($("#footer").html() + YW.MODAL());
-  $("#footer").html($("#footer").html() + YW.PROMPT());
-
+  $('#footer').html($('#footer').html() + YW.MODAL());
+  $('#footer').html($('#footer').html() + YW.PROMPT());
 };
+
+function closeFormOnEsc(e, tag) {
+	if (e.keyCode == '27') {
+    //first check if error msg is visible, and if yes then close that first on 'Esc' press
+    if ($('#errorMsgBox').css('visibility') == 'visible') {
+      closeErrorMgsBox();
+    }
+    // otherwise disappear login form straight away
+    else {
+      $(tag).animate({
+        'opacity': '0'
+      }, 500);
+      setTimeout(function () {
+        $(tag).css('visibility', 'hidden')
+      }, 800);
+      isloginclicked = false;
+    }
+  }
+}
 
 function logged_in_start() {
   log_in_user();
@@ -208,15 +151,22 @@ function logged_out_start() {
   $('#icons').html(YW.LOGGED_OUT_H());
   //flash once the login tool tip 
   showLoginTipOnLoad();
+  if (YW.PORTRAIT) {
+    portraitLoad();
+  }
+}
+
+function portraitLoad () {
+	toggleLogin();
 }
 
 function showLoginTipOnLoad() {
-  $(".logintooltips").find("span").animate({
+  $('.logintooltips').find('span').animate({
     opacity: '1'
-  }, 1600, "linear", function () {
-    $(".logintooltips").find("span").animate({
+  }, 1600, 'linear', function () {
+    $('.logintooltips').find('span').animate({
       opacity: '0'
-    }, 1600, "linear");
+    }, 1600, 'linear');
   });
 }
 
@@ -260,7 +210,7 @@ function dispErrMsg(msg, callingForm) {
   }
 
   // check and see if the Dialogue box is on 
-  if (dialogueBox.css('visibility') == "hidden") {
+  if (dialogueBox.css('visibility') == 'hidden') {
     dialogueBox.css('opacity', '0');
     dialogueBox.css('visibility', 'visible');
     dialogueBox.animate({
@@ -274,185 +224,10 @@ function dispErrMsg(msg, callingForm) {
 function closeErrorMgsBox() {
   $('#errorMsgBox').animate({
     opacity: '0'
-  }, 700, "swing", function () {
-    $('#errorMsgBox').css("visibility", "hidden");
+  }, 700, 'swing', function () {
+    $('#errorMsgBox').css('visibility', 'hidden');
   });
 }
-
-function dissectPhoneNumber(number) {
-  var BreakException;
-
-  try {
-    YW.COUNTRIES.forEach(function (country) {
-      if (number.indexOf(country[1]) === 0) {
-        BreakException = country[1];
-        throw BreakException;
-      }
-    });
-  } catch (e) {
-    if (e !== BreakException) throw e;
-    return [BreakException, number.slice(BreakException.length)];
-  }
-}
-
-function getFriends() {
-  $aJX_status = $.ajax({
-      type: "GET",
-      url: "./user.php?request=friends",
-    })
-    .success(function (response) {
-      times = 0;
-      if (response === "empty") {
-        return false;
-      } else {
-        YW.DATA = JSON.parse(response);
-        renderData();
-        setLastChat();
-        showServerMessages();
-        return true;
-      }
-    })
-    .fail(function (response) {
-      times = 0;
-      return false;
-    });
-}
-
-// verification part starts here
-
-//bring up verification window (first step will be on bt default)
-function showVerWindow() {
-
-  $('#varifyWindow').css('display', 'inline-block');
-  $('#varifyWindow').animate({
-    opacity: '1'
-  }, 100, function () { //the window appears
-    $(this).find('#varifyWindowContainerHeader').animate({
-      opacity: '1'
-    }, 100, function () { //header text appears
-      $('#progBarBg').animate({
-        opacity: '1'
-      }, 100, function () { //the progress bar appears
-        $('#fstStop').find('.innerDisk').animate({
-          opacity: '1'
-        }, 200); //first inner disk appears
-        $('#stpDlgBox1').css({
-          opacity: '0',
-          display: 'inline-block'
-        });
-        $('#stpDlgBox1').animate({
-          opacity: '1'
-        }, 300, function () { // first dialouge box appears but without content
-          $('#stpDlgBox1Container').animate({
-            opacity: '1'
-          }, 300, verMethodSelect('sms')); //content appears and MSG method selected by default
-        });
-      });
-    });
-  });
-}
-
-//  select verification method function
-function verMethodSelect(method) {
-  if (method == 'sms') {
-    // clear whatever set for voice first
-    $('#verVoiceWrapper').css('opacity', '');
-    $('#selectVOICE').css('background-image', '');
-    //set css for sms
-    $('#verSMSWrapper').css('opacity', '1');
-    $('#selectSMS').css('background-image', 'url("./icons/check_20x20.png")')
-    $('#verSelectedIcon').css('background-image', 'url("./icons/msg2_min.png")');
-    $('#verStp1LeftBottom').find('p').html('Code will be sent via SMS');
-    YW.VIA = method;
-  } else if (method == 'voice') {
-    // clear whatever set for voice first
-    $('#verSMSWrapper').css('opacity', '');
-    $('#selectSMS').css('background-image', '')
-      //set css for sms
-    $('#verVoiceWrapper').css('opacity', '1');
-    $('#selectVOICE').css('background-image', 'url("./icons/check_20x20.png")');
-    $('#verSelectedIcon').css('background-image', 'url("./icons/voiceCall_min.png")');
-    $('#verStp1LeftBottom').find('p').html('Code will be sent via Voice Call');
-    YW.VIA = method;
-  }
-}
-
-//show codeEnterWindow
-function enterVerCode() {
-  // fade out the content of first dialouge 
-  $('#stpDlgBox1Container').animate({
-    opacity: '0'
-  }, 300, function () {
-    $('#stpDlgBox1').animate({
-      left: '71px'
-    }, 400, function () { // move the window to next position
-      // put inner disk in the progress bar
-      $('#sndStop').find('.innerDisk').css('opacity', '1');
-      // make right shifted first window disappear
-      $('#stpDlgBox1').css('display', 'none');
-      //make 2nd dialouge appear but not the content
-      $('#stpDlgBox2').css('display', 'inline-block');
-      //now fade in the content of the 2nd dialouge box
-      $('#stpDlgBox2Container').animate({
-        opacity: '1'
-      }, 300, function () {
-        //focus on Enter Code input box
-        $('#verCodeField').focus(); // todo not working
-      });
-    });
-    // put check mark for previous step
-    $('#fstStop').find('.innerDisk').css('background-color', 'transparent');
-    $('#fstStop').find('.innerDisk').css('background-image', 'url("./icons/check.png")');
-  });
-}
-
-// shows the last step of varification
-function successDialougeBox() {
-  // fade out the content of second dialouge 
-  $('#stpDlgBox2Container').animate({
-    opacity: '0'
-  }, 300, function () {
-    $('#stpDlgBox2').animate({
-      left: '71px'
-    }, 400, function () { // move the window to next position
-      // put inner disk in the progress bar
-      $('#trdStop').find('.innerDisk').css('opacity', '1');
-      // make right shifted first window disappear
-      $('#stpDlgBox2').css('display', 'none');
-      //make 2nd dialouge appear but not the content
-      $('#stpDlgBox3').css('display', 'inline-block');
-      //now fade in the content of the 2nd dialouge box
-      $('#stpDlgBox3Container').animate({
-        opacity: '1'
-      }, 300);
-
-      //animate glow the icon recursive
-      glowSuccessIcon(5);
-
-      function glowSuccessIcon(times) {
-          if (!times) {
-            return;
-          }
-          $('#verStp3Icon').animate({
-            opacity: '.2'
-          }, 500, function () {
-            $('#verStp3Icon').animate({
-              opacity: '.6'
-            }, 500, function () {
-              times--;
-              glowSuccessIcon(times);
-            });
-          });
-        }
-        //---glowing ends
-
-    });
-    // put check mark for previous step
-    $('#sndStop').find('.innerDisk').css('background-color', 'transparent');
-    $('#sndStop').find('.innerDisk').css('background-image', 'url("./icons/check.png")');
-  });
-}
-
 
 //dialouge box loading animation
 function DlBoxLoading(msg, stepNumber) {
@@ -580,12 +355,12 @@ function showPrompt(message, yesCB, noCB) {
   var msgBox = $('#prompMsg').find('p');
   $('#promptYes').click(function () {
     event.preventDefault();
-    if (typeof yesCB === "function")
+    if (typeof yesCB === 'function')
       yesCB();
   });
   $('#promptNo').click(function () {
     event.preventDefault();
-    if (typeof noCB === "function")
+    if (typeof noCB === 'function')
       noCB();
   });
   msgBox.html(message);
@@ -611,73 +386,73 @@ function closePrompt() {
 }
 
 function suggestCountries(elem, e) {
-    // position cret to the right of last letter always
-    //setCaretToPos ( $(elem), $(elem).val().length );
-    var unicode = e.keyCode ? e.keyCode : e.charCode
-      // (up=38), (right=39), (down=40), (enter=10,13), (pgup=33), (pgdn=34), (end=35), (home=36)
-    if ((unicode > 37 && unicode < 41) || unicode == 13 || unicode == 10 || (unicode > 32 && unicode < 37)) { //if navigation buttons are pressed 
-      if (unicode == 33) { //if page up
-        for (var indx = 0; indx < 4; indx++) {
-          navigateSuggested(38); // simulate 4 time 'up arrrow' keystroke
-        }
-        return;
+  // position cret to the right of last letter always
+  //setCaretToPos ( $(elem), $(elem).val().length );
+  var unicode = e.keyCode ? e.keyCode : e.charCode
+    // (up=38), (right=39), (down=40), (enter=10,13), (pgup=33), (pgdn=34), (end=35), (home=36)
+  if ((unicode > 37 && unicode < 41) || unicode == 13 || unicode == 10 || (unicode > 32 && unicode < 37)) { //if navigation buttons are pressed 
+    if (unicode == 33) { //if page up
+      for (var indx = 0; indx < 4; indx++) {
+        navigateSuggested(38); // simulate 4 time 'up arrrow' keystroke
       }
-      if (unicode == 34) { //if page down
-        for (var indx = 0; indx < 4; indx++) {
-          navigateSuggested(40); // simulate 4 time 'sown arrrow' keystroke
-        }
-        return;
+      return;
+    }
+    if (unicode == 34) { //if page down
+      for (var indx = 0; indx < 4; indx++) {
+        navigateSuggested(40); // simulate 4 time 'sown arrrow' keystroke
       }
-      navigateSuggested(unicode); // take action for up, down, right, home, end and enters
       return;
     }
-
-    var ipFiled = $(elem);
-    var suggestBox = ipFiled.parent().children().eq(ipFiled.parent().children().length - 1); // select last child of ipFields parent
-    var searchString = ipFiled.val();
-    if (searchString == ipFiled.attr('preval')) { // this will ignore all those keystroke that's not ([A-Za-z0-9]+)
-      return;
-    }
-    var result = countrySuggest(searchString);
-    suggestBox.html('');
-    if (searchString == '') {
-      suggestBox.css('display', 'none');
-      $('#addConCCTip').prev().val('');
-      $('#addConCCTip').html('CC');
-      ipFiled.attr('preval', searchString).attr('ready', 'no');
-      ipFiled.siblings().eq(2).removeClass('countryReady').removeClass('countryNotReady');
-      return;
-    } else {
-      suggestBox.css('display', 'block');
-    }
-
-    if (result.length == 0) { // means no countries found
-      //check further if input text has only one possible outcome
-      result1 = searchString.match(/([a-zA-Z\s-_]+) /);
-      if (result1 != null) {
-        countryname = countrySuggest(result1[1].trim())[0][0];
-        suggestBox.append('<div class="suggestedElem" id="selectedCountry" onclick=\'selectCountry(' + '"' + countryname + '","' + countryToCC(countryname) + '", this);\' onmouseover=\'hoverSuggest(this);\'><p>' + countryname + ' ' + '(+' + countryToCC(countryname) + ')</p></div>');
-        ipFiled.attr('preval', searchString).attr('ready', 'no');
-        ipFiled.siblings().eq(2).removeClass('countryReady').addClass('countryNotReady');
-        return;
-      }
-      suggestBox.append('<div class="suggestedElem"><p>No such country</p></div>');
-      $('#addConCCTip').prev().val('');
-      $('#addConCCTip').html('CC');
-      //ipFiled.attr('preval',searchString).attr('ready','no');
-      return;
-    }
-    for (var i = 0; i < result.length; i++) {
-
-      suggestBox.append('<div class="suggestedElem" id="" pos="' + i + '"onclick=\'selectCountry(' + '"' + result[i][0] + '","' + countryToCC(result[i][0]) + '", this);\' onmouseover=\'hoverSuggest(this);\'><p>' + result[i][0] + ' ' + '(+' + countryToCC(result[i][0]) + ')</p></div>');
-    }
-    // highlight the first element
-    $('.suggestedElem').first().attr('id', 'selectedCountry')
-    ipFiled.attr('preval', searchString);
-    suggestBox.focus();
+    navigateSuggested(unicode); // take action for up, down, right, home, end and enters
+    return;
   }
-  //regex		var matches = str.match(/([a-zA-Z]+) \(+/); to get country name
-  //regex     var matches = str.match(/\+([0-9]+)\)/);  to get country code
+
+  var ipFiled = $(elem);
+  var suggestBox = ipFiled.parent().children().eq(ipFiled.parent().children().length - 1); // select last child of ipFields parent
+  var searchString = ipFiled.val();
+  if (searchString == ipFiled.attr('preval')) { // this will ignore all those keystroke that's not ([A-Za-z0-9]+)
+    return;
+  }
+  var result = countrySuggest(searchString);
+  suggestBox.html('');
+  if (searchString == '') {
+    suggestBox.css('display', 'none');
+    $('#addConCCTip').prev().val('');
+    $('#addConCCTip').html('CC');
+    ipFiled.attr('preval', searchString).attr('ready', 'no');
+    ipFiled.siblings().eq(2).removeClass('countryReady').removeClass('countryNotReady');
+    return;
+  } else {
+    suggestBox.css('display', 'block');
+  }
+
+  if (result.length == 0) { // means no countries found
+    //check further if input text has only one possible outcome
+    result1 = searchString.match(/([a-zA-Z\s-_]+) /);
+    if (result1 != null) {
+      countryname = countrySuggest(result1[1].trim())[0][0];
+      suggestBox.append('<div class="suggestedElem" id="selectedCountry" onclick=\'selectCountry(' + '"' + countryname + '","' + countryToCC(countryname) + '", this);\' onmouseover=\'hoverSuggest(this);\'><p>' + countryname + ' ' + '(+' + countryToCC(countryname) + ')</p></div>');
+      ipFiled.attr('preval', searchString).attr('ready', 'no');
+      ipFiled.siblings().eq(2).removeClass('countryReady').addClass('countryNotReady');
+      return;
+    }
+    suggestBox.append('<div class="suggestedElem"><p>No such country</p></div>');
+    $('#addConCCTip').prev().val('');
+    $('#addConCCTip').html('CC');
+    //ipFiled.attr('preval',searchString).attr('ready','no');
+    return;
+  }
+  for (var i = 0; i < result.length; i++) {
+
+    suggestBox.append('<div class="suggestedElem" id="" pos="' + i + '"onclick=\'selectCountry(' + '"' + result[i][0] + '","' + countryToCC(result[i][0]) + '", this);\' onmouseover=\'hoverSuggest(this);\'><p>' + result[i][0] + ' ' + '(+' + countryToCC(result[i][0]) + ')</p></div>');
+  }
+  // highlight the first element
+  $('.suggestedElem').first().attr('id', 'selectedCountry')
+  ipFiled.attr('preval', searchString);
+  suggestBox.focus();
+}
+//regex		var matches = str.match(/([a-zA-Z]+) \(+/); to get country name
+//regex     var matches = str.match(/\+([0-9]+)\)/);  to get country code
 
 function selectCountry(country, cc, thisElem) {
   var suggestBox = $(thisElem).parent();
@@ -776,8 +551,4 @@ function navigateSuggested(unicode) {
 
   };
 
-}
-
-function sendPage(page) {
-  ga('send', 'pageview', page);
 }

@@ -238,3 +238,23 @@ function closeOnEsc(e) {
     closeModal();
   }
 }
+
+function dissectPhoneNumber(number) {
+  var BreakException;
+
+  try {
+    YW.COUNTRIES.forEach(function (country) {
+      if (number.indexOf(country[1]) === 0) {
+        BreakException = country[1];
+        throw BreakException;
+      }
+    });
+  } catch (e) {
+    if (e !== BreakException) throw e;
+    return [BreakException, number.slice(BreakException.length)];
+  }
+}
+
+function sendPage(page) {
+  ga('send', 'pageview', page);
+}

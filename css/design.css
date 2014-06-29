@@ -458,6 +458,7 @@ div.signuptooltip span:after {
 /* login button */
 #loginbutton{
   display: block;
+  cursor: pointer;
   width: 80px;
   height: 80px;
   margin: 0 auto;

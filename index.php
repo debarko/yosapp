@@ -107,6 +107,7 @@
 			
 			//Parameters
 			YW.CURR_PARTNER	= {};
+				YW.PORTRAIT = ((window.screen.height / window.screen.width) > 1) ? true : false;
 		    YW.LOADED_AT    = new Date();
 		    YW.DATA			= {};
 		    YW.VIA			= "sms";
