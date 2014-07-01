@@ -45,4 +45,12 @@
     -webkit-zoom: 1.6;
     -moz-transform:  scale(1.6, 1.6);
   }
+
+  #pusher-btn{
+    #createmsgbar{
+    zoom: 1.6;
+    -ms-zoom: 1.6;
+    -webkit-zoom: 1.6;
+    -moz-transform:  scale(1.6, 1.6);
+  }
 }
