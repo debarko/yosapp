@@ -21,36 +21,42 @@
   }
 
   #mother_div{
-    zoom: 1.6;
-    -ms-zoom: 1.6;
-    -webkit-zoom: 1.6;
-    -moz-transform:  scale(1.6, 1.6);
+    font-size: 160%;
+  }
+
+  #typemsg{
+    font-size: 160%;
+    height: 70px;
   }
 
   #createmsgbar{
-    zoom: 1.6;
-    -ms-zoom: 1.6;
-    -webkit-zoom: 1.6;
-    -moz-transform:  scale(1.6, 1.6);
+    height: 70px;
+    margin-top: -70px;
   }
 
-  #msgcontainer{
-    margin-bottom: -80px;
+  #puller-btn, #pusher-btn{
+    width: 60px;
+    height: 60px;
+    background-size:100%;
   }
 
-  #puller-btn{
-    #createmsgbar{
-    zoom: 1.6;
-    -ms-zoom: 1.6;
-    -webkit-zoom: 1.6;
-    -moz-transform:  scale(1.6, 1.6);
+  .contact span{
+    font-size: 160%;
+    max-width: 240px;
+    height: 30px;
+    margin-top: 11px;
   }
 
-  #pusher-btn{
-    #createmsgbar{
-    zoom: 1.6;
-    -ms-zoom: 1.6;
-    -webkit-zoom: 1.6;
-    -moz-transform:  scale(1.6, 1.6);
+  .contact{
+    height: 50px;
+  }
+
+  .contact #contactImage{
+    height: 50px;
+    width: 50px;
+  }
+
+  .contact #contactImage p {
+    font-size: 50px;
   }
 }

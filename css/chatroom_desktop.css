@@ -8,7 +8,7 @@
       margin-left: 240px;
   }
 
-  #puller-btn {
+  #puller-btn, #pusher-btn {
     visibility: hidden;
   }
 }
