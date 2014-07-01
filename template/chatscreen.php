@@ -1,6 +1,6 @@
 <div id="puller-btn"></div>
 <div id="leftpannel">
-	<div id="close"></div>
+	<div id="pusher-btn"></div>
 	<div id="profileinfo">
 		<span id="profilepic">
 			<p></p>

@@ -1337,7 +1337,6 @@ div.logintooltips span:after {
 	float: left;
 	position: relative;
 	height: 100%;
-	/*border-right: 1px solid rgba(100, 184, 100, 0.56);*/
 	overflow: hidden;
 }
 #leftpannel:after{
@@ -1351,6 +1350,25 @@ div.logintooltips span:after {
 	background-color: rgba(100, 184, 100, 0.56);
 }
 
+#close{
+	width: 30px;
+	height: 30px;
+	float: right;
+	background-color: #fb7c7c;
+	cursor: pointer;
+	background-image:  url('../icons/slide_left.png')
+}
+
+#puller-btn{
+	width: 30px;
+	height: 30px;
+	float: left;
+	position: fixed;
+	background-color: #fb7c7c;
+	z-index: 10;
+	cursor: pointer;
+	background-image:  url('../icons/slide_right.png')
+}
 
 #profileinfo{
 	position: relative;
@@ -1543,8 +1561,7 @@ div.logintooltips span:after {
 
 #msgcontainer{
 	overflow-y: auto;
-	height: 100%;
-	margin-bottom: -40px;
+	height: 90%;
 	background-image: url('http://theorydesign.ca/img/bgservices.jpg');
 }
 
@@ -1668,6 +1685,8 @@ div.logintooltips span:after {
 	height: 40px;
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.3);
+	position: absolute;
+	bottom: 30px;
 }
 
 #attachment{
@@ -2514,15 +2533,21 @@ the right bottom corner also needs to be styled */
   #rightpannel {
       margin-left: 240px;
   }
+
+  #puller-btn {
+    visibility: hidden;
+  }
 }
 /* Smartphones (portrait and landscape) ----------- */
 @media only all and (max-device-aspect-ratio: 1/1) {
   #leftpannel{
-    width: 0px;
+    width: 0%;
+    float: left;
   }
 
   #rightpannel {
       margin-left: 0px;
+      float: right;
   }
 }
 @media all and (min-resolution: 100dpi) {
@@ -2563,6 +2588,14 @@ the right bottom corner also needs to be styled */
 
   #msgcontainer{
     margin-bottom: -80px;
+  }
+
+  #puller-btn{
+    #createmsgbar{
+    zoom: 1.6;
+    -ms-zoom: 1.6;
+    -webkit-zoom: 1.6;
+    -moz-transform:  scale(1.6, 1.6);
   }
 }
 

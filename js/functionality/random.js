@@ -52,7 +52,7 @@ function log_in_user() {
       $('#puller-btn').css('visibility', 'hidden');
     });
     //Slide user selection in
-    $('#close').click(function () {
+    $('#pusher-btn').click(function () {
       $('#leftpannel').css('width', '0%');
       $('#rightpannel').css('width', '100%');
       $('#puller-btn').css('visibility', 'visible');
