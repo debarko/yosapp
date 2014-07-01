@@ -1356,6 +1356,7 @@ div.logintooltips span:after {
 	float: right;
 	background-color: #fb7c7c;
 	cursor: pointer;
+	z-index: 10;
 	background-image:  url('../icons/slide_left.png')
 }
 
@@ -1683,14 +1684,13 @@ div.logintooltips span:after {
 
 #createmsgbar{
 	height: 40px;
-	width: 100%;
 	background-color: rgba(0, 0, 0, 0.3);
-	position: absolute;
-	bottom: 30px;
+	position: relative;
+	top: 10%;
+	margin-top: -40px;
 }
 
 #attachment{
-
 	background-repeat: no-repeat;
 	height: 100%;
 	width: 30px;
@@ -2534,7 +2534,7 @@ the right bottom corner also needs to be styled */
       margin-left: 240px;
   }
 
-  #puller-btn {
+  #puller-btn, #pusher-btn {
     visibility: hidden;
   }
 }
@@ -2573,40 +2573,45 @@ the right bottom corner also needs to be styled */
   }
 
   #mother_div{
-    zoom: 1.6;
-    -ms-zoom: 1.6;
-    -webkit-zoom: 1.6;
-    -moz-transform:  scale(1.6, 1.6);
+    font-size: 160%;
+  }
+
+  #typemsg{
+    font-size: 160%;
+    height: 70px;
   }
 
   #createmsgbar{
-    zoom: 1.6;
-    -ms-zoom: 1.6;
-    -webkit-zoom: 1.6;
-    -moz-transform:  scale(1.6, 1.6);
+    height: 70px;
+    margin-top: -70px;
   }
 
-  #msgcontainer{
-    margin-bottom: -80px;
+  #puller-btn, #pusher-btn{
+    width: 60px;
+    height: 60px;
+    background-size:100%;
   }
 
-  #puller-btn{
-    #createmsgbar{
-    zoom: 1.6;
-    -ms-zoom: 1.6;
-    -webkit-zoom: 1.6;
-    -moz-transform:  scale(1.6, 1.6);
+  .contact span{
+    font-size: 160%;
+    max-width: 240px;
+    height: 30px;
+    margin-top: 11px;
   }
 
-  #pusher-btn{
-    #createmsgbar{
-    zoom: 1.6;
-    -ms-zoom: 1.6;
-    -webkit-zoom: 1.6;
-    -moz-transform:  scale(1.6, 1.6);
+  .contact{
+    height: 50px;
+  }
+
+  .contact #contactImage{
+    height: 50px;
+    width: 50px;
+  }
+
+  .contact #contactImage p {
+    font-size: 50px;
   }
 }
-
 @media all and (max-device-width: 545px) {
   #copyright{
     visibility: hidden;
