@@ -45,6 +45,18 @@ function log_in_user() {
     randomPicGen($('#profilepic'), YW.NAME);
     $("#profilename").html(YW.NAME);
     $("#feedback").css("display", "block");
+    //Slide User selection out
+    $('#puller-btn').click(function () {
+      $('#leftpannel').css('width', '100%');
+      $('#rightpannel').css('width', '0%');
+      $('#puller-btn').css('visibility', 'hidden');
+    });
+    //Slide user selection in
+    $('#close').click(function () {
+      $('#leftpannel').css('width', '0%');
+      $('#rightpannel').css('width', '100%');
+      $('#puller-btn').css('visibility', 'visible');
+    });
     $('#typemsg').keypress(function (e) {
       // Enter pressed?
       if (e.keyCode == 10 || e.keyCode == 13) {

@@ -7,4 +7,8 @@
   #rightpannel {
       margin-left: 240px;
   }
+
+  #puller-btn {
+    visibility: hidden;
+  }
 }

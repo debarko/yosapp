@@ -12,7 +12,6 @@ $(window).resize(function () {
   setSearchContainerHeight();
 })
 
-
 function setSearchContainerHeight() {
   var searchContainerHeight = $(window).height() * (80 / 100) - 128;
   $('#contactscontainer').css("height", searchContainerHeight + "px");
