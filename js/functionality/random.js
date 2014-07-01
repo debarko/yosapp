@@ -38,8 +38,8 @@ function log_in_user() {
     //Focus the messege enter bar
     $('#typemsg').focus();
     $('#icons').html(YW.LOGGED_IN_H());
-    $('#icons').css("top", "2px");
-    $('#icons').css("right", "2px");
+    $('#icons').css("top", "10%");
+    $('#icons').css("right", "0%");
     setSearchContainerHeight();
     //Set up profile name and picture
     randomPicGen($('#profilepic'), YW.NAME);

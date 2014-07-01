@@ -1,7 +1,3 @@
-#bodybg-chatroom{
-	background-color: white;
-}
-
 .iconIn{
 	display: inline-block;
 	display: inline-block;
@@ -15,24 +11,15 @@
 #settings{
 	background-image: url('../icons/settings_min.png');
 }
-#connectivity{
-	background-image: url('../icons/conn1_min.png');
-}
+
 .tooltipIn{
 	display: none;
-}
-
-#bodybg-chatroom{
-	width: 100%;
-	height: 80%;
-	background-color: white;
 }
 
 #leftpannel{
 	float: left;
 	position: relative;
 	height: 100%;
-	width: 240px;
 	/*border-right: 1px solid rgba(100, 184, 100, 0.56);*/
 	overflow: hidden;
 }
@@ -235,12 +222,12 @@
 }
 #rightpannel{
 	height: 100%;
-	margin-left: 240px;
 }
 
 #msgcontainer{
 	overflow-y: auto;
-	height: 93%;
+	height: 100%;
+	margin-bottom: -40px;
 	background-image: url('http://theorydesign.ca/img/bgservices.jpg');
 }
 
@@ -361,7 +348,7 @@
 }
 
 #createmsgbar{
-	height: 7%;
+	height: 40px;
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.3);
 }
@@ -404,7 +391,7 @@
 	background-image: url('../icons/sendArrow.png');
 	background-position-y: 49%;
 	float: right;
-	margin-right: 20px;
+	margin-right: 1%;
 	opacity: 0.5;
 }
 

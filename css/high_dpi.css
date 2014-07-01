@@ -19,4 +19,22 @@
     -webkit-zoom: 1.6;
     -moz-transform:  scale(1.6, 1.6);
   }
+
+  #mother_div{
+    zoom: 1.6;
+    -ms-zoom: 1.6;
+    -webkit-zoom: 1.6;
+    -moz-transform:  scale(1.6, 1.6);
+  }
+
+  #createmsgbar{
+    zoom: 1.6;
+    -ms-zoom: 1.6;
+    -webkit-zoom: 1.6;
+    -moz-transform:  scale(1.6, 1.6);
+  }
+
+  #msgcontainer{
+    margin-bottom: -80px;
+  }
 }

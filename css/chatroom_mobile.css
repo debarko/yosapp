@@ -1,0 +1,10 @@
+/* Smartphones (portrait and landscape) ----------- */
+@media only all and (max-device-aspect-ratio: 1/1) {
+  #leftpannel{
+    width: 0px;
+  }
+
+  #rightpannel {
+      margin-left: 0px;
+  }
+}

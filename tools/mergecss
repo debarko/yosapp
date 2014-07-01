@@ -4,18 +4,35 @@ echo "Deleting old CSS compiles files";
 rm ./css/design.css;
 rm ./css/design.min.css;
 echo "Merging in process";
+
 cat ./css/reset.css > ./css/design.css;
 echo >> ./css/design.css;
+
 cat ./css/homescreen.css >> ./css/design.css;
 echo >> ./css/design.css;
+
 cat ./css/chatroom.css >> ./css/design.css;
 echo >> ./css/design.css;
+
 cat ./css/modal.css >> ./css/design.css;
 echo >> ./css/design.css;
+
 cat ./css/homescreen_mobile.css >> ./css/design.css;
 echo >> ./css/design.css;
+
 cat ./css/homescreen_desktop.css >> ./css/design.css;
-echo "Minification in process";
+echo >> ./css/design.css;
+
+cat ./css/chatroom_desktop.css >> ./css/design.css;
+echo >> ./css/design.css;
+
+cat ./css/chatroom_mobile.css >> ./css/design.css;
+echo >> ./css/design.css;
+
 cat ./css/high_dpi.css >> ./css/design.css;
+echo >> ./css/design.css;
+
+cat ./css/tinywidth.css >> ./css/design.css;
+echo >> ./css/design.css;
 echo "Minification in process";
 /usr/bin/java -jar ./tools/yuicompressor.jar --type css -o ./css/design.min.css ./css/design.css;
