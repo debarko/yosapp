@@ -1357,6 +1357,8 @@ div.logintooltips span:after {
 	background-color: #fb7c7c;
 	cursor: pointer;
 	z-index: 10;
+	border-top-left-radius: 7px;
+	border-bottom-left-radius: 7px;
 	background-image:  url('../icons/slide_left.png')
 }
 
@@ -1368,6 +1370,8 @@ div.logintooltips span:after {
 	background-color: #fb7c7c;
 	z-index: 10;
 	cursor: pointer;
+	border-top-right-radius: 7px;
+	border-bottom-right-radius: 7px;
 	background-image:  url('../icons/slide_right.png')
 }
 
@@ -1434,8 +1438,6 @@ div.logintooltips span:after {
 
 #concactsearch input{
 	border: none;
-	height: 25px;
-	width: 195px;
 	background-color: rgba(0,0,0,0);
 	text-indent: 10px;
 	color: white;
@@ -1727,7 +1729,7 @@ div.logintooltips span:after {
 	background-image: url('../icons/sendArrow.png');
 	background-position-y: 49%;
 	float: right;
-	margin-right: 1%;
+	margin-right: 3%;
 	opacity: 0.5;
 }
 
@@ -2537,6 +2539,11 @@ the right bottom corner also needs to be styled */
   #puller-btn, #pusher-btn {
     visibility: hidden;
   }
+
+   #contactSearchbar {
+    height: 25px;
+    width: 195px;
+  }
 }
 /* Smartphones (portrait and landscape) ----------- */
 @media only all and (max-device-aspect-ratio: 1/1) {
@@ -2549,27 +2556,24 @@ the right bottom corner also needs to be styled */
       margin-left: 0px;
       float: right;
   }
+
+  #contactSearchTip, #contactSearchbar {
+    width: 95%;
+    height: 100%;
+  }
 }
 @media all and (min-resolution: 100dpi) {
-  #loginform{
+  #contactSearchTip, #contactSearchbar {
+    font-size: 160%;
+    width: 95%;
+    height: 100%;
+  }
+
+  #loginform, #sendbutton, #regform, #bannerText, #icons, #searchIcon{
     zoom: 1.4;
     -ms-zoom: 1.4;
     -webkit-zoom: 1.4;
     -moz-transform:  scale(1.4, 1.4);
-  }
-
-  #regform{
-    zoom: 1.4;
-    -ms-zoom: 1.4;
-    -webkit-zoom: 1.4;
-    -moz-transform:  scale(1.4, 1.4);
-  }
-
-  #bannerText{
-    zoom: 1.6;
-    -ms-zoom: 1.6;
-    -webkit-zoom: 1.6;
-    -moz-transform:  scale(1.6, 1.6);
   }
 
   #mother_div{
@@ -2610,6 +2614,11 @@ the right bottom corner also needs to be styled */
 
   .contact #contactImage p {
     font-size: 50px;
+  }
+
+  #contactSearchTip {
+    left: 1%;
+    visibility: hidden;
   }
 }
 @media all and (max-device-width: 545px) {
