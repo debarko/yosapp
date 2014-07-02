@@ -9,4 +9,9 @@
       margin-left: 0px;
       float: right;
   }
+
+  #contactSearchTip, #contactSearchbar {
+    width: 95%;
+    height: 100%;
+  }
 }

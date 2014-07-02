@@ -11,4 +11,9 @@
   #puller-btn, #pusher-btn {
     visibility: hidden;
   }
+
+   #contactSearchbar {
+    height: 25px;
+    width: 195px;
+  }
 }

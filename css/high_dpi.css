@@ -1,23 +1,15 @@
 @media all and (min-resolution: 100dpi) {
-  #loginform{
+  #contactSearchTip, #contactSearchbar {
+    font-size: 160%;
+    width: 95%;
+    height: 100%;
+  }
+
+  #loginform, #sendbutton, #regform, #bannerText, #icons, #searchIcon{
     zoom: 1.4;
     -ms-zoom: 1.4;
     -webkit-zoom: 1.4;
     -moz-transform:  scale(1.4, 1.4);
-  }
-
-  #regform{
-    zoom: 1.4;
-    -ms-zoom: 1.4;
-    -webkit-zoom: 1.4;
-    -moz-transform:  scale(1.4, 1.4);
-  }
-
-  #bannerText{
-    zoom: 1.6;
-    -ms-zoom: 1.6;
-    -webkit-zoom: 1.6;
-    -moz-transform:  scale(1.6, 1.6);
   }
 
   #mother_div{
@@ -58,5 +50,10 @@
 
   .contact #contactImage p {
     font-size: 50px;
+  }
+
+  #contactSearchTip {
+    left: 1%;
+    visibility: hidden;
   }
 }

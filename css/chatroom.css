@@ -40,6 +40,8 @@
 	background-color: #fb7c7c;
 	cursor: pointer;
 	z-index: 10;
+	border-top-left-radius: 7px;
+	border-bottom-left-radius: 7px;
 	background-image:  url('../icons/slide_left.png')
 }
 
@@ -51,6 +53,8 @@
 	background-color: #fb7c7c;
 	z-index: 10;
 	cursor: pointer;
+	border-top-right-radius: 7px;
+	border-bottom-right-radius: 7px;
 	background-image:  url('../icons/slide_right.png')
 }
 
@@ -117,8 +121,6 @@
 
 #concactsearch input{
 	border: none;
-	height: 25px;
-	width: 195px;
 	background-color: rgba(0,0,0,0);
 	text-indent: 10px;
 	color: white;
@@ -410,7 +412,7 @@
 	background-image: url('../icons/sendArrow.png');
 	background-position-y: 49%;
 	float: right;
-	margin-right: 1%;
+	margin-right: 3%;
 	opacity: 0.5;
 }
 

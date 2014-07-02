@@ -50,12 +50,14 @@ function log_in_user() {
       $('#leftpannel').css('width', '100%');
       $('#rightpannel').css('width', '0%');
       $('#puller-btn').css('visibility', 'hidden');
+      $('#sendbutton').css('visibility', 'hidden');
     });
     //Slide user selection in
     $('#pusher-btn').click(function () {
       $('#leftpannel').css('width', '0%');
       $('#rightpannel').css('width', '100%');
       $('#puller-btn').css('visibility', 'visible');
+      $('#sendbutton').css('visibility', 'visible');
     });
     $('#typemsg').keypress(function (e) {
       // Enter pressed?
