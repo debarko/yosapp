@@ -1,4 +1,7 @@
 .buildpath
+.cache
+.ssh
+.mysql_history
 .project
 .settings/
 .viminfo
