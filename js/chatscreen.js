@@ -491,7 +491,7 @@ function setCurrentPartner(elem) {
   $("#msgcontainer").html("<br /><br />");
   //clear previously selected partner and do not clear undrad contact background
   $('.contact').each(function (i, obj) {
-    if ($(obj).css('background-color') == 'rgba(42, 178, 0, 0.521569)') {
+    if ($(obj).css('background-color')) {
       $(obj).css('background-color', '');
     }
     // clear all the edit option link
