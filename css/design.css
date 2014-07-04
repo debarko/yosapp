@@ -1697,7 +1697,7 @@ div.logintooltips span:after {
 	height: 100%;
 	width: 30px;
 	background-image: url('../icons/attachmenticon.png');
-	background-position-y: 49%;
+	background-position: 0% 49%;
 	float: left;
 	margin-left: 15px;
 	opacity: 0.5;
@@ -1712,7 +1712,7 @@ div.logintooltips span:after {
 	height: 100%;
 	width: 25px;
 	background-image: url('../icons/smiley.png');
-	background-position-y: 49%;
+	background-position: 0% 49%;
 	float: left;
 	margin-left: 15px;
 	opacity: 0.5;
@@ -1727,7 +1727,7 @@ div.logintooltips span:after {
 	height: 100%;
 	width: 30px;
 	background-image: url('../icons/sendArrow.png');
-	background-position-y: 49%;
+	background-position: 0% 49%;
 	float: right;
 	margin-right: 3%;
 	opacity: 0.5;
