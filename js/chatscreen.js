@@ -559,14 +559,22 @@ function reqNotifPerms() {
   }
 }
 
+function isPermsReqd() {
+  var myNotification = new Notify('Test');
+  return myNotification.needsPermission();
+}
+
 function askNotifPerm() {
   if (getValue("askNotifPerm") === 1) {
+    if(!isPermsReqd()) {
+      return true;
+    }
     sendPage('/showNotifPerm');
     showPrompt("Would you like to allow Desktop Notification for incoming messages??",
       function () {
         sendPage('/showNotifPerm/accept');
         reqNotifPerms();
-        setValue("askNotifPerm", 0);
+        setValue("askNotifPerm", 1);
         closePrompt();
       },
       function () {

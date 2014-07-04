@@ -353,12 +353,12 @@ function showPrompt(message, yesCB, noCB) {
   showOverlay();
   var prompt = $('#prompt');
   var msgBox = $('#prompMsg').find('p');
-  $('#promptYes').click(function () {
+  $('#promptYes').click(function (event) {
     event.preventDefault();
     if (typeof yesCB === 'function')
       yesCB();
   });
-  $('#promptNo').click(function () {
+  $('#promptNo').click(function (event) {
     event.preventDefault();
     if (typeof noCB === 'function')
       noCB();
