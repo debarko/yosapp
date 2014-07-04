@@ -4,3 +4,7 @@ echo "Merging and Minifying js files..."
 ./tools/mergejs ./tools/merge_files/input.txt ./js/script.js
 echo "Merging and Minifying CSS files..."
 ./tools/mergecss
+echo "Adding modified design and js files, if they are modified"
+git add css/design.css
+git add css/design.min.css
+git add js/script.min.js
