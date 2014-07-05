@@ -1,5 +1,4 @@
 /* Desktops ----------- */
-@media all and (min-aspect-ratio: 1/1) {
   #master{
     min-height:500px;
   }
@@ -39,5 +38,3 @@
   #errorMsgBoxArrow{
     display: inline-block;
   }
-
-}

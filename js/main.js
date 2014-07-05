@@ -13,6 +13,7 @@ window.onerror = function (msg, url, linenumber) {
 
 function toggleLogin() {
   if (isloginclicked) {
+    $('.logintooltips').css('visibility', 'visible');
     $('#loginform').animate({
       'opacity': '0'
     }, 800, function () {
@@ -21,12 +22,17 @@ function toggleLogin() {
     });
     isloginclicked = false;
   } else {
+    if (YW.PORTRAIT) {
+      $('.logintooltips').css('visibility', 'hidden');
+    }
     $('#loginform').css('visibility', 'visible');
     $('#loginform').animate({
       'opacity': '1'
     }, 800);
     //focus username field
-    $('#userfield').focus();
+    if (!YW.PORTRAIT) {
+      $('#userfield').focus();
+    }
     isloginclicked = true;
     //virtually unclick the signup button also
     $('#regform').animate({
@@ -41,6 +47,7 @@ function toggleLogin() {
 
 function toggleSignup() {
   if (issignupclicked) {
+    $('.logintooltips').css('visibility', 'visible');
     $('#regform').animate({
       'opacity': '0'
     }, 800, function () {
@@ -49,12 +56,17 @@ function toggleSignup() {
     });
     issignupclicked = false;
   } else {
+    if (YW.PORTRAIT) {
+      $('.logintooltips').css('visibility', 'hidden');
+    }
     $('#regform').css('visibility', 'visible');
     $('#regform').animate({
       'opacity': '1'
     }, 800);
     //focus first field
-    $('#regInputPhone').focus();
+    if (!YW.PORTRAIT) {
+      $('#regInputPhone').focus();
+    }
     issignupclicked = true;
     //disapear login form
     $('#loginform').animate({
@@ -161,6 +173,9 @@ function portraitLoad () {
 }
 
 function showLoginTipOnLoad() {
+  if (YW.PORTRAIT) {
+    return;
+  }
   $('.logintooltips').find('span').animate({
     opacity: '1'
   }, 1600, 'linear', function () {

@@ -5,7 +5,7 @@
     height: 100%;
   }
 */
-  #loginform, #sendbutton, #regform, #bannerText, #icons, #searchIcon{
+  #loginform, #sendbutton, #regform, #bannerText, #icons, #searchIcon, #loginbutton{
     zoom: 0.7;
     -ms-zoom: 0.7;
     -webkit-zoom: 0.7;

@@ -1,5 +1,4 @@
 /* Desktops ----------- */
-@media all and (min-aspect-ratio: 1/1) {
   #leftpannel {
     width: 240px;
   }
@@ -16,4 +15,3 @@
     height: 25px;
     width: 195px;
   }
-}

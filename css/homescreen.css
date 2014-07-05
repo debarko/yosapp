@@ -1,6 +1,7 @@
 body{
   background-color:#2aB200;
   font-size: 12px;
+  overflow: hidden
 }
 
 #master{
@@ -163,7 +164,7 @@ div.signuptooltip span:after {
 
 /* Login form starts here */
 #loginform{
-  position: absolute;
+  position: fixed;
   width: 322px;
   top: 50%;
   left: 50%;
@@ -457,7 +458,7 @@ div.logintooltips span:after {
 
 /* Registration form starts here */
 #regform{
-  position: absolute;
+  position: fixed;
   top: 50%;
   float: left;
   left: 50%;

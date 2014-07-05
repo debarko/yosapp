@@ -17,7 +17,7 @@
 		<!--Assume that all the css files will be merged to one while running -->
 		<?php
 	      if(!DEBUG) {
-	        $cssFiles = array('design.min', 'design-mobile.css', 'design-desktop.css');
+	        $cssFiles = array('design.min', 'design-mobile.min', 'design-desktop.min');
 	      }
 	      else {
 	        $cssFiles = array('reset', // This should be the first css file

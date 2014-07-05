@@ -72,6 +72,7 @@ input[type=checkbox] {
 body{
   background-color:#2aB200;
   font-size: 12px;
+  overflow: hidden
 }
 
 #master{
@@ -234,7 +235,7 @@ div.signuptooltip span:after {
 
 /* Login form starts here */
 #loginform{
-  position: absolute;
+  position: fixed;
   width: 322px;
   top: 50%;
   left: 50%;
@@ -528,7 +529,7 @@ div.logintooltips span:after {
 
 /* Registration form starts here */
 #regform{
-  position: absolute;
+  position: fixed;
   top: 50%;
   float: left;
   left: 50%;
@@ -2421,129 +2422,6 @@ the right bottom corner also needs to be styled */
 }
 
 
-/* Smartphones (portrait and landscape) ----------- */
-@media only all and (max-aspect-ratio: 1/1) {
-  #master{
-    min-height:300px;
-  }
-
-  #bannerText{
-    font-size: 1.5em;
-  }
-
-  #bannerText:after{
-    width: 69px;
-    height: 1px;
-    top: 27px;
-  }
-
-  #bannerText span{
-    font-size: .34em;
-    width: 65px;
-    top: 31px;
-  }
-
-  #loginform{
-    margin-top: -110px;
-    margin-left: -155px;
-    background-color: #2aB200;
-  }
-
-  #regform{
-    margin-top: -110px;
-    margin-left: -170px;
-    background-color: #2aB200;
-  }
-
-  #errorMsgBox{
-    height: 25px;
-    width: 320px;
-    left: -160px;
-  }
-
-  #errorMsgBoxArrow{
-    display: none;
-  }
-}
-/* Desktops ----------- */
-@media all and (min-aspect-ratio: 1/1) {
-  #master{
-    min-height:500px;
-  }
-
-  #bannerText{
-    font-size: 2em;
-  }
-
-  #bannerText:after{
-    width: 100px;
-    height: 1px;
-    top: 36px;
-  }
-
-  #bannerText span{
-    font-size: .34em;
-    width: 100px;
-    top: 39px;
-  }
-
-  #loginform{
-    margin-top: -87px;
-    margin-left: -415px;
-  }
-
-  #regform{
-    margin-top: -115px;
-    margin-left: 94px;
-  }
-
-  #errorMsgBox{
-    height: 70px;
-    width: 250px;
-    left: -125px;
-  }
-
-  #errorMsgBoxArrow{
-    display: inline-block;
-  }
-
-}
-/* Desktops ----------- */
-@media all and (min-aspect-ratio: 1/1) {
-  #leftpannel {
-    width: 240px;
-  }
-
-  #rightpannel {
-      margin-left: 240px;
-  }
-
-  #puller-btn, #pusher-btn {
-    visibility: hidden;
-  }
-
-   #contactSearchbar {
-    height: 25px;
-    width: 195px;
-  }
-}
-/* Smartphones (portrait and landscape) ----------- */
-@media only all and (max-aspect-ratio: 1/1) {
-  #leftpannel{
-    width: 0%;
-    float: left;
-  }
-
-  #rightpannel {
-      margin-left: 0px;
-      float: right;
-  }
-
-  #contactSearchTip, #contactSearchbar {
-    width: 95%;
-    height: 100%;
-  }
-}
 @media all and (min-resolution: 180dpi) {
   #contactSearchTip, #contactSearchbar {
     font-size: 160%;
@@ -2602,6 +2480,65 @@ the right bottom corner also needs to be styled */
     left: 1%;
     visibility: hidden;
   }
+}
+@media all and (max-resolution: 100dpi) and (max-width: 350px) {
+/*  #contactSearchTip, #contactSearchbar {
+    font-size: 160%;
+    width: 95%;
+    height: 100%;
+  }
+*/
+  #loginform, #sendbutton, #regform, #bannerText, #icons, #searchIcon, #loginbutton{
+    zoom: 0.7;
+    -ms-zoom: 0.7;
+    -webkit-zoom: 0.7;
+    -moz-transform:  scale(0.7, 0.7);
+  }
+/*
+  #mother_div{
+    font-size: 160%;
+  }
+
+  #typemsg{
+    font-size: 160%;
+    height: 70px;
+  }
+
+  #createmsgbar{
+    height: 70px;
+    margin-top: -70px;
+  }
+
+  #puller-btn, #pusher-btn{
+    width: 60px;
+    height: 60px;
+    background-size:100%;
+  }
+
+  .contact span{
+    font-size: 160%;
+    max-width: 240px;
+    height: 30px;
+    margin-top: 11px;
+  }
+
+  .contact{
+    height: 50px;
+  }
+
+  .contact #contactImage{
+    height: 50px;
+    width: 50px;
+  }
+
+  .contact #contactImage p {
+    font-size: 50px;
+  }
+
+  #contactSearchTip {
+    left: 1%;
+    visibility: hidden;
+  }*/
 }
 @media all and (max-device-width: 545px) {
   #copyright{

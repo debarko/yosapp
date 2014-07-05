@@ -1,5 +1,4 @@
 /* Smartphones (portrait and landscape) ----------- */
-@media only all and (max-aspect-ratio: 1/1) {
   #leftpannel{
     width: 0%;
     float: left;
@@ -14,4 +13,3 @@
     width: 95%;
     height: 100%;
   }
-}

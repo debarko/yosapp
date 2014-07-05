@@ -2,8 +2,12 @@
 
 echo "Deleting old CSS compiles files";
 rm ./css/design.css;
+rm ./css/design-mobile.css;
+rm ./css/design-desktop.css;
 rm ./css/design.min.css;
-echo "Merging in process";
+rm ./css/design-mobile.min.css;
+rm ./css/design-desktop.min.css;
+echo "Merging of Standard design files in process";
 
 cat ./css/reset.css > ./css/design.css;
 echo >> ./css/design.css;
@@ -17,22 +21,31 @@ echo >> ./css/design.css;
 cat ./css/modal.css >> ./css/design.css;
 echo >> ./css/design.css;
 
-cat ./css/homescreen_mobile.css >> ./css/design.css;
-echo >> ./css/design.css;
-
-cat ./css/homescreen_desktop.css >> ./css/design.css;
-echo >> ./css/design.css;
-
-cat ./css/chatroom_desktop.css >> ./css/design.css;
-echo >> ./css/design.css;
-
-cat ./css/chatroom_mobile.css >> ./css/design.css;
-echo >> ./css/design.css;
-
 cat ./css/high_dpi.css >> ./css/design.css;
+echo >> ./css/design.css;
+
+cat ./css/low_dpi.css >> ./css/design.css;
 echo >> ./css/design.css;
 
 cat ./css/tinywidth.css >> ./css/design.css;
 echo >> ./css/design.css;
+
+echo "Merging of Mobile specific design files in process";
+cat ./css/homescreen_mobile.css >> ./css/design-mobile.css;
+echo >> ./css/design-mobile.css;
+
+cat ./css/chatroom_mobile.css >> ./css/design-mobile.css;
+echo >> ./css/design-mobile.css;
+
+echo "Merging of Desktop specific design files in process";
+cat ./css/homescreen_desktop.css >> ./css/design-desktop.css;
+echo >> ./css/design-desktop.css;
+
+cat ./css/chatroom_desktop.css >> ./css/design-desktop.css;
+echo >> ./css/design-desktop.css;
+
+
 echo "Minification in process";
 /usr/bin/java -jar ./tools/yuicompressor.jar --type css -o ./css/design.min.css ./css/design.css;
+/usr/bin/java -jar ./tools/yuicompressor.jar --type css -o ./css/design-mobile.min.css ./css/design-mobile.css;
+/usr/bin/java -jar ./tools/yuicompressor.jar --type css -o ./css/design-desktop.min.css ./css/design-desktop.css;
