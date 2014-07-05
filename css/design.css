@@ -2440,7 +2440,7 @@ the right bottom corner also needs to be styled */
 
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only all and (max-device-aspect-ratio: 1/1) {
+@media only all and (max-aspect-ratio: 1/1) {
   #master{
     min-height:300px;
   }
@@ -2484,7 +2484,7 @@ the right bottom corner also needs to be styled */
   }
 }
 /* Desktops ----------- */
-@media all and (min-device-aspect-ratio: 1/1) {
+@media all and (min-aspect-ratio: 1/1) {
   #master{
     min-height:500px;
   }
@@ -2527,7 +2527,7 @@ the right bottom corner also needs to be styled */
 
 }
 /* Desktops ----------- */
-@media all and (min-device-aspect-ratio: 1/1) {
+@media all and (min-aspect-ratio: 1/1) {
   #leftpannel {
     width: 240px;
   }
@@ -2546,7 +2546,7 @@ the right bottom corner also needs to be styled */
   }
 }
 /* Smartphones (portrait and landscape) ----------- */
-@media only all and (max-device-aspect-ratio: 1/1) {
+@media only all and (max-aspect-ratio: 1/1) {
   #leftpannel{
     width: 0%;
     float: left;
