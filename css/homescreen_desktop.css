@@ -5,7 +5,7 @@
   }
 
   #bannerText{
-    font-size: 35px;
+    font-size: 2em;
   }
 
   #bannerText:after{
@@ -15,7 +15,7 @@
   }
 
   #bannerText span{
-    font-size: 12px;
+    font-size: .34em;
     width: 100px;
     top: 39px;
   }

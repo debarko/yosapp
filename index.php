@@ -17,13 +17,13 @@
 		<!--Assume that all the css files will be merged to one while running -->
 		<?php
 	      if(!DEBUG) {
-	        $cssFiles = array('design.min');
+	        $cssFiles = array('design.min', 'design-mobile.css', 'design-desktop.css');
 	      }
 	      else {
 	        $cssFiles = array('reset', // This should be the first css file
 							  'modal', 'chatroom', 'homescreen', 'homescreen_desktop',
 							  'homescreen_mobile', 'high_dpi', 'chatroom_desktop',
-                'chatroom_mobile', 'tinywidth',
+                'chatroom_mobile', 'tinywidth', 'low_dpi',
 	              'reset'); // This should be the last css file
 
 	      }
@@ -84,6 +84,7 @@
 		</script>
 		<!--Our site script-->
 		<script type="text/javascript">
+		var cssSheets = $('link');
 		window.YW = {};
 		(function(YW) {
 		    YW.HOMESCREEN   = function() { return '<?php echo $homescreen; ?>'; };
@@ -108,7 +109,7 @@
 			
 			//Parameters
 			YW.CURR_PARTNER	= {};
-				YW.PORTRAIT = ((window.screen.height / window.screen.width) > 1) ? true : false;
+				YW.PORTRAIT = ((window.innerHeight / window.innerWidth) > 1) ? true : false;
 		    YW.LOADED_AT    = new Date();
 		    YW.DATA			= {};
 		    YW.VIA			= "sms";
@@ -127,7 +128,23 @@
 		    YW.KEYDEF		= {
 		    					"askNotifPerm":1
 		    				  };
+		    //The bottom part removes CSS styles which shouldn't be applicable
+		    if (YW.PORTRAIT) {
+		    	cssSheets.each(function (index, cssSheet) {
+		    		if (cssSheet.href.indexOf('desktop') > 0) {
+		    			cssSheet.remove();
+		    		}
+		    	});
+		    } else {
+		    	cssSheets.each(function (index, cssSheet) {
+		    		if (cssSheet.href.indexOf('mobile') > 0) {
+		    			cssSheet.remove();
+		    		}
+		    	});
+		    }
 		})(YW);
+		//Default Data Logging
+		console.log('Browser Dimensions: {height, width} -> {'+window.innerHeight + ', ' + window.innerWidth + '}');
 		</script>
 	</body>
 </html>

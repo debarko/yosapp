@@ -2428,7 +2428,7 @@ the right bottom corner also needs to be styled */
   }
 
   #bannerText{
-    font-size: 25px;
+    font-size: 1.5em;
   }
 
   #bannerText:after{
@@ -2438,7 +2438,7 @@ the right bottom corner also needs to be styled */
   }
 
   #bannerText span{
-    font-size: 10px;
+    font-size: .34em;
     width: 65px;
     top: 31px;
   }
@@ -2472,7 +2472,7 @@ the right bottom corner also needs to be styled */
   }
 
   #bannerText{
-    font-size: 35px;
+    font-size: 2em;
   }
 
   #bannerText:after{
@@ -2482,7 +2482,7 @@ the right bottom corner also needs to be styled */
   }
 
   #bannerText span{
-    font-size: 12px;
+    font-size: .34em;
     width: 100px;
     top: 39px;
   }
@@ -2544,7 +2544,7 @@ the right bottom corner also needs to be styled */
     height: 100%;
   }
 }
-@media all and (min-resolution: 100dpi) {
+@media all and (min-resolution: 180dpi) {
   #contactSearchTip, #contactSearchbar {
     font-size: 160%;
     width: 95%;

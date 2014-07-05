@@ -1,17 +1,17 @@
-@media all and (min-resolution: 180dpi) {
-  #contactSearchTip, #contactSearchbar {
+@media all and (max-resolution: 100dpi) and (max-width: 350px) {
+/*  #contactSearchTip, #contactSearchbar {
     font-size: 160%;
     width: 95%;
     height: 100%;
   }
-
+*/
   #loginform, #sendbutton, #regform, #bannerText, #icons, #searchIcon{
-    zoom: 1.4;
-    -ms-zoom: 1.4;
-    -webkit-zoom: 1.4;
-    -moz-transform:  scale(1.4, 1.4);
+    zoom: 0.7;
+    -ms-zoom: 0.7;
+    -webkit-zoom: 0.7;
+    -moz-transform:  scale(0.7, 0.7);
   }
-
+/*
   #mother_div{
     font-size: 160%;
   }
@@ -55,5 +55,5 @@
   #contactSearchTip {
     left: 1%;
     visibility: hidden;
-  }
+  }*/
 }
