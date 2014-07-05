@@ -6,5 +6,9 @@ echo "Merging and Minifying CSS files..."
 ./tools/mergecss
 echo "Adding modified design and js files, if they are modified"
 git add css/design.css
+git add css/design-desktop.css
+git add css/design-mobile.css
 git add css/design.min.css
 git add js/script.min.js
+git add css/design-desktop.min.css
+git add css/design-mobile.min.css
