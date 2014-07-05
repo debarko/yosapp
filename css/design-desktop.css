@@ -1,0 +1,57 @@
+/* Desktops ----------- */
+  #master{
+    min-height:500px;
+  }
+
+  #bannerText{
+    font-size: 2em;
+  }
+
+  #bannerText:after{
+    width: 100px;
+    height: 1px;
+    top: 36px;
+  }
+
+  #bannerText span{
+    font-size: .34em;
+    width: 100px;
+    top: 39px;
+  }
+
+  #loginform{
+    margin-top: -87px;
+    margin-left: -415px;
+  }
+
+  #regform{
+    margin-top: -115px;
+    margin-left: 94px;
+  }
+
+  #errorMsgBox{
+    height: 70px;
+    width: 250px;
+    left: -125px;
+  }
+
+  #errorMsgBoxArrow{
+    display: inline-block;
+  }
+/* Desktops ----------- */
+  #leftpannel {
+    width: 240px;
+  }
+
+  #rightpannel {
+      margin-left: 240px;
+  }
+
+  #puller-btn, #pusher-btn {
+    visibility: hidden;
+  }
+
+   #contactSearchbar {
+    height: 25px;
+    width: 195px;
+  }
