@@ -42,7 +42,6 @@ function formatAMPM(date) {
 }
 
 function sendOtherMsg(message) {
-  askNotifPerm();
   if (message === "") {
     return false;
   }
@@ -625,6 +624,7 @@ function checkForWPass() {
         showVerWindow();
         return true;
       } else {
+        askNotifPerm();
         return false;
       }
     })
