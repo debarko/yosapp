@@ -46,19 +46,9 @@ function log_in_user() {
     $("#profilename").html(YW.NAME);
     $("#feedback").css("display", "block");
     //Slide User selection out
-    $('#puller-btn').click(function () {
-      $('#leftpannel').css('width', '100%');
-      $('#rightpannel').css('width', '0%');
-      $('#puller-btn').css('visibility', 'hidden');
-      $('#sendbutton').css('visibility', 'hidden');
-    });
+    $('#puller-btn').click(openContacts);
     //Slide user selection in
-    $('#pusher-btn').click(function () {
-      $('#leftpannel').css('width', '0%');
-      $('#rightpannel').css('width', '100%');
-      $('#puller-btn').css('visibility', 'visible');
-      $('#sendbutton').css('visibility', 'visible');
-    });
+    $('#pusher-btn').click(openMessages);
     $('#typemsg').keypress(function (e) {
       // Enter pressed?
       if (e.keyCode == 10 || e.keyCode == 13) {

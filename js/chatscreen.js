@@ -500,9 +500,26 @@ function setCurrentPartner(elem) {
   $(elem).css('background-color', 'rgba(42, 178, 0, 0.52)');
   $(elem).find('#unreadMsgCnt').css('display', 'none');
   $(elem).find('#editContactButton').css('display', 'inline-block');
+  if (YW.PORTRAIT) {
+    openMessages();
+  }
   renderMessages();
   renderCurrent();
   calcUnread();
+}
+
+function openContacts () {
+  $('#leftpannel').css('width', '100%');
+  $('#rightpannel').css('width', '0%');
+  $('#puller-btn').css('visibility', 'hidden');
+  $('#sendbutton').css('visibility', 'hidden');
+}
+
+function openMessages () {
+  $('#leftpannel').css('width', '0%');
+  $('#rightpannel').css('width', '100%');
+  $('#puller-btn').css('visibility', 'visible');
+  $('#sendbutton').css('visibility', 'visible');
 }
 
 function replaceAll(find, replace, str) {
