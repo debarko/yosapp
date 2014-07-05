@@ -1428,7 +1428,7 @@ div.logintooltips span:after {
 #concactsearch input{
 	position: absolute;
 	width: 95%;
-	height: 100%;
+	height: 5%;
 	border: none;
 	background-color: rgba(0,0,0,0);
 	text-indent: 10px;
