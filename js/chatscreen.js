@@ -308,7 +308,7 @@ function selectModalItem(item, thisElem) {
   } else if (item == 'beta') {
     $('#modalMenuBeta').addClass('selectedModalMenuItem');
     $('#releaseHeader').html('Beta Release');
-    $('#releaseVersionText').html('This version will have mobile UI.');
+    $('#releaseVersionText').html('Introducing the Beta version of Yosapp. This version supports mobile web browsers and will be easily displayed in Firefox OS.');
   } else if (item == 'RC1') {
     $('#modalMenuRC1').addClass('selectedModalMenuItem');
     $('#releaseHeader').html('Stable Release');
