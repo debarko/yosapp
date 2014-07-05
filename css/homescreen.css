@@ -1,5 +1,6 @@
 body{
   background-color:#2aB200;
+  font-size: 12px;
 }
 
 #master{
@@ -84,7 +85,7 @@ body{
 
 #notify p{
   color: rgba(255, 255, 255, 0.95);
-  font-size: 13px;
+  font-size: 1em;
   padding: 10px;
   text-align: center;
   word-wrap: break-word;
@@ -116,7 +117,7 @@ div.signuptooltip span {
   height: 28px;
   line-height: 30px;
   text-align: center;
-  font-size: 13px;
+  font-size: 1em;
   visibility: visible;
   opacity:0;
   border-radius: 1px;
@@ -169,7 +170,7 @@ div.signuptooltip span:after {
   height: 175px;
   float: left;
   color: white;
-  font-size: 20px;
+  font-size: 1.3em;
   visibility:hidden;
   opacity:0;
 }
@@ -180,7 +181,7 @@ div.signuptooltip span:after {
 #loginheadertext{
   position: relative;
   bottom: 25px;
-  font-size: 40px;
+  font-size: 2em;
   font-family: 'Anton' sans-serif;
   opacity: .5;
 }
@@ -213,13 +214,13 @@ div.signuptooltip span:after {
   border: none;
   width: 100%;
   color: white;
-  font-size: 20px;
+  font-size: inherit;
   z-index: 10
 }
 .inputFieldTip{
   position: absolute;
   left: 109px;
-  font-size: 14px;
+  font-size: .7em;
   opacity: .4;
   margin-top: 10;
   z-index: 0
@@ -255,7 +256,7 @@ div.signuptooltip span:after {
   padding-bottom: 15px;
 }
 .suggestedElem{
-  font-size: 14px;
+  font-size: .7em;
   line-height: 20px;
   color: rgba(255, 255, 255, 0.79);
   cursor: pointer;
@@ -281,7 +282,7 @@ div.signuptooltip span:after {
 .loginformFieldTooltips{
   position: absolute;
   margin-top: 5px;
-  font-size: 10px;
+  font-size: 1em;
   width: 105px;
   opacity: .6;
   display: none;
@@ -349,7 +350,7 @@ div.signuptooltip span:after {
 
 .squaredTwo p{
   width: 80px;
-  font-size: 12px;
+  font-size: .6em;
   position: relative;
   top: -17px;
   left: 25px;
@@ -360,7 +361,7 @@ div.signuptooltip span:after {
   width:110px;
   top: -18px;
   left: 126px;
-  font-size: 12px;
+  font-size: .6em;
 }
 
 
@@ -372,7 +373,7 @@ div.signuptooltip span:after {
   border: none;
   background-color: white;
   color: #2aB200;
-  font-size: 19px;
+  font-size: inherit;
   font-weight: bolder;
   border-radius: 3px;
   outline: none;
@@ -393,14 +394,6 @@ div.signuptooltip span:after {
   height: 80px;
   margin: 0 auto;
   background-image: url('../icons/logo_min.png');
-}
-
-#logintext{
-  position: relative;
-  top: 120px;
-  left: 485px;
-  color: rgba(255, 255, 255, 0.59);
-  font-size: 13px;
 }
 
 /*scale up the whatsaap icon on hover*/
@@ -432,7 +425,7 @@ div.logintooltips span {
   height: 40px;
   line-height: 40px;
   text-align: center;
-  font-size: 13px;
+  font-size: 1em;
   visibility: visible;
   opacity:0;
  }
@@ -472,13 +465,13 @@ div.logintooltips span:after {
   opacity: 0;
   width: 322px;
   color: white;
-  font-size: 20px;
+  font-size: 1.3em;
 }
 
 #regheadertext{
   position: relative;
   bottom: 25px;
-  font-size: 40px;
+  font-size: 2em;
   font-family: 'Anton' sans-serif;
   opacity: .5;
 }
@@ -497,7 +490,7 @@ div.logintooltips span:after {
 }
 .regGuideText{
   display: inline-block;
-  font-size: 19px;
+  font-size: inherit;
   opacity: .8;
   margin-right: 10px; 
   width: 82px;
@@ -552,7 +545,7 @@ div.logintooltips span:after {
   border: none;
   background-color: white;
   color: #2aB200;
-  font-size: 19px;
+  font-size: inherit;
   font-weight: bolder;
   border-radius: 3px;
   outline: none;
@@ -635,7 +628,7 @@ div.logintooltips span:after {
 #errMsg{
   display: block;
   color: rgb(255, 249, 249);
-  font-size: 12;
+  font-size: .8em;
   line-height: 20px;
 }
 
@@ -654,7 +647,7 @@ div.logintooltips span:after {
 
 #whatsapponwebText{
   color: rgba(255, 255, 255, 0.66);
-  font-size: 30px;
+  font-size: 1.4em;
   font-family: 'Anton' sans-serif;
   position: relative;
   top: 20px;
@@ -662,7 +655,7 @@ div.logintooltips span:after {
 }
 #whatsapponwebText span{
   position: absolute;
-  font-size: 17px;
+  font-size: .8em;
   font-weight: bolder;
   margin: -5 0 0 5;
   height: 20px;
@@ -676,12 +669,12 @@ div.logintooltips span:after {
 }
 #whatsapponwebText span:hover{
   box-shadow: 0px 0px 7px white;
-  font-size: 19px;
+  font-size: .9em;
 }
 
 #copyright{
   color: rgba(255, 255, 255, 0.71);
-  font-size: 13px;
+  font-size: .7em;
   text-align: center;
   position: relative;
   bottom: -39%;
@@ -703,7 +696,7 @@ div.logintooltips span:after {
   position: absolute;
   padding: 4.5px;
   text-indent: 5px;
-  font-size: 15px;
+  font-size: 1em;
   color: rgb(47, 92, 12);
 }
 
@@ -749,7 +742,7 @@ div.logintooltips span:after {
 #varifyWindowContainerHeader{
   position: relative;
   color: rgba(255, 255, 255, 0.46);
-  font-size: 25px;
+  font-size: 1.3em;
   font-family: 'Anton' sans-serif;
   opacity: 0;
   }
@@ -768,17 +761,6 @@ div.logintooltips span:after {
   height: 5px;
   background-color: rgba(255, 255, 255, 0.28);
   opacity: 0;
-}
-#progBarBg:after{
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0px;
-  margin-top: 72px;
-  margin-right: 82px;
-  border-top: 10px solid rgba(0, 0, 255, 0);
-  border-bottom: 10px solid rgba(255, 0, 0, 0);
-  border-left: 23px solid rgba(255, 255, 255, 0.28);
 }
 .progStepDot{
   display: inline-block;
@@ -841,7 +823,7 @@ div.logintooltips span:after {
   z-index: 10;
 }
 .verHeader{
-  font-size: 20px;
+  font-size: 1.1em;
   color: rgba(255, 255, 255, 0.75);
   font-family: 'Anton' sans-serif;
   margin: 10 0 5 9;
@@ -850,7 +832,7 @@ div.logintooltips span:after {
 .verText{
   padding: 19px;
   color: rgba(255, 255, 255, 0.69);
-  font-size: 12PX;
+  font-size: .7em;
   word-wrap: break-word;
   line-height: 17px;
 }
@@ -899,7 +881,7 @@ div.logintooltips span:after {
 #verStp1Right p{
   color: white;
   padding: 7;
-  font-size: 17;
+  font-size: 1.1em;
 }
 
 .verStpRight:after{
@@ -985,7 +967,7 @@ div.logintooltips span:after {
 }
 #verStp2Right p{
   color: white;
-  font-size: 11px;
+  font-size: 0.8em;
   text-indent: 20px;
 }
 #verCodeField{
@@ -997,13 +979,13 @@ div.logintooltips span:after {
   height: 30px;
   margin: 15 0 0 20;
   text-indent: 10px;
-  font-size: 21px;
+  font-size: 1.2em;
   color: white;
 }
 #verCodeOR{
   position: absolute;
   margin: 55 0 0 72;
-  font-size: 10px;
+  font-size: 1em;
   color: white;
 }
 #verResendCode{
@@ -1016,7 +998,7 @@ div.logintooltips span:after {
 }
 #verResendCode p{
   color: rgb(29, 122, 29);
-  font-size: 18px;
+  font-size: 1.1em;
   padding: 6px;
   text-indent: 2px;
 }
@@ -1038,7 +1020,7 @@ div.logintooltips span:after {
 #verStp3Text{
   color: white;
   width: 240px;
-  font-size: 12px;
+  font-size: 0.8em;
   margin: 15 auto 0 auto;
 }
 
@@ -1138,7 +1120,7 @@ div.logintooltips span:after {
   position: absolute;
   color: rgba(255, 255, 255, 0.84);
   margin: 30 0 0 30;
-  font-size: 24;
+  font-size: 1.7em;
   width: 40%;
 }
 #releaseHeader:after{
@@ -1160,7 +1142,7 @@ div.logintooltips span:after {
   left: 31%;
   position: absolute;
   color: rgba(255, 255, 255, 0.82);
-  font-size: 14px;
+  font-size: 0.9em;
   overflow-y: auto;
 }
 /* prompt */
@@ -1205,7 +1187,7 @@ div.logintooltips span:after {
 }
 #prompMsg p{
   color: white;
-  font-size: 12px;
+  font-size: 0.75em;
   text-align: center;
   position: relative;
   top: 30px;
