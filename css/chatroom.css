@@ -34,20 +34,23 @@
 }
 
 #pusher-btn{
-	width: 30px;
-	height: 30px;
+	width: 70px;
+	height: 70px;
 	float: right;
 	background-color: #fb7c7c;
 	cursor: pointer;
 	z-index: 10;
 	border-top-left-radius: 7px;
 	border-bottom-left-radius: 7px;
-	background-image:  url('../icons/slide_left.png')
+	background-image:  url('../icons/slide_left.png');
+	background-size: cover;
+	width: 10%;
+	height: 10%;
 }
 
 #puller-btn{
-	width: 30px;
-	height: 30px;
+	width: 70px;
+	height: 70px;
 	float: left;
 	position: fixed;
 	background-color: #fb7c7c;
@@ -55,15 +58,18 @@
 	cursor: pointer;
 	border-top-right-radius: 7px;
 	border-bottom-right-radius: 7px;
-	background-image:  url('../icons/slide_right.png')
+	background-image:  url('../icons/slide_right.png');
+	background-size: cover;
+	width: 10%;
+	height: 10%;
 }
 
 #profileinfo{
 	position: relative;
-	width: 85%;
+	width: 70%;
 	height: 10%;
 	background-color: white;
-	margin: 0 auto;
+	margin: 0 10px;
 	margin-top: 10px;
 	color: #3A693A;
 	text-indent: 15px;
@@ -120,6 +126,9 @@
 }
 
 #concactsearch input{
+	position: absolute;
+	width: 95%;
+	height: 100%;
 	border: none;
 	background-color: rgba(0,0,0,0);
 	text-indent: 10px;
@@ -139,10 +148,10 @@
 }
 #contactSearchTip{
 	position: absolute;
-	width: 100px;
-	height: 25px;
-	margin: 0;
-	left: 10.5%;
+	width: 95%;
+  height: 100%;
+  margin: 0;
+	left: 4.5%;
 	font-size: 12px;
 	line-height: 25px;
 	color: rgba(255, 255, 255, 0.84);

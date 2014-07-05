@@ -11,6 +11,25 @@
     -webkit-zoom: 0.7;
     -moz-transform:  scale(0.7, 0.7);
   }
+
+  #concactsearch {
+    display: none;
+    visibility: hidden;
+  }
+
+  #contactscontainer {
+    margin-top: 7%;
+  }
+
+  #msgcontainer {
+    z-index: 1;
+    position: relative;
+  }
+
+  #createmsgbar {
+    z-index: 5;
+    background-color: rgba(204, 195, 195, 1);
+  }
 /*
   #mother_div{
     font-size: 160%;
