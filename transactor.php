@@ -21,7 +21,7 @@
 	if($method==="send"){
 		$to = filter_input(INPUT_GET, 'to', FILTER_SANITIZE_NUMBER_INT);
 		$message = filter_input(INPUT_GET, 'message', FILTER_SANITIZE_ENCODED, FILTER_FLAG_ENCODE_HIGH);		
-		$recv_data = file_get_contents("http://localhost/m?".
+		$recv_data = file_get_contents("http://".DOMAIN."/?".
 										"method=send".
 										"&to=".$to.
 										"&message=".$message.
@@ -41,7 +41,7 @@
 			echo "badparam";
 			exit();
 		}
-		$recv_data = file_get_contents("http://localhost/m?".
+		$recv_data = file_get_contents("http://".DOMAIN."/?".
 										"method=register".
 										"&cc=".$_SESSION['cc'].
 										"&username=".$username.
@@ -52,7 +52,7 @@
 	} else if($method==="sendcode") {
 		$id_user = filter_input(INPUT_GET, 'id_user', FILTER_SANITIZE_STRING);
 		$code = filter_input(INPUT_GET, 'code', FILTER_SANITIZE_NUMBER_INT);
-		$recv_data = file_get_contents("http://localhost/m?".
+		$recv_data = file_get_contents("http://".DOMAIN."/?".
 										"method=sendcode".
 										"&cc=".$_SESSION['cc'].
 										"&username=".$username.
@@ -73,7 +73,7 @@
 			exit();
 		}
 	} else if($method==="listen") {
-		$recv_data = file_get_contents("http://localhost/m?".
+		$recv_data = file_get_contents("http://".DOMAIN."/?".
 										"method=listen".
 										"&cc=".$_SESSION['cc'].
 										"&username=".$username.

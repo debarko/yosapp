@@ -20,7 +20,7 @@
 			exit();
 		}
 		//add code to check whatsapp server validity
-		$recv_data = ("http://localhost/m?".
+		$recv_data = ("http://".DOMAIN."/?".
 										"method=sync".
 										"&contact=".$cc.$contact.
 										"&cc=".$_SESSION['cc'].
