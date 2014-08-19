@@ -37,11 +37,17 @@ echo >> ./css/design-mobile.css;
 cat ./css/chatroom_mobile.css >> ./css/design-mobile.css;
 echo >> ./css/design-mobile.css;
 
+cat ./css/modal_mobile.css >> ./css/design-mobile.css;
+echo >> ./css/design-mobile.css;
+
 echo "Merging of Desktop specific design files in process";
 cat ./css/homescreen_desktop.css >> ./css/design-desktop.css;
 echo >> ./css/design-desktop.css;
 
 cat ./css/chatroom_desktop.css >> ./css/design-desktop.css;
+echo >> ./css/design-desktop.css;
+
+cat ./css/modal_desktop.css >> ./css/design-desktop.css;
 echo >> ./css/design-desktop.css;
 
 

@@ -24,6 +24,7 @@
 							  'modal', 'chatroom', 'homescreen', 'homescreen_desktop',
 							  'homescreen_mobile', 'high_dpi', 'chatroom_desktop',
                 'chatroom_mobile', 'tinywidth', 'low_dpi',
+                'modal_desktop', 'modal_mobile',
 	              'reset'); // This should be the last css file
 
 	      }

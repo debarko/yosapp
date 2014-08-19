@@ -38,6 +38,51 @@
   #errorMsgBoxArrow{
     display: inline-block;
   }
+
+  #varifyWindow {
+    left: 50%;
+    top: 50%;
+    margin-left: -400px;
+    margin-top: -200px;
+    height: 400px;
+    width: 800px;
+  }
+
+  .progStepDot{
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background-color: #65C747;
+    border-radius: 10px;
+    position: relative;
+    top: -8px;
+    margin-left: 183px;
+  }
+  #fstStop{
+    left: 15px;
+    margin-left: 0;
+  }
+  .innerDisk{
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    display: block;
+    height: 11px;
+    width: 11px;
+    background-color: rgb(241, 241, 241);
+    /*background-image: url('../icons/check.png');*/
+    border-radius: 10px;
+    opacity: 0;
+  }
+
+  .stpDlgBox{
+    top: 55px;
+    left: -120px;
+  }
+
+  #progBarBg{
+    background-color: rgba(255, 255, 255, 0.28);
+  }
 /* Desktops ----------- */
   #leftpannel {
     width: 240px;
@@ -55,3 +100,4 @@
     height: 25px;
     width: 195px;
   }*/
+

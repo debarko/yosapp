@@ -721,12 +721,6 @@ div.logintooltips span:after {
 /*user  varification temporary*/
 #varifyWindow{
   position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: -400px;
-  margin-top: -200px;
-  height: 400px;
-  width: 800px;
   background-color: #2ab200;
   z-index: 101;
   opacity: 0;
@@ -759,33 +753,6 @@ div.logintooltips span:after {
   margin-top: 40px;
   width: 71%;
   height: 5px;
-  background-color: rgba(255, 255, 255, 0.28);
-  opacity: 0;
-}
-.progStepDot{
-  display: inline-block;
-  height: 20px;
-  width: 20px;
-  background-color: #65C747;
-  border-radius: 10px;
-  position: relative;
-  top: -8px;
-  margin-left: 183px;
-}
-#fstStop{
-  left: 15px;
-  margin-left: 0;
-}
-.innerDisk{
-  position: absolute;
-  top: 5px;
-  left: 4px;
-  display: block;
-  height: 11px;
-  width: 11px;
-  background-color: rgb(241, 241, 241);
-  /*background-image: url('../icons/check.png');*/
-  border-radius: 10px;
   opacity: 0;
 }
 
@@ -794,8 +761,6 @@ div.logintooltips span:after {
   position: absolute;
   height: 200px;
   width: 330px;
-  top: 55px;
-  left: -120px;
   background-color: rgba(255, 255, 255, 0.13);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -809,6 +774,7 @@ div.logintooltips span:after {
   border-bottom: 30px solid #45bb21;
   z-index: 5;
 }
+
 .verDialougeContainer{
   opacity: 0;
 }

@@ -226,6 +226,13 @@ function showModal(defaultSelectedMenu, thisElem) {
     $('#modalMenuBar').html(YW.L_OUT());
     $('#modalRightPanel').html(YW.R_OUT());
   }
+  var positioning = {
+    width: YW.PORTRAIT ? "100%" : "600px",
+    height: YW.PORTRAIT ? "100%" : "400px",
+    top: YW.PORTRAIT ? "0%" : "50%",
+    left: YW.PORTRAIT ? "0%" : "50%",
+    margin: YW.PORTRAIT ? "0px" : "-200px 0px 0px -300px"
+  }
   showOverlay(function () {
     //now bring up the modal
     modal.css({
@@ -238,11 +245,11 @@ function showModal(defaultSelectedMenu, thisElem) {
       visibility: 'visible'
     });
     modal.animate({
-      width: '600px',
-      height: '400px',
-      top: '50%',
-      left: '50%',
-      margin: '-200px 0px 0px -300px'
+      width: positioning.width,
+      height: positioning.height,
+      top: positioning.top,
+      left: positioning.left,
+      margin: positioning.margin
     }, 300, "swing", function () {
       $('#modalCloseButton').css('visibility', 'visible');
       $('#modalContent').css('visibility', 'visible');

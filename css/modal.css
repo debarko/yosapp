@@ -1,8 +1,6 @@
 #modal{
 	position: absolute;
 	display: block;
-	height: 400;
-	width: 600;
 	background-color: rgba(42, 178, 0, 1);
 	top: 50%;
 	left: 50%;
@@ -42,18 +40,7 @@
 	width: 100%;
 	height: 40px;
 }
-/*.modalMenuItem:after{
-	content: '';
-	position: relative;
-	left: 14px;
-	top: -85%;
-	display: inline-block;
-	float: right;
-	border-left: 15px solid #59c238;
-	border-bottom: 10px solid transparent;
-	border-top: 10px solid transparent;
-	visibility: hidden;
-}*/
+
 .modalMenuItem p{
 	padding: 13;
 	text-indent: 15;

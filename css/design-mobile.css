@@ -40,6 +40,23 @@
   #errorMsgBoxArrow{
     display: none;
   }
+
+  #varifyWindow {
+    left: 0%;
+    top: 50%;
+    margin-left: 0px;
+    margin-top: -200px;
+    height: 400px;
+    width: 100%;
+  }
+
+.stpDlgBox{
+  top: 50%;
+  left: 50%;
+  margin-left: -165px;
+  margin-top: -100px;
+}
+
 /* Smartphones (portrait and landscape) ----------- */
   #leftpannel{
     width: 0%;
@@ -55,3 +72,4 @@
     width: 95%;
     height: 100%;
   }*/
+
